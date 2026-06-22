@@ -1,0 +1,235 @@
+{
+  "queries": [
+    {
+      "country": "US",
+      "indicator_code": "CPI_YOY",
+      "start_date": "2020-01",
+      "end_date": "2025-12",
+      "frequency": "M"
+    },
+    {
+      "country": "US",
+      "indicator_code": "CPI_LEVEL",
+      "start_date": "2020-01",
+      "end_date": "2025-12",
+      "frequency": "M"
+    },
+    {
+      "country": "US",
+      "indicator_code": "UNEMP_RATE",
+      "start_date": "2020-01",
+      "end_date": "2025-12",
+      "frequency": "M"
+    },
+    {
+      "country": "US",
+      "indicator_code": "NONFARM_PAYROLL",
+      "start_date": "2020-01",
+      "end_date": "2025-12",
+      "frequency": "M"
+    },
+    {
+      "country": "US",
+      "indicator_code": "GDP_NOMINAL",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "CN",
+      "indicator_code": "GDP_NOMINAL",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "DE",
+      "indicator_code": "GDP_NOMINAL",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "JP",
+      "indicator_code": "GDP_NOMINAL",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "GB",
+      "indicator_code": "GDP_NOMINAL",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "IN",
+      "indicator_code": "GDP_NOMINAL",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "FR",
+      "indicator_code": "GDP_REAL_GROWTH",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "CN",
+      "indicator_code": "GDP_REAL_GROWTH",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "DE",
+      "indicator_code": "EXPORTS",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "JP",
+      "indicator_code": "EXPORTS",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "GB",
+      "indicator_code": "IMPORTS",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "IN",
+      "indicator_code": "IMPORTS",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "US",
+      "indicator_code": "TRADE_BALANCE",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "CN",
+      "indicator_code": "TRADE_BALANCE",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "DE",
+      "indicator_code": "TRADE_BALANCE",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "EA",
+      "indicator_code": "GDP_NOMINAL",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "EA",
+      "indicator_code": "GDP_REAL_GROWTH",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "FR",
+      "indicator_code": "EXPORTS",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "FR",
+      "indicator_code": "IMPORTS",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "GB",
+      "indicator_code": "TRADE_BALANCE",
+      "start_date": "2018",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "EA",
+      "indicator_code": "HICP_YOY",
+      "start_date": "2023-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    {
+      "country": "DE",
+      "indicator_code": "PPI_LEVEL",
+      "start_date": "2023-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    {
+      "country": "DE",
+      "indicator_code": "INDUSTRIAL_PRODUCTION",
+      "start_date": "2023-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    {
+      "country": "FR",
+      "indicator_code": "RETAIL_SALES_VOLUME",
+      "start_date": "2023-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    {
+      "country": "DE",
+      "indicator_code": "LONG_TERM_RATE",
+      "start_date": "2023-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    {
+      "country": "US",
+      "indicator_code": "IMF_GDP_GROWTH",
+      "start_date": "2020",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    {
+      "country": "US",
+      "indicator_code": "OECD_CPI_YOY",
+      "start_date": "2024-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    {
+      "country": "EA",
+      "indicator_code": "ECB_EUR_USD",
+      "start_date": "2024-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    {
+      "country": "US",
+      "indicator_code": "BIS_POLICY_RATE",
+      "start_date": "2024-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    }
+  ]
+}

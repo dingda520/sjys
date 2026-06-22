@@ -1,0 +1,2 @@
+# OneClick version does not require any external Python packages.
+# Keep this file for project completeness.

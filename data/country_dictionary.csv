@@ -1,0 +1,9 @@
+﻿country_code,name_zh,name_en,iso2,iso3,wb_code,eurostat_code,imf_code,oecd_code,ecb_code,bis_code
+US,美国,United States,US,USA,USA,,USA,USA,,US
+CN,中国,China,CN,CHN,CHN,,CHN,CHN,,CN
+DE,德国,Germany,DE,DEU,DEU,DE,DEU,DEU,,DE
+JP,日本,Japan,JP,JPN,JPN,,JPN,JPN,,JP
+GB,英国,United Kingdom,GB,GBR,GBR,,GBR,GBR,,GB
+IN,印度,India,IN,IND,IND,,IND,,,IN
+FR,法国,France,FR,FRA,FRA,FR,FRA,FRA,,FR
+EA,欧元区,Euro Area,XC,EMU,EMU,EA20,,,U2,XM

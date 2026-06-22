@@ -1,0 +1,19 @@
+﻿indicator_code,indicator_name_zh,indicator_name_en,frequency,unit,calculation,seasonal_adjustment,preferred_source,description
+GDP_NOMINAL,名义 GDP,"GDP, current US$",A,current US$,level,NSA,World Bank,按现价美元计量的国内生产总值。
+GDP_REAL_GROWTH,实际 GDP 增长率,"GDP growth, annual %",A,%,YoY,NSA,World Bank,按不变价格计算的年度 GDP 增长率。
+EXPORTS,货物和服务出口,"Exports of goods and services, current US$",A,current US$,level,NSA,World Bank,货物和服务出口总额，现价美元。
+IMPORTS,货物和服务进口,"Imports of goods and services, current US$",A,current US$,level,NSA,World Bank,货物和服务进口总额，现价美元。
+TRADE_BALANCE,贸易差额,"External balance on goods and services, current US$",A,current US$,level,NSA,World Bank,货物和服务净出口，现价美元。
+CPI_LEVEL,居民消费价格指数,"Consumer Price Index, all urban consumers",M,"index, 1982-84=100",level,SA,BLS,美国城市消费者 CPI 指数。
+CPI_YOY,居民消费价格指数同比,Consumer Price Index YoY,M,%,YoY,SA,BLS,由美国 CPI 指数计算得到的同比增速。
+UNEMP_RATE,失业率,Unemployment Rate,M,%,level,SA,BLS,美国失业率，季调。
+NONFARM_PAYROLL,非农就业人数,"All Employees, Total Nonfarm",M,thousands of persons,level,SA,BLS,美国非农就业人数，季调。
+HICP_YOY,调和居民消费价格指数同比,Harmonised Index of Consumer Prices YoY,M,%,YoY,NSA,Eurostat,Eurostat HICP 全项目同比变动率。
+PPI_LEVEL,工业生产者价格指数,Producer prices in industry,M,"index, 2021=100",level,NSA,Eurostat,Eurostat 工业生产者价格指数，覆盖 B-D 工业部门。
+INDUSTRIAL_PRODUCTION,工业生产指数,Industrial production index,M,"index, 2021=100",level,SCA,Eurostat,Eurostat 工业生产数量指数，季调与工作日调整。
+RETAIL_SALES_VOLUME,零售销售量指数,Retail sales volume index,M,"index, 2021=100",level,SCA,Eurostat,Eurostat 零售贸易销售量指数，覆盖 G47 零售业。
+LONG_TERM_RATE,长期政府债券收益率,Long-term government bond yield,M,%,level,NSA,Eurostat,Eurostat 欧元趋同标准长期政府债券收益率。
+IMF_GDP_GROWTH,IMF 实际 GDP 增长率,IMF real GDP growth,A,%,YoY,NSA,IMF,IMF DataMapper / WEO 实际 GDP 年度增长率。
+OECD_CPI_YOY,OECD 居民消费价格指数同比,OECD consumer prices YoY,M,%,YoY,NSA,OECD,OECD Key short-term economic indicators 中的 CPI 年同比。
+ECB_EUR_USD,欧元兑美元汇率,US dollar / Euro exchange rate,M,USD per EUR,level,NSA,ECB,ECB Data Portal 欧元兑美元月度平均即期汇率。
+BIS_POLICY_RATE,中央银行政策利率,Central bank policy rate,M,%,level,NSA,BIS,BIS Central bank policy rates 月度期末政策利率。
