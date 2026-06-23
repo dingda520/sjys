@@ -60,10 +60,11 @@
     .page-card h3{margin:0 0 8px}.page-card p{color:var(--muted);line-height:1.7}
     .source-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.source-box{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}.source-box h4{margin:0 0 8px}.source-box p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
     .hero-band{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-bottom:20px}.hero-panel{background:linear-gradient(135deg,#0f172a,#164e63);color:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;border:1px solid rgba(255,255,255,.12)}.hero-panel h3{margin:0 0 8px;font-size:22px}.hero-panel p{margin:0;color:#cbd5e1;line-height:1.7}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.hero-link{display:inline-flex;align-items:center;height:36px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;text-decoration:none;font-size:13px;font-weight:700;border:1px solid rgba(255,255,255,.16)}
+    .review-block{margin-bottom:20px}.review-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin:4px 0 12px}.review-head h3{margin:0;font-size:18px}.review-head p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.review-actions{display:flex;gap:10px;flex-wrap:wrap}.review-btn{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 13px;border-radius:999px;text-decoration:none;font-weight:800;font-size:13px;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8}.review-btn.dark{background:#0f172a;color:#fff;border-color:#0f172a}.capability-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.capability-card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px}.capability-card strong{display:block;color:#0f172a;font-size:15px}.capability-card span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.55}.sample-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.sample-card{border:1px solid var(--line);background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:15px;text-align:left;cursor:pointer;color:var(--text)}.sample-card:hover{border-color:#93c5fd;box-shadow:0 12px 32px rgba(37,99,235,.13)}.sample-card span{display:inline-flex;margin-bottom:10px;padding:4px 8px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:12px;font-weight:800}.sample-card strong{display:block;font-size:15px}.sample-card small{display:block;margin-top:7px;color:var(--muted);line-height:1.55}.site-footer{margin-top:20px;padding:18px 20px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow);display:flex;justify-content:space-between;gap:16px;align-items:center;color:#475569;font-size:13px;line-height:1.6}.site-footer strong{color:#0f172a}.site-footer a{color:#2563eb;text-decoration:none;font-weight:800}
     .score-panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}.score-panel h3{margin:0 0 12px;font-size:16px}.score-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}.score-row:last-child{border-bottom:0}.score-row strong{font-size:18px;color:#0f172a}.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}.evidence-card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px}.evidence-card span{display:block;color:var(--muted);font-size:12px}.evidence-card strong{display:block;margin-top:8px;font-size:28px}.evidence-card small{display:block;color:#166534;margin-top:7px;font-size:12px}.check-table{width:100%;border-collapse:collapse;font-size:13px}.check-table th,.check-table td{border-bottom:1px solid var(--line);padding:11px 8px;text-align:left;vertical-align:top}.check-table th{background:#f9fafb;color:var(--muted);font-size:12px}.api-pill{display:inline-flex;margin:3px 4px 3px 0;padding:5px 8px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-weight:700;font-size:12px}
     @media (max-width:1080px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.source-grid{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:1080px){.hero-band,.evidence-grid,.quality-dashboard,.quality-context{grid-template-columns:1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:640px){.main{padding:18px 14px}.topbar{flex-direction:column;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary{grid-template-columns:1fr}}
+    @media (max-width:1080px){.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer{align-items:flex-start;flex-direction:column}}
+    @media (max-width:640px){.main{padding:18px 14px}.topbar{flex-direction:column;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -116,6 +117,43 @@
           <div class="score-row"><span>质量校验</span><span class="badge good">已支持</span></div>
         </div>
       </div>
+
+      <section class="review-block">
+        <div class="review-head">
+          <div>
+            <h3>核心能力</h3>
+            <p>面向比赛评审、研究脚本和智能体调用，展示从官方来源到标准化结果的完整数据链条。</p>
+          </div>
+          <div class="review-actions">
+            <a class="review-btn dark" href="/data_element_report.pdf" target="_blank">下载项目报告</a>
+            <a class="review-btn" href="/docs" target="_blank">接口文档</a>
+            <a class="review-btn" href="/evaluation" target="_blank">评审证据</a>
+          </div>
+        </div>
+        <div class="capability-grid">
+          <div class="capability-card"><strong>多源接入</strong><span>接入 World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 等官方宏观经济数据源。</span></div>
+          <div class="capability-card"><strong>统一指标</strong><span>用标准指标字典统一国家、频率、单位、来源和原始序列代码。</span></div>
+          <div class="capability-card"><strong>质量校验</strong><span>自动检查缺失期数、重复记录、异常值、单位一致性和通过状态。</span></div>
+          <div class="capability-card"><strong>数据血缘</strong><span>保留 provider、dataset、api_url、retrieved_at、parser 和缓存键。</span></div>
+          <div class="capability-card"><strong>JSON API</strong><span>统一返回 request、series、quality_report、lineage 和 error。</span></div>
+          <div class="capability-card"><strong>Agent 支持</strong><span>提供 capabilities、schema、agent-tools、error-catalog 等机器可读入口。</span></div>
+        </div>
+      </section>
+
+      <section class="review-block">
+        <div class="review-head">
+          <div>
+            <h3>示例查询区</h3>
+            <p>四个高频演示样例，覆盖年度水平值、月度同比、欧盟统计和跨来源复核。</p>
+          </div>
+        </div>
+        <div class="sample-grid">
+          <button class="sample-card" onclick="loadAnnualSample()"><span>World Bank</span><strong>中国 GDP</strong><small>CN · GDP_NOMINAL · 2018-2024，展示年度名义 GDP 与来源血缘。</small></button>
+          <button class="sample-card" onclick="loadSample()"><span>BLS</span><strong>美国 CPI</strong><small>US · CPI_YOY · 月度同比，展示通胀指标和质量报告。</small></button>
+          <button class="sample-card" onclick="loadEurostatSample()"><span>Eurostat</span><strong>德国工业生产</strong><small>DE · INDUSTRIAL_PRODUCTION · 2023-2024，展示欧洲官方统计接口。</small></button>
+          <button class="sample-card" onclick="loadCrossSourceGdpSample()"><span>World Bank / IMF</span><strong>美国 GDP 跨源对比</strong><small>US · GDP_REAL_GROWTH vs IMF_GDP_GROWTH，展示跨来源一致性复核。</small></button>
+        </div>
+      </section>
       <div class="grid">
         <section class="card">
           <div class="card-header"><h3>查询条件</h3><p>V1 真实接入 World Bank、BLS、Eurostat、IMF、OECD、ECB 与 BIS。</p></div>
@@ -230,6 +268,10 @@
         <div class="source-box"><h4>BIS</h4><p>已实现。通过 BIS Statistics API 接入中央银行政策利率。</p></div>
       </div>
     </section>
+    <footer class="site-footer">
+      <div><strong>德胜经观队</strong> · 经观 EconView · 全球宏观经济数据治理与分析平台</div>
+      <div>比赛展示版 · 口号：观全球经济，见数据脉络。 · <a href="/docs" target="_blank">API 文档</a></div>
+    </footer>
   </main>
 </div>
 
@@ -353,6 +395,50 @@ function loadSample(){document.getElementById("indicator").value="CPI_YOY";norma
 function loadAnnualSample(){document.getElementById("indicator").value="GDP_NOMINAL";normalizeControls("A");document.getElementById("country").value="CN";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2018";document.getElementById("endDate").value="2024";showPage("query");runQuery();}
 function loadEurostatSample(){document.getElementById("indicator").value="INDUSTRIAL_PRODUCTION";normalizeControls("M");document.getElementById("country").value="DE";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2023-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
 function loadImfSample(){document.getElementById("indicator").value="IMF_GDP_GROWTH";normalizeControls("A");document.getElementById("country").value="US";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2020";document.getElementById("endDate").value="2024";showPage("query");runQuery();}
+async function loadCrossSourceGdpSample(){
+  showPage("query");
+  document.getElementById("indicator").value="GDP_REAL_GROWTH";
+  normalizeControls("A");
+  document.getElementById("country").value="US";
+  document.getElementById("frequency").value="A";
+  document.getElementById("startDate").value="2018";
+  document.getElementById("endDate").value="2024";
+  document.getElementById("jsonOutput").textContent="正在请求 World Bank 与 IMF 两个来源...";
+  const base="/series?country=US&start_date=2018&end_date=2024&frequency=A&indicator_code=";
+  try{
+    const [wb,imf]=await Promise.all([
+      fetch(base+"GDP_REAL_GROWTH").then(r=>r.json()),
+      fetch(base+"IMF_GDP_GROWTH").then(r=>r.json())
+    ]);
+    const wbRows=((wb.series||{}).observations||[]).filter(o=>o.value!==null);
+    const imfRows=((imf.series||{}).observations||[]).filter(o=>o.value!==null);
+    const imfByDate=Object.fromEntries(imfRows.map(o=>[o.date,Number(o.value)]));
+    const aligned=wbRows.filter(o=>Object.prototype.hasOwnProperty.call(imfByDate,o.date)).map(o=>{
+      const worldBank=Number(o.value), imfValue=imfByDate[o.date];
+      return {date:o.date, world_bank:worldBank, imf:imfValue, absolute_error:Math.abs(worldBank-imfValue)};
+    });
+    const mae=aligned.length?aligned.reduce((sum,row)=>sum+row.absolute_error,0)/aligned.length:null;
+    const payload={
+      case_name:"美国 GDP 跨源对比",
+      country:"US",
+      indicators:["GDP_REAL_GROWTH","IMF_GDP_GROWTH"],
+      period:"2018-2024",
+      source_a:"World Bank",
+      source_b:"IMF",
+      aligned_count:aligned.length,
+      mean_absolute_error:mae,
+      aligned_observations:aligned,
+      world_bank_quality:wb.quality_report||null,
+      imf_quality:imf.quality_report||null
+    };
+    lastResult=wb;
+    renderResult(wb);
+    document.getElementById("jsonOutput").textContent=JSON.stringify(payload,null,2);
+    document.getElementById("jsonOutputMirror").textContent=JSON.stringify(payload,null,2);
+  }catch(err){
+    showError("跨源对比请求失败："+err.message);
+  }
+}
 function loadOecdSample(){document.getElementById("indicator").value="OECD_CPI_YOY";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
 function loadEcbSample(){document.getElementById("indicator").value="ECB_EUR_USD";normalizeControls("M");document.getElementById("country").value="EA";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
 function loadBisSample(){document.getElementById("indicator").value="BIS_POLICY_RATE";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
