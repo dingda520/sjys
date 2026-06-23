@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Macro DataHub OneClick
-A dependency-free Windows-friendly macroeconomic indicator query service.
+经观 EconView
+A dependency-free macroeconomic data governance and analytics service.
 
 Run:
     python app.py
@@ -58,7 +58,7 @@ CACHE_DIR.mkdir(exist_ok=True)
 REQUEST_TIMEOUT_SECONDS = 25
 HTTP_RETRY_COUNT = 2
 HTTP_RETRY_BACKOFF_SECONDS = 1.5
-HTTP_USER_AGENT = "Python-urllib/3.12 MacroDataHubOneClick/1.0"
+HTTP_USER_AGENT = "Python-urllib/3.12 EconView/1.0"
 EUROSTAT_BASE_URL = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data"
 IMF_DATAMAPPER_BASE_URL = "https://www.imf.org/external/datamapper/api/v2"
 OECD_KEI_BASE_URL = "https://sdmx.oecd.org/public/rest/v1/data/OECD.SDD.STES,DSD_KEI%40DF_KEI"
@@ -1072,9 +1072,11 @@ def query_series(country: str, indicator_code: str, start_date: str, end_date: s
 
 def build_capabilities() -> Dict[str, Any]:
     return {
-        "service": "macro-datahub-oneclick",
+        "service": "econview",
+        "display_name": "经观 EconView",
         "version": "1.3.0",
-        "description": "Official macroeconomic data query service with standardized JSON output.",
+        "description": "全球宏观经济数据治理与分析平台，提供官方宏观数据查询、标准化 JSON、质量报告和数据血缘。",
+        "slogan": "观全球经济，见数据脉络。",
         "agent_ready": True,
         "agent_entrypoints": ["/agent-tools", "/schema", "/capabilities", "/error-catalog", "/openapi-lite", "/insight"],
         "implemented_sources": [
@@ -1182,7 +1184,8 @@ def build_capabilities() -> Dict[str, Any]:
 
 def build_agent_tools() -> Dict[str, Any]:
     return {
-        "service": "macro-datahub-oneclick",
+        "service": "econview",
+        "display_name": "经观 EconView",
         "version": "1.3.0",
         "tools": [
             {
@@ -1290,7 +1293,8 @@ def build_agent_tools() -> Dict[str, Any]:
 
 def build_error_catalog() -> Dict[str, Any]:
     return {
-        "service": "macro-datahub-oneclick",
+        "service": "econview",
+        "display_name": "经观 EconView",
         "version": "1.3.0",
         "errors": [
             {
@@ -1347,11 +1351,11 @@ def build_openapi_lite() -> Dict[str, Any]:
     return {
         "openapi": "lite-1.0",
         "info": {
-            "title": "Macro DataHub API",
+            "title": "经观 EconView API",
             "version": "1.3.0",
-            "description": "Zero-dependency macroeconomic data service for dashboards and AI agents.",
+            "description": "全球宏观经济数据治理与分析平台，面向看板、研究脚本和 AI Agent 提供标准化宏观数据服务。",
         },
-        "servers": [{"url": "http://127.0.0.1:8000"}],
+        "servers": [{"url": "/"}],
         "paths": {
             tool["path"]: {
                 tool["method"].lower(): {
@@ -1368,7 +1372,7 @@ def build_openapi_lite() -> Dict[str, Any]:
 
 def build_response_schema() -> Dict[str, Any]:
     return {
-        "name": "MacroDataHubStandardResponse",
+        "name": "EconViewStandardResponse",
         "version": "1.3.0",
         "agent_usage": {
             "discovery_order": ["/capabilities", "/agent-tools", "/schema", "/error-catalog"],
@@ -1981,10 +1985,10 @@ def build_evaluation_payload() -> Dict[str, Any]:
     implemented_source_count = len({m["source"] for m in SOURCE_MAPPINGS.values()})
     return {
         "project": {
-            "name": "Macro DataHub",
+            "name": "经观 EconView",
             "topic": "全球宏观经济指标数据要素采集与结构化服务",
             "version": "1.3.0",
-            "positioning": "official macro data API + standardization + quality governance + dashboard",
+            "positioning": "全球宏观经济数据治理与分析平台：official macro data API + standardization + quality governance + dashboard",
         },
         "minimum_acceptance": [
             {"requirement": "能够成功运行并完成至少 20 条示例查询", "status": "met", "evidence": f"{sample_count} sample queries in examples/sample_queries.json"},
@@ -2141,7 +2145,7 @@ def api_docs_html() -> str:
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>Macro DataHub API Docs</title>
+<title>经观 EconView API Docs</title>
 <style>
 body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;margin:0;background:#f6f8fb;color:#111827}}
 main{{max-width:980px;margin:32px auto;background:white;padding:28px;border-radius:18px;box-shadow:0 10px 30px rgba(15,23,42,.08)}}
@@ -2151,48 +2155,49 @@ table{{border-collapse:collapse;width:100%;font-size:14px}}td,th{{border:1px sol
 </style>
 </head>
 <body><main>
-<h1>Macro DataHub API Docs</h1>
-<p>本服务为零依赖版本，使用 Python 标准库实现 HTTP API。首页：<a href="/">/</a>，展示版：<a href="/showcase">/showcase</a></p>
+<h1>经观 EconView API Docs</h1>
+<p>经观 EconView 是全球宏观经济数据治理与分析平台。本服务为零依赖版本，使用 Python 标准库实现 HTTP API。首页：<a href="/">/</a>，展示版：<a href="/showcase">/showcase</a></p>
+<p>在线演示域名：<code>https://sjys-th73.onrender.com</code>；本地调试域名：<code>http://127.0.0.1:8000</code>。</p>
 <h2>GET /showcase</h2>
-<pre>http://127.0.0.1:8000/showcase</pre>
+<pre>https://sjys-th73.onrender.com/showcase</pre>
 <h2>GET /health</h2>
-<pre>http://127.0.0.1:8000/health</pre>
+<pre>https://sjys-th73.onrender.com/health</pre>
 <h2>GET /countries</h2>
-<pre>http://127.0.0.1:8000/countries</pre>
+<pre>https://sjys-th73.onrender.com/countries</pre>
 <h2>GET /indicators</h2>
-<pre>http://127.0.0.1:8000/indicators</pre>
+<pre>https://sjys-th73.onrender.com/indicators</pre>
 <h2>GET /search-indicators</h2>
-<pre>http://127.0.0.1:8000/search-indicators?q=gdp
-http://127.0.0.1:8000/search-indicators?q=失业&frequency=M</pre>
+<pre>https://sjys-th73.onrender.com/search-indicators?q=gdp
+https://sjys-th73.onrender.com/search-indicators?q=失业&frequency=M</pre>
 <h2>GET /capabilities</h2>
-<pre>http://127.0.0.1:8000/capabilities</pre>
+<pre>https://sjys-th73.onrender.com/capabilities</pre>
 <h2>GET /schema</h2>
-<pre>http://127.0.0.1:8000/schema</pre>
+<pre>https://sjys-th73.onrender.com/schema</pre>
 <h2>GET /agent-tools</h2>
-<pre>http://127.0.0.1:8000/agent-tools</pre>
+<pre>https://sjys-th73.onrender.com/agent-tools</pre>
 <h2>GET /error-catalog</h2>
-<pre>http://127.0.0.1:8000/error-catalog</pre>
+<pre>https://sjys-th73.onrender.com/error-catalog</pre>
 <h2>GET /openapi-lite</h2>
-<pre>http://127.0.0.1:8000/openapi-lite</pre>
+<pre>https://sjys-th73.onrender.com/openapi-lite</pre>
 <h2>GET /series</h2>
-<pre>http://127.0.0.1:8000/series?country=US&indicator_code=CPI_YOY&start_date=2020-01&end_date=2025-12&frequency=M
-http://127.0.0.1:8000/series?country=US&indicator_code=IMF_GDP_GROWTH&start_date=2020&end_date=2024&frequency=A
-http://127.0.0.1:8000/series?country=US&indicator_code=OECD_CPI_YOY&start_date=2024-01&end_date=2024-12&frequency=M
-http://127.0.0.1:8000/series?country=EA&indicator_code=ECB_EUR_USD&start_date=2024-01&end_date=2024-12&frequency=M
-http://127.0.0.1:8000/series?country=US&indicator_code=BIS_POLICY_RATE&start_date=2024-01&end_date=2024-12&frequency=M</pre>
+<pre>https://sjys-th73.onrender.com/series?country=US&indicator_code=CPI_YOY&start_date=2020-01&end_date=2025-12&frequency=M
+https://sjys-th73.onrender.com/series?country=US&indicator_code=IMF_GDP_GROWTH&start_date=2020&end_date=2024&frequency=A
+https://sjys-th73.onrender.com/series?country=US&indicator_code=OECD_CPI_YOY&start_date=2024-01&end_date=2024-12&frequency=M
+https://sjys-th73.onrender.com/series?country=EA&indicator_code=ECB_EUR_USD&start_date=2024-01&end_date=2024-12&frequency=M
+https://sjys-th73.onrender.com/series?country=US&indicator_code=BIS_POLICY_RATE&start_date=2024-01&end_date=2024-12&frequency=M</pre>
 <h2>GET /compare</h2>
-<pre>http://127.0.0.1:8000/compare?countries=US,CN,DE,JP,GB,IN,FR&indicator_code=GDP_NOMINAL&date=2023&frequency=A</pre>
+<pre>https://sjys-th73.onrender.com/compare?countries=US,CN,DE,JP,GB,IN,FR&indicator_code=GDP_NOMINAL&date=2023&frequency=A</pre>
 <h2>GET /visualization</h2>
-<pre>http://127.0.0.1:8000/visualization?country=CN&indicator_code=GDP_NOMINAL&start_date=2018&end_date=2024&frequency=A</pre>
+<pre>https://sjys-th73.onrender.com/visualization?country=CN&indicator_code=GDP_NOMINAL&start_date=2018&end_date=2024&frequency=A</pre>
 <h2>GET /insight</h2>
-<pre>http://127.0.0.1:8000/insight?country=IN&indicator_code=TRADE_BALANCE&start_date=2018&end_date=2024&frequency=A</pre>
+<pre>https://sjys-th73.onrender.com/insight?country=IN&indicator_code=TRADE_BALANCE&start_date=2018&end_date=2024&frequency=A</pre>
 <h2>GET /consistency</h2>
-<pre>http://127.0.0.1:8000/consistency
-http://127.0.0.1:8000/consistency?online=1</pre>
+<pre>https://sjys-th73.onrender.com/consistency
+https://sjys-th73.onrender.com/consistency?online=1</pre>
 <h2>GET /cache-stats</h2>
-<pre>http://127.0.0.1:8000/cache-stats</pre>
+<pre>https://sjys-th73.onrender.com/cache-stats</pre>
 <h2>GET /evaluation</h2>
-<pre>http://127.0.0.1:8000/evaluation</pre>
+<pre>https://sjys-th73.onrender.com/evaluation</pre>
 <h2>POST /batch-query</h2>
 <pre>{{
   "queries": [
@@ -2209,7 +2214,7 @@ http://127.0.0.1:8000/consistency?online=1</pre>
 
 
 class MacroHandler(SimpleHTTPRequestHandler):
-    server_version = "MacroDataHubOneClick/1.0"
+    server_version = "EconView/1.0"
 
     def log_message(self, format: str, *args: Any) -> None:
         sys.stdout.write("[%s] %s\n" % (datetime.now().strftime("%H:%M:%S"), format % args))
@@ -2244,7 +2249,8 @@ class MacroHandler(SimpleHTTPRequestHandler):
             if path == "/health":
                 json_response(self, {
                     "status": "ok",
-                    "service": "macro-datahub-oneclick",
+                    "service": "econview",
+                    "display_name": "经观 EconView",
                     "version": "1.3.0",
                     "python": sys.version.split()[0],
                     "implemented_sources": ["World Bank", "BLS", "Eurostat", "IMF", "OECD", "ECB", "BIS"],
@@ -2443,7 +2449,7 @@ def main() -> None:
     url = f"http://{public_host}:{port}"
 
     print("=" * 64)
-    print("Macro DataHub OneClick started")
+    print("经观 EconView started")
     print("=" * 64)
     print(f"Python: {sys.executable}")
     print(f"Bind:   {host}:{port}")

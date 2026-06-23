@@ -1,4 +1,4 @@
-# Macro DataHub OneClick
+# 经观 EconView
 
 这是一次性重写的 Windows 友好版本，重点解决：
 
@@ -11,7 +11,7 @@
 
 ## 项目定位
 
-Macro DataHub 是一个面向宏观经济数据查询、标准化和展示的轻量级系统。它把 World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 等官方公开数据源统一封装成同一种 JSON 输出，适合用于：
+经观 EconView 是一个面向全球宏观经济数据查询、标准化、质量治理和展示的轻量级平台。它把 World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 等官方公开数据源统一封装成同一种 JSON 输出，适合用于：
 
 - 参赛项目演示
 - 毕业论文系统原型

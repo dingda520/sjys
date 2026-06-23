@@ -273,7 +273,7 @@ def test_http_showcase_route():
     try:
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/showcase", timeout=8) as resp:
             html = resp.read().decode("utf-8")
-        assert_true("Macro DataHub 展示版" in html, "showcase page should render title")
+        assert_true("经观 EconView 展示版" in html, "showcase page should render title")
         assert_true("seriesChart" in html, "showcase page should include series chart")
         assert_true("compareChart" in html, "showcase page should include compare chart")
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=8) as resp:
@@ -329,7 +329,7 @@ def test_online_queries():
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Macro DataHub smoke tests")
+    parser = argparse.ArgumentParser(description="EconView smoke tests")
     parser.add_argument("--online", action="store_true", help="also test official online APIs")
     args = parser.parse_args()
 
