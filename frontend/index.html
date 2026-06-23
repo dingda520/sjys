@@ -323,6 +323,19 @@ let indicatorStore = [];
 let lastResult = null;
 let evaluationStore = null;
 let consistencyStore = null;
+const API_BASE = window.location.protocol === "file:" ? "https://sjys-th73.onrender.com" : "";
+
+function apiUrl(path){
+  return `${API_BASE}${path}`;
+}
+
+function normalizeLinksForFileMode(){
+  if(!API_BASE) return;
+  document.querySelectorAll('a[href^="/"]').forEach(link=>{
+    const original = link.getAttribute("href");
+    link.setAttribute("href", apiUrl(original));
+  });
+}
 
 function showPage(page){
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
@@ -391,13 +404,14 @@ function applyInitialPageFromUrl(){
   if(page==="quality") renderQualityMirror();
 }
 async function init(){
+  normalizeLinksForFileMode();
   try{
-    const health=await fetch(`/health`).then(r=>r.json());
+    const health=await fetch(apiUrl(`/health`)).then(r=>r.json());
     document.getElementById("serverStatus").textContent=`${health.status} · ${health.implemented_sources.join(" + ")} · no pip`;
-    const countries=await fetch(`/countries`).then(r=>r.json());
-    const indicators=await fetch(`/indicators`).then(r=>r.json());
-    evaluationStore=await fetch(`/evaluation`).then(r=>r.json()).catch(()=>null);
-    consistencyStore=await fetch(`/consistency`).then(r=>r.json()).catch(()=>null);
+    const countries=await fetch(apiUrl(`/countries`)).then(r=>r.json());
+    const indicators=await fetch(apiUrl(`/indicators`)).then(r=>r.json());
+    evaluationStore=await fetch(apiUrl(`/evaluation`)).then(r=>r.json()).catch(()=>null);
+    consistencyStore=await fetch(apiUrl(`/consistency`)).then(r=>r.json()).catch(()=>null);
     indicatorStore=indicators.indicators;
     document.getElementById("mCountry").textContent=countries.countries.length;
     document.getElementById("mIndicator").textContent=indicators.indicators.length;
@@ -447,7 +461,7 @@ async function loadCrossSourceGdpSample(){
   document.getElementById("startDate").value="2018";
   document.getElementById("endDate").value="2024";
   document.getElementById("jsonOutput").textContent="正在请求 World Bank 与 IMF 两个来源...";
-  const base="/series?country=US&start_date=2018&end_date=2024&frequency=A&indicator_code=";
+  const base=apiUrl("/series?country=US&start_date=2018&end_date=2024&frequency=A&indicator_code=");
   try{
     const [wb,imf]=await Promise.all([
       fetch(base+"GDP_REAL_GROWTH").then(r=>r.json()),
@@ -490,7 +504,7 @@ async function runQuery(){
   const meta=normalizeControls();
   if(!meta){showError("指标字典还没有加载完成，请刷新页面或稍后再试。");return;}
   const country=document.getElementById("country").value, indicator_code=document.getElementById("indicator").value, start_date=document.getElementById("startDate").value, end_date=document.getElementById("endDate").value, frequency=document.getElementById("frequency").value;
-  const url=`/series?country=${encodeURIComponent(country)}&indicator_code=${encodeURIComponent(indicator_code)}&start_date=${encodeURIComponent(start_date)}&end_date=${encodeURIComponent(end_date)}&frequency=${encodeURIComponent(frequency)}`;
+  const url=apiUrl(`/series?country=${encodeURIComponent(country)}&indicator_code=${encodeURIComponent(indicator_code)}&start_date=${encodeURIComponent(start_date)}&end_date=${encodeURIComponent(end_date)}&frequency=${encodeURIComponent(frequency)}`);
   document.getElementById("jsonOutput").textContent="查询中，请稍候...";
   try{
     const data=await fetch(url).then(r=>r.json()); lastResult=data;
@@ -633,7 +647,7 @@ function renderConsistency(){
   }).join("");
 }
 async function runConsistency(online=false){
-  consistencyStore=await fetch(`/consistency${online?"?online=1":""}`).then(r=>r.json()).catch(()=>consistencyStore);
+  consistencyStore=await fetch(apiUrl(`/consistency${online?"?online=1":""}`)).then(r=>r.json()).catch(()=>consistencyStore);
   renderConsistency();
 }
 function prepareCanvas(canvas){
@@ -670,7 +684,7 @@ function drawChart(obs,unit="",emptyMessage="暂无数据"){
 async function runCompare(){
   const indicator=document.getElementById("compareIndicator").value, year=document.getElementById("compareYear").value;
   document.getElementById("compareTable").innerHTML="<tr><th>国家</th><th>数值</th><th>单位</th><th>来源</th></tr><tr><td colspan='4'>查询中...</td></tr>";
-  const data=await fetch(`/compare?countries=US,CN,DE,JP,GB,IN,FR,EA&indicator_code=${encodeURIComponent(indicator)}&date=${encodeURIComponent(year)}&frequency=A`).then(r=>r.json()).catch(()=>null);
+  const data=await fetch(apiUrl(`/compare?countries=US,CN,DE,JP,GB,IN,FR,EA&indicator_code=${encodeURIComponent(indicator)}&date=${encodeURIComponent(year)}&frequency=A`)).then(r=>r.json()).catch(()=>null);
   const rows=(data&&data.rows?data.rows:[]).map(r=>({country:r.country_name_zh,value:Number(r.value),unit:r.unit,source:r.source.organization})).filter(r=>Number.isFinite(r.value));
   rows.sort((a,b)=>Math.abs(b.value)-Math.abs(a.value));
   const values=rows.map(r=>r.value), scale=chooseScale(values,rows[0]?rows[0].unit:"");
