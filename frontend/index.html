@@ -56,13 +56,14 @@
       display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:16px;padding:18px 20px;border:1px solid rgba(255,255,255,.72);
       background:rgba(255,255,255,.62);backdrop-filter:blur(18px);border-radius:18px;box-shadow:var(--shadow);
     }
+    .main>.topbar{display:none}
     .topbar h2{margin:0;font-size:clamp(22px,2vw,32px);letter-spacing:0;color:#0f172a}.topbar p{margin:8px 0 0;color:#516173;font-size:14px;line-height:1.65;max-width:900px}
     .small-link{display:inline-flex;color:#0f766e;text-decoration:none;margin-top:10px;font-size:13px;font-weight:800}
     .status{display:flex;gap:10px;align-items:center;background:#0f172a;color:#e2e8f0;border:1px solid rgba(255,255,255,.1);padding:10px 14px;border-radius:999px;font-size:13px;white-space:nowrap;box-shadow:0 14px 30px rgba(15,23,42,.18)}
     .dot{width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 0 6px rgba(52,211,153,.13);animation:pulseDot 1.8s infinite}
     @keyframes pulseDot{0%,100%{transform:scale(1)}50%{transform:scale(.72)}}
     .market-strip{position:relative;overflow:hidden;margin:0 0 18px;border:1px solid var(--line);background:#0b1220;color:#dbeafe;border-radius:14px;box-shadow:var(--shadow)}
-    .market-track{display:flex;gap:18px;width:max-content;padding:10px 18px;animation:tape 26s linear infinite}.market-strip:hover .market-track{animation-play-state:paused}
+    .market-track{display:flex;flex-wrap:wrap;gap:10px 18px;width:100%;padding:10px 18px}.market-track .market-tick:nth-child(n+8){display:none}
     .market-tick{display:inline-flex;gap:8px;align-items:center;white-space:nowrap;font-size:12px;color:#cbd5e1}.market-tick strong{color:#fff;font-size:13px}.market-tick em{font-style:normal;color:#5eead4}
     @keyframes tape{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .section{display:none;animation:sectionIn .35s ease both}.section.active{display:block}
@@ -110,8 +111,7 @@
     .signal-card span{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .signal-card strong{display:block;margin-top:7px;color:#fff;font-size:22px;line-height:1.1}
     .signal-card small{display:block;margin-top:7px;color:#a8c3d7;font-size:12px;line-height:1.45}
-    .signal-bars{display:grid;gap:8px;margin-top:10px}.signal-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}.signal-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#5eead4,#f6d365);animation:barPulse 3.6s ease-in-out infinite}.signal-bar:nth-child(2) i{animation-delay:.7s}.signal-bar:nth-child(3) i{animation-delay:1.2s}
-    @keyframes barPulse{0%,100%{width:42%}45%{width:96%}70%{width:68%}}
+    .signal-bars{display:grid;gap:9px;margin-top:12px}.signal-bar{display:grid;grid-template-columns:minmax(92px,.78fr) minmax(120px,1.5fr) auto;gap:10px;align-items:center;color:#b8cde1;font-size:11px}.signal-bar i{display:block;height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}.signal-bar i::after{content:"";display:block;height:100%;width:var(--w,100%);border-radius:999px;background:linear-gradient(90deg,#5eead4,#f6d365)}.signal-bar b{color:#fff;font-size:11px}
     .command-line{margin-top:18px;display:flex;gap:8px;align-items:center;max-width:760px;padding:10px 12px;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(3,7,18,.58);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#c4fff4;font-size:12px;overflow:hidden}
     .command-line b{color:#f6d365}.command-caret{display:inline-block;width:8px;height:16px;background:#5eead4;animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}
     .score-panel{padding:18px}.score-panel h3{margin:0 0 12px;font-size:16px}.score-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.score-row:last-child{border-bottom:0}.score-row strong{font-size:18px;color:#0f172a}
@@ -131,8 +131,9 @@
     .render-preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,31,.05),rgba(8,17,31,.62));z-index:1;pointer-events:none}
     .render-caption{position:absolute;left:14px;right:14px;bottom:14px;z-index:4;display:flex;justify-content:space-between;gap:12px;align-items:flex-end;padding:12px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(3,10,18,.62);backdrop-filter:blur(14px)}
     .render-caption span,.snapshot-status{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.render-caption strong{display:block;margin-top:4px;color:#fff;font-size:18px;line-height:1.1}.render-caption small{color:#b8cde1;font-size:12px}
-    .scan-beam{position:absolute;left:0;right:0;top:-28%;height:30%;z-index:3;background:linear-gradient(180deg,transparent,rgba(94,234,212,.22),transparent);animation:scanBeam 4.8s linear infinite;pointer-events:none}
-    .render-node{position:absolute;z-index:4;width:12px;height:12px;border-radius:999px;background:#5eead4;box-shadow:0 0 0 8px rgba(94,234,212,.13),0 0 28px rgba(94,234,212,.8);animation:nodePulse 2.4s ease-in-out infinite}.render-node.n-a{left:28%;top:37%}.render-node.n-b{left:62%;top:29%;background:#f6d365;animation-delay:.5s}.render-node.n-c{left:73%;top:58%;background:#60a5fa;animation-delay:1s}
+    .coord-grid{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(96,165,250,.2) 1px,transparent 1px),linear-gradient(0deg,rgba(96,165,250,.14) 1px,transparent 1px);background-size:12.5% 100%,100% 16.66%;opacity:.42;pointer-events:none}.coord-grid::after{content:"72W   100W   0E   13E   78E   139E";position:absolute;left:12px;right:12px;top:8px;display:flex;justify-content:space-between;color:rgba(219,234,254,.64);font:700 9px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.04em}
+    .scan-beam{position:absolute;left:0;right:0;top:-28%;height:30%;z-index:3;background:linear-gradient(180deg,transparent,rgba(94,234,212,.18),transparent);animation:scanBeam 7s linear infinite;pointer-events:none}
+    .render-node{position:absolute;z-index:4;width:9px;height:9px;border-radius:999px;background:#5eead4;box-shadow:0 0 0 6px rgba(94,234,212,.12),0 0 20px rgba(94,234,212,.75)}.render-node::after{content:attr(data-label) " · " attr(data-coord);position:absolute;left:13px;top:-8px;white-space:nowrap;color:#dffcff;background:rgba(3,10,18,.58);border:1px solid rgba(153,246,228,.18);border-radius:999px;padding:3px 6px;font:800 9px ui-monospace,SFMono-Regular,Consolas,monospace;opacity:.92}.render-node.n-a{left:30%;top:43%}.render-node.n-b{left:52%;top:35%;background:#60a5fa}.render-node.n-c{left:58%;top:47%;background:#f6d365}.render-node.n-d{left:46%;top:42%;background:#5eead4}.render-node.n-e{left:22%;top:38%;background:#5eead4}.render-node.n-f{left:69%;top:45%;background:#60a5fa}.render-node.n-g{left:63%;top:39%;background:#f6d365}.render-node.n-e::after,.render-node.n-a::after{left:auto;right:13px}
     .hero-panel>.hero-canvas{position:absolute;z-index:0}
     .hero-band{align-items:start}
     .snapshot-status{margin-top:12px;padding:10px 12px;border:1px solid rgba(153,246,228,.2);border-radius:12px;background:rgba(94,234,212,.08);color:#c4fff4;line-height:1.5;letter-spacing:0;text-transform:none}
@@ -171,7 +172,6 @@
   <main class="main">
     <div class="topbar">
       <div><h2 id="pageTitle">全球宏观经济数据治理与分析平台</h2><p id="pageDesc">观全球经济，见数据脉络。按国家 / 指标 / 频率 / 时间区间查询，返回标准化 JSON、元数据与质量校验。</p><a class="small-link" href="/docs" target="_blank">打开 API 文档</a></div>
-      <div class="status"><span class="dot"></span> <span id="serverStatus">正在检查服务...</span></div>
     </div>
     <div class="market-strip" aria-label="动态数据源状态">
       <div class="market-track">
@@ -204,7 +204,12 @@
               <span>Live Data Mesh</span>
               <strong>7 sources online</strong>
               <small>World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 统一进入标准化数据链路。</small>
-              <div class="signal-bars"><div class="signal-bar"><i></i></div><div class="signal-bar"><i></i></div><div class="signal-bar"><i></i></div></div>
+              <div class="signal-bars">
+                <div class="signal-bar"><span>官方来源</span><i style="--w:100%"></i><b>7 / 7</b></div>
+                <div class="signal-bar"><span>标准指标</span><i style="--w:100%"></i><b>18 / 18</b></div>
+                <div class="signal-bar"><span>示例查询</span><i style="--w:100%"></i><b>33 / 33</b></div>
+                <div class="signal-bar"><span>质量规则</span><i style="--w:100%"></i><b>6 / 6</b></div>
+              </div>
             </div>
             <div class="signal-card">
               <span>Quality Engine</span>
@@ -229,10 +234,15 @@
         <div class="score-panel observatory-panel">
           <div class="render-preview" id="renderPreview">
             <img id="observatoryRender" src="assets/econview-observatory.png" alt="经观 EconView 全球宏观经济数据观测舱渲染图">
+            <div class="coord-grid"></div>
             <div class="scan-beam"></div>
-            <i class="render-node n-a"></i>
-            <i class="render-node n-b"></i>
-            <i class="render-node n-c"></i>
+            <i class="render-node n-a" data-label="World Bank" data-coord="38.9N,77.0W"></i>
+            <i class="render-node n-b" data-label="Eurostat" data-coord="49.6N,6.1E"></i>
+            <i class="render-node n-c" data-label="BIS" data-coord="47.6N,7.6E"></i>
+            <i class="render-node n-d" data-label="ECB" data-coord="50.1N,8.7E"></i>
+            <i class="render-node n-e" data-label="BLS" data-coord="38.9N,77.0W"></i>
+            <i class="render-node n-f" data-label="OECD" data-coord="48.9N,2.3E"></i>
+            <i class="render-node n-g" data-label="IMF" data-coord="38.9N,77.0W"></i>
             <div class="render-caption">
               <div><span>Render Preview</span><strong>Data Observatory</strong></div>
               <small>7 sources · 18 indicators</small>
@@ -547,7 +557,8 @@ async function init(){
   normalizeLinksForFileMode();
   try{
     const health=await fetchJson(`/health`);
-    document.getElementById("serverStatus").textContent=`${health.status} · ${health.implemented_sources.join(" + ")} · no pip`;
+    const serverStatus=document.getElementById("serverStatus");
+    if(serverStatus)serverStatus.textContent=`${health.status} · ${health.implemented_sources.join(" + ")} · no pip`;
     const countries=await fetchJson(`/countries`);
     const indicators=await fetchJson(`/indicators`);
     evaluationStore=await fetchJson(`/evaluation`).catch(()=>null);
@@ -564,7 +575,7 @@ async function init(){
     updateFrequencyByIndicator(); document.getElementById("startDate").value="2018"; document.getElementById("endDate").value="2024"; applyInitialQueryFromUrl(); await runQuery(); applyInitialPageFromUrl();
     renderEvaluation();
     renderConsistency();
-  }catch(err){document.getElementById("serverStatus").textContent="服务未连接";showError(`初始化失败：${err.message||err}\n建议直接打开线上地址：https://sjys-th73.onrender.com/`);}
+  }catch(err){const serverStatus=document.getElementById("serverStatus");if(serverStatus)serverStatus.textContent="服务未连接";showError(`初始化失败：${err.message||err}\n建议直接打开线上地址：https://sjys-th73.onrender.com/`);}
 }
 function setFrequencyOptions(meta, preferred){
   const frequency=document.getElementById("frequency");
