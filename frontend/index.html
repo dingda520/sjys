@@ -131,9 +131,10 @@
     .render-preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,31,.05),rgba(8,17,31,.62));z-index:1;pointer-events:none}
     .render-caption{position:absolute;left:14px;right:14px;bottom:14px;z-index:4;display:flex;justify-content:space-between;gap:12px;align-items:flex-end;padding:12px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(3,10,18,.62);backdrop-filter:blur(14px)}
     .render-caption span,.snapshot-status{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.render-caption strong{display:block;margin-top:4px;color:#fff;font-size:18px;line-height:1.1}.render-caption small{color:#b8cde1;font-size:12px}
-    .coord-grid{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(96,165,250,.2) 1px,transparent 1px),linear-gradient(0deg,rgba(96,165,250,.14) 1px,transparent 1px);background-size:12.5% 100%,100% 16.66%;opacity:.42;pointer-events:none}.coord-grid::after{content:"72W   100W   0E   13E   78E   139E";position:absolute;left:12px;right:12px;top:8px;display:flex;justify-content:space-between;color:rgba(219,234,254,.64);font:700 9px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.04em}
+    .coord-grid{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(96,165,250,.18) 1px,transparent 1px),linear-gradient(0deg,rgba(96,165,250,.12) 1px,transparent 1px);background-size:12.5% 100%,100% 16.66%;opacity:.34;pointer-events:none;transform:perspective(420px) rotateX(12deg) translateY(12px);transform-origin:50% 72%}.coord-grid::after{content:"72W   38N   0E   50N   78E   139E";position:absolute;left:14px;right:14px;top:8px;display:flex;justify-content:space-between;color:rgba(219,234,254,.58);font:700 9px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.04em}
+    .route-layer{position:absolute;inset:0;z-index:3;pointer-events:none;filter:drop-shadow(0 0 10px rgba(94,234,212,.28))}.route-layer path{fill:none;stroke:url(#routeGlow);stroke-width:1.1;stroke-dasharray:5 7;opacity:.72}.route-layer ellipse{fill:none;stroke:rgba(246,211,101,.28);stroke-width:1}
     .scan-beam{position:absolute;left:0;right:0;top:-28%;height:30%;z-index:3;background:linear-gradient(180deg,transparent,rgba(94,234,212,.18),transparent);animation:scanBeam 7s linear infinite;pointer-events:none}
-    .render-node{position:absolute;z-index:4;width:9px;height:9px;border-radius:999px;background:#5eead4;box-shadow:0 0 0 6px rgba(94,234,212,.12),0 0 20px rgba(94,234,212,.75)}.render-node::after{content:attr(data-label) " · " attr(data-coord);position:absolute;left:13px;top:-8px;white-space:nowrap;color:#dffcff;background:rgba(3,10,18,.58);border:1px solid rgba(153,246,228,.18);border-radius:999px;padding:3px 6px;font:800 9px ui-monospace,SFMono-Regular,Consolas,monospace;opacity:.92}.render-node.n-a{left:30%;top:43%}.render-node.n-b{left:52%;top:35%;background:#60a5fa}.render-node.n-c{left:58%;top:47%;background:#f6d365}.render-node.n-d{left:46%;top:42%;background:#5eead4}.render-node.n-e{left:22%;top:38%;background:#5eead4}.render-node.n-f{left:69%;top:45%;background:#60a5fa}.render-node.n-g{left:63%;top:39%;background:#f6d365}.render-node.n-e::after,.render-node.n-a::after{left:auto;right:13px}
+    .render-node{position:absolute;z-index:4;width:8px;height:8px;border-radius:999px;background:#5eead4;box-shadow:0 0 0 6px rgba(94,234,212,.1),0 0 18px rgba(94,234,212,.74)}.render-node::before{content:"";position:absolute;left:3px;bottom:6px;width:1px;height:var(--pin,28px);background:linear-gradient(180deg,rgba(223,252,255,.95),rgba(94,234,212,.05));transform:translateY(calc(-1 * var(--pin,28px)));transform-origin:bottom}.render-node::after{content:attr(data-code) "  " attr(data-coord);position:absolute;left:13px;top:calc(-12px - var(--pin,28px));white-space:nowrap;color:#dffcff;background:linear-gradient(180deg,rgba(7,17,31,.86),rgba(7,17,31,.58));border:1px solid rgba(153,246,228,.22);border-radius:8px;padding:3px 6px;font:800 8.5px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.02em;opacity:.94}.render-node.n-a{left:29%;top:44%;--pin:30px}.render-node.n-b{left:51%;top:38%;--pin:44px;background:#60a5fa}.render-node.n-c{left:58%;top:49%;--pin:26px;background:#f6d365}.render-node.n-d{left:47%;top:44%;--pin:34px;background:#5eead4}.render-node.n-e{left:24%;top:40%;--pin:22px;background:#5eead4}.render-node.n-f{left:68%;top:46%;--pin:38px;background:#60a5fa}.render-node.n-g{left:62%;top:42%;--pin:50px;background:#f6d365}.render-node.n-a::after,.render-node.n-e::after{left:auto;right:13px}.render-node.n-g::after{left:auto;right:-4px}
     .hero-panel>.hero-canvas{position:absolute;z-index:0}
     .hero-band{align-items:start}
     .snapshot-status{margin-top:12px;padding:10px 12px;border:1px solid rgba(153,246,228,.2);border-radius:12px;background:rgba(94,234,212,.08);color:#c4fff4;line-height:1.5;letter-spacing:0;text-transform:none}
@@ -206,9 +207,9 @@
               <small>World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 统一进入标准化数据链路。</small>
               <div class="signal-bars">
                 <div class="signal-bar"><span>官方来源</span><i style="--w:100%"></i><b>7 / 7</b></div>
+                <div class="signal-bar"><span>经济体/地区</span><i style="--w:100%"></i><b>8 / 8</b></div>
                 <div class="signal-bar"><span>标准指标</span><i style="--w:100%"></i><b>18 / 18</b></div>
                 <div class="signal-bar"><span>示例查询</span><i style="--w:100%"></i><b>33 / 33</b></div>
-                <div class="signal-bar"><span>质量规则</span><i style="--w:100%"></i><b>6 / 6</b></div>
               </div>
             </div>
             <div class="signal-card">
@@ -235,14 +236,23 @@
           <div class="render-preview" id="renderPreview">
             <img id="observatoryRender" src="assets/econview-observatory.png" alt="经观 EconView 全球宏观经济数据观测舱渲染图">
             <div class="coord-grid"></div>
+            <svg class="route-layer" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="routeGlow" x1="0" x2="1"><stop offset="0" stop-color="#5eead4"/><stop offset=".55" stop-color="#60a5fa"/><stop offset="1" stop-color="#f6d365"/></linearGradient></defs>
+              <ellipse cx="51" cy="40" rx="29" ry="13"></ellipse>
+              <path d="M24 40 C34 18 50 16 62 42"></path>
+              <path d="M29 44 C42 28 55 26 68 46"></path>
+              <path d="M47 44 C50 24 56 22 58 49"></path>
+              <path d="M51 38 C56 31 62 31 68 46"></path>
+              <path d="M62 42 C65 35 67 34 68 46"></path>
+            </svg>
             <div class="scan-beam"></div>
-            <i class="render-node n-a" data-label="World Bank" data-coord="38.9N,77.0W"></i>
-            <i class="render-node n-b" data-label="Eurostat" data-coord="49.6N,6.1E"></i>
-            <i class="render-node n-c" data-label="BIS" data-coord="47.6N,7.6E"></i>
-            <i class="render-node n-d" data-label="ECB" data-coord="50.1N,8.7E"></i>
-            <i class="render-node n-e" data-label="BLS" data-coord="38.9N,77.0W"></i>
-            <i class="render-node n-f" data-label="OECD" data-coord="48.9N,2.3E"></i>
-            <i class="render-node n-g" data-label="IMF" data-coord="38.9N,77.0W"></i>
+            <i class="render-node n-a" data-code="WB" data-coord="38.9N,77.0W"></i>
+            <i class="render-node n-b" data-code="EUROSTAT" data-coord="49.6N,6.1E"></i>
+            <i class="render-node n-c" data-code="BIS" data-coord="47.6N,7.6E"></i>
+            <i class="render-node n-d" data-code="ECB" data-coord="50.1N,8.7E"></i>
+            <i class="render-node n-e" data-code="BLS" data-coord="38.9N,77.0W"></i>
+            <i class="render-node n-f" data-code="OECD" data-coord="48.9N,2.3E"></i>
+            <i class="render-node n-g" data-code="IMF" data-coord="38.9N,77.0W"></i>
             <div class="render-caption">
               <div><span>Render Preview</span><strong>Data Observatory</strong></div>
               <small>7 sources · 18 indicators</small>
