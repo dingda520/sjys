@@ -111,12 +111,14 @@
     .signal-card span{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .signal-card strong{display:block;margin-top:7px;color:#fff;font-size:22px;line-height:1.1}
     .signal-card small{display:block;margin-top:7px;color:#a8c3d7;font-size:12px;line-height:1.45}
-    .signal-bars{display:grid;gap:9px;margin-top:12px}.signal-bar{display:grid;grid-template-columns:minmax(92px,.78fr) minmax(120px,1.5fr) auto;gap:10px;align-items:center;color:#b8cde1;font-size:11px}.signal-bar i{display:block;height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}.signal-bar i::after{content:"";display:block;height:100%;width:var(--w,100%);border-radius:999px;background:linear-gradient(90deg,#5eead4,#f6d365)}.signal-bar b{color:#fff;font-size:11px}
+    .signal-bars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.signal-bar{border:1px solid rgba(153,246,228,.18);background:rgba(255,255,255,.045);border-radius:10px;padding:10px 11px;color:#b8cde1;font-size:11px}.signal-bar span{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:0;text-transform:none}.signal-bar b{display:block;margin-top:4px;color:#fff;font-size:20px;line-height:1}
+    .quality-mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:16px}.quality-mini div{border:1px solid rgba(153,246,228,.18);background:rgba(255,255,255,.045);border-radius:10px;padding:10px}.quality-mini b{display:block;color:#fff;font-size:13px}.quality-mini span{display:block;margin-top:5px;color:#a8c3d7;font-size:11px;line-height:1.35;text-transform:none;letter-spacing:0}
+    .runbook{margin-top:10px;border:1px solid #99f6e4;background:linear-gradient(180deg,#f8fffd,#f2fbf8);border-radius:12px;padding:12px;color:#475569}.runbook h4{margin:0 0 8px;color:#0f172a;font-size:14px}.runbook-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.runbook-step{border:1px solid #d8eee8;background:#fff;border-radius:10px;padding:8px}.runbook-step strong{display:block;color:#0f766e;font-size:12px}.runbook-step span{display:block;margin-top:4px;color:#64748b;font-size:11px;line-height:1.38}
     .command-line{margin-top:18px;display:flex;gap:8px;align-items:center;max-width:760px;padding:10px 12px;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(3,7,18,.58);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#c4fff4;font-size:12px;overflow:hidden}
     .command-line b{color:#f6d365}.command-caret{display:inline-block;width:8px;height:16px;background:#5eead4;animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}
     .score-panel{padding:18px}.score-panel h3{margin:0 0 12px;font-size:16px}.score-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.score-row:last-child{border-bottom:0}.score-row strong{font-size:18px;color:#0f172a}
     .flow-grid,.pipeline-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.flow-step,.pipeline-step,.sample-card,.capability-card{background:#fff;border:1px solid rgba(255,255,255,.75);border-radius:12px;box-shadow:var(--shadow);padding:15px;color:var(--text)}
-    .flow-step{position:relative;text-align:left;cursor:pointer;font:inherit}.flow-step:hover,.sample-card:hover{border-color:#5eead4;transform:translateY(-2px);box-shadow:0 18px 42px rgba(15,118,110,.14)}.flow-step span{display:inline-flex;width:28px;height:28px;border-radius:8px;align-items:center;justify-content:center;background:#ecfeff;color:#0f766e;font-weight:900;font-size:12px}.flow-step strong,.pipeline-step strong,.sample-card strong,.capability-card strong{display:block;margin-top:10px;font-size:14px;color:#0f172a}.flow-step small,.pipeline-step span,.sample-card small,.capability-card span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.58}.pipeline-step{text-align:center}.more-samples{margin-top:10px;border:1px dashed #99f6e4;border-radius:10px;padding:10px;background:#f8fafc}.more-samples summary{cursor:pointer;color:#0f766e;font-weight:900;font-size:13px}.more-samples .btn-secondary{margin-top:10px}
+    .flow-step{position:relative;text-align:left;cursor:pointer;font:inherit}.flow-step:hover,.sample-card:hover{border-color:#5eead4;transform:translateY(-2px);box-shadow:0 18px 42px rgba(15,118,110,.14)}.flow-step span{display:inline-flex;width:28px;height:28px;border-radius:8px;align-items:center;justify-content:center;background:#ecfeff;color:#0f766e;font-weight:900;font-size:12px}.flow-step strong,.pipeline-step strong,.sample-card strong,.capability-card strong{display:block;margin-top:10px;font-size:14px;color:#0f172a}.flow-step small,.pipeline-step span,.sample-card small,.capability-card span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.58}.pipeline-step{text-align:center}.more-samples{margin-top:8px;border:1px dashed #99f6e4;border-radius:10px;padding:9px;background:#f8fafc}.more-samples summary{cursor:pointer;color:#0f766e;font-weight:900;font-size:13px}.more-samples .btn-secondary{margin-top:8px}
     .review-block{margin-bottom:18px}.review-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin:4px 0 12px}.review-head h3{margin:0;font-size:18px;color:#0f172a}.review-head p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.review-actions{display:flex;gap:10px;flex-wrap:wrap}.review-btn.dark{background:#0f172a;color:#fff;border-color:#0f172a}.capability-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.sample-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.sample-card{text-align:left;cursor:pointer}.sample-card span{display:inline-flex;margin-bottom:2px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0f766e;font-size:12px;font-weight:900}
     .site-footer{margin-top:20px;padding:18px 20px;border:1px solid rgba(255,255,255,.7);border-radius:12px;background:rgba(255,255,255,.82);box-shadow:var(--shadow);display:flex;justify-content:space-between;gap:16px;align-items:center;color:#475569;font-size:13px;line-height:1.6}.site-footer strong{color:#0f172a}.site-footer a{color:#0f766e;text-decoration:none;font-weight:900}
     .evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}.evidence-card{padding:16px}.evidence-card span{display:block;color:var(--muted);font-size:12px}.evidence-card strong{display:block;margin-top:8px;font-size:28px;color:#0f172a}.evidence-card small{display:block;color:#166534;margin-top:7px;font-size:12px}.api-pill{display:inline-flex;margin:3px 4px 3px 0;padding:5px 8px;border-radius:999px;background:#ecfeff;color:#0f766e;font-weight:800;font-size:12px}
@@ -206,16 +208,22 @@
               <strong>7 sources online</strong>
               <small>World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 统一进入标准化数据链路。</small>
               <div class="signal-bars">
-                <div class="signal-bar"><span>官方来源</span><i style="--w:100%"></i><b>7 / 7</b></div>
-                <div class="signal-bar"><span>经济体/地区</span><i style="--w:100%"></i><b>8 / 8</b></div>
-                <div class="signal-bar"><span>标准指标</span><i style="--w:100%"></i><b>18 / 18</b></div>
-                <div class="signal-bar"><span>示例查询</span><i style="--w:100%"></i><b>33 / 33</b></div>
+                <div class="signal-bar"><span>官方来源</span><b>7</b></div>
+                <div class="signal-bar"><span>经济体/地区</span><b>8</b></div>
+                <div class="signal-bar"><span>标准指标</span><b>18</b></div>
+                <div class="signal-bar"><span>示例查询</span><b>33</b></div>
               </div>
             </div>
             <div class="signal-card">
               <span>Quality Engine</span>
               <strong>traceable JSON</strong>
               <small>每次查询同步返回质量报告、来源血缘和机器可读结构。</small>
+              <div class="quality-mini">
+                <div><b>缺失检测</b><span>missing period count</span></div>
+                <div><b>重复检测</b><span>duplicate records</span></div>
+                <div><b>异常提醒</b><span>outlier warning</span></div>
+                <div><b>来源血缘</b><span>provider / dataset</span></div>
+              </div>
             </div>
           </div>
           <div class="command-line"><b>econview.query</b> /series?country=US&indicator=CPI_YOY <span class="command-caret"></span></div>
@@ -360,7 +368,15 @@
               <button class="btn btn-secondary" onclick="loadBisSample()">BIS 美国政策利率</button>
               <button class="btn btn-secondary" onclick="loadOecdSample()">OECD 美国 CPI 同比</button>
             </details>
-            <div class="hint"><div>官方 API 自动抓取</div><div>统一编码、单位、口径、来源</div><div>支持质量校验与错误返回</div></div>
+            <div class="runbook">
+              <h4>演示路径与数据链路</h4>
+              <div class="runbook-grid">
+                <div class="runbook-step"><strong>1. 选指标</strong><span>国家、频率、时间区间同步约束。</span></div>
+                <div class="runbook-step"><strong>2. 拉取 API</strong><span>请求官方来源并保留原始代码。</span></div>
+                <div class="runbook-step"><strong>3. 标准化</strong><span>统一单位、日期、口径和来源字段。</span></div>
+                <div class="runbook-step"><strong>4. 出结果</strong><span>图表、JSON、质量报告一起更新。</span></div>
+              </div>
+            </div>
           </div>
         </section>
 
