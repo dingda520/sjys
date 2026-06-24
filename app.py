@@ -2376,6 +2376,12 @@ class MacroHandler(SimpleHTTPRequestHandler):
                     self.send_header("Content-Type", "text/css; charset=utf-8")
                 elif file_path.suffix.lower() == ".js":
                     self.send_header("Content-Type", "application/javascript; charset=utf-8")
+                elif file_path.suffix.lower() == ".png":
+                    self.send_header("Content-Type", "image/png")
+                elif file_path.suffix.lower() in (".jpg", ".jpeg"):
+                    self.send_header("Content-Type", "image/jpeg")
+                elif file_path.suffix.lower() == ".webp":
+                    self.send_header("Content-Type", "image/webp")
                 else:
                     self.send_header("Content-Type", "application/octet-stream")
                 self.send_header("Content-Length", str(len(content)))

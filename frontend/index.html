@@ -120,12 +120,31 @@
     .review-block{margin-bottom:18px}.review-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin:4px 0 12px}.review-head h3{margin:0;font-size:18px;color:#0f172a}.review-head p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.review-actions{display:flex;gap:10px;flex-wrap:wrap}.review-btn.dark{background:#0f172a;color:#fff;border-color:#0f172a}.capability-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.sample-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.sample-card{text-align:left;cursor:pointer}.sample-card span{display:inline-flex;margin-bottom:2px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0f766e;font-size:12px;font-weight:900}
     .site-footer{margin-top:20px;padding:18px 20px;border:1px solid rgba(255,255,255,.7);border-radius:12px;background:rgba(255,255,255,.82);box-shadow:var(--shadow);display:flex;justify-content:space-between;gap:16px;align-items:center;color:#475569;font-size:13px;line-height:1.6}.site-footer strong{color:#0f172a}.site-footer a{color:#0f766e;text-decoration:none;font-weight:900}
     .evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}.evidence-card{padding:16px}.evidence-card span{display:block;color:var(--muted);font-size:12px}.evidence-card strong{display:block;margin-top:8px;font-size:28px;color:#0f172a}.evidence-card small{display:block;color:#166534;margin-top:7px;font-size:12px}.api-pill{display:inline-flex;margin:3px 4px 3px 0;padding:5px 8px;border-radius:999px;background:#ecfeff;color:#0f766e;font-weight:800;font-size:12px}
+    #ambientField{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.42;mix-blend-mode:multiply}
+    .app{position:relative;z-index:1}
+    .hero-button{font:inherit;cursor:pointer}
+    .observatory-panel{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(7,17,31,.96),rgba(12,30,48,.92));color:#e5f7ff;border-color:rgba(153,246,228,.22)}
+    .observatory-panel h3,.observatory-panel .score-row strong{color:#fff}.observatory-panel .score-row{border-bottom-color:rgba(190,222,255,.16)}.observatory-panel .score-row span{color:#b8cde1}
+    .observatory-panel .score-link{background:rgba(94,234,212,.12);border-color:rgba(153,246,228,.28);color:#c4fff4}
+    .render-preview{position:relative;isolation:isolate;min-height:276px;margin:-6px -6px 18px;border:1px solid rgba(190,222,255,.18);border-radius:18px;overflow:hidden;background:#08111f;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+    .render-preview img{display:block;width:100%;height:100%;min-height:276px;object-fit:cover;transform:scale(1.04);animation:renderFloat 13s ease-in-out infinite alternate}
+    .render-preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,31,.05),rgba(8,17,31,.62));z-index:1;pointer-events:none}
+    .render-caption{position:absolute;left:14px;right:14px;bottom:14px;z-index:4;display:flex;justify-content:space-between;gap:12px;align-items:flex-end;padding:12px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(3,10,18,.62);backdrop-filter:blur(14px)}
+    .render-caption span,.snapshot-status{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.render-caption strong{display:block;margin-top:4px;color:#fff;font-size:18px;line-height:1.1}.render-caption small{color:#b8cde1;font-size:12px}
+    .scan-beam{position:absolute;left:0;right:0;top:-28%;height:30%;z-index:3;background:linear-gradient(180deg,transparent,rgba(94,234,212,.22),transparent);animation:scanBeam 4.8s linear infinite;pointer-events:none}
+    .render-node{position:absolute;z-index:4;width:12px;height:12px;border-radius:999px;background:#5eead4;box-shadow:0 0 0 8px rgba(94,234,212,.13),0 0 28px rgba(94,234,212,.8);animation:nodePulse 2.4s ease-in-out infinite}.render-node.n-a{left:28%;top:37%}.render-node.n-b{left:62%;top:29%;background:#f6d365;animation-delay:.5s}.render-node.n-c{left:73%;top:58%;background:#60a5fa;animation-delay:1s}
+    .hero-panel>.hero-canvas{position:absolute;z-index:0}
+    .hero-band{align-items:start}
+    .snapshot-status{margin-top:12px;padding:10px 12px;border:1px solid rgba(153,246,228,.2);border-radius:12px;background:rgba(94,234,212,.08);color:#c4fff4;line-height:1.5;letter-spacing:0;text-transform:none}
+    .snapshot-status img,.snapshot-status canvas{display:block;width:100%;height:auto;max-height:170px;object-fit:cover;border-radius:10px;margin-top:2px}
+    @keyframes renderFloat{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.11) translate3d(-2%,1.5%,0)}}@keyframes scanBeam{to{transform:translateY(430%)}}@keyframes nodePulse{0%,100%{transform:scale(.86);opacity:.7}50%{transform:scale(1.18);opacity:1}}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
     @media (max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.source-grid{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer{align-items:flex-start;flex-direction:column}}
-    @media (max-width:680px){.main{padding:16px 12px 28px}.topbar{flex-direction:column;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.hero-stats,.hero-band,.evidence-grid,.quality-dashboard,.quality-context{grid-template-columns:1fr}.sidebar{padding:16px}.market-strip{display:none}.chart-wrap{height:300px}}
+    @media (max-width:680px){.main{padding:16px 12px 28px}.topbar{flex-direction:column;align-items:flex-start}.status{white-space:normal;max-width:100%;line-height:1.45;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.hero-stats,.hero-band,.evidence-grid,.quality-dashboard,.quality-context{grid-template-columns:1fr}.sidebar{padding:16px}.market-strip{display:none}.chart-wrap{height:300px}}
   </style>
 </head>
 <body>
+<canvas id="ambientField" aria-hidden="true"></canvas>
 <div class="app">
   <aside class="sidebar">
     <div class="brand"><div class="logo">E</div><div><h1>经观 EconView</h1><p>全球宏观经济数据治理与分析平台</p></div></div>
@@ -204,14 +223,27 @@
             <a class="hero-link" href="/data_element_report.pdf" target="_blank">查看项目报告 PDF</a>
             <a class="hero-link" href="/docs" target="_blank">接口文档</a>
             <a class="hero-link" href="/evaluation" target="_blank">评审证据</a>
+            <button class="hero-link hero-button" id="snapshotHero" type="button">生成渲染快照</button>
           </div>
         </div>
-        <div class="score-panel">
+        <div class="score-panel observatory-panel">
+          <div class="render-preview" id="renderPreview">
+            <img id="observatoryRender" src="assets/econview-observatory.png" alt="经观 EconView 全球宏观经济数据观测舱渲染图">
+            <div class="scan-beam"></div>
+            <i class="render-node n-a"></i>
+            <i class="render-node n-b"></i>
+            <i class="render-node n-c"></i>
+            <div class="render-caption">
+              <div><span>Render Preview</span><strong>Data Observatory</strong></div>
+              <small>7 sources · 18 indicators</small>
+            </div>
+          </div>
           <h3>复核入口</h3>
           <div class="score-row"><span>统一 Schema</span><a class="score-link" href="/schema" target="_blank">打开</a></div>
           <div class="score-row"><span>系统能力</span><a class="score-link" href="/capabilities" target="_blank">打开</a></div>
           <div class="score-row"><span>Agent 工具</span><a class="score-link" href="/agent-tools" target="_blank">打开</a></div>
           <div class="score-row"><span>33 条示例</span><a class="score-link" href="/sample-queries" target="_blank">打开</a></div>
+          <div class="snapshot-status" id="snapshotStatus">点击“生成渲染快照”，可在这里生成一张答辩展示图。</div>
         </div>
       </div>
 
@@ -970,7 +1002,110 @@ function initHeroCanvas(){
   requestAnimationFrame(draw);
 }
 
+function initAmbientField(){
+  const canvas=document.getElementById("ambientField");
+  if(!canvas)return;
+  const ctx=canvas.getContext("2d");
+  const reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let points=[],width=0,height=0,ratio=1;
+  function resize(){
+    ratio=Math.max(1,Math.min(2,window.devicePixelRatio||1));
+    width=window.innerWidth;height=window.innerHeight;
+    canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);
+    canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;
+    ctx.setTransform(ratio,0,0,ratio,0,0);
+    const count=Math.min(95,Math.max(42,Math.floor(width/18)));
+    points=Array.from({length:count},(_,i)=>({
+      x:Math.random()*width,y:Math.random()*height,
+      vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.32,
+      r:1+Math.random()*2.4,phase:i*.17
+    }));
+  }
+  function draw(t=0){
+    ctx.clearRect(0,0,width,height);
+    points.forEach((p,i)=>{
+      p.x+=p.vx+Math.sin(t*.0006+p.phase)*.045;
+      p.y+=p.vy+Math.cos(t*.0006+p.phase)*.045;
+      if(p.x<-20)p.x=width+20;if(p.x>width+20)p.x=-20;
+      if(p.y<-20)p.y=height+20;if(p.y>height+20)p.y=-20;
+      for(let j=i+1;j<points.length;j+=1){
+        const q=points[j],dx=p.x-q.x,dy=p.y-q.y,dist=Math.hypot(dx,dy);
+        if(dist<118){
+          ctx.strokeStyle=`rgba(15,118,110,${.18*(1-dist/118)})`;
+          ctx.lineWidth=1;
+          ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
+        }
+      }
+      ctx.fillStyle=i%9===0?"#b7791f":"#0f766e";
+      ctx.globalAlpha=.18+.28*Math.sin(t*.001+p.phase)**2;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+      ctx.globalAlpha=1;
+    });
+    if(!reduced)requestAnimationFrame(draw);
+  }
+  window.addEventListener("resize",resize);
+  resize();
+  requestAnimationFrame(draw);
+}
+
+function initSnapshotTools(){
+  const button=document.getElementById("snapshotHero");
+  const status=document.getElementById("snapshotStatus");
+  const img=document.getElementById("observatoryRender");
+  if(!button||!status||!img)return;
+  button.addEventListener("click",()=>{
+    const canvas=document.createElement("canvas");
+    canvas.width=1280;canvas.height=720;
+    const ctx=canvas.getContext("2d");
+    ctx.fillStyle="#08111f";ctx.fillRect(0,0,canvas.width,canvas.height);
+    try{ctx.drawImage(img,0,0,canvas.width,canvas.height);}catch(_){}
+    const shade=ctx.createLinearGradient(0,0,canvas.width,0);
+    shade.addColorStop(0,"rgba(5,12,22,.92)");
+    shade.addColorStop(.52,"rgba(5,12,22,.5)");
+    shade.addColorStop(1,"rgba(5,12,22,.12)");
+    ctx.fillStyle=shade;ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle="#f8fbff";ctx.font="800 58px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("经观 EconView",72,112);
+    ctx.font="700 30px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("全球宏观经济数据观测舱",74,166);
+    ctx.fillStyle="#c7d7e8";ctx.font="22px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("官方 API 接入 / 指标标准化 / 质量校验 / 数据血缘 / Agent JSON",74,216);
+    const cards=[["Sources","7 official APIs"],["Indicators","18 normalized"],["Samples","33 queries"],["Quality","traceable"]];
+    cards.forEach(([label,value],i)=>{
+      const x=74+i*286,y=560,w=246,h=92;
+      ctx.fillStyle="rgba(7,17,31,.74)";ctx.beginPath();ctx.roundRect?ctx.roundRect(x,y,w,h,18):ctx.rect(x,y,w,h);ctx.fill();
+      ctx.strokeStyle="rgba(153,246,228,.38)";ctx.stroke();
+      ctx.fillStyle="#99f6e4";ctx.font="700 16px Segoe UI, sans-serif";ctx.fillText(label.toUpperCase(),x+18,y+34);
+      ctx.fillStyle="#fff";ctx.font="800 22px Segoe UI, sans-serif";ctx.fillText(value,x+18,y+68);
+    });
+    status.innerHTML="";
+    try{
+      const url=canvas.toDataURL("image/png");
+      const preview=document.createElement("img");
+      preview.src=url;preview.alt="EconView 渲染快照";
+      preview.style.cssText="display:block;width:100%;max-height:170px;object-fit:cover;border-radius:10px;margin-top:2px";
+      status.appendChild(preview);
+    }catch(_){
+      canvas.style.cssText="display:block;width:100%;height:auto;max-height:170px;object-fit:cover;border-radius:10px;margin-top:2px";
+      status.appendChild(canvas);
+    }
+  });
+}
+
+function polishLandingCopy(){
+  document.title="经观 EconView | 全球宏观经济数据观测舱";
+  const hero=document.querySelector(".hero-panel");
+  if(hero){
+    const eyebrow=hero.querySelector(".hero-eyebrow");
+    const title=hero.querySelector("h3");
+    const intro=hero.querySelector("p");
+    if(eyebrow)eyebrow.textContent="全球宏观经济数据治理与分析平台";
+    if(title)title.textContent="经观 EconView";
+    if(intro)intro.textContent="观全球经济，见数据脉络。平台围绕官方宏观经济数据，完成来源接入、指标标准化、质量校验、血缘追踪、JSON API 和 Agent 友好接口的一体化展示。";
+  }
+}
+
+initAmbientField();
 initHeroCanvas();
+initSnapshotTools();
+polishLandingCopy();
 init();
 </script>
 </body>
