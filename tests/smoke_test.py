@@ -174,6 +174,30 @@ def test_validation_errors():
     assert_true(result["error"]["code"] == "validation_error", "unsupported scope should return validation_error")
 
 
+def test_bls_parser_skips_missing_value_markers():
+    raw = {
+        "Results": {
+            "series": [
+                {
+                    "data": [
+                        {"year": "2024", "period": "M02", "value": "312.332", "footnotes": [{}]},
+                        {"year": "2024", "period": "M01", "value": "-", "footnotes": [{}]},
+                        {"year": "2023", "period": "M02", "value": "300.840", "footnotes": [{}]},
+                        {"year": "2023", "period": "M01", "value": "299.170", "footnotes": [{}]},
+                    ]
+                }
+            ]
+        }
+    }
+    parsed = app.parse_bls_observations(raw)
+    assert_true(len(parsed) == 3, "BLS parser should skip '-' missing value markers")
+    assert_true(all(item["value"] != "-" for item in parsed), "BLS parser should return numeric values only")
+
+    yoy = app.compute_yoy(parsed, "2024-01", "2024-12")
+    assert_true(len(yoy) == 1, "YoY should still compute months with valid current and prior values")
+    assert_true(yoy[0]["date"] == "2024-02", "YoY should preserve the valid CPI month")
+
+
 def test_visualization_payload():
     result = app.standardize_series(
         "CN",

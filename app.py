@@ -722,11 +722,18 @@ def parse_bls_observations(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
         value_raw = item.get("value")
         if value_raw is None:
             continue
+        value_text = str(value_raw).replace(",", "").strip()
+        if value_text in {"", "-", "."}:
+            continue
+        try:
+            value = float(value_text)
+        except ValueError:
+            continue
         footnotes = item.get("footnotes", [])
         status = "preliminary" if any(isinstance(f, dict) and f.get("code") == "P" for f in footnotes) else "final"
         observations.append({
             "date": date,
-            "value": float(str(value_raw).replace(",", "")),
+            "value": value,
             "status": status,
         })
     return sorted(observations, key=lambda x: x["date"])
