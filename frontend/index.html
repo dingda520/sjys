@@ -686,7 +686,7 @@ function drawChart(obs,unit="",emptyMessage="暂无数据"){
   const rawValues=numericValues(obs), scale=chooseScale(rawValues,unit), values=obs.map(o=>Number(o.value)/scale.divisor);
   let min=Math.min(...values), max=Math.max(...values); if(min===max){min-=1;max+=1;} const originalSpan=max-min; min-=originalSpan*.12; max+=originalSpan*.12;
   if(min>0)min=0; if(max<0)max=0;
-  const pad={left:86,right:92,top:28,bottom:46}; const plotW=w-pad.left-pad.right, plotH=h-pad.top-pad.bottom;
+  const pad={left:86,right:92,top:28,bottom:54}; const plotW=w-pad.left-pad.right, plotH=h-pad.top-pad.bottom;
   const y=v=>pad.top+(max-v)/(max-min)*plotH; const x=i=>pad.left+i/Math.max(1,obs.length-1)*plotW;
   ctx.strokeStyle="#e5e7eb";ctx.lineWidth=1;ctx.fillStyle="#64748b";
   for(let i=0;i<=4;i++){const value=max-i*(max-min)/4, yy=y(value);ctx.beginPath();ctx.moveTo(pad.left,yy);ctx.lineTo(w-pad.right,yy);ctx.stroke();ctx.fillText(formatCompact(value),12,yy+4);}
@@ -694,7 +694,34 @@ function drawChart(obs,unit="",emptyMessage="暂无数据"){
   const gradient=ctx.createLinearGradient(0,pad.top,0,h-pad.bottom);gradient.addColorStop(0,"rgba(37,99,235,.18)");gradient.addColorStop(1,"rgba(37,99,235,0)");
   ctx.beginPath();values.forEach((v,i)=>{const xx=x(i),yy=y(v);if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});ctx.lineTo(x(values.length-1),h-pad.bottom);ctx.lineTo(x(0),h-pad.bottom);ctx.closePath();ctx.fillStyle=gradient;ctx.fill();
   ctx.beginPath();values.forEach((v,i)=>{const xx=x(i),yy=y(v);if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});ctx.strokeStyle="#2563eb";ctx.lineWidth=3;ctx.lineJoin="round";ctx.lineCap="round";ctx.stroke();
-  const step=Math.max(1,Math.ceil(obs.length/7));obs.forEach((o,i)=>{const xx=x(i),yy=y(values[i]);if(obs.length<=28||i%step===0||i===obs.length-1){ctx.fillStyle="#2563eb";ctx.beginPath();ctx.arc(xx,yy,3.5,0,Math.PI*2);ctx.fill();}if(i%step===0||i===obs.length-1){ctx.fillStyle="#64748b";ctx.fillText(String(o.date),Math.max(pad.left-10,Math.min(xx-18,w-pad.right-36)),h-17);}});
+  const pointStep=Math.max(1,Math.ceil(obs.length/28));
+  const labelFont="12px -apple-system,BlinkMacSystemFont,Segoe UI";
+  ctx.font=labelFont;
+  const maxLabelW=Math.max(...obs.map(o=>ctx.measureText(String(o.date)).width), 48);
+  const minLabelGap=maxLabelW+18;
+  const maxLabels=Math.max(2,Math.floor(plotW/minLabelGap)+1);
+  const labelStep=Math.max(1,Math.ceil((obs.length-1)/Math.max(1,maxLabels-1)));
+  const labelIndexes=[];
+  for(let i=0;i<obs.length;i+=labelStep)labelIndexes.push(i);
+  if(labelIndexes[labelIndexes.length-1]!==obs.length-1)labelIndexes.push(obs.length-1);
+  const filteredLabelIndexes=[];
+  labelIndexes.forEach((i)=>{
+    const xx=x(i);
+    const last=filteredLabelIndexes[filteredLabelIndexes.length-1];
+    if(last===undefined||xx-x(last)>=minLabelGap||i===obs.length-1)filteredLabelIndexes.push(i);
+  });
+  if(filteredLabelIndexes.length>1){
+    const last=filteredLabelIndexes[filteredLabelIndexes.length-1];
+    const prev=filteredLabelIndexes[filteredLabelIndexes.length-2];
+    if(x(last)-x(prev)<minLabelGap&&prev!==0)filteredLabelIndexes.splice(filteredLabelIndexes.length-2,1);
+  }
+  const labelSet=new Set(filteredLabelIndexes);
+  obs.forEach((o,i)=>{
+    const xx=x(i),yy=y(values[i]);
+    if(i%pointStep===0||i===obs.length-1){ctx.fillStyle="#2563eb";ctx.beginPath();ctx.arc(xx,yy,3.5,0,Math.PI*2);ctx.fill();}
+    if(labelSet.has(i)){ctx.fillStyle="#64748b";ctx.textAlign="center";ctx.fillText(String(o.date),Math.max(pad.left,Math.min(xx,w-pad.right)),h-19);}
+  });
+  ctx.textAlign="left";
   const last=obs[obs.length-1], lastX=x(obs.length-1), lastY=y(values[values.length-1]), label=formatValue(last.value,scale);
   ctx.font="bold 12px -apple-system,BlinkMacSystemFont,Segoe UI";const labelW=ctx.measureText(label).width+16;let bx=Math.min(lastX+10,w-labelW-8);let by=Math.max(8,lastY-28);
   ctx.fillStyle="#eff6ff";ctx.strokeStyle="#bfdbfe";ctx.lineWidth=1;ctx.beginPath();if(ctx.roundRect){ctx.roundRect(bx,by,labelW,24,8);}else{ctx.rect(bx,by,labelW,24);}ctx.fill();ctx.stroke();ctx.fillStyle="#1d4ed8";ctx.fillText(label,bx+8,by+16);
