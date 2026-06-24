@@ -99,10 +99,21 @@
     .error{color:#991b1b;background:#fff1f2;border:1px solid #fecdd3;padding:12px;border-radius:10px;margin-top:12px;font-size:13px;display:none;line-height:1.6;white-space:pre-wrap}
     .page-card{padding:22px;margin-bottom:18px}.page-card h3{margin:0 0 8px}.page-card p{color:var(--muted);line-height:1.7}
     .source-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.source-box{padding:16px}.source-box h4{margin:0 0 8px}.source-box p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
-    .hero-band{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:16px;margin-bottom:18px}.hero-panel{position:relative;overflow:hidden;color:#fff;border-radius:18px;box-shadow:var(--shadow);padding:24px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,#08111f,#12343b 62%,#28431f)}
+    .hero-band{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:16px;margin-bottom:18px}.hero-panel{position:relative;overflow:hidden;min-height:430px;color:#fff;border-radius:18px;box-shadow:var(--shadow);padding:24px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,#08111f,#12343b 62%,#28431f)}
     .hero-panel::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 56px);opacity:.6}
-    .hero-panel>*{position:relative}.hero-panel h3{margin:0 0 10px;font-size:clamp(30px,4vw,52px);line-height:1;letter-spacing:0}.hero-panel p{margin:0;color:#d1dce8;line-height:1.75;max-width:840px}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.hero-link{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:13px;font-weight:800;border:1px solid rgba(255,255,255,.16)}
+    .hero-panel::after{content:"";position:absolute;inset:auto 0 0;height:48%;background:linear-gradient(180deg,transparent,rgba(8,17,31,.86));pointer-events:none}
+    .hero-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.92;mix-blend-mode:screen}
+    .hero-panel>*{position:relative;z-index:1}.hero-panel h3{margin:0 0 10px;font-size:clamp(36px,5vw,72px);line-height:.95;letter-spacing:0;text-shadow:0 18px 55px rgba(20,184,166,.22)}.hero-panel p{margin:0;color:#d1dce8;line-height:1.75;max-width:760px}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.hero-link{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:13px;font-weight:800;border:1px solid rgba(255,255,255,.16)}
     .hero-link:hover{background:rgba(255,255,255,.16)}.hero-eyebrow{display:inline-flex;margin-bottom:12px;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.1);color:#99f6e4;font-size:12px;font-weight:900}.hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:20px}.hero-stat{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);border-radius:10px;padding:11px}.hero-stat strong{display:block;font-size:26px;color:#fff}.hero-stat span{display:block;margin-top:3px;color:#cbd5e1;font-size:12px}
+    .signal-deck{display:grid;grid-template-columns:1.15fr .85fr;gap:12px;margin-top:18px;max-width:780px}
+    .signal-card{border:1px solid rgba(153,246,228,.24);background:rgba(4,13,26,.52);box-shadow:inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(12px);border-radius:14px;padding:14px}
+    .signal-card span{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .signal-card strong{display:block;margin-top:7px;color:#fff;font-size:22px;line-height:1.1}
+    .signal-card small{display:block;margin-top:7px;color:#a8c3d7;font-size:12px;line-height:1.45}
+    .signal-bars{display:grid;gap:8px;margin-top:10px}.signal-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}.signal-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#5eead4,#f6d365);animation:barPulse 3.6s ease-in-out infinite}.signal-bar:nth-child(2) i{animation-delay:.7s}.signal-bar:nth-child(3) i{animation-delay:1.2s}
+    @keyframes barPulse{0%,100%{width:42%}45%{width:96%}70%{width:68%}}
+    .command-line{margin-top:18px;display:flex;gap:8px;align-items:center;max-width:760px;padding:10px 12px;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(3,7,18,.58);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#c4fff4;font-size:12px;overflow:hidden}
+    .command-line b{color:#f6d365}.command-caret{display:inline-block;width:8px;height:16px;background:#5eead4;animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}
     .score-panel{padding:18px}.score-panel h3{margin:0 0 12px;font-size:16px}.score-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.score-row:last-child{border-bottom:0}.score-row strong{font-size:18px;color:#0f172a}
     .flow-grid,.pipeline-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.flow-step,.pipeline-step,.sample-card,.capability-card{background:#fff;border:1px solid rgba(255,255,255,.75);border-radius:12px;box-shadow:var(--shadow);padding:15px;color:var(--text)}
     .flow-step{position:relative;text-align:left;cursor:pointer;font:inherit}.flow-step:hover,.sample-card:hover{border-color:#5eead4;transform:translateY(-2px);box-shadow:0 18px 42px rgba(15,118,110,.14)}.flow-step span{display:inline-flex;width:28px;height:28px;border-radius:8px;align-items:center;justify-content:center;background:#ecfeff;color:#0f766e;font-weight:900;font-size:12px}.flow-step strong,.pipeline-step strong,.sample-card strong,.capability-card strong{display:block;margin-top:10px;font-size:14px;color:#0f172a}.flow-step small,.pipeline-step span,.sample-card small,.capability-card span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.58}.pipeline-step{text-align:center}.more-samples{margin-top:10px;border:1px dashed #99f6e4;border-radius:10px;padding:10px;background:#f8fafc}.more-samples summary{cursor:pointer;color:#0f766e;font-weight:900;font-size:13px}.more-samples .btn-secondary{margin-top:10px}
@@ -165,9 +176,24 @@
     <section id="page-query" class="section active">
       <div class="hero-band">
         <div class="hero-panel">
+          <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
           <span class="hero-eyebrow">全球宏观经济数据治理与分析平台</span>
           <h3>经观 EconView</h3>
           <p>观全球经济，见数据脉络。平台围绕官方宏观经济数据，完成来源接入、指标标准化、质量校验、血缘追踪、JSON API 和 Agent 友好接口的一体化展示。</p>
+          <div class="signal-deck" aria-label="平台实时能力状态">
+            <div class="signal-card">
+              <span>Live Data Mesh</span>
+              <strong>7 sources online</strong>
+              <small>World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 统一进入标准化数据链路。</small>
+              <div class="signal-bars"><div class="signal-bar"><i></i></div><div class="signal-bar"><i></i></div><div class="signal-bar"><i></i></div></div>
+            </div>
+            <div class="signal-card">
+              <span>Quality Engine</span>
+              <strong>traceable JSON</strong>
+              <small>每次查询同步返回质量报告、来源血缘和机器可读结构。</small>
+            </div>
+          </div>
+          <div class="command-line"><b>econview.query</b> /series?country=US&indicator=CPI_YOY <span class="command-caret"></span></div>
           <div class="hero-stats">
             <div class="hero-stat"><strong>7</strong><span>类官方来源</span></div>
             <div class="hero-stat"><strong>8</strong><span>个经济体/地区</span></div>
@@ -812,6 +838,139 @@ function drawBarChart(rows,scale){
   ctx.fillStyle="#475569";ctx.fillText(`单位：${scale.label}`,pad.left,pad.top-8);
   rows.forEach((r,i)=>{const cy=pad.top+i*rowH+rowH/2, barH=Math.min(30,rowH*.5), bw=Math.abs(r.value)/max*barMax;ctx.fillStyle="#64748b";ctx.textAlign="right";ctx.fillText(r.country,pad.left-14,cy+4);ctx.textAlign="left";ctx.fillStyle="#eff6ff";ctx.fillRect(pad.left,cy-barH/2,barMax,barH);const grad=ctx.createLinearGradient(pad.left,0,pad.left+bw,0);grad.addColorStop(0,"#60a5fa");grad.addColorStop(1,"#2563eb");ctx.fillStyle=grad;ctx.fillRect(pad.left,cy-barH/2,bw,barH);ctx.fillStyle="#0f172a";ctx.font="700 13px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillText(formatValue(r.value,scale),Math.min(pad.left+bw+10,w-pad.right+4),cy+4);ctx.font="13px -apple-system,BlinkMacSystemFont,Segoe UI";});
 }
+
+function initHeroCanvas(){
+  const canvas=document.getElementById("heroCanvas");
+  const panel=document.querySelector(".hero-panel");
+  if(!canvas||!panel)return;
+  const prefersReduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ctx=canvas.getContext("2d");
+  const sources=[
+    {name:"World Bank",angle:.1,weight:1.1},
+    {name:"BLS",angle:1.0,weight:.86},
+    {name:"Eurostat",angle:1.8,weight:.95},
+    {name:"IMF",angle:2.7,weight:.78},
+    {name:"OECD",angle:3.6,weight:.88},
+    {name:"ECB",angle:4.5,weight:.72},
+    {name:"BIS",angle:5.3,weight:.7}
+  ];
+  let width=0,height=0,ratio=1,mouse={x:0,y:0,active:false};
+  function resize(){
+    const rect=panel.getBoundingClientRect();
+    ratio=Math.max(1,Math.min(2,window.devicePixelRatio||1));
+    width=Math.max(320,rect.width);
+    height=Math.max(360,rect.height);
+    canvas.width=Math.round(width*ratio);
+    canvas.height=Math.round(height*ratio);
+    canvas.style.width=`${width}px`;
+    canvas.style.height=`${height}px`;
+    ctx.setTransform(ratio,0,0,ratio,0,0);
+  }
+  function pointFor(source,t){
+    const cx=width*.66, cy=height*.44;
+    const rx=width*.27*source.weight, ry=height*.24*source.weight;
+    const a=source.angle+t*.00018;
+    const z=(Math.sin(a)+1)/2;
+    return {x:cx+Math.cos(a)*rx,y:cy+Math.sin(a)*ry,z,a};
+  }
+  function line(a,b,alpha,widthLine){
+    ctx.strokeStyle=`rgba(94,234,212,${alpha})`;
+    ctx.lineWidth=widthLine;
+    ctx.beginPath();
+    ctx.moveTo(a.x,a.y);
+    const mx=(a.x+b.x)/2, my=(a.y+b.y)/2-height*.08;
+    ctx.quadraticCurveTo(mx,my,b.x,b.y);
+    ctx.stroke();
+  }
+  function draw(t){
+    ctx.clearRect(0,0,width,height);
+    const cx=width*.66, cy=height*.44;
+    const halo=ctx.createRadialGradient(cx,cy,10,cx,cy,Math.max(width,height)*.52);
+    halo.addColorStop(0,"rgba(94,234,212,.22)");
+    halo.addColorStop(.45,"rgba(20,184,166,.08)");
+    halo.addColorStop(1,"rgba(20,184,166,0)");
+    ctx.fillStyle=halo;
+    ctx.fillRect(0,0,width,height);
+
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.strokeStyle="rgba(148,163,184,.16)";
+    ctx.lineWidth=1;
+    for(let i=0;i<4;i++){
+      ctx.beginPath();
+      ctx.ellipse(0,0,width*(.16+i*.035),height*(.11+i*.026),i*.35+t*.00004,0,Math.PI*2);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    const hub={x:cx,y:cy,z:1};
+    const points=sources.map(s=>({...s,...pointFor(s,t)})).sort((a,b)=>a.z-b.z);
+    points.forEach((p,i)=>{
+      const alpha=.16+p.z*.24;
+      line(hub,p,alpha,1+p.z*1.5);
+      const q=points[(i+2)%points.length];
+      if(q)line(p,q,.06+p.z*.08,.75);
+      const pulse=(t*.00034+i*.13)%1;
+      const px=hub.x+(p.x-hub.x)*pulse;
+      const py=hub.y+(p.y-hub.y)*pulse;
+      ctx.fillStyle=`rgba(246,211,101,${.45+p.z*.35})`;
+      ctx.beginPath();
+      ctx.arc(px,py,2.2+p.z*1.8,0,Math.PI*2);
+      ctx.fill();
+    });
+
+    ctx.fillStyle="rgba(236,254,255,.9)";
+    ctx.strokeStyle="rgba(153,246,228,.5)";
+    ctx.lineWidth=1.4;
+    ctx.beginPath();
+    ctx.arc(hub.x,hub.y,15+Math.sin(t*.003)*2,0,Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle="#0f766e";
+    ctx.font="800 10px Inter, system-ui";
+    ctx.textAlign="center";
+    ctx.fillText("API",hub.x,hub.y+4);
+
+    points.forEach(p=>{
+      const hover=mouse.active&&Math.hypot(mouse.x-p.x,mouse.y-p.y)<48;
+      const r=7+p.z*10+(hover?5:0);
+      const glow=ctx.createRadialGradient(p.x,p.y,1,p.x,p.y,r*2.8);
+      glow.addColorStop(0,hover?"rgba(246,211,101,.95)":"rgba(94,234,212,.8)");
+      glow.addColorStop(1,"rgba(94,234,212,0)");
+      ctx.fillStyle=glow;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,r*2.4,0,Math.PI*2);
+      ctx.fill();
+      ctx.fillStyle=hover?"#f6d365":"#5eead4";
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,r,0,Math.PI*2);
+      ctx.fill();
+      ctx.strokeStyle="rgba(255,255,255,.78)";
+      ctx.stroke();
+      ctx.fillStyle=hover?"#fff":"rgba(219,234,254,.88)";
+      ctx.font=`800 ${hover?13:12}px Inter, system-ui`;
+      ctx.textAlign=p.x>cx?"left":"right";
+      ctx.fillText(p.name,p.x+(p.x>cx?16:-16),p.y+4);
+    });
+
+    ctx.textAlign="left";
+    ctx.fillStyle="rgba(203,213,225,.36)";
+    ctx.font="11px ui-monospace, SFMono-Regular, Consolas, monospace";
+    const readout=["standardize()", "quality_check()", "trace_lineage()", "emit_json()"];
+    readout.forEach((text,i)=>ctx.fillText(text,width*.055,height*.48+i*18));
+    if(!prefersReduced)requestAnimationFrame(draw);
+  }
+  panel.addEventListener("mousemove",event=>{
+    const rect=canvas.getBoundingClientRect();
+    mouse={x:event.clientX-rect.left,y:event.clientY-rect.top,active:true};
+  });
+  panel.addEventListener("mouseleave",()=>{mouse.active=false;});
+  window.addEventListener("resize",resize);
+  resize();
+  requestAnimationFrame(draw);
+}
+
+initHeroCanvas();
 init();
 </script>
 </body>
