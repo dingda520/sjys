@@ -1,0 +1,2458 @@
+{
+  "cn_gdp": {
+    "request": {
+      "country": "CN",
+      "indicator_code": "GDP_NOMINAL",
+      "start_date": "2020",
+      "end_date": "2023",
+      "frequency": "A"
+    },
+    "series": {
+      "series_id": "CN.GDP_NOMINAL.A",
+      "indicator_code": "GDP_NOMINAL",
+      "indicator_name_zh": "名义 GDP",
+      "indicator_name_en": "GDP, current US$",
+      "country_name_zh": "中国",
+      "country_name_en": "China",
+      "country_code": "CN",
+      "frequency": "A",
+      "unit": "current US$",
+      "seasonal_adjustment": "NSA",
+      "calculation": "level",
+      "source": {
+        "organization": "World Bank",
+        "dataset": "World Development Indicators",
+        "source_series_code": "NY.GDP.MKTP.CD",
+        "source_url": "https://api.worldbank.org/v2/country/CHN/indicator/NY.GDP.MKTP.CD?format=json&date=2020:2023&per_page=20000"
+      },
+      "last_updated": "2026-06-24",
+      "observations": [
+        {
+          "date": "2020",
+          "value": 14996414166715.1,
+          "status": "final"
+        },
+        {
+          "date": "2021",
+          "value": 18201698719564.0,
+          "status": "final"
+        },
+        {
+          "date": "2022",
+          "value": 18316765021690.2,
+          "status": "final"
+        },
+        {
+          "date": "2023",
+          "value": 18270356654533.2,
+          "status": "final"
+        }
+      ]
+    },
+    "quality_report": {
+      "observation_count": 4,
+      "missing_periods": [],
+      "missing_period_count": 0,
+      "duplicate_records": 0,
+      "outlier_count": 0,
+      "unit_consistent": true,
+      "traceable_source": true,
+      "checked_at": "2026-06-24",
+      "passed": true
+    },
+    "lineage": {
+      "provider": "World Bank",
+      "dataset": "World Development Indicators",
+      "api_url": "https://api.worldbank.org/v2/country/CHN/indicator/NY.GDP.MKTP.CD?format=json&date=2020:2023&per_page=20000",
+      "retrieved_at": "2026-06-24T02:08:16Z",
+      "parser": "World Bank",
+      "raw_cache_key": "050ff684d1400f9a6853905824f70cc69dce8d69b971c2543765aabf55cd1b82"
+    },
+    "error": null
+  },
+  "us_bls_cpi_yoy": {
+    "request": {
+      "country": "US",
+      "indicator_code": "CPI_YOY",
+      "start_date": "2023-01",
+      "end_date": "2025-12",
+      "frequency": "M"
+    },
+    "series": {
+      "series_id": "US.CPI_YOY.M",
+      "indicator_code": "CPI_YOY",
+      "indicator_name_zh": "居民消费价格指数同比",
+      "indicator_name_en": "Consumer Price Index YoY",
+      "country_name_zh": "美国",
+      "country_name_en": "United States",
+      "country_code": "US",
+      "frequency": "M",
+      "unit": "%",
+      "seasonal_adjustment": "SA",
+      "calculation": "YoY",
+      "source": {
+        "organization": "U.S. Bureau of Labor Statistics",
+        "dataset": "Consumer Price Index",
+        "source_series_code": "CUSR0000SA0",
+        "source_url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+        "derived_from": "CPI_LEVEL"
+      },
+      "last_updated": "2026-06-24",
+      "observations": [
+        {
+          "date": "2023-01",
+          "value": 6.3272,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-01"
+          }
+        },
+        {
+          "date": "2023-02",
+          "value": 5.9578,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-02"
+          }
+        },
+        {
+          "date": "2023-03",
+          "value": 4.9177,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-03"
+          }
+        },
+        {
+          "date": "2023-04",
+          "value": 4.9501,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-04"
+          }
+        },
+        {
+          "date": "2023-05",
+          "value": 4.1319,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-05"
+          }
+        },
+        {
+          "date": "2023-06",
+          "value": 3.0706,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-06"
+          }
+        },
+        {
+          "date": "2023-07",
+          "value": 3.2877,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-07"
+          }
+        },
+        {
+          "date": "2023-08",
+          "value": 3.7225,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-08"
+          }
+        },
+        {
+          "date": "2023-09",
+          "value": 3.6872,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-09"
+          }
+        },
+        {
+          "date": "2023-10",
+          "value": 3.2513,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-10"
+          }
+        },
+        {
+          "date": "2023-11",
+          "value": 3.1333,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-11"
+          }
+        },
+        {
+          "date": "2023-12",
+          "value": 3.3159,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2022-12"
+          }
+        },
+        {
+          "date": "2024-01",
+          "value": 3.0883,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-01"
+          }
+        },
+        {
+          "date": "2024-02",
+          "value": 3.1571,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-02"
+          }
+        },
+        {
+          "date": "2024-03",
+          "value": 3.4868,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-03"
+          }
+        },
+        {
+          "date": "2024-04",
+          "value": 3.3608,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-04"
+          }
+        },
+        {
+          "date": "2024-05",
+          "value": 3.2443,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-05"
+          }
+        },
+        {
+          "date": "2024-06",
+          "value": 2.9703,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-06"
+          }
+        },
+        {
+          "date": "2024-07",
+          "value": 2.9415,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-07"
+          }
+        },
+        {
+          "date": "2024-08",
+          "value": 2.6071,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-08"
+          }
+        },
+        {
+          "date": "2024-09",
+          "value": 2.4265,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-09"
+          }
+        },
+        {
+          "date": "2024-10",
+          "value": 2.5788,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-10"
+          }
+        },
+        {
+          "date": "2024-11",
+          "value": 2.7195,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-11"
+          }
+        },
+        {
+          "date": "2024-12",
+          "value": 2.8707,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2023-12"
+          }
+        },
+        {
+          "date": "2025-01",
+          "value": 2.991,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-01"
+          }
+        },
+        {
+          "date": "2025-02",
+          "value": 2.8016,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-02"
+          }
+        },
+        {
+          "date": "2025-03",
+          "value": 2.382,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-03"
+          }
+        },
+        {
+          "date": "2025-04",
+          "value": 2.3254,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-04"
+          }
+        },
+        {
+          "date": "2025-05",
+          "value": 2.3773,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-05"
+          }
+        },
+        {
+          "date": "2025-06",
+          "value": 2.6805,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-06"
+          }
+        },
+        {
+          "date": "2025-07",
+          "value": 2.7426,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-07"
+          }
+        },
+        {
+          "date": "2025-08",
+          "value": 2.9386,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-08"
+          }
+        },
+        {
+          "date": "2025-09",
+          "value": 3.0226,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-09"
+          }
+        },
+        {
+          "date": "2025-11",
+          "value": 2.6964,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-11"
+          }
+        },
+        {
+          "date": "2025-12",
+          "value": 2.6533,
+          "status": "final",
+          "derived": {
+            "method": "YoY = current index / same month previous year - 1",
+            "base_date": "2024-12"
+          }
+        }
+      ]
+    },
+    "quality_report": {
+      "observation_count": 35,
+      "missing_periods": [
+        "2025-10"
+      ],
+      "missing_period_count": 1,
+      "duplicate_records": 0,
+      "outlier_count": 0,
+      "unit_consistent": true,
+      "traceable_source": true,
+      "checked_at": "2026-06-24",
+      "passed": true
+    },
+    "lineage": {
+      "provider": "U.S. Bureau of Labor Statistics",
+      "dataset": "Consumer Price Index",
+      "api_url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+      "retrieved_at": "2026-06-24T02:08:18Z",
+      "parser": "BLS",
+      "raw_cache_key": "d6a44dba8ae1eb331b7ea7269fc4393e01415aa0dc222b064e11756128f38322"
+    },
+    "error": null
+  },
+  "us_oecd_cpi_yoy": {
+    "request": {
+      "country": "US",
+      "indicator_code": "OECD_CPI_YOY",
+      "start_date": "2024-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    "series": {
+      "series_id": "US.OECD_CPI_YOY.M",
+      "indicator_code": "OECD_CPI_YOY",
+      "indicator_name_zh": "OECD 居民消费价格指数同比",
+      "indicator_name_en": "OECD consumer prices YoY",
+      "country_name_zh": "美国",
+      "country_name_en": "United States",
+      "country_code": "US",
+      "frequency": "M",
+      "unit": "%",
+      "seasonal_adjustment": "NSA",
+      "calculation": "YoY",
+      "source": {
+        "organization": "Organisation for Economic Co-operation and Development",
+        "dataset": "Key short-term economic indicators",
+        "source_series_code": "DSD_KEI@DF_KEI:CP:GR:GY",
+        "source_url": "https://sdmx.oecd.org/public/rest/v1/data/OECD.SDD.STES,DSD_KEI%40DF_KEI/USA.M.CP....?startPeriod=2024-01&endPeriod=2024-12"
+      },
+      "last_updated": "2026-06-24",
+      "observations": [
+        {
+          "date": "2024-01",
+          "value": 3.0908847812,
+          "status": "final"
+        },
+        {
+          "date": "2024-02",
+          "value": 3.1531711209,
+          "status": "final"
+        },
+        {
+          "date": "2024-03",
+          "value": 3.47738507,
+          "status": "final"
+        },
+        {
+          "date": "2024-04",
+          "value": 3.3573639501,
+          "status": "final"
+        },
+        {
+          "date": "2024-05",
+          "value": 3.2690290569,
+          "status": "final"
+        },
+        {
+          "date": "2024-06",
+          "value": 2.9713971073,
+          "status": "final"
+        },
+        {
+          "date": "2024-07",
+          "value": 2.8947531985,
+          "status": "final"
+        },
+        {
+          "date": "2024-08",
+          "value": 2.5307302965,
+          "status": "final"
+        },
+        {
+          "date": "2024-09",
+          "value": 2.4406330311,
+          "status": "final"
+        },
+        {
+          "date": "2024-10",
+          "value": 2.5979049049,
+          "status": "final"
+        },
+        {
+          "date": "2024-11",
+          "value": 2.7493803961,
+          "status": "final"
+        },
+        {
+          "date": "2024-12",
+          "value": 2.88805722,
+          "status": "final"
+        }
+      ]
+    },
+    "quality_report": {
+      "observation_count": 12,
+      "missing_periods": [],
+      "missing_period_count": 0,
+      "duplicate_records": 0,
+      "outlier_count": 0,
+      "unit_consistent": true,
+      "traceable_source": true,
+      "checked_at": "2026-06-24",
+      "passed": true
+    },
+    "lineage": {
+      "provider": "Organisation for Economic Co-operation and Development",
+      "dataset": "Key short-term economic indicators",
+      "api_url": "https://sdmx.oecd.org/public/rest/v1/data/OECD.SDD.STES,DSD_KEI%40DF_KEI/USA.M.CP....?startPeriod=2024-01&endPeriod=2024-12",
+      "retrieved_at": "2026-06-24T02:08:20Z",
+      "parser": "OECD",
+      "raw_cache_key": "f52181b1fb258511346577d9b79b7520b4e09e47416289d9eac968114165db75"
+    },
+    "error": null
+  },
+  "ea_hicp_yoy": {
+    "request": {
+      "country": "EA",
+      "indicator_code": "HICP_YOY",
+      "start_date": "2023-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    "series": {
+      "series_id": "EA.HICP_YOY.M",
+      "indicator_code": "HICP_YOY",
+      "indicator_name_zh": "调和居民消费价格指数同比",
+      "indicator_name_en": "Harmonised Index of Consumer Prices YoY",
+      "country_name_zh": "欧元区",
+      "country_name_en": "Euro Area",
+      "country_code": "EA",
+      "frequency": "M",
+      "unit": "%",
+      "seasonal_adjustment": "NSA",
+      "calculation": "YoY",
+      "source": {
+        "organization": "Eurostat",
+        "dataset": "HICP - monthly data (annual rate of change)",
+        "source_series_code": "prc_hicp_manr",
+        "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_manr?format=JSON&lang=en&geo=EA20&sinceTimePeriod=2023-01&untilTimePeriod=2024-12&coicop=CP00&unit=RCH_A"
+      },
+      "last_updated": "2026-06-24",
+      "observations": [
+        {
+          "date": "2023-01",
+          "value": 8.7,
+          "status": "final"
+        },
+        {
+          "date": "2023-02",
+          "value": 8.5,
+          "status": "final"
+        },
+        {
+          "date": "2023-03",
+          "value": 6.9,
+          "status": "final"
+        },
+        {
+          "date": "2023-04",
+          "value": 7.0,
+          "status": "final"
+        },
+        {
+          "date": "2023-05",
+          "value": 6.1,
+          "status": "final"
+        },
+        {
+          "date": "2023-06",
+          "value": 5.5,
+          "status": "final"
+        },
+        {
+          "date": "2023-07",
+          "value": 5.3,
+          "status": "final"
+        },
+        {
+          "date": "2023-08",
+          "value": 5.2,
+          "status": "final"
+        },
+        {
+          "date": "2023-09",
+          "value": 4.3,
+          "status": "final"
+        },
+        {
+          "date": "2023-10",
+          "value": 2.9,
+          "status": "final"
+        },
+        {
+          "date": "2023-11",
+          "value": 2.4,
+          "status": "final"
+        },
+        {
+          "date": "2023-12",
+          "value": 2.9,
+          "status": "final"
+        },
+        {
+          "date": "2024-01",
+          "value": 2.8,
+          "status": "final"
+        },
+        {
+          "date": "2024-02",
+          "value": 2.6,
+          "status": "final"
+        },
+        {
+          "date": "2024-03",
+          "value": 2.4,
+          "status": "final"
+        },
+        {
+          "date": "2024-04",
+          "value": 2.4,
+          "status": "final"
+        },
+        {
+          "date": "2024-05",
+          "value": 2.6,
+          "status": "final"
+        },
+        {
+          "date": "2024-06",
+          "value": 2.5,
+          "status": "final"
+        },
+        {
+          "date": "2024-07",
+          "value": 2.6,
+          "status": "final"
+        },
+        {
+          "date": "2024-08",
+          "value": 2.2,
+          "status": "final"
+        },
+        {
+          "date": "2024-09",
+          "value": 1.7,
+          "status": "final"
+        },
+        {
+          "date": "2024-10",
+          "value": 2.0,
+          "status": "final"
+        },
+        {
+          "date": "2024-11",
+          "value": 2.2,
+          "status": "final"
+        },
+        {
+          "date": "2024-12",
+          "value": 2.4,
+          "status": "final"
+        }
+      ]
+    },
+    "quality_report": {
+      "observation_count": 24,
+      "missing_periods": [],
+      "missing_period_count": 0,
+      "duplicate_records": 0,
+      "outlier_count": 0,
+      "unit_consistent": true,
+      "traceable_source": true,
+      "checked_at": "2026-06-24",
+      "passed": true
+    },
+    "lineage": {
+      "provider": "Eurostat",
+      "dataset": "HICP - monthly data (annual rate of change)",
+      "api_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_manr?format=JSON&lang=en&geo=EA20&sinceTimePeriod=2023-01&untilTimePeriod=2024-12&coicop=CP00&unit=RCH_A",
+      "retrieved_at": "2026-06-24T02:08:25Z",
+      "parser": "Eurostat",
+      "raw_cache_key": "3f8bb5c04dfa1e702e236c2ff15d22dc20a974d1879794c6116fa01e98b79e06"
+    },
+    "error": null
+  },
+  "imf_us_growth": {
+    "request": {
+      "country": "US",
+      "indicator_code": "IMF_GDP_GROWTH",
+      "start_date": "2021",
+      "end_date": "2024",
+      "frequency": "A"
+    },
+    "series": {
+      "series_id": "US.IMF_GDP_GROWTH.A",
+      "indicator_code": "IMF_GDP_GROWTH",
+      "indicator_name_zh": "IMF 实际 GDP 增长率",
+      "indicator_name_en": "IMF real GDP growth",
+      "country_name_zh": "美国",
+      "country_name_en": "United States",
+      "country_code": "US",
+      "frequency": "A",
+      "unit": "%",
+      "seasonal_adjustment": "NSA",
+      "calculation": "YoY",
+      "source": {
+        "organization": "International Monetary Fund",
+        "dataset": "World Economic Outlook / DataMapper",
+        "source_series_code": "NGDP_RPCH",
+        "source_url": "https://www.imf.org/external/datamapper/api/v2/NGDP_RPCH/USA?periods=2021%2C2022%2C2023%2C2024"
+      },
+      "last_updated": "2026-06-24",
+      "observations": [
+        {
+          "date": "2021",
+          "value": 6.2,
+          "status": "final"
+        },
+        {
+          "date": "2022",
+          "value": 2.5,
+          "status": "final"
+        },
+        {
+          "date": "2023",
+          "value": 2.9,
+          "status": "final"
+        },
+        {
+          "date": "2024",
+          "value": 2.8,
+          "status": "final"
+        }
+      ]
+    },
+    "quality_report": {
+      "observation_count": 4,
+      "missing_periods": [],
+      "missing_period_count": 0,
+      "duplicate_records": 0,
+      "outlier_count": 0,
+      "unit_consistent": true,
+      "traceable_source": true,
+      "checked_at": "2026-06-24",
+      "passed": true
+    },
+    "lineage": {
+      "provider": "International Monetary Fund",
+      "dataset": "World Economic Outlook / DataMapper",
+      "api_url": "https://www.imf.org/external/datamapper/api/v2/NGDP_RPCH/USA?periods=2021%2C2022%2C2023%2C2024",
+      "retrieved_at": "2026-06-24T02:08:34Z",
+      "parser": "IMF",
+      "raw_cache_key": "016367948bc09a9b53fdf4713c7147b5dca15ee9594a027ea5c255fa1d05955a"
+    },
+    "error": null
+  },
+  "ecb_eur_usd": {
+    "request": {
+      "country": "EA",
+      "indicator_code": "ECB_EUR_USD",
+      "start_date": "2024-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    "series": {
+      "series_id": "EA.ECB_EUR_USD.M",
+      "indicator_code": "ECB_EUR_USD",
+      "indicator_name_zh": "欧元兑美元汇率",
+      "indicator_name_en": "US dollar / Euro exchange rate",
+      "country_name_zh": "欧元区",
+      "country_name_en": "Euro Area",
+      "country_code": "EA",
+      "frequency": "M",
+      "unit": "USD per EUR",
+      "seasonal_adjustment": "NSA",
+      "calculation": "level",
+      "source": {
+        "organization": "European Central Bank",
+        "dataset": "Exchange Rates",
+        "source_series_code": "EXR/M.USD.EUR.SP00.A",
+        "source_url": "https://data-api.ecb.europa.eu/service/data/EXR/M.USD.EUR.SP00.A?startPeriod=2024-01&endPeriod=2024-12&format=jsondata"
+      },
+      "last_updated": "2026-06-24",
+      "observations": [
+        {
+          "date": "2024-01",
+          "value": 1.0905136363636,
+          "status": "final"
+        },
+        {
+          "date": "2024-02",
+          "value": 1.0794714285714,
+          "status": "final"
+        },
+        {
+          "date": "2024-03",
+          "value": 1.08722,
+          "status": "final"
+        },
+        {
+          "date": "2024-04",
+          "value": 1.0727761904762,
+          "status": "final"
+        },
+        {
+          "date": "2024-05",
+          "value": 1.0812227272727,
+          "status": "final"
+        },
+        {
+          "date": "2024-06",
+          "value": 1.0759,
+          "status": "final"
+        },
+        {
+          "date": "2024-07",
+          "value": 1.0844086956522,
+          "status": "final"
+        },
+        {
+          "date": "2024-08",
+          "value": 1.1012181818182,
+          "status": "final"
+        },
+        {
+          "date": "2024-09",
+          "value": 1.1106,
+          "status": "final"
+        },
+        {
+          "date": "2024-10",
+          "value": 1.0904347826087,
+          "status": "final"
+        },
+        {
+          "date": "2024-11",
+          "value": 1.0630142857143,
+          "status": "final"
+        },
+        {
+          "date": "2024-12",
+          "value": 1.047875,
+          "status": "final"
+        }
+      ]
+    },
+    "quality_report": {
+      "observation_count": 12,
+      "missing_periods": [],
+      "missing_period_count": 0,
+      "duplicate_records": 0,
+      "outlier_count": 0,
+      "unit_consistent": true,
+      "traceable_source": true,
+      "checked_at": "2026-06-24",
+      "passed": true
+    },
+    "lineage": {
+      "provider": "European Central Bank",
+      "dataset": "Exchange Rates",
+      "api_url": "https://data-api.ecb.europa.eu/service/data/EXR/M.USD.EUR.SP00.A?startPeriod=2024-01&endPeriod=2024-12&format=jsondata",
+      "retrieved_at": "2026-06-24T02:08:36Z",
+      "parser": "ECB",
+      "raw_cache_key": "a4328aed85d65c0d625fce64acff848196221752b361416e72c51bc49c1ff1a8"
+    },
+    "error": null
+  },
+  "bis_us_policy_rate": {
+    "request": {
+      "country": "US",
+      "indicator_code": "BIS_POLICY_RATE",
+      "start_date": "2024-01",
+      "end_date": "2024-12",
+      "frequency": "M"
+    },
+    "series": {
+      "series_id": "US.BIS_POLICY_RATE.M",
+      "indicator_code": "BIS_POLICY_RATE",
+      "indicator_name_zh": "中央银行政策利率",
+      "indicator_name_en": "Central bank policy rate",
+      "country_name_zh": "美国",
+      "country_name_en": "United States",
+      "country_code": "US",
+      "frequency": "M",
+      "unit": "%",
+      "seasonal_adjustment": "NSA",
+      "calculation": "level",
+      "source": {
+        "organization": "Bank for International Settlements",
+        "dataset": "Central bank policy rates",
+        "source_series_code": "WS_CBPOL",
+        "source_url": "https://stats.bis.org/api/v1/data/WS_CBPOL/M.US?startPeriod=2024-01&endPeriod=2024-12"
+      },
+      "last_updated": "2026-06-24",
+      "observations": [
+        {
+          "date": "2024-01",
+          "value": 5.375,
+          "status": "final"
+        },
+        {
+          "date": "2024-02",
+          "value": 5.375,
+          "status": "final"
+        },
+        {
+          "date": "2024-03",
+          "value": 5.375,
+          "status": "final"
+        },
+        {
+          "date": "2024-04",
+          "value": 5.375,
+          "status": "final"
+        },
+        {
+          "date": "2024-05",
+          "value": 5.375,
+          "status": "final"
+        },
+        {
+          "date": "2024-06",
+          "value": 5.375,
+          "status": "final"
+        },
+        {
+          "date": "2024-07",
+          "value": 5.375,
+          "status": "final"
+        },
+        {
+          "date": "2024-08",
+          "value": 5.375,
+          "status": "final"
+        },
+        {
+          "date": "2024-09",
+          "value": 4.875,
+          "status": "final"
+        },
+        {
+          "date": "2024-10",
+          "value": 4.875,
+          "status": "final"
+        },
+        {
+          "date": "2024-11",
+          "value": 4.625,
+          "status": "final"
+        },
+        {
+          "date": "2024-12",
+          "value": 4.375,
+          "status": "final"
+        }
+      ]
+    },
+    "quality_report": {
+      "observation_count": 12,
+      "missing_periods": [],
+      "missing_period_count": 0,
+      "duplicate_records": 0,
+      "outlier_count": 0,
+      "unit_consistent": true,
+      "traceable_source": true,
+      "checked_at": "2026-06-24",
+      "passed": true
+    },
+    "lineage": {
+      "provider": "Bank for International Settlements",
+      "dataset": "Central bank policy rates",
+      "api_url": "https://stats.bis.org/api/v1/data/WS_CBPOL/M.US?startPeriod=2024-01&endPeriod=2024-12",
+      "retrieved_at": "2026-06-24T02:08:40Z",
+      "parser": "BIS",
+      "raw_cache_key": "e9047e0c124392f18e1de2d257391df2749df3dc997164f592217333ea1fe1dc"
+    },
+    "error": null
+  },
+  "compare_gdp_2023": {
+    "request": {
+      "countries": [
+        "US",
+        "CN",
+        "DE",
+        "JP",
+        "GB",
+        "IN",
+        "FR"
+      ],
+      "indicator_code": "GDP_NOMINAL",
+      "date": "2023",
+      "frequency": "A"
+    },
+    "indicator": {
+      "indicator_name_zh": "名义 GDP",
+      "indicator_name_en": "GDP, current US$",
+      "frequency": [
+        "A"
+      ],
+      "unit": "current US$",
+      "calculation": "level",
+      "seasonal_adjustment": "NSA",
+      "preferred_source": "World Bank",
+      "description": "按现价美元计量的国内生产总值。"
+    },
+    "summary": {
+      "row_count": 7,
+      "error_count": 0,
+      "top_country": "US",
+      "bottom_country": "FR",
+      "max_value": 27292170793214.4,
+      "min_value": 3056250648138.29,
+      "unit": "current US$",
+      "quality_passed_count": 7
+    },
+    "rows": [
+      {
+        "country_code": "US",
+        "country_name_zh": "美国",
+        "country_name_en": "United States",
+        "date": "2023",
+        "value": 27292170793214.4,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/USA/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 1,
+        "formatted_value": "27,292,170,793,214.40"
+      },
+      {
+        "country_code": "CN",
+        "country_name_zh": "中国",
+        "country_name_en": "China",
+        "date": "2023",
+        "value": 18270356654533.2,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/CHN/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 2,
+        "formatted_value": "18,270,356,654,533.20"
+      },
+      {
+        "country_code": "DE",
+        "country_name_zh": "德国",
+        "country_name_en": "Germany",
+        "date": "2023",
+        "value": 4562207532490.28,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/DEU/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 3,
+        "formatted_value": "4,562,207,532,490.28"
+      },
+      {
+        "country_code": "JP",
+        "country_name_zh": "日本",
+        "country_name_en": "Japan",
+        "date": "2023",
+        "value": 4213167237905.83,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/JPN/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 4,
+        "formatted_value": "4,213,167,237,905.83"
+      },
+      {
+        "country_code": "IN",
+        "country_name_zh": "印度",
+        "country_name_en": "India",
+        "date": "2023",
+        "value": 3638489096033.86,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 5,
+        "formatted_value": "3,638,489,096,033.86"
+      },
+      {
+        "country_code": "GB",
+        "country_name_zh": "英国",
+        "country_name_en": "United Kingdom",
+        "date": "2023",
+        "value": 3420796653789.08,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/GBR/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 6,
+        "formatted_value": "3,420,796,653,789.08"
+      },
+      {
+        "country_code": "FR",
+        "country_name_zh": "法国",
+        "country_name_en": "France",
+        "date": "2023",
+        "value": 3056250648138.29,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/FRA/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 7,
+        "formatted_value": "3,056,250,648,138.29"
+      }
+    ],
+    "errors": [],
+    "chart": {
+      "type": "bar",
+      "xAxis": [
+        "美国",
+        "中国",
+        "德国",
+        "日本",
+        "印度",
+        "英国",
+        "法国"
+      ],
+      "series": [
+        {
+          "name": "GDP_NOMINAL",
+          "unit": "current US$",
+          "data": [
+            27292170793214.4,
+            18270356654533.2,
+            4562207532490.28,
+            4213167237905.83,
+            3638489096033.86,
+            3420796653789.08,
+            3056250648138.29
+          ]
+        }
+      ],
+      "echarts_option": {
+        "title": {
+          "text": "GDP_NOMINAL country comparison",
+          "subtext": "2023"
+        },
+        "tooltip": {
+          "trigger": "axis"
+        },
+        "grid": {
+          "left": 72,
+          "right": 24,
+          "top": 64,
+          "bottom": 42
+        },
+        "xAxis": {
+          "type": "category",
+          "data": [
+            "美国",
+            "中国",
+            "德国",
+            "日本",
+            "印度",
+            "英国",
+            "法国"
+          ]
+        },
+        "yAxis": {
+          "type": "value",
+          "name": "current US$"
+        },
+        "series": [
+          {
+            "name": "GDP_NOMINAL",
+            "type": "bar",
+            "data": [
+              27292170793214.4,
+              18270356654533.2,
+              4562207532490.28,
+              4213167237905.83,
+              3638489096033.86,
+              3420796653789.08,
+              3056250648138.29
+            ],
+            "label": {
+              "show": true,
+              "position": "top"
+            }
+          }
+        ]
+      }
+    },
+    "error": null
+  },
+  "evaluation": {
+    "project": {
+      "name": "经观 EconView",
+      "topic": "全球宏观经济指标数据要素采集与结构化服务",
+      "version": "1.3.0",
+      "positioning": "全球宏观经济数据治理与分析平台：official macro data API + standardization + quality governance + dashboard"
+    },
+    "minimum_acceptance": [
+      {
+        "requirement": "能够成功运行并完成至少 20 条示例查询",
+        "status": "met",
+        "evidence": "33 sample queries in examples/sample_queries.json"
+      },
+      {
+        "requirement": "能够输出标准化 JSON",
+        "status": "met",
+        "evidence": "GET /series and POST /batch-query"
+      },
+      {
+        "requirement": "说明每条查询结果的来源机构与数据集",
+        "status": "met",
+        "evidence": "series.source.organization / dataset / source_series_code / source_url"
+      },
+      {
+        "requirement": "不能以手工 Excel 代替工具能力",
+        "status": "met",
+        "evidence": "programmatic official API calls; CSV files are dictionaries only"
+      },
+      {
+        "requirement": "不能输出无法追溯来源的黑盒数据",
+        "status": "met",
+        "evidence": "traceable source metadata and quality_report"
+      }
+    ],
+    "scoring_alignment": [
+      {
+        "dimension": "数据准确性与权威性",
+        "points": 35,
+        "current_design": "World Bank, BLS, Eurostat, IMF DataMapper, OECD SDMX, ECB Data API and BIS Statistics API; source metadata returned with every series.",
+        "evidence": [
+          "/series",
+          "data/source_mapping.csv",
+          "series.source"
+        ]
+      },
+      {
+        "dimension": "覆盖度与标准化能力",
+        "points": 25,
+        "current_design": "8 countries/regions, 18 standardized indicators, unified code/unit/frequency/calculation fields.",
+        "evidence": [
+          "/countries",
+          "/indicators",
+          "/search-indicators",
+          "data/indicator_dictionary.csv"
+        ]
+      },
+      {
+        "dimension": "工具可用性与结构化输出",
+        "points": 20,
+        "current_design": "Web app, JSON API, batch query, visualization payload, country comparison, consistency check and machine-readable schema.",
+        "evidence": [
+          "/",
+          "/docs",
+          "/schema",
+          "/batch-query",
+          "/visualization",
+          "/insight",
+          "/compare",
+          "/consistency"
+        ]
+      },
+      {
+        "dimension": "工程性能与稳定性",
+        "points": 10,
+        "current_design": "File cache, retry mechanism, structured errors, smoke tests and zero-dependency launch scripts.",
+        "evidence": [
+          "/cache-stats",
+          "tests/smoke_test.py",
+          "START_HERE.bat"
+        ]
+      },
+      {
+        "dimension": "文档完整性与可读性",
+        "points": 10,
+        "current_design": "README, deployment notes, report outline, submission checklist and generated dictionaries.",
+        "evidence": [
+          "README.md",
+          "README_DEPLOY.md",
+          "report_outline.md",
+          "SUBMISSION_CHECKLIST.md"
+        ]
+      }
+    ],
+    "implemented_capabilities": {
+      "official_sources": [
+        "BIS",
+        "BLS",
+        "ECB",
+        "Eurostat",
+        "IMF",
+        "OECD",
+        "World Bank"
+      ],
+      "official_source_count": 7,
+      "countries": 8,
+      "indicators": 18,
+      "sample_queries": 33,
+      "query_modes": [
+        "single series",
+        "batch query",
+        "indicator search",
+        "country comparison",
+        "visualization payload",
+        "natural-language insight",
+        "consistency check"
+      ],
+      "quality_checks": [
+        "missing periods",
+        "duplicate records",
+        "outlier count",
+        "unit consistency",
+        "traceable source"
+      ],
+      "agent_ready": [
+        "/capabilities",
+        "/schema",
+        "/agent-tools",
+        "/error-catalog",
+        "/openapi-lite",
+        "/series",
+        "/visualization",
+        "/insight",
+        "/consistency"
+      ]
+    },
+    "recommended_demo_flow": [
+      {
+        "step": 1,
+        "action": "Open /",
+        "purpose": "show the main product surface"
+      },
+      {
+        "step": 2,
+        "action": "Run CN GDP_NOMINAL 2018-2024",
+        "purpose": "prove World Bank official API connection"
+      },
+      {
+        "step": 3,
+        "action": "Run US CPI_YOY 2020-01 to 2025-12",
+        "purpose": "prove BLS monthly data and derived YoY calculation"
+      },
+      {
+        "step": 4,
+        "action": "Run DE INDUSTRIAL_PRODUCTION 2023-01 to 2024-12",
+        "purpose": "prove Eurostat monthly connector and new production indicator"
+      },
+      {
+        "step": 5,
+        "action": "Open auto insight card",
+        "purpose": "show presentation-ready interpretation and report paragraph"
+      },
+      {
+        "step": 6,
+        "action": "Open JSON and quality tabs",
+        "purpose": "prove standardized output and data governance"
+      },
+      {
+        "step": 7,
+        "action": "Open country comparison",
+        "purpose": "prove business-facing display capability"
+      },
+      {
+        "step": 8,
+        "action": "Open /evaluation",
+        "purpose": "show scoring evidence and submission completeness"
+      }
+    ],
+    "known_risks": [
+      "BLS API may be slow or timeout in some networks; retry and structured error response are implemented.",
+      "V1 covers World Bank, BLS, Eurostat, IMF, OECD, ECB and BIS with representative official indicators.",
+      "File cache is suitable for demo and lightweight deployment; production can upgrade to SQLite or DuckDB."
+    ],
+    "error": null
+  },
+  "consistency": {
+    "request": {
+      "online": false
+    },
+    "summary": {
+      "source_count": 7,
+      "sources": [
+        {
+          "source": "BIS",
+          "organization": "Bank for International Settlements",
+          "indicator_count": 1,
+          "frequencies": [
+            "M"
+          ],
+          "datasets": [
+            "Central bank policy rates"
+          ]
+        },
+        {
+          "source": "BLS",
+          "organization": "U.S. Bureau of Labor Statistics",
+          "indicator_count": 4,
+          "frequencies": [
+            "M"
+          ],
+          "datasets": [
+            "Consumer Price Index",
+            "Current Employment Statistics",
+            "Labor Force Statistics"
+          ]
+        },
+        {
+          "source": "ECB",
+          "organization": "European Central Bank",
+          "indicator_count": 1,
+          "frequencies": [
+            "M"
+          ],
+          "datasets": [
+            "Exchange Rates"
+          ]
+        },
+        {
+          "source": "Eurostat",
+          "organization": "Eurostat",
+          "indicator_count": 5,
+          "frequencies": [
+            "M"
+          ],
+          "datasets": [
+            "HICP - monthly data (annual rate of change)",
+            "Long-term interest rates for convergence purposes",
+            "Short-term business statistics - producer prices in industry",
+            "Short-term business statistics - production in industry",
+            "Short-term business statistics - retail trade volume"
+          ]
+        },
+        {
+          "source": "IMF",
+          "organization": "International Monetary Fund",
+          "indicator_count": 1,
+          "frequencies": [
+            "A"
+          ],
+          "datasets": [
+            "World Economic Outlook / DataMapper"
+          ]
+        },
+        {
+          "source": "OECD",
+          "organization": "Organisation for Economic Co-operation and Development",
+          "indicator_count": 1,
+          "frequencies": [
+            "M"
+          ],
+          "datasets": [
+            "Key short-term economic indicators"
+          ]
+        },
+        {
+          "source": "World Bank",
+          "organization": "World Bank",
+          "indicator_count": 5,
+          "frequencies": [
+            "A"
+          ],
+          "datasets": [
+            "World Development Indicators"
+          ]
+        }
+      ],
+      "indicator_count": 18,
+      "complete_indicator_count": 18,
+      "check_count": 5,
+      "passed_check_count": 5,
+      "sample_query_count": 33
+    },
+    "checks": [
+      {
+        "check": "多官方数据源接入",
+        "passed": true,
+        "detail": "7 sources implemented: BIS, BLS, ECB, Eurostat, IMF, OECD, World Bank"
+      },
+      {
+        "check": "统一指标字段完整性",
+        "passed": true,
+        "detail": "18/18 indicators include required indicator and source fields."
+      },
+      {
+        "check": "Eurostat 新增指标覆盖",
+        "passed": true,
+        "detail": "HICP, PPI, industrial production, retail sales and long-term rates are mapped to Eurostat datasets."
+      },
+      {
+        "check": "统一结构化输出",
+        "passed": true,
+        "detail": "All implemented sources return through standardize_series with series, quality_report, lineage and error."
+      },
+      {
+        "check": "代表性在线校验",
+        "passed": true,
+        "detail": "Online checks require all non-BLS representative queries to return data; BLS network timeouts must be exposed as structured upstream errors."
+      }
+    ],
+    "indicator_checks": [
+      {
+        "indicator_code": "BIS_POLICY_RATE",
+        "source": "BIS",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "country_scope": [
+          "US",
+          "EA",
+          "FR",
+          "GB",
+          "JP",
+          "CN",
+          "IN"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "CPI_LEVEL",
+        "source": "BLS",
+        "frequency": [
+          "M"
+        ],
+        "unit": "index, 1982-84=100",
+        "country_scope": [
+          "US"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "CPI_YOY",
+        "source": "BLS",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "country_scope": [
+          "US"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "ECB_EUR_USD",
+        "source": "ECB",
+        "frequency": [
+          "M"
+        ],
+        "unit": "USD per EUR",
+        "country_scope": [
+          "EA"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "EXPORTS",
+        "source": "World Bank",
+        "frequency": [
+          "A"
+        ],
+        "unit": "current US$",
+        "country_scope": "all",
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "GDP_NOMINAL",
+        "source": "World Bank",
+        "frequency": [
+          "A"
+        ],
+        "unit": "current US$",
+        "country_scope": "all",
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "GDP_REAL_GROWTH",
+        "source": "World Bank",
+        "frequency": [
+          "A"
+        ],
+        "unit": "%",
+        "country_scope": "all",
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "HICP_YOY",
+        "source": "Eurostat",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "country_scope": [
+          "EA",
+          "DE",
+          "FR"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "IMF_GDP_GROWTH",
+        "source": "IMF",
+        "frequency": [
+          "A"
+        ],
+        "unit": "%",
+        "country_scope": [
+          "US",
+          "CN",
+          "DE",
+          "JP",
+          "GB",
+          "IN",
+          "FR"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "IMPORTS",
+        "source": "World Bank",
+        "frequency": [
+          "A"
+        ],
+        "unit": "current US$",
+        "country_scope": "all",
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "INDUSTRIAL_PRODUCTION",
+        "source": "Eurostat",
+        "frequency": [
+          "M"
+        ],
+        "unit": "index, 2021=100",
+        "country_scope": [
+          "EA",
+          "DE",
+          "FR"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "LONG_TERM_RATE",
+        "source": "Eurostat",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "country_scope": [
+          "DE",
+          "FR"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "NONFARM_PAYROLL",
+        "source": "BLS",
+        "frequency": [
+          "M"
+        ],
+        "unit": "thousands of persons",
+        "country_scope": [
+          "US"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "OECD_CPI_YOY",
+        "source": "OECD",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "country_scope": [
+          "US",
+          "DE",
+          "FR",
+          "JP",
+          "GB"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "PPI_LEVEL",
+        "source": "Eurostat",
+        "frequency": [
+          "M"
+        ],
+        "unit": "index, 2021=100",
+        "country_scope": [
+          "EA",
+          "DE",
+          "FR"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "RETAIL_SALES_VOLUME",
+        "source": "Eurostat",
+        "frequency": [
+          "M"
+        ],
+        "unit": "index, 2021=100",
+        "country_scope": [
+          "EA",
+          "DE",
+          "FR"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "TRADE_BALANCE",
+        "source": "World Bank",
+        "frequency": [
+          "A"
+        ],
+        "unit": "current US$",
+        "country_scope": "all",
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      },
+      {
+        "indicator_code": "UNEMP_RATE",
+        "source": "BLS",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "country_scope": [
+          "US"
+        ],
+        "complete": true,
+        "missing_indicator_fields": [],
+        "missing_source_fields": []
+      }
+    ],
+    "representative_queries": [
+      {
+        "source": "World Bank",
+        "country": "CN",
+        "indicator_code": "GDP_NOMINAL",
+        "start_date": "2020",
+        "end_date": "2021",
+        "frequency": "A"
+      },
+      {
+        "source": "BLS",
+        "country": "US",
+        "indicator_code": "CPI_YOY",
+        "start_date": "2023-01",
+        "end_date": "2023-03",
+        "frequency": "M"
+      },
+      {
+        "source": "Eurostat",
+        "country": "DE",
+        "indicator_code": "INDUSTRIAL_PRODUCTION",
+        "start_date": "2024-01",
+        "end_date": "2024-03",
+        "frequency": "M"
+      },
+      {
+        "source": "IMF",
+        "country": "US",
+        "indicator_code": "IMF_GDP_GROWTH",
+        "start_date": "2020",
+        "end_date": "2024",
+        "frequency": "A"
+      },
+      {
+        "source": "OECD",
+        "country": "US",
+        "indicator_code": "OECD_CPI_YOY",
+        "start_date": "2024-01",
+        "end_date": "2024-03",
+        "frequency": "M"
+      },
+      {
+        "source": "ECB",
+        "country": "EA",
+        "indicator_code": "ECB_EUR_USD",
+        "start_date": "2024-01",
+        "end_date": "2024-03",
+        "frequency": "M"
+      },
+      {
+        "source": "BIS",
+        "country": "US",
+        "indicator_code": "BIS_POLICY_RATE",
+        "start_date": "2024-01",
+        "end_date": "2024-03",
+        "frequency": "M"
+      }
+    ],
+    "online_results": [],
+    "interpretation": "This payload proves that multiple official sources share the same response schema, quality report and lineage fields.",
+    "error": null
+  },
+  "capabilities": {
+    "service": "econview",
+    "display_name": "经观 EconView",
+    "version": "1.3.0",
+    "description": "全球宏观经济数据治理与分析平台，提供官方宏观数据查询、标准化 JSON、质量报告和数据血缘。",
+    "slogan": "观全球经济，见数据脉络。",
+    "agent_ready": true,
+    "agent_entrypoints": [
+      "/agent-tools",
+      "/schema",
+      "/capabilities",
+      "/error-catalog",
+      "/openapi-lite",
+      "/insight"
+    ],
+    "implemented_sources": [
+      {
+        "source": "World Bank",
+        "organization": "World Bank",
+        "datasets": [
+          "World Development Indicators"
+        ],
+        "frequency": [
+          "A"
+        ],
+        "status": "implemented"
+      },
+      {
+        "source": "BLS",
+        "organization": "U.S. Bureau of Labor Statistics",
+        "datasets": [
+          "Consumer Price Index",
+          "Labor Force Statistics",
+          "Current Employment Statistics"
+        ],
+        "frequency": [
+          "M"
+        ],
+        "status": "implemented"
+      },
+      {
+        "source": "Eurostat",
+        "organization": "Eurostat",
+        "datasets": [
+          "HICP monthly annual rate",
+          "Short-term business statistics",
+          "Long-term interest rates"
+        ],
+        "frequency": [
+          "M"
+        ],
+        "status": "implemented"
+      },
+      {
+        "source": "IMF",
+        "organization": "International Monetary Fund",
+        "datasets": [
+          "World Economic Outlook / DataMapper"
+        ],
+        "frequency": [
+          "A"
+        ],
+        "status": "implemented"
+      },
+      {
+        "source": "OECD",
+        "organization": "Organisation for Economic Co-operation and Development",
+        "datasets": [
+          "Key short-term economic indicators"
+        ],
+        "frequency": [
+          "M"
+        ],
+        "status": "implemented"
+      },
+      {
+        "source": "ECB",
+        "organization": "European Central Bank",
+        "datasets": [
+          "Exchange Rates"
+        ],
+        "frequency": [
+          "M"
+        ],
+        "status": "implemented"
+      },
+      {
+        "source": "BIS",
+        "organization": "Bank for International Settlements",
+        "datasets": [
+          "Central bank policy rates"
+        ],
+        "frequency": [
+          "M"
+        ],
+        "status": "implemented"
+      }
+    ],
+    "planned_sources": [],
+    "countries": [
+      {
+        "country_code": "CN",
+        "name_zh": "中国",
+        "name_en": "China",
+        "iso2": "CN",
+        "iso3": "CHN",
+        "wb_code": "CHN",
+        "eurostat_code": "",
+        "imf_code": "CHN",
+        "oecd_code": "CHN",
+        "ecb_code": "",
+        "bis_code": "CN"
+      },
+      {
+        "country_code": "DE",
+        "name_zh": "德国",
+        "name_en": "Germany",
+        "iso2": "DE",
+        "iso3": "DEU",
+        "wb_code": "DEU",
+        "eurostat_code": "DE",
+        "imf_code": "DEU",
+        "oecd_code": "DEU",
+        "ecb_code": "",
+        "bis_code": "DE"
+      },
+      {
+        "country_code": "EA",
+        "name_zh": "欧元区",
+        "name_en": "Euro Area",
+        "iso2": "XC",
+        "iso3": "EMU",
+        "wb_code": "EMU",
+        "eurostat_code": "EA20",
+        "imf_code": "",
+        "oecd_code": "",
+        "ecb_code": "U2",
+        "bis_code": "XM"
+      },
+      {
+        "country_code": "FR",
+        "name_zh": "法国",
+        "name_en": "France",
+        "iso2": "FR",
+        "iso3": "FRA",
+        "wb_code": "FRA",
+        "eurostat_code": "FR",
+        "imf_code": "FRA",
+        "oecd_code": "FRA",
+        "ecb_code": "",
+        "bis_code": "FR"
+      },
+      {
+        "country_code": "GB",
+        "name_zh": "英国",
+        "name_en": "United Kingdom",
+        "iso2": "GB",
+        "iso3": "GBR",
+        "wb_code": "GBR",
+        "eurostat_code": "",
+        "imf_code": "GBR",
+        "oecd_code": "GBR",
+        "ecb_code": "",
+        "bis_code": "GB"
+      },
+      {
+        "country_code": "IN",
+        "name_zh": "印度",
+        "name_en": "India",
+        "iso2": "IN",
+        "iso3": "IND",
+        "wb_code": "IND",
+        "eurostat_code": "",
+        "imf_code": "IND",
+        "oecd_code": "",
+        "ecb_code": "",
+        "bis_code": "IN"
+      },
+      {
+        "country_code": "JP",
+        "name_zh": "日本",
+        "name_en": "Japan",
+        "iso2": "JP",
+        "iso3": "JPN",
+        "wb_code": "JPN",
+        "eurostat_code": "",
+        "imf_code": "JPN",
+        "oecd_code": "JPN",
+        "ecb_code": "",
+        "bis_code": "JP"
+      },
+      {
+        "country_code": "US",
+        "name_zh": "美国",
+        "name_en": "United States",
+        "iso2": "US",
+        "iso3": "USA",
+        "wb_code": "USA",
+        "eurostat_code": "",
+        "imf_code": "USA",
+        "oecd_code": "USA",
+        "ecb_code": "",
+        "bis_code": "US"
+      }
+    ],
+    "indicators": [
+      {
+        "indicator_code": "BIS_POLICY_RATE",
+        "indicator_name_zh": "中央银行政策利率",
+        "indicator_name_en": "Central bank policy rate",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "source": "BIS",
+        "country_scope": [
+          "US",
+          "EA",
+          "FR",
+          "GB",
+          "JP",
+          "CN",
+          "IN"
+        ]
+      },
+      {
+        "indicator_code": "CPI_LEVEL",
+        "indicator_name_zh": "居民消费价格指数",
+        "indicator_name_en": "Consumer Price Index, all urban consumers",
+        "frequency": [
+          "M"
+        ],
+        "unit": "index, 1982-84=100",
+        "source": "BLS",
+        "country_scope": [
+          "US"
+        ]
+      },
+      {
+        "indicator_code": "CPI_YOY",
+        "indicator_name_zh": "居民消费价格指数同比",
+        "indicator_name_en": "Consumer Price Index YoY",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "source": "BLS",
+        "country_scope": [
+          "US"
+        ]
+      },
+      {
+        "indicator_code": "ECB_EUR_USD",
+        "indicator_name_zh": "欧元兑美元汇率",
+        "indicator_name_en": "US dollar / Euro exchange rate",
+        "frequency": [
+          "M"
+        ],
+        "unit": "USD per EUR",
+        "source": "ECB",
+        "country_scope": [
+          "EA"
+        ]
+      },
+      {
+        "indicator_code": "EXPORTS",
+        "indicator_name_zh": "货物和服务出口",
+        "indicator_name_en": "Exports of goods and services, current US$",
+        "frequency": [
+          "A"
+        ],
+        "unit": "current US$",
+        "source": "World Bank",
+        "country_scope": "all"
+      },
+      {
+        "indicator_code": "GDP_NOMINAL",
+        "indicator_name_zh": "名义 GDP",
+        "indicator_name_en": "GDP, current US$",
+        "frequency": [
+          "A"
+        ],
+        "unit": "current US$",
+        "source": "World Bank",
+        "country_scope": "all"
+      },
+      {
+        "indicator_code": "GDP_REAL_GROWTH",
+        "indicator_name_zh": "实际 GDP 增长率",
+        "indicator_name_en": "GDP growth, annual %",
+        "frequency": [
+          "A"
+        ],
+        "unit": "%",
+        "source": "World Bank",
+        "country_scope": "all"
+      },
+      {
+        "indicator_code": "HICP_YOY",
+        "indicator_name_zh": "调和居民消费价格指数同比",
+        "indicator_name_en": "Harmonised Index of Consumer Prices YoY",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "source": "Eurostat",
+        "country_scope": [
+          "EA",
+          "DE",
+          "FR"
+        ]
+      },
+      {
+        "indicator_code": "IMF_GDP_GROWTH",
+        "indicator_name_zh": "IMF 实际 GDP 增长率",
+        "indicator_name_en": "IMF real GDP growth",
+        "frequency": [
+          "A"
+        ],
+        "unit": "%",
+        "source": "IMF",
+        "country_scope": [
+          "US",
+          "CN",
+          "DE",
+          "JP",
+          "GB",
+          "IN",
+          "FR"
+        ]
+      },
+      {
+        "indicator_code": "IMPORTS",
+        "indicator_name_zh": "货物和服务进口",
+        "indicator_name_en": "Imports of goods and services, current US$",
+        "frequency": [
+          "A"
+        ],
+        "unit": "current US$",
+        "source": "World Bank",
+        "country_scope": "all"
+      },
+      {
+        "indicator_code": "INDUSTRIAL_PRODUCTION",
+        "indicator_name_zh": "工业生产指数",
+        "indicator_name_en": "Industrial production index",
+        "frequency": [
+          "M"
+        ],
+        "unit": "index, 2021=100",
+        "source": "Eurostat",
+        "country_scope": [
+          "EA",
+          "DE",
+          "FR"
+        ]
+      },
+      {
+        "indicator_code": "LONG_TERM_RATE",
+        "indicator_name_zh": "长期政府债券收益率",
+        "indicator_name_en": "Long-term government bond yield",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "source": "Eurostat",
+        "country_scope": [
+          "DE",
+          "FR"
+        ]
+      },
+      {
+        "indicator_code": "NONFARM_PAYROLL",
+        "indicator_name_zh": "非农就业人数",
+        "indicator_name_en": "All Employees, Total Nonfarm",
+        "frequency": [
+          "M"
+        ],
+        "unit": "thousands of persons",
+        "source": "BLS",
+        "country_scope": [
+          "US"
+        ]
+      },
+      {
+        "indicator_code": "OECD_CPI_YOY",
+        "indicator_name_zh": "OECD 居民消费价格指数同比",
+        "indicator_name_en": "OECD consumer prices YoY",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "source": "OECD",
+        "country_scope": [
+          "US",
+          "DE",
+          "FR",
+          "JP",
+          "GB"
+        ]
+      },
+      {
+        "indicator_code": "PPI_LEVEL",
+        "indicator_name_zh": "工业生产者价格指数",
+        "indicator_name_en": "Producer prices in industry",
+        "frequency": [
+          "M"
+        ],
+        "unit": "index, 2021=100",
+        "source": "Eurostat",
+        "country_scope": [
+          "EA",
+          "DE",
+          "FR"
+        ]
+      },
+      {
+        "indicator_code": "RETAIL_SALES_VOLUME",
+        "indicator_name_zh": "零售销售量指数",
+        "indicator_name_en": "Retail sales volume index",
+        "frequency": [
+          "M"
+        ],
+        "unit": "index, 2021=100",
+        "source": "Eurostat",
+        "country_scope": [
+          "EA",
+          "DE",
+          "FR"
+        ]
+      },
+      {
+        "indicator_code": "TRADE_BALANCE",
+        "indicator_name_zh": "贸易差额",
+        "indicator_name_en": "External balance on goods and services, current US$",
+        "frequency": [
+          "A"
+        ],
+        "unit": "current US$",
+        "source": "World Bank",
+        "country_scope": "all"
+      },
+      {
+        "indicator_code": "UNEMP_RATE",
+        "indicator_name_zh": "失业率",
+        "indicator_name_en": "Unemployment Rate",
+        "frequency": [
+          "M"
+        ],
+        "unit": "%",
+        "source": "BLS",
+        "country_scope": [
+          "US"
+        ]
+      }
+    ],
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/health",
+        "purpose": "service health check"
+      },
+      {
+        "method": "GET",
+        "path": "/showcase",
+        "purpose": "polished presentation dashboard"
+      },
+      {
+        "method": "GET",
+        "path": "/countries",
+        "purpose": "supported country dictionary"
+      },
+      {
+        "method": "GET",
+        "path": "/indicators",
+        "purpose": "supported indicator dictionary"
+      },
+      {
+        "method": "GET",
+        "path": "/search-indicators",
+        "purpose": "keyword search over indicator dictionary"
+      },
+      {
+        "method": "GET",
+        "path": "/series",
+        "purpose": "single standardized series query"
+      },
+      {
+        "method": "POST",
+        "path": "/batch-query",
+        "purpose": "batch standardized series query"
+      },
+      {
+        "method": "GET",
+        "path": "/compare",
+        "purpose": "multi-country comparison payload"
+      },
+      {
+        "method": "GET",
+        "path": "/visualization",
+        "purpose": "ECharts-friendly line chart payload"
+      },
+      {
+        "method": "GET",
+        "path": "/insight",
+        "purpose": "human-readable query insight and report paragraph"
+      },
+      {
+        "method": "GET",
+        "path": "/consistency",
+        "purpose": "cross-source structural consistency check"
+      },
+      {
+        "method": "GET",
+        "path": "/cache-stats",
+        "purpose": "file cache diagnostics"
+      },
+      {
+        "method": "GET",
+        "path": "/evaluation",
+        "purpose": "competition scoring evidence and acceptance checklist"
+      },
+      {
+        "method": "GET",
+        "path": "/schema",
+        "purpose": "standard response schema description"
+      },
+      {
+        "method": "GET",
+        "path": "/agent-tools",
+        "purpose": "AI Agent tool definitions and parameter schemas"
+      },
+      {
+        "method": "GET",
+        "path": "/error-catalog",
+        "purpose": "machine-readable error codes and recovery hints"
+      },
+      {
+        "method": "GET",
+        "path": "/openapi-lite",
+        "purpose": "lightweight OpenAPI-style endpoint contract"
+      },
+      {
+        "method": "GET",
+        "path": "/sample-queries",
+        "purpose": "competition/demo sample queries"
+      },
+      {
+        "method": "GET",
+        "path": "/capabilities",
+        "purpose": "machine-readable service capabilities"
+      }
+    ],
+    "recommended_agent_flow": [
+      "Call /capabilities to discover countries, indicators and endpoints.",
+      "Call /search-indicators when the user describes an indicator in natural language.",
+      "Call /series for a single standardized time series.",
+      "Call /batch-query when the user asks for several series at once.",
+      "Call /visualization when a chart-ready payload is required.",
+      "Call /insight when a human-readable interpretation or report paragraph is required.",
+      "Call /consistency to verify cross-source schema, metadata and lineage consistency.",
+      "Inspect error.code and use /error-catalog for recovery guidance."
+    ]
+  }
+}

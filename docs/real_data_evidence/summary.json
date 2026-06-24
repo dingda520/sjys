@@ -1,0 +1,415 @@
+{
+  "cn_gdp": {
+    "indicator": "GDP_NOMINAL",
+    "country": "中国",
+    "source": "World Bank",
+    "unit": "current US$",
+    "frequency": "A",
+    "observation_count": 4,
+    "first": {
+      "date": "2020",
+      "value": 14996414166715.1,
+      "status": "final"
+    },
+    "last": {
+      "date": "2023",
+      "value": 18270356654533.2,
+      "status": "final"
+    },
+    "quality_passed": true,
+    "missing_period_count": 0,
+    "error": null
+  },
+  "us_bls_cpi_yoy": {
+    "indicator": "CPI_YOY",
+    "country": "美国",
+    "source": "U.S. Bureau of Labor Statistics",
+    "unit": "%",
+    "frequency": "M",
+    "observation_count": 35,
+    "first": {
+      "date": "2023-01",
+      "value": 6.3272,
+      "status": "final",
+      "derived": {
+        "method": "YoY = current index / same month previous year - 1",
+        "base_date": "2022-01"
+      }
+    },
+    "last": {
+      "date": "2025-12",
+      "value": 2.6533,
+      "status": "final",
+      "derived": {
+        "method": "YoY = current index / same month previous year - 1",
+        "base_date": "2024-12"
+      }
+    },
+    "quality_passed": true,
+    "missing_period_count": 1,
+    "error": null
+  },
+  "us_oecd_cpi_yoy": {
+    "indicator": "OECD_CPI_YOY",
+    "country": "美国",
+    "source": "Organisation for Economic Co-operation and Development",
+    "unit": "%",
+    "frequency": "M",
+    "observation_count": 12,
+    "first": {
+      "date": "2024-01",
+      "value": 3.0908847812,
+      "status": "final"
+    },
+    "last": {
+      "date": "2024-12",
+      "value": 2.88805722,
+      "status": "final"
+    },
+    "quality_passed": true,
+    "missing_period_count": 0,
+    "error": null
+  },
+  "ea_hicp_yoy": {
+    "indicator": "HICP_YOY",
+    "country": "欧元区",
+    "source": "Eurostat",
+    "unit": "%",
+    "frequency": "M",
+    "observation_count": 24,
+    "first": {
+      "date": "2023-01",
+      "value": 8.7,
+      "status": "final"
+    },
+    "last": {
+      "date": "2024-12",
+      "value": 2.4,
+      "status": "final"
+    },
+    "quality_passed": true,
+    "missing_period_count": 0,
+    "error": null
+  },
+  "imf_us_growth": {
+    "indicator": "IMF_GDP_GROWTH",
+    "country": "美国",
+    "source": "International Monetary Fund",
+    "unit": "%",
+    "frequency": "A",
+    "observation_count": 4,
+    "first": {
+      "date": "2021",
+      "value": 6.2,
+      "status": "final"
+    },
+    "last": {
+      "date": "2024",
+      "value": 2.8,
+      "status": "final"
+    },
+    "quality_passed": true,
+    "missing_period_count": 0,
+    "error": null
+  },
+  "ecb_eur_usd": {
+    "indicator": "ECB_EUR_USD",
+    "country": "欧元区",
+    "source": "European Central Bank",
+    "unit": "USD per EUR",
+    "frequency": "M",
+    "observation_count": 12,
+    "first": {
+      "date": "2024-01",
+      "value": 1.0905136363636,
+      "status": "final"
+    },
+    "last": {
+      "date": "2024-12",
+      "value": 1.047875,
+      "status": "final"
+    },
+    "quality_passed": true,
+    "missing_period_count": 0,
+    "error": null
+  },
+  "bis_us_policy_rate": {
+    "indicator": "BIS_POLICY_RATE",
+    "country": "美国",
+    "source": "Bank for International Settlements",
+    "unit": "%",
+    "frequency": "M",
+    "observation_count": 12,
+    "first": {
+      "date": "2024-01",
+      "value": 5.375,
+      "status": "final"
+    },
+    "last": {
+      "date": "2024-12",
+      "value": 4.375,
+      "status": "final"
+    },
+    "quality_passed": true,
+    "missing_period_count": 0,
+    "error": null
+  },
+  "compare_gdp_2023": {
+    "row_count": 7,
+    "rows": [
+      {
+        "country_code": "US",
+        "country_name_zh": "美国",
+        "country_name_en": "United States",
+        "date": "2023",
+        "value": 27292170793214.4,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/USA/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 1,
+        "formatted_value": "27,292,170,793,214.40"
+      },
+      {
+        "country_code": "CN",
+        "country_name_zh": "中国",
+        "country_name_en": "China",
+        "date": "2023",
+        "value": 18270356654533.2,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/CHN/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 2,
+        "formatted_value": "18,270,356,654,533.20"
+      },
+      {
+        "country_code": "DE",
+        "country_name_zh": "德国",
+        "country_name_en": "Germany",
+        "date": "2023",
+        "value": 4562207532490.28,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/DEU/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 3,
+        "formatted_value": "4,562,207,532,490.28"
+      },
+      {
+        "country_code": "JP",
+        "country_name_zh": "日本",
+        "country_name_en": "Japan",
+        "date": "2023",
+        "value": 4213167237905.83,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/JPN/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 4,
+        "formatted_value": "4,213,167,237,905.83"
+      },
+      {
+        "country_code": "IN",
+        "country_name_zh": "印度",
+        "country_name_en": "India",
+        "date": "2023",
+        "value": 3638489096033.86,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 5,
+        "formatted_value": "3,638,489,096,033.86"
+      },
+      {
+        "country_code": "GB",
+        "country_name_zh": "英国",
+        "country_name_en": "United Kingdom",
+        "date": "2023",
+        "value": 3420796653789.08,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/GBR/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 6,
+        "formatted_value": "3,420,796,653,789.08"
+      },
+      {
+        "country_code": "FR",
+        "country_name_zh": "法国",
+        "country_name_en": "France",
+        "date": "2023",
+        "value": 3056250648138.29,
+        "unit": "current US$",
+        "source": {
+          "organization": "World Bank",
+          "dataset": "World Development Indicators",
+          "source_series_code": "NY.GDP.MKTP.CD",
+          "source_url": "https://api.worldbank.org/v2/country/FRA/indicator/NY.GDP.MKTP.CD?format=json&date=2023:2023&per_page=20000"
+        },
+        "quality_passed": true,
+        "rank": 7,
+        "formatted_value": "3,056,250,648,138.29"
+      }
+    ]
+  },
+  "capabilities": {
+    "countries": 8,
+    "indicators": 18,
+    "sources": [
+      "World Bank",
+      "BLS",
+      "Eurostat",
+      "IMF",
+      "OECD",
+      "ECB",
+      "BIS"
+    ],
+    "endpoints": [
+      "/health",
+      "/showcase",
+      "/countries",
+      "/indicators",
+      "/search-indicators",
+      "/series",
+      "/batch-query",
+      "/compare",
+      "/visualization",
+      "/insight",
+      "/consistency",
+      "/cache-stats",
+      "/evaluation",
+      "/schema",
+      "/agent-tools",
+      "/error-catalog",
+      "/openapi-lite",
+      "/sample-queries",
+      "/capabilities"
+    ]
+  },
+  "consistency_summary": {
+    "source_count": 7,
+    "sources": [
+      {
+        "source": "BIS",
+        "organization": "Bank for International Settlements",
+        "indicator_count": 1,
+        "frequencies": [
+          "M"
+        ],
+        "datasets": [
+          "Central bank policy rates"
+        ]
+      },
+      {
+        "source": "BLS",
+        "organization": "U.S. Bureau of Labor Statistics",
+        "indicator_count": 4,
+        "frequencies": [
+          "M"
+        ],
+        "datasets": [
+          "Consumer Price Index",
+          "Current Employment Statistics",
+          "Labor Force Statistics"
+        ]
+      },
+      {
+        "source": "ECB",
+        "organization": "European Central Bank",
+        "indicator_count": 1,
+        "frequencies": [
+          "M"
+        ],
+        "datasets": [
+          "Exchange Rates"
+        ]
+      },
+      {
+        "source": "Eurostat",
+        "organization": "Eurostat",
+        "indicator_count": 5,
+        "frequencies": [
+          "M"
+        ],
+        "datasets": [
+          "HICP - monthly data (annual rate of change)",
+          "Long-term interest rates for convergence purposes",
+          "Short-term business statistics - producer prices in industry",
+          "Short-term business statistics - production in industry",
+          "Short-term business statistics - retail trade volume"
+        ]
+      },
+      {
+        "source": "IMF",
+        "organization": "International Monetary Fund",
+        "indicator_count": 1,
+        "frequencies": [
+          "A"
+        ],
+        "datasets": [
+          "World Economic Outlook / DataMapper"
+        ]
+      },
+      {
+        "source": "OECD",
+        "organization": "Organisation for Economic Co-operation and Development",
+        "indicator_count": 1,
+        "frequencies": [
+          "M"
+        ],
+        "datasets": [
+          "Key short-term economic indicators"
+        ]
+      },
+      {
+        "source": "World Bank",
+        "organization": "World Bank",
+        "indicator_count": 5,
+        "frequencies": [
+          "A"
+        ],
+        "datasets": [
+          "World Development Indicators"
+        ]
+      }
+    ],
+    "indicator_count": 18,
+    "complete_indicator_count": 18,
+    "check_count": 5,
+    "passed_check_count": 5,
+    "sample_query_count": 33
+  },
+  "chart_paths": {
+    "us_bls_cpi_yoy": "docs/real_data_evidence/assets/us_bls_cpi_yoy.svg",
+    "us_oecd_cpi_yoy": "docs/real_data_evidence/assets/us_oecd_cpi_yoy.svg",
+    "cn_gdp": "docs/real_data_evidence/assets/cn_gdp.svg",
+    "ea_hicp_yoy": "docs/real_data_evidence/assets/ea_hicp_yoy.svg",
+    "compare_gdp_2023": "docs/real_data_evidence/assets/compare_gdp_2023.svg"
+  }
+}

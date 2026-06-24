@@ -10,18 +10,17 @@
 
 ## 3. 数据源
 
-V1 已接入：
+线上版本已接入 7 个官方数据源：
 
 - World Bank Indicators API
 - U.S. Bureau of Labor Statistics Public Data API
+- Eurostat API
+- IMF DataMapper / WEO
+- OECD SDMX API
+- ECB Data API
+- BIS Statistics API
 
-后续可扩展：
-
-- IMF
-- OECD
-- Eurostat
-- ECB
-- BIS
+根据线上 `/capabilities` 与 `/consistency` 的真实返回，系统当前覆盖 8 个国家或地区、18 个标准指标和 33 条示例查询；一致性校验 5 项全部通过。
 
 ## 4. 指标体系
 
@@ -154,8 +153,48 @@ V1 覆盖：
 
 ## 12. 下一步计划
 
-1. 接入 OECD 和 Eurostat，补齐发达经济体高频指标。
-2. 增加 IMF 和 BIS，覆盖财政、外部部门、利率、信贷等指标。
-3. 增加本地数据库缓存，提升重复查询速度和稳定性。
-4. 增加修订历史追踪和跨源一致性校验。
-5. 生成论文中的系统架构图、数据流图和示例 JSON 附录。
+1. 在已接入 World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 的基础上，继续扩展每个来源的指标覆盖。
+2. 增加本地数据库缓存，提升重复查询速度和稳定性。
+3. 增加修订历史追踪，记录官方数据回溯修订对结果的影响。
+4. 深化跨源一致性校验，对同类指标增加口径差异说明和数值差异提示。
+5. 生成论文中的系统架构图、数据流图、真实查询图表和示例 JSON 附录。
+
+## 13. 基于线上真实数据的展示证据
+
+本节可直接扩写进正式报告正文。所有数字均来自线上网页 `https://sjys-th73.onrender.com/` 的真实接口返回，原始响应保存于 `docs/real_data_evidence/raw_online_responses.json`，汇总保存于 `docs/real_data_evidence/summary.json`。
+
+### 13.1 可用性证据
+
+- `/capabilities` 返回：7 个官方数据源、18 个标准指标、8 个国家或地区、19 个可调用端点。
+- `/consistency` 返回：18 个指标均具备完整元数据和来源映射，5 项一致性检查全部通过。
+- `/series` 返回：不同来源的年度、月度、水平值、同比、汇率和利率指标都能被统一为同一种 JSON。
+- `/compare` 返回：可以对多个国家的同一指标做横向比较，不局限于单条时间序列。
+
+### 13.2 真实样例数据
+
+| 展示场景 | 查询参数 | 来源 | 观测值数量 | 质量校验 | 最新值 |
+|---|---|---:|---:|---:|---:|
+| 中国名义 GDP | `CN / GDP_NOMINAL / 2020-2023 / A` | World Bank | 4 | 通过 | 2023 年，18.27 万亿美元 |
+| 美国 CPI 同比 | `US / CPI_YOY / 2023-01 至 2025-12 / M` | BLS | 35 | 通过 | 2025-12，2.6533% |
+| 美国 CPI 同比 | `US / OECD_CPI_YOY / 2024-01 至 2024-12 / M` | OECD | 12 | 通过 | 2024-12，2.8881% |
+| 欧元区 HICP 同比 | `EA / HICP_YOY / 2023-01 至 2024-12 / M` | Eurostat | 24 | 通过 | 2024-12，2.4% |
+| 美国实际 GDP 增速 | `US / IMF_GDP_GROWTH / 2021-2024 / A` | IMF | 4 | 通过 | 2024 年，2.8% |
+| 欧元兑美元汇率 | `EA / ECB_EUR_USD / 2024-01 至 2024-12 / M` | ECB | 12 | 通过 | 2024-12，1.047875 USD per EUR |
+| 美国政策利率 | `US / BIS_POLICY_RATE / 2024-01 至 2024-12 / M` | BIS | 12 | 通过 | 2024-12，4.375% |
+
+### 13.3 建议放入报告的图表
+
+- `docs/real_data_evidence/assets/cn_gdp.svg`：中国名义 GDP 年度趋势。
+- `docs/real_data_evidence/assets/us_bls_cpi_yoy.svg`：美国 CPI 同比月度趋势（BLS）。
+- `docs/real_data_evidence/assets/us_oecd_cpi_yoy.svg`：美国 CPI 同比月度趋势（OECD）。
+- `docs/real_data_evidence/assets/ea_hicp_yoy.svg`：欧元区 HICP 同比月度趋势（Eurostat）。
+- `docs/real_data_evidence/assets/compare_gdp_2023.svg`：2023 年主要经济体名义 GDP 横向对比。
+
+### 13.4 展示路线
+
+1. 打开首页说明系统能力：7 个官方源、18 个指标、33 条示例查询。
+2. 查询“中国名义 GDP”，展示 World Bank 年度数据、趋势图和质量报告。
+3. 查询“美国 CPI 同比”，展示 BLS 月度高频数据和派生指标计算方法。
+4. 查询“OECD 美国 CPI 同比”，展示同一主题可由不同官方源复核。
+5. 打开 `/compare` 或国家对比页，展示 2023 年主要经济体 GDP 排名。
+6. 打开 JSON 输出、`/schema`、`/capabilities`，说明系统不仅是网页，也是可程序化调用的数据服务。

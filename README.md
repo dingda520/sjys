@@ -20,6 +20,22 @@
 - ECharts / Dashboard 可视化
 - 研究脚本的数据接口
 
+## 真实数据展示材料
+
+为了证明网页的可用性和实用性，项目已基于线上站点 `https://sjys-th73.onrender.com/` 采集真实接口返回，并生成报告补充材料：
+
+```text
+docs/TECHNICAL_DESCRIPTION_REAL_DATA.md
+docs/REPORT_BODY_REAL_DATA.md
+docs/real_data_evidence/summary.json
+docs/real_data_evidence/raw_online_responses.json
+docs/real_data_evidence/assets/*.svg
+```
+
+这些材料没有使用模拟数据。示例包括中国名义 GDP、美国 CPI 同比（BLS）、美国 CPI 同比（OECD）、欧元区 HICP 同比、IMF 美国 GDP 增速、ECB 欧元兑美元汇率、BIS 美国政策利率，以及 2023 年主要经济体 GDP 横向对比。
+
+正式展示时建议按“首页能力概览 → 中国 GDP → 美国 CPI → OECD CPI 复核 → 多国 GDP 对比 → JSON/Schema/Capabilities”的顺序演示，既能体现网页可视化，也能体现可程序化调用的数据服务能力。
+
 ## 开发流程
 
 本项目按企业开发流程推进，不一次性推倒重写。
