@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
@@ -56,14 +56,13 @@
       display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:16px;padding:18px 20px;border:1px solid rgba(255,255,255,.72);
       background:rgba(255,255,255,.62);backdrop-filter:blur(18px);border-radius:18px;box-shadow:var(--shadow);
     }
-    .main>.topbar{display:none}
     .topbar h2{margin:0;font-size:clamp(22px,2vw,32px);letter-spacing:0;color:#0f172a}.topbar p{margin:8px 0 0;color:#516173;font-size:14px;line-height:1.65;max-width:900px}
     .small-link{display:inline-flex;color:#0f766e;text-decoration:none;margin-top:10px;font-size:13px;font-weight:800}
     .status{display:flex;gap:10px;align-items:center;background:#0f172a;color:#e2e8f0;border:1px solid rgba(255,255,255,.1);padding:10px 14px;border-radius:999px;font-size:13px;white-space:nowrap;box-shadow:0 14px 30px rgba(15,23,42,.18)}
     .dot{width:9px;height:9px;border-radius:50%;background:#34d399;box-shadow:0 0 0 6px rgba(52,211,153,.13);animation:pulseDot 1.8s infinite}
     @keyframes pulseDot{0%,100%{transform:scale(1)}50%{transform:scale(.72)}}
     .market-strip{position:relative;overflow:hidden;margin:0 0 18px;border:1px solid var(--line);background:#0b1220;color:#dbeafe;border-radius:14px;box-shadow:var(--shadow)}
-    .market-track{display:flex;flex-wrap:wrap;gap:10px 18px;width:100%;padding:10px 18px}.market-track .market-tick:nth-child(n+8){display:none}
+    .market-track{display:flex;gap:18px;width:max-content;padding:10px 18px;animation:tape 26s linear infinite}.market-strip:hover .market-track{animation-play-state:paused}
     .market-tick{display:inline-flex;gap:8px;align-items:center;white-space:nowrap;font-size:12px;color:#cbd5e1}.market-tick strong{color:#fff;font-size:13px}.market-tick em{font-style:normal;color:#5eead4}
     @keyframes tape{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .section{display:none;animation:sectionIn .35s ease both}.section.active{display:block}
@@ -90,19 +89,16 @@
     .summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.summary-tile,.compare-stat,.quality-check{min-width:0;border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:11px 12px}.summary-tile span,.compare-stat span{display:block;color:var(--muted);font-size:12px}.summary-tile strong,.compare-stat strong{display:block;margin-top:5px;color:#0f172a;font-size:16px;line-height:1.25;overflow-wrap:anywhere}.summary-tile small,.compare-stat small{display:block;margin-top:4px;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .meta-panel{display:grid;gap:10px}.meta-main{border:1px solid #99f6e4;background:#ecfeff;border-radius:10px;padding:13px 14px}.meta-main span{display:block;color:#0f766e;font-size:12px;font-weight:900}.meta-main strong{display:block;margin-top:5px;font-size:22px;color:#0f172a;line-height:1.2;overflow-wrap:anywhere}.meta-main small{display:block;margin-top:6px;color:#475569;font-size:12px;line-height:1.5}.meta-row{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding:9px 0;font-size:13px}.meta-row:last-child{border-bottom:0}.meta-row span{color:var(--muted);white-space:nowrap}.meta-row strong{font-weight:800;color:#111827;text-align:right;line-height:1.45;overflow-wrap:anywhere;word-break:break-word;min-width:0}.table-scroll{margin-top:14px;max-height:230px;overflow:auto;border:1px solid var(--line);border-radius:10px}.table-scroll .table th{position:sticky;top:0;z-index:1}.value-table td,.value-table th{white-space:nowrap}.value-table small{color:var(--muted)}
     .insight-box{border:1px solid #bbf7d0;background:#f0fdf4;border-radius:10px;padding:14px 16px;line-height:1.7}.insight-box span{display:block;color:#15803d;font-size:12px;font-weight:900}.insight-box strong{display:block;color:#052e16;font-size:18px;margin-top:4px}.insight-box p{margin:8px 0 0;color:#14532d}.insight-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.insight-point{border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px;font-size:13px;line-height:1.55}.insight-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.insight-link,.score-link,.review-btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 11px;border-radius:999px;background:#ecfeff;color:#0f766e;text-decoration:none;font-size:12px;font-weight:900;border:1px solid #99f6e4}
-    .smart-insight-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:14px;align-items:stretch}.speaker-card{border:1px solid #fde68a;background:#fffbeb;border-radius:10px;padding:14px 16px;line-height:1.7}.speaker-card span{display:block;color:#b45309;font-size:12px;font-weight:900}.speaker-card strong{display:block;margin-top:5px;color:#78350f;font-size:18px}.speaker-card p{margin:8px 0 0;color:#92400e}.insight-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.insight-kpi{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px}.insight-kpi span{display:block;color:var(--muted);font-size:12px}.insight-kpi strong{display:block;margin-top:5px;color:#0f172a;font-size:16px;overflow-wrap:anywhere}
     .tabs{display:flex;gap:8px;margin-bottom:12px}.tab{padding:8px 12px;border-radius:999px;font-size:13px;border:1px solid var(--line);background:#fff}.tab.active{background:#0f766e;color:#fff;border-color:#0f766e}
     pre{margin:0;background:#08111f;color:#dbeafe;border-radius:10px;padding:16px;overflow:auto;max-height:350px;font-size:12px;line-height:1.58}
     .table,.check-table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td,.check-table th,.check-table td{border-bottom:1px solid var(--line);padding:11px 8px;text-align:left;white-space:nowrap}.check-table td{vertical-align:top;white-space:normal}.table th,.check-table th{color:var(--muted);font-size:12px;background:#f8fafc}
     .badge{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:12px;font-weight:800}.badge.good{background:#dcfce7;color:#166534}.badge.warn{background:#fef3c7;color:#92400e}.badge.info{background:#ccfbf1;color:#0f766e}.badge.bad{background:#fee2e2;color:#991b1b}
     .quality-list{display:grid;gap:10px}.quality-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}.quality-item:last-child{border-bottom:0}
     .compare-chart-wrap{height:450px;padding:12px 10px 0}.compare-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}
-    .reconcile-dashboard{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr);gap:14px}.reconcile-canvas-wrap{height:320px;border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:10px}.reconcile-summary{display:grid;gap:10px}.reconcile-stat{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 12px}.reconcile-stat span{display:block;color:var(--muted);font-size:12px}.reconcile-stat strong{display:block;margin-top:5px;color:#0f172a;font-size:18px}.legend-dot{display:inline-flex;align-items:center;gap:7px;margin:0 10px 8px 0;color:#475569;font-size:12px}.legend-dot::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c,#2563eb)}.reconcile-table-wrap{margin-top:14px;max-height:220px;overflow:auto;border:1px solid var(--line);border-radius:10px}
     .quality-dashboard{display:grid;grid-template-columns:320px minmax(0,1fr);gap:18px}.quality-score{border:1px solid #bbf7d0;background:linear-gradient(180deg,#f0fdf4,#fff);border-radius:12px;padding:18px}.quality-score span{display:block;color:#15803d;font-size:12px;font-weight:900}.quality-score strong{display:block;font-size:48px;line-height:1;margin-top:10px;color:#052e16}.quality-score p{margin:10px 0 0;color:#166534;line-height:1.6}.quality-meter{height:10px;background:#dcfce7;border-radius:999px;overflow:hidden;margin-top:14px}.quality-meter i{display:block;height:100%;background:#16a34a;border-radius:999px}.quality-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.quality-check h4{margin:0;font-size:14px}.quality-check p{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.55}.quality-context{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}.quality-context .meta-main strong{font-size:16px}.empty-state{border:1px dashed #b8c5d6;background:#f8fafc;border-radius:12px;padding:18px;color:#475569;line-height:1.7}
     .error{color:#991b1b;background:#fff1f2;border:1px solid #fecdd3;padding:12px;border-radius:10px;margin-top:12px;font-size:13px;display:none;line-height:1.6;white-space:pre-wrap}
     .page-card{padding:22px;margin-bottom:18px}.page-card h3{margin:0 0 8px}.page-card p{color:var(--muted);line-height:1.7}
     .source-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.source-box{padding:16px}.source-box h4{margin:0 0 8px}.source-box p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
-    .map-dashboard{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(290px,.75fr);gap:16px}.map-canvas-wrap{position:relative;min-height:380px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,#e0f2fe,#f8fafc 62%,#ecfdf5);overflow:hidden}.map-canvas-wrap::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,23,42,.06) 1px,transparent 1px),linear-gradient(0deg,rgba(15,23,42,.05) 1px,transparent 1px);background-size:42px 42px;opacity:.55}.map-canvas-wrap canvas{position:absolute;inset:0;width:100%;height:100%}.map-panel{display:grid;gap:12px}.map-card{border:1px solid var(--line);background:#fff;border-radius:10px;padding:12px 13px}.map-card span{display:block;color:var(--muted);font-size:12px}.map-card strong{display:block;margin-top:5px;color:#0f172a;font-size:20px}.map-countries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.map-country{min-height:42px;border:1px solid var(--line);background:#f8fafc;border-radius:9px;color:#0f172a;font-weight:800;cursor:pointer}.map-country:hover,.map-country.active{border-color:#14b8a6;background:#ecfeff;color:#0f766e}.map-detail{border:1px solid #99f6e4;background:#ecfeff;border-radius:10px;padding:13px;line-height:1.65;color:#0f4f4a}.map-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.map-tag{display:inline-flex;padding:4px 7px;border-radius:999px;background:#fff;border:1px solid #99f6e4;color:#0f766e;font-size:12px;font-weight:800}
     .hero-band{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:16px;margin-bottom:18px}.hero-panel{position:relative;overflow:hidden;min-height:430px;color:#fff;border-radius:18px;box-shadow:var(--shadow);padding:24px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,#08111f,#12343b 62%,#28431f)}
     .hero-panel::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 56px);opacity:.6}
     .hero-panel::after{content:"";position:absolute;inset:auto 0 0;height:48%;background:linear-gradient(180deg,transparent,rgba(8,17,31,.86));pointer-events:none}
@@ -114,44 +110,22 @@
     .signal-card span{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     .signal-card strong{display:block;margin-top:7px;color:#fff;font-size:22px;line-height:1.1}
     .signal-card small{display:block;margin-top:7px;color:#a8c3d7;font-size:12px;line-height:1.45}
-    .signal-bars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.signal-bar{border:1px solid rgba(153,246,228,.18);background:rgba(255,255,255,.045);border-radius:10px;padding:10px 11px;color:#b8cde1;font-size:11px}.signal-bar span{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:0;text-transform:none}.signal-bar b{display:block;margin-top:4px;color:#fff;font-size:20px;line-height:1}
-    .quality-mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:16px}.quality-mini div{border:1px solid rgba(153,246,228,.18);background:rgba(255,255,255,.045);border-radius:10px;padding:10px}.quality-mini b{display:block;color:#fff;font-size:13px}.quality-mini span{display:block;margin-top:5px;color:#a8c3d7;font-size:11px;line-height:1.35;text-transform:none;letter-spacing:0}
-    .runbook{margin-top:10px;border:1px solid #99f6e4;background:linear-gradient(180deg,#f8fffd,#f2fbf8);border-radius:12px;padding:12px;color:#475569}.runbook h4{margin:0 0 8px;color:#0f172a;font-size:14px}.runbook-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.runbook-step{border:1px solid #d8eee8;background:#fff;border-radius:10px;padding:8px}.runbook-step strong{display:block;color:#0f766e;font-size:12px}.runbook-step span{display:block;margin-top:4px;color:#64748b;font-size:11px;line-height:1.38}
+    .signal-bars{display:grid;gap:8px;margin-top:10px}.signal-bar{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}.signal-bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#5eead4,#f6d365);animation:barPulse 3.6s ease-in-out infinite}.signal-bar:nth-child(2) i{animation-delay:.7s}.signal-bar:nth-child(3) i{animation-delay:1.2s}
+    @keyframes barPulse{0%,100%{width:42%}45%{width:96%}70%{width:68%}}
     .command-line{margin-top:18px;display:flex;gap:8px;align-items:center;max-width:760px;padding:10px 12px;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(3,7,18,.58);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#c4fff4;font-size:12px;overflow:hidden}
     .command-line b{color:#f6d365}.command-caret{display:inline-block;width:8px;height:16px;background:#5eead4;animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}
     .score-panel{padding:18px}.score-panel h3{margin:0 0 12px;font-size:16px}.score-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.score-row:last-child{border-bottom:0}.score-row strong{font-size:18px;color:#0f172a}
     .flow-grid,.pipeline-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.flow-step,.pipeline-step,.sample-card,.capability-card{background:#fff;border:1px solid rgba(255,255,255,.75);border-radius:12px;box-shadow:var(--shadow);padding:15px;color:var(--text)}
-    .flow-step{position:relative;text-align:left;cursor:pointer;font:inherit}.flow-step:hover,.sample-card:hover{border-color:#5eead4;transform:translateY(-2px);box-shadow:0 18px 42px rgba(15,118,110,.14)}.flow-step span{display:inline-flex;width:28px;height:28px;border-radius:8px;align-items:center;justify-content:center;background:#ecfeff;color:#0f766e;font-weight:900;font-size:12px}.flow-step strong,.pipeline-step strong,.sample-card strong,.capability-card strong{display:block;margin-top:10px;font-size:14px;color:#0f172a}.flow-step small,.pipeline-step span,.sample-card small,.capability-card span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.58}.pipeline-step{text-align:center}.more-samples{margin-top:8px;border:1px dashed #99f6e4;border-radius:10px;padding:9px;background:#f8fafc}.more-samples summary{cursor:pointer;color:#0f766e;font-weight:900;font-size:13px}.more-samples .btn-secondary{margin-top:8px}
+    .flow-step{position:relative;text-align:left;cursor:pointer;font:inherit}.flow-step:hover,.sample-card:hover{border-color:#5eead4;transform:translateY(-2px);box-shadow:0 18px 42px rgba(15,118,110,.14)}.flow-step span{display:inline-flex;width:28px;height:28px;border-radius:8px;align-items:center;justify-content:center;background:#ecfeff;color:#0f766e;font-weight:900;font-size:12px}.flow-step strong,.pipeline-step strong,.sample-card strong,.capability-card strong{display:block;margin-top:10px;font-size:14px;color:#0f172a}.flow-step small,.pipeline-step span,.sample-card small,.capability-card span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.58}.pipeline-step{text-align:center}.more-samples{margin-top:10px;border:1px dashed #99f6e4;border-radius:10px;padding:10px;background:#f8fafc}.more-samples summary{cursor:pointer;color:#0f766e;font-weight:900;font-size:13px}.more-samples .btn-secondary{margin-top:10px}
     .review-block{margin-bottom:18px}.review-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin:4px 0 12px}.review-head h3{margin:0;font-size:18px;color:#0f172a}.review-head p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.review-actions{display:flex;gap:10px;flex-wrap:wrap}.review-btn.dark{background:#0f172a;color:#fff;border-color:#0f172a}.capability-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.sample-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.sample-card{text-align:left;cursor:pointer}.sample-card span{display:inline-flex;margin-bottom:2px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0f766e;font-size:12px;font-weight:900}
     .site-footer{margin-top:20px;padding:18px 20px;border:1px solid rgba(255,255,255,.7);border-radius:12px;background:rgba(255,255,255,.82);box-shadow:var(--shadow);display:flex;justify-content:space-between;gap:16px;align-items:center;color:#475569;font-size:13px;line-height:1.6}.site-footer strong{color:#0f172a}.site-footer a{color:#0f766e;text-decoration:none;font-weight:900}
     .evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}.evidence-card{padding:16px}.evidence-card span{display:block;color:var(--muted);font-size:12px}.evidence-card strong{display:block;margin-top:8px;font-size:28px;color:#0f172a}.evidence-card small{display:block;color:#166534;margin-top:7px;font-size:12px}.api-pill{display:inline-flex;margin:3px 4px 3px 0;padding:5px 8px;border-radius:999px;background:#ecfeff;color:#0f766e;font-weight:800;font-size:12px}
-    #ambientField{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.42;mix-blend-mode:multiply}
-    .app{position:relative;z-index:1}
-    .hero-button{font:inherit;cursor:pointer}
-    .observatory-panel{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(7,17,31,.96),rgba(12,30,48,.92));color:#e5f7ff;border-color:rgba(153,246,228,.22)}
-    .observatory-panel h3,.observatory-panel .score-row strong{color:#fff}.observatory-panel .score-row{border-bottom-color:rgba(190,222,255,.16)}.observatory-panel .score-row span{color:#b8cde1}
-    .observatory-panel .score-link{background:rgba(94,234,212,.12);border-color:rgba(153,246,228,.28);color:#c4fff4}
-    .render-preview{position:relative;isolation:isolate;min-height:276px;margin:-6px -6px 18px;border:1px solid rgba(190,222,255,.18);border-radius:18px;overflow:hidden;background:#08111f;box-shadow:0 24px 70px rgba(0,0,0,.28)}
-    .render-preview img{display:block;width:100%;height:100%;min-height:276px;object-fit:cover;transform:scale(1.04);animation:renderFloat 13s ease-in-out infinite alternate}
-    .render-preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,31,.05),rgba(8,17,31,.62));z-index:1;pointer-events:none}
-    .render-caption{position:absolute;left:14px;right:14px;bottom:14px;z-index:4;display:flex;justify-content:space-between;gap:12px;align-items:flex-end;padding:12px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(3,10,18,.62);backdrop-filter:blur(14px)}
-    .render-caption span,.snapshot-status{display:block;color:#99f6e4;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.render-caption strong{display:block;margin-top:4px;color:#fff;font-size:18px;line-height:1.1}.render-caption small{color:#b8cde1;font-size:12px}
-    .coord-grid{position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(96,165,250,.18) 1px,transparent 1px),linear-gradient(0deg,rgba(96,165,250,.12) 1px,transparent 1px);background-size:12.5% 100%,100% 16.66%;opacity:.34;pointer-events:none;transform:perspective(420px) rotateX(12deg) translateY(12px);transform-origin:50% 72%}.coord-grid::after{content:"72W   38N   0E   50N   78E   139E";position:absolute;left:14px;right:14px;top:8px;display:flex;justify-content:space-between;color:rgba(219,234,254,.58);font:700 9px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.04em}
-    .route-layer{position:absolute;inset:0;z-index:3;pointer-events:none;filter:drop-shadow(0 0 10px rgba(94,234,212,.28))}.route-layer path{fill:none;stroke:url(#routeGlow);stroke-width:1.1;stroke-dasharray:5 7;opacity:.72}.route-layer ellipse{fill:none;stroke:rgba(246,211,101,.28);stroke-width:1}
-    .scan-beam{position:absolute;left:0;right:0;top:-28%;height:30%;z-index:3;background:linear-gradient(180deg,transparent,rgba(94,234,212,.18),transparent);animation:scanBeam 7s linear infinite;pointer-events:none}
-    .render-node{position:absolute;z-index:4;width:8px;height:8px;border-radius:999px;background:#5eead4;box-shadow:0 0 0 6px rgba(94,234,212,.1),0 0 18px rgba(94,234,212,.74)}.render-node::before{content:"";position:absolute;left:3px;bottom:6px;width:1px;height:var(--pin,28px);background:linear-gradient(180deg,rgba(223,252,255,.95),rgba(94,234,212,.05));transform:translateY(calc(-1 * var(--pin,28px)));transform-origin:bottom}.render-node::after{content:attr(data-code) "  " attr(data-coord);position:absolute;left:13px;top:calc(-12px - var(--pin,28px));white-space:nowrap;color:#dffcff;background:linear-gradient(180deg,rgba(7,17,31,.86),rgba(7,17,31,.58));border:1px solid rgba(153,246,228,.22);border-radius:8px;padding:3px 6px;font:800 8.5px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.02em;opacity:.94}.render-node.n-a{left:29%;top:44%;--pin:30px}.render-node.n-b{left:51%;top:38%;--pin:44px;background:#60a5fa}.render-node.n-c{left:58%;top:49%;--pin:26px;background:#f6d365}.render-node.n-d{left:47%;top:44%;--pin:34px;background:#5eead4}.render-node.n-e{left:24%;top:40%;--pin:22px;background:#5eead4}.render-node.n-f{left:68%;top:46%;--pin:38px;background:#60a5fa}.render-node.n-g{left:62%;top:42%;--pin:50px;background:#f6d365}.render-node.n-a::after,.render-node.n-e::after{left:auto;right:13px}.render-node.n-g::after{left:auto;right:-4px}
-    .hero-panel>.hero-canvas{position:absolute;z-index:0}
-    .hero-band{align-items:start}
-    .snapshot-status{margin-top:12px;padding:10px 12px;border:1px solid rgba(153,246,228,.2);border-radius:12px;background:rgba(94,234,212,.08);color:#c4fff4;line-height:1.5;letter-spacing:0;text-transform:none}
-    .snapshot-status img,.snapshot-status canvas{display:block;width:100%;height:auto;max-height:170px;object-fit:cover;border-radius:10px;margin-top:2px}
-    @keyframes renderFloat{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.11) translate3d(-2%,1.5%,0)}}@keyframes scanBeam{to{transform:translateY(430%)}}@keyframes nodePulse{0%,100%{transform:scale(.86);opacity:.7}50%{transform:scale(1.18);opacity:1}}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-    @media (max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.source-grid,.map-dashboard,.reconcile-dashboard,.smart-insight-grid{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer{align-items:flex-start;flex-direction:column}}
-    @media (max-width:680px){.main{padding:16px 12px 28px}.topbar{flex-direction:column;align-items:flex-start}.status{white-space:normal;max-width:100%;line-height:1.45;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.hero-stats,.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.insight-kpis,.map-countries{grid-template-columns:1fr}.sidebar{padding:16px}.market-strip{display:none}.chart-wrap{height:300px}.map-canvas-wrap{min-height:300px}}
+    @media (max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.source-grid{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer{align-items:flex-start;flex-direction:column}}
+    @media (max-width:680px){.main{padding:16px 12px 28px}.topbar{flex-direction:column;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.hero-stats,.hero-band,.evidence-grid,.quality-dashboard,.quality-context{grid-template-columns:1fr}.sidebar{padding:16px}.market-strip{display:none}.chart-wrap{height:300px}}
   </style>
 </head>
 <body>
-<canvas id="ambientField" aria-hidden="true"></canvas>
 <div class="app">
   <aside class="sidebar">
     <div class="brand"><div class="logo">E</div><div><h1>经观 EconView</h1><p>全球宏观经济数据治理与分析平台</p></div></div>
@@ -178,6 +152,7 @@
   <main class="main">
     <div class="topbar">
       <div><h2 id="pageTitle">全球宏观经济数据治理与分析平台</h2><p id="pageDesc">观全球经济，见数据脉络。按国家 / 指标 / 频率 / 时间区间查询，返回标准化 JSON、元数据与质量校验。</p><a class="small-link" href="/docs" target="_blank">打开 API 文档</a></div>
+      <div class="status"><span class="dot"></span> <span id="serverStatus">正在检查服务...</span></div>
     </div>
     <div class="market-strip" aria-label="动态数据源状态">
       <div class="market-track">
@@ -210,23 +185,12 @@
               <span>Live Data Mesh</span>
               <strong>7 sources online</strong>
               <small>World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 统一进入标准化数据链路。</small>
-              <div class="signal-bars">
-                <div class="signal-bar"><span>官方来源</span><b>7</b></div>
-                <div class="signal-bar"><span>经济体/地区</span><b>8</b></div>
-                <div class="signal-bar"><span>标准指标</span><b>18</b></div>
-                <div class="signal-bar"><span>示例查询</span><b>33</b></div>
-              </div>
+              <div class="signal-bars"><div class="signal-bar"><i></i></div><div class="signal-bar"><i></i></div><div class="signal-bar"><i></i></div></div>
             </div>
             <div class="signal-card">
               <span>Quality Engine</span>
               <strong>traceable JSON</strong>
               <small>每次查询同步返回质量报告、来源血缘和机器可读结构。</small>
-              <div class="quality-mini">
-                <div><b>缺失检测</b><span>missing period count</span></div>
-                <div><b>重复检测</b><span>duplicate records</span></div>
-                <div><b>异常提醒</b><span>outlier warning</span></div>
-                <div><b>来源血缘</b><span>provider / dataset</span></div>
-              </div>
             </div>
           </div>
           <div class="command-line"><b>econview.query</b> /series?country=US&indicator=CPI_YOY <span class="command-caret"></span></div>
@@ -240,41 +204,14 @@
             <a class="hero-link" href="/data_element_report.pdf" target="_blank">查看项目报告 PDF</a>
             <a class="hero-link" href="/docs" target="_blank">接口文档</a>
             <a class="hero-link" href="/evaluation" target="_blank">评审证据</a>
-            <button class="hero-link hero-button" id="snapshotHero" type="button">生成渲染快照</button>
           </div>
         </div>
-        <div class="score-panel observatory-panel">
-          <div class="render-preview" id="renderPreview">
-            <img id="observatoryRender" src="assets/econview-observatory.png" alt="经观 EconView 全球宏观经济数据观测舱渲染图">
-            <div class="coord-grid"></div>
-            <svg class="route-layer" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
-              <defs><linearGradient id="routeGlow" x1="0" x2="1"><stop offset="0" stop-color="#5eead4"/><stop offset=".55" stop-color="#60a5fa"/><stop offset="1" stop-color="#f6d365"/></linearGradient></defs>
-              <ellipse cx="51" cy="40" rx="29" ry="13"></ellipse>
-              <path d="M24 40 C34 18 50 16 62 42"></path>
-              <path d="M29 44 C42 28 55 26 68 46"></path>
-              <path d="M47 44 C50 24 56 22 58 49"></path>
-              <path d="M51 38 C56 31 62 31 68 46"></path>
-              <path d="M62 42 C65 35 67 34 68 46"></path>
-            </svg>
-            <div class="scan-beam"></div>
-            <i class="render-node n-a" data-code="WB" data-coord="38.9N,77.0W"></i>
-            <i class="render-node n-b" data-code="EUROSTAT" data-coord="49.6N,6.1E"></i>
-            <i class="render-node n-c" data-code="BIS" data-coord="47.6N,7.6E"></i>
-            <i class="render-node n-d" data-code="ECB" data-coord="50.1N,8.7E"></i>
-            <i class="render-node n-e" data-code="BLS" data-coord="38.9N,77.0W"></i>
-            <i class="render-node n-f" data-code="OECD" data-coord="48.9N,2.3E"></i>
-            <i class="render-node n-g" data-code="IMF" data-coord="38.9N,77.0W"></i>
-            <div class="render-caption">
-              <div><span>Render Preview</span><strong>Data Observatory</strong></div>
-              <small>7 sources · 18 indicators</small>
-            </div>
-          </div>
+        <div class="score-panel">
           <h3>复核入口</h3>
           <div class="score-row"><span>统一 Schema</span><a class="score-link" href="/schema" target="_blank">打开</a></div>
           <div class="score-row"><span>系统能力</span><a class="score-link" href="/capabilities" target="_blank">打开</a></div>
           <div class="score-row"><span>Agent 工具</span><a class="score-link" href="/agent-tools" target="_blank">打开</a></div>
           <div class="score-row"><span>33 条示例</span><a class="score-link" href="/sample-queries" target="_blank">打开</a></div>
-          <div class="snapshot-status" id="snapshotStatus">点击“生成渲染快照”，可在这里生成一张答辩展示图。</div>
         </div>
       </div>
 
@@ -346,64 +283,6 @@
           <button class="sample-card" onclick="loadCrossSourceGdpSample()"><span>World Bank / IMF</span><strong>美国 GDP 跨源对比</strong><small>证明同一宏观含义下跨来源对齐和误差复核。</small></button>
         </div>
       </section>
-
-      <section class="review-block">
-        <div class="review-head">
-          <div>
-            <h3>全球数据地图</h3>
-            <p>用地图把国家覆盖、可查指标和官方来源一眼展示出来，适合答辩开场说明平台覆盖范围。</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <div class="map-dashboard">
-              <div class="map-canvas-wrap">
-                <canvas id="dataMapCanvas" aria-label="全球数据覆盖地图"></canvas>
-              </div>
-              <div class="map-panel">
-                <div class="map-card"><span>已覆盖国家 / 地区</span><strong id="mapCountryCount">-</strong></div>
-                <div class="map-card"><span>可调用官方来源</span><strong id="mapSourceCount">-</strong></div>
-                <div class="map-card"><span>地图选择</span><div class="map-countries" id="mapCountryButtons"></div></div>
-                <div class="map-detail" id="mapDetail">加载国家字典后展示覆盖详情。</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="review-block">
-        <div class="review-head">
-          <div>
-            <h3>跨源对账图</h3>
-            <p>将 World Bank 与 IMF 的美国实际 GDP 增长率按年份对齐，自动计算差异和平均绝对误差。</p>
-          </div>
-          <div class="review-actions">
-            <button class="review-btn dark" onclick="loadCrossSourceGdpSample()">运行对账样例</button>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <div class="reconcile-dashboard">
-              <div>
-                <div>
-                  <span class="legend-dot" style="--c:#2563eb">World Bank</span>
-                  <span class="legend-dot" style="--c:#d97706">IMF</span>
-                  <span class="legend-dot" style="--c:#64748b">差异带</span>
-                </div>
-                <div class="reconcile-canvas-wrap"><canvas id="reconcileChart"></canvas></div>
-              </div>
-              <div class="reconcile-summary" id="reconcileSummary">
-                <div class="reconcile-stat"><span>状态</span><strong>等待运行</strong></div>
-                <div class="reconcile-stat"><span>样例</span><strong>美国 GDP 增长率</strong></div>
-                <div class="reconcile-stat"><span>来源</span><strong>World Bank / IMF</strong></div>
-              </div>
-            </div>
-            <div class="reconcile-table-wrap">
-              <table class="check-table" id="reconcileTable"><tr><th>年份</th><th>World Bank</th><th>IMF</th><th>差异</th></tr><tr><td colspan="4">点击“运行对账样例”后展示逐年对账结果。</td></tr></table>
-            </div>
-          </div>
-        </div>
-      </section>
       <div class="grid">
         <section class="card">
           <div class="card-header"><h3>查询条件</h3><p>V1 真实接入 World Bank、BLS、Eurostat、IMF、OECD、ECB 与 BIS。</p></div>
@@ -429,15 +308,7 @@
               <button class="btn btn-secondary" onclick="loadBisSample()">BIS 美国政策利率</button>
               <button class="btn btn-secondary" onclick="loadOecdSample()">OECD 美国 CPI 同比</button>
             </details>
-            <div class="runbook">
-              <h4>演示路径与数据链路</h4>
-              <div class="runbook-grid">
-                <div class="runbook-step"><strong>1. 选指标</strong><span>国家、频率、时间区间同步约束。</span></div>
-                <div class="runbook-step"><strong>2. 拉取 API</strong><span>请求官方来源并保留原始代码。</span></div>
-                <div class="runbook-step"><strong>3. 标准化</strong><span>统一单位、日期、口径和来源字段。</span></div>
-                <div class="runbook-step"><strong>4. 出结果</strong><span>图表、JSON、质量报告一起更新。</span></div>
-              </div>
-            </div>
+            <div class="hint"><div>官方 API 自动抓取</div><div>统一编码、单位、口径、来源</div><div>支持质量校验与错误返回</div></div>
           </div>
         </section>
 
@@ -452,7 +323,7 @@
             <section class="card chart-card"><div class="card-header"><h3>指标趋势与数值</h3><p id="chartSubtitle">等待查询</p></div><div class="card-body"><div class="chart-wrap"><canvas id="chart" width="740" height="310"></canvas></div><div id="seriesSummary" class="summary-grid"></div><div class="table-scroll"><table class="table value-table"><tbody id="observationTable"><tr><th>日期</th><th>数值</th><th>状态</th></tr><tr><td colspan="3">等待查询...</td></tr></tbody></table></div></div></section>
             <section class="card"><div class="card-header"><h3>元数据摘要</h3><p>用评审能读懂的方式说明来源、口径、单位、更新时间。</p></div><div class="card-body"><div id="metaTable" class="meta-panel"><div class="meta-main"><span>等待查询</span><strong>-</strong><small>请选择指标并运行查询。</small></div></div></div></section>
           </div>
-          <section id="insightCard" class="card" style="margin-top:20px;"><div class="card-header"><h3>智能讲解卡</h3><p>把查询结果自动整理成一句话结论、答辩话术、关键指标和可引用报告段落。</p></div><div class="card-body"><div class="smart-insight-grid"><div id="insightBox" class="insight-box"><span>等待查询</span><strong>-</strong><p>查询成功后会生成一句话结论和报告段落。</p></div><div id="speakerCard" class="speaker-card"><span>答辩讲解</span><strong>等待数据</strong><p>运行查询后，这里会生成 20 秒口播话术。</p></div></div><div id="insightKpis" class="insight-kpis"></div><div id="insightBullets" class="insight-list"></div></div></section>
+          <section id="insightCard" class="card" style="margin-top:20px;"><div class="card-header"><h3>自动解读</h3><p>把查询结果自动整理成可用于答辩和报告的中文摘要。</p></div><div class="card-body"><div id="insightBox" class="insight-box"><span>等待查询</span><strong>-</strong><p>查询成功后会生成一句话结论、报告段落和答辩要点。</p></div><div id="insightBullets" class="insight-list"></div></div></section>
           <div class="content-grid" style="margin-top:20px;">
             <section id="jsonCard" class="card"><div class="card-header"><h3>标准化 JSON 输出</h3><p>可供 Agent、看板、研究脚本直接调用。</p></div><div class="card-body"><pre id="jsonOutput">等待查询...</pre></div></section>
             <section id="qualityCard" class="card"><div class="card-header"><h3>数据质量校验</h3><p>缺失值、重复、异常、可追溯。</p></div><div class="card-body"><div class="quality-list" id="qualityList"></div></div></section>
@@ -539,11 +410,9 @@
 
 <script>
 let indicatorStore = [];
-let countryStore = [];
 let lastResult = null;
 let evaluationStore = null;
 let consistencyStore = null;
-let reconciliationStore = null;
 const REMOTE_API_BASE = "https://sjys-th73.onrender.com";
 let apiBase = window.location.protocol === "file:" ? REMOTE_API_BASE : "";
 
@@ -646,13 +515,11 @@ async function init(){
   normalizeLinksForFileMode();
   try{
     const health=await fetchJson(`/health`);
-    const serverStatus=document.getElementById("serverStatus");
-    if(serverStatus)serverStatus.textContent=`${health.status} · ${health.implemented_sources.join(" + ")} · no pip`;
+    document.getElementById("serverStatus").textContent=`${health.status} · ${health.implemented_sources.join(" + ")} · no pip`;
     const countries=await fetchJson(`/countries`);
     const indicators=await fetchJson(`/indicators`);
     evaluationStore=await fetchJson(`/evaluation`).catch(()=>null);
     consistencyStore=await fetchJson(`/consistency`).catch(()=>null);
-    countryStore=countries.countries;
     indicatorStore=indicators.indicators;
     document.getElementById("mCountry").textContent=countries.countries.length;
     document.getElementById("mIndicator").textContent=indicators.indicators.length;
@@ -663,11 +530,9 @@ async function init(){
     document.getElementById("indicator").addEventListener("change", updateFrequencyByIndicator);
     document.getElementById("indicator").value="GDP_NOMINAL"; document.getElementById("country").value="CN";
     updateFrequencyByIndicator(); document.getElementById("startDate").value="2018"; document.getElementById("endDate").value="2024"; applyInitialQueryFromUrl(); await runQuery(); applyInitialPageFromUrl();
-    renderDataMap("CN");
     renderEvaluation();
     renderConsistency();
-    drawReconciliationChart([]);
-  }catch(err){const serverStatus=document.getElementById("serverStatus");if(serverStatus)serverStatus.textContent="服务未连接";showError(`初始化失败：${err.message||err}\n建议直接打开线上地址：https://sjys-th73.onrender.com/`);}
+  }catch(err){document.getElementById("serverStatus").textContent="服务未连接";showError(`初始化失败：${err.message||err}\n建议直接打开线上地址：https://sjys-th73.onrender.com/`);}
 }
 function setFrequencyOptions(meta, preferred){
   const frequency=document.getElementById("frequency");
@@ -732,10 +597,8 @@ async function loadCrossSourceGdpSample(){
       world_bank_quality:wb.quality_report||null,
       imf_quality:imf.quality_report||null
     };
-    reconciliationStore=payload;
     lastResult=wb;
     renderResult(wb);
-    renderCrossSourceReconciliation(payload);
     document.getElementById("jsonOutput").textContent=JSON.stringify(payload,null,2);
     document.getElementById("jsonOutputMirror").textContent=JSON.stringify(payload,null,2);
   }catch(err){
@@ -807,23 +670,11 @@ function renderObservationTable(obs,s,scale){
   tbody.innerHTML='<tr><th>日期</th><th>数值</th><th>状态</th></tr>'+obs.map(o=>`<tr><td>${escapeHtml(o.date)}</td><td><strong>${escapeHtml(formatValue(o.value,currentScale))}</strong><br><small>原始：${escapeHtml(rawValue(o.value,s?s.unit:""))}</small></td><td>${statusBadge(o.status)}</td></tr>`).join("");
 }
 function renderInsight(data,scale){
-  const box=document.getElementById("insightBox"), bulletsEl=document.getElementById("insightBullets"), speakerEl=document.getElementById("speakerCard"), kpisEl=document.getElementById("insightKpis");
+  const box=document.getElementById("insightBox"), bulletsEl=document.getElementById("insightBullets");
   if(!box||!bulletsEl)return;
-  if(!data||data.error||!data.series){
-    box.innerHTML='<span>暂无解读</span><strong>-</strong><p>查询成功后会生成自动解读。</p>';
-    if(speakerEl)speakerEl.innerHTML='<span>答辩讲解</span><strong>等待数据</strong><p>运行查询后，这里会生成 20 秒口播话术。</p>';
-    if(kpisEl)kpisEl.innerHTML='';
-    bulletsEl.innerHTML='';
-    return;
-  }
+  if(!data||data.error||!data.series){box.innerHTML='<span>暂无解读</span><strong>-</strong><p>查询成功后会生成自动解读。</p>';bulletsEl.innerHTML='';return;}
   const s=data.series, q=data.quality_report||{}, obs=s.observations||[], values=numericValues(obs), currentScale=scale||chooseScale(values,s.unit);
-  if(!obs.length){
-    box.innerHTML='<span>暂无解读</span><strong>没有可解读的观测值</strong><p>请调整时间范围或指标。</p>';
-    if(speakerEl)speakerEl.innerHTML='<span>答辩讲解</span><strong>需要调整查询</strong><p>当前没有可解读观测值，建议扩大时间范围或切换指标。</p>';
-    if(kpisEl)kpisEl.innerHTML='';
-    bulletsEl.innerHTML='';
-    return;
-  }
+  if(!obs.length){box.innerHTML='<span>暂无解读</span><strong>没有可解读的观测值</strong><p>请调整时间范围或指标。</p>';bulletsEl.innerHTML='';return;}
   const latest=obs[obs.length-1], previous=obs[obs.length-2], maxObs=obs.reduce((a,b)=>Number(b.value)>Number(a.value)?b:a,obs[0]), minObs=obs.reduce((a,b)=>Number(b.value)<Number(a.value)?b:a,obs[0]);
   const change=previous?Number(latest.value)-Number(previous.value):null;
   const changePhrase=change===null?"暂无上一期可比数据":change>0?`较上一期增加 ${formatValue(Math.abs(change),currentScale)}`:change<0?`较上一期减少 ${formatValue(Math.abs(change),currentScale)}`:"较上一期基本持平";
@@ -831,14 +682,7 @@ function renderInsight(data,scale){
   const paragraph=`${obs[0].date} 至 ${latest.date}期间，${s.country_name_zh}的${s.indicator_name_zh}最新观测期为${latest.date}，数值为${formatValue(latest.value,currentScale)}，${changePhrase}。样本期内最高值出现在${maxObs.date}，为${formatValue(maxObs.value,currentScale)}；最低值出现在${minObs.date}，为${formatValue(minObs.value,currentScale)}。数据来自${s.source.organization} / ${s.source.dataset}，${q.passed?"质量校验通过，来源可追溯。":"质量校验提示需要复核。"}`;
   const request=data.request||{}; const insightUrl=`/insight?country=${encodeURIComponent(request.country||s.country_code)}&indicator_code=${encodeURIComponent(request.indicator_code||s.indicator_code)}&start_date=${encodeURIComponent(request.start_date||obs[0].date)}&end_date=${encodeURIComponent(request.end_date||latest.date)}&frequency=${encodeURIComponent(request.frequency||s.frequency)}`;
   box.innerHTML=`<span>一句话结论</span><strong>${escapeHtml(headline)}</strong><p>${escapeHtml(paragraph)}</p><div class="insight-actions"><a class="insight-link" href="${insightUrl}" target="_blank">打开 /insight JSON</a></div>`;
-  const qualityText=q.passed?"质量分层显示为可直接引用":"质量校验存在关注项，适合现场展示平台不会隐藏风险";
-  if(speakerEl){
-    speakerEl.innerHTML=`<span>答辩讲解</span><strong>20 秒口播稿</strong><p>${escapeHtml(`这一屏展示的是${s.country_name_zh}${s.indicator_name_zh}。平台不是只给一条数值，而是同时给趋势、口径、来源和质量结果：最新观测为 ${formatValue(latest.value,currentScale)}，${changePhrase}，数据来自 ${s.source.organization}。${qualityText}。`)}</p>`;
-  }
-  if(kpisEl){
-    kpisEl.innerHTML=`<div class="insight-kpi"><span>最新观测</span><strong>${escapeHtml(latest.date)} · ${escapeHtml(formatValue(latest.value,currentScale))}</strong></div><div class="insight-kpi"><span>变化方向</span><strong>${escapeHtml(changePhrase)}</strong></div><div class="insight-kpi"><span>质量状态</span><strong>${q.passed?"通过":"关注"}</strong></div>`;
-  }
-  const points=[`最新观测：${latest.date}，${formatValue(latest.value,currentScale)}`,`变化：${changePhrase}`,`区间最高：${maxObs.date}，${formatValue(maxObs.value,currentScale)}`,`区间最低：${minObs.date}，${formatValue(minObs.value,currentScale)}`,`来源血缘：${s.source.organization} / ${s.source.source_series_code}`,`质量提示：${qualityText}`];
+  const points=[`最新观测：${latest.date}，${formatValue(latest.value,currentScale)}`,`变化：${changePhrase}`,`区间最高：${maxObs.date}，${formatValue(maxObs.value,currentScale)}`,`区间最低：${minObs.date}，${formatValue(minObs.value,currentScale)}`];
   bulletsEl.innerHTML=points.map(item=>`<div class="insight-point">${escapeHtml(item)}</div>`).join("");
 }
 function renderResult(data){
@@ -914,118 +758,6 @@ function renderConsistency(){
 async function runConsistency(online=false){
   consistencyStore=await fetchJson(`/consistency${online?"?online=1":""}`).catch(()=>consistencyStore);
   renderConsistency();
-}
-
-const COUNTRY_POSITIONS={
-  US:{x:.18,y:.43},CN:{x:.73,y:.48},DE:{x:.51,y:.38},JP:{x:.84,y:.47},
-  GB:{x:.47,y:.35},IN:{x:.66,y:.56},FR:{x:.49,y:.41},EA:{x:.53,y:.43}
-};
-function countryAvailability(code){
-  const indicators=indicatorStore.filter(item=>{
-    const scope=item.country_scope||item.supported_countries||"all";
-    if(scope==="all")return true;
-    return Array.isArray(scope)&&scope.includes(code);
-  });
-  const sources=[...new Set(indicators.map(item=>item.source||item.preferred_source||item.organization).filter(Boolean))].sort();
-  return {indicators,sources};
-}
-function renderDataMap(activeCode="CN"){
-  if(!countryStore.length||!indicatorStore.length)return;
-  const active=countryStore.find(c=>c.country_code===activeCode)||countryStore[0];
-  const allSources=[...new Set(indicatorStore.map(i=>i.source||i.preferred_source||i.organization).filter(Boolean))];
-  const countryCount=document.getElementById("mapCountryCount"), sourceCount=document.getElementById("mapSourceCount"), buttons=document.getElementById("mapCountryButtons"), detail=document.getElementById("mapDetail");
-  if(countryCount)countryCount.textContent=countryStore.length;
-  if(sourceCount)sourceCount.textContent=allSources.length;
-  if(buttons){
-    buttons.innerHTML=countryStore.map(c=>`<button class="map-country ${c.country_code===active.country_code?"active":""}" onclick="renderDataMap('${c.country_code}')">${escapeHtml(c.country_code)} · ${escapeHtml(c.name_zh)}</button>`).join("");
-  }
-  const availability=countryAvailability(active.country_code);
-  if(detail){
-    const sampleIndicators=availability.indicators.slice(0,6).map(item=>item.indicator_name_zh||item.indicator_code);
-    detail.innerHTML=`<strong>${escapeHtml(active.name_zh)} / ${escapeHtml(active.name_en)}</strong><br>可查标准指标 ${availability.indicators.length} 项，覆盖官方来源 ${availability.sources.length} 类。<div class="map-tags">${availability.sources.map(s=>`<span class="map-tag">${escapeHtml(s)}</span>`).join("")}</div><div class="map-tags">${sampleIndicators.map(s=>`<span class="map-tag">${escapeHtml(s)}</span>`).join("")}</div>`;
-  }
-  drawDataMap(active.country_code);
-}
-function drawDataMap(activeCode="CN"){
-  const canvas=document.getElementById("dataMapCanvas");
-  if(!canvas)return;
-  const prepared=prepareCanvas(canvas), ctx=prepared.ctx, w=prepared.w, h=prepared.h;
-  ctx.clearRect(0,0,w,h);
-  ctx.fillStyle="rgba(255,255,255,.32)";
-  ctx.beginPath();ctx.ellipse(w*.26,h*.43,w*.18,h*.22,-.3,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.ellipse(w*.54,h*.38,w*.18,h*.16,.1,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.ellipse(w*.68,h*.52,w*.22,h*.21,-.08,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.ellipse(w*.80,h*.72,w*.10,h*.08,.35,0,Math.PI*2);ctx.fill();
-  ctx.strokeStyle="rgba(15,118,110,.18)";ctx.lineWidth=1.4;
-  const hub={x:w*.55,y:h*.47};
-  countryStore.forEach(country=>{
-    const pos=COUNTRY_POSITIONS[country.country_code]; if(!pos)return;
-    const point={x:w*pos.x,y:h*pos.y};
-    ctx.beginPath();ctx.moveTo(hub.x,hub.y);ctx.quadraticCurveTo((hub.x+point.x)/2,Math.min(hub.y,point.y)-h*.08,point.x,point.y);ctx.stroke();
-  });
-  countryStore.forEach(country=>{
-    const pos=COUNTRY_POSITIONS[country.country_code]; if(!pos)return;
-    const point={x:w*pos.x,y:h*pos.y};
-    const availability=countryAvailability(country.country_code);
-    const active=country.country_code===activeCode;
-    const radius=active?12:7+Math.min(8,availability.sources.length);
-    ctx.fillStyle=active?"#d97706":"#0f766e";
-    ctx.strokeStyle=active?"#fffbeb":"rgba(255,255,255,.9)";
-    ctx.lineWidth=active?4:2;
-    ctx.beginPath();ctx.arc(point.x,point.y,radius,0,Math.PI*2);ctx.fill();ctx.stroke();
-    ctx.fillStyle="#0f172a";ctx.font=`800 ${active?13:12}px -apple-system,BlinkMacSystemFont,Segoe UI`;ctx.textAlign="center";
-    ctx.fillText(country.country_code,point.x,point.y-radius-9);
-    ctx.fillStyle="#475569";ctx.font="11px -apple-system,BlinkMacSystemFont,Segoe UI";
-    ctx.fillText(`${availability.indicators.length} 项`,point.x,point.y+radius+15);
-  });
-  ctx.fillStyle="#0f766e";ctx.beginPath();ctx.arc(hub.x,hub.y,10,0,Math.PI*2);ctx.fill();
-  ctx.fillStyle="#0f172a";ctx.font="800 12px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.textAlign="center";ctx.fillText("EconView",hub.x,hub.y-16);
-}
-function renderCrossSourceReconciliation(payload){
-  const aligned=(payload&&payload.aligned_observations)||[];
-  drawReconciliationChart(aligned);
-  const summary=document.getElementById("reconcileSummary"), table=document.getElementById("reconcileTable");
-  if(!summary||!table)return;
-  if(!aligned.length){
-    summary.innerHTML='<div class="reconcile-stat"><span>状态</span><strong>暂无对齐数据</strong></div><div class="reconcile-stat"><span>建议</span><strong>稍后重试官方接口</strong></div>';
-    table.innerHTML='<tr><th>年份</th><th>World Bank</th><th>IMF</th><th>差异</th></tr><tr><td colspan="4">暂无可展示结果。</td></tr>';
-    return;
-  }
-  const maxDiff=aligned.reduce((a,b)=>Number(b.absolute_error)>Number(a.absolute_error)?b:a,aligned[0]);
-  const mae=payload.mean_absolute_error;
-  summary.innerHTML=`<div class="reconcile-stat"><span>对齐年份</span><strong>${aligned.length}</strong></div><div class="reconcile-stat"><span>平均绝对误差</span><strong>${formatCompact(mae,3)} 个百分点</strong></div><div class="reconcile-stat"><span>最大差异年份</span><strong>${escapeHtml(maxDiff.date)} · ${formatCompact(maxDiff.absolute_error,3)}</strong></div><div class="reconcile-stat"><span>结论</span><strong>${mae<1?"高度一致":"存在口径差异"}</strong></div>`;
-  table.innerHTML='<tr><th>年份</th><th>World Bank</th><th>IMF</th><th>差异</th></tr>'+aligned.map(row=>`<tr><td>${escapeHtml(row.date)}</td><td>${formatCompact(row.world_bank,3)}%</td><td>${formatCompact(row.imf,3)}%</td><td>${formatCompact(row.absolute_error,3)}</td></tr>`).join("");
-}
-function drawReconciliationChart(rows){
-  const canvas=document.getElementById("reconcileChart");
-  if(!canvas)return;
-  const prepared=prepareCanvas(canvas), ctx=prepared.ctx, w=prepared.w, h=prepared.h;
-  ctx.clearRect(0,0,w,h);
-  ctx.font="12px -apple-system,BlinkMacSystemFont,Segoe UI";
-  if(!rows||!rows.length){
-    ctx.fillStyle="#64748b";ctx.fillText("等待跨源对账数据",34,90);ctx.fillText("点击“运行对账样例”加载 World Bank 与 IMF 年度序列。",34,114);return;
-  }
-  const values=rows.flatMap(row=>[Number(row.world_bank),Number(row.imf)]).filter(Number.isFinite);
-  let min=Math.min(...values), max=Math.max(...values); if(min===max){min-=1;max+=1;}
-  const span=max-min; min-=span*.18; max+=span*.18;
-  const pad={left:56,right:28,top:24,bottom:42}, plotW=w-pad.left-pad.right, plotH=h-pad.top-pad.bottom;
-  const x=i=>pad.left+i/Math.max(1,rows.length-1)*plotW, y=v=>pad.top+(max-v)/(max-min)*plotH;
-  ctx.strokeStyle="#e2e8f0";ctx.lineWidth=1;ctx.fillStyle="#64748b";
-  for(let i=0;i<=4;i++){const value=max-i*(max-min)/4, yy=y(value);ctx.beginPath();ctx.moveTo(pad.left,yy);ctx.lineTo(w-pad.right,yy);ctx.stroke();ctx.fillText(`${formatCompact(value,2)}%`,8,yy+4);}
-  function drawSeries(key,color){
-    ctx.beginPath();
-    rows.forEach((row,i)=>{const xx=x(i),yy=y(Number(row[key]));if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});
-    ctx.strokeStyle=color;ctx.lineWidth=3;ctx.lineJoin="round";ctx.lineCap="round";ctx.stroke();
-    rows.forEach((row,i)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x(i),y(Number(row[key])),4,0,Math.PI*2);ctx.fill();});
-  }
-  rows.forEach((row,i)=>{
-    const xx=x(i), y1=y(Number(row.world_bank)), y2=y(Number(row.imf));
-    ctx.strokeStyle="rgba(100,116,139,.35)";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(xx,y1);ctx.lineTo(xx,y2);ctx.stroke();
-  });
-  drawSeries("world_bank","#2563eb");drawSeries("imf","#d97706");
-  ctx.fillStyle="#475569";ctx.textAlign="center";
-  rows.forEach((row,i)=>ctx.fillText(String(row.date),x(i),h-15));
-  ctx.textAlign="left";ctx.fillStyle="#0f172a";ctx.font="800 12px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillText("单位：年度增长率 %",pad.left,pad.top-8);
 }
 function prepareCanvas(canvas){
   const rect=canvas.getBoundingClientRect();
@@ -1238,110 +970,7 @@ function initHeroCanvas(){
   requestAnimationFrame(draw);
 }
 
-function initAmbientField(){
-  const canvas=document.getElementById("ambientField");
-  if(!canvas)return;
-  const ctx=canvas.getContext("2d");
-  const reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let points=[],width=0,height=0,ratio=1;
-  function resize(){
-    ratio=Math.max(1,Math.min(2,window.devicePixelRatio||1));
-    width=window.innerWidth;height=window.innerHeight;
-    canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);
-    canvas.style.width=`${width}px`;canvas.style.height=`${height}px`;
-    ctx.setTransform(ratio,0,0,ratio,0,0);
-    const count=Math.min(95,Math.max(42,Math.floor(width/18)));
-    points=Array.from({length:count},(_,i)=>({
-      x:Math.random()*width,y:Math.random()*height,
-      vx:(Math.random()-.5)*.32,vy:(Math.random()-.5)*.32,
-      r:1+Math.random()*2.4,phase:i*.17
-    }));
-  }
-  function draw(t=0){
-    ctx.clearRect(0,0,width,height);
-    points.forEach((p,i)=>{
-      p.x+=p.vx+Math.sin(t*.0006+p.phase)*.045;
-      p.y+=p.vy+Math.cos(t*.0006+p.phase)*.045;
-      if(p.x<-20)p.x=width+20;if(p.x>width+20)p.x=-20;
-      if(p.y<-20)p.y=height+20;if(p.y>height+20)p.y=-20;
-      for(let j=i+1;j<points.length;j+=1){
-        const q=points[j],dx=p.x-q.x,dy=p.y-q.y,dist=Math.hypot(dx,dy);
-        if(dist<118){
-          ctx.strokeStyle=`rgba(15,118,110,${.18*(1-dist/118)})`;
-          ctx.lineWidth=1;
-          ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
-        }
-      }
-      ctx.fillStyle=i%9===0?"#b7791f":"#0f766e";
-      ctx.globalAlpha=.18+.28*Math.sin(t*.001+p.phase)**2;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
-      ctx.globalAlpha=1;
-    });
-    if(!reduced)requestAnimationFrame(draw);
-  }
-  window.addEventListener("resize",resize);
-  resize();
-  requestAnimationFrame(draw);
-}
-
-function initSnapshotTools(){
-  const button=document.getElementById("snapshotHero");
-  const status=document.getElementById("snapshotStatus");
-  const img=document.getElementById("observatoryRender");
-  if(!button||!status||!img)return;
-  button.addEventListener("click",()=>{
-    const canvas=document.createElement("canvas");
-    canvas.width=1280;canvas.height=720;
-    const ctx=canvas.getContext("2d");
-    ctx.fillStyle="#08111f";ctx.fillRect(0,0,canvas.width,canvas.height);
-    try{ctx.drawImage(img,0,0,canvas.width,canvas.height);}catch(_){}
-    const shade=ctx.createLinearGradient(0,0,canvas.width,0);
-    shade.addColorStop(0,"rgba(5,12,22,.92)");
-    shade.addColorStop(.52,"rgba(5,12,22,.5)");
-    shade.addColorStop(1,"rgba(5,12,22,.12)");
-    ctx.fillStyle=shade;ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="#f8fbff";ctx.font="800 58px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("经观 EconView",72,112);
-    ctx.font="700 30px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("全球宏观经济数据观测舱",74,166);
-    ctx.fillStyle="#c7d7e8";ctx.font="22px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("官方 API 接入 / 指标标准化 / 质量校验 / 数据血缘 / Agent JSON",74,216);
-    const cards=[["Sources","7 official APIs"],["Indicators","18 normalized"],["Samples","33 queries"],["Quality","traceable"]];
-    cards.forEach(([label,value],i)=>{
-      const x=74+i*286,y=560,w=246,h=92;
-      ctx.fillStyle="rgba(7,17,31,.74)";ctx.beginPath();ctx.roundRect?ctx.roundRect(x,y,w,h,18):ctx.rect(x,y,w,h);ctx.fill();
-      ctx.strokeStyle="rgba(153,246,228,.38)";ctx.stroke();
-      ctx.fillStyle="#99f6e4";ctx.font="700 16px Segoe UI, sans-serif";ctx.fillText(label.toUpperCase(),x+18,y+34);
-      ctx.fillStyle="#fff";ctx.font="800 22px Segoe UI, sans-serif";ctx.fillText(value,x+18,y+68);
-    });
-    status.innerHTML="";
-    try{
-      const url=canvas.toDataURL("image/png");
-      const preview=document.createElement("img");
-      preview.src=url;preview.alt="EconView 渲染快照";
-      preview.style.cssText="display:block;width:100%;max-height:170px;object-fit:cover;border-radius:10px;margin-top:2px";
-      status.appendChild(preview);
-    }catch(_){
-      canvas.style.cssText="display:block;width:100%;height:auto;max-height:170px;object-fit:cover;border-radius:10px;margin-top:2px";
-      status.appendChild(canvas);
-    }
-  });
-}
-
-function polishLandingCopy(){
-  document.title="经观 EconView | 全球宏观经济数据观测舱";
-  const hero=document.querySelector(".hero-panel");
-  if(hero){
-    const eyebrow=hero.querySelector(".hero-eyebrow");
-    const title=hero.querySelector("h3");
-    const intro=hero.querySelector("p");
-    if(eyebrow)eyebrow.textContent="全球宏观经济数据治理与分析平台";
-    if(title)title.textContent="经观 EconView";
-    if(intro)intro.textContent="观全球经济，见数据脉络。平台围绕官方宏观经济数据，完成来源接入、指标标准化、质量校验、血缘追踪、JSON API 和 Agent 友好接口的一体化展示。";
-  }
-}
-
-initAmbientField();
 initHeroCanvas();
-initSnapshotTools();
-polishLandingCopy();
 init();
 </script>
 </body>
