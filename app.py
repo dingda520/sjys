@@ -1173,6 +1173,7 @@ def build_capabilities() -> Dict[str, Any]:
             {"method": "GET", "path": "/agent-tools", "purpose": "AI Agent tool definitions and parameter schemas"},
             {"method": "GET", "path": "/error-catalog", "purpose": "machine-readable error codes and recovery hints"},
             {"method": "GET", "path": "/openapi-lite", "purpose": "lightweight OpenAPI-style endpoint contract"},
+            {"method": "GET", "path": "/entry-audit", "purpose": "safe self-check for presentation and agent entrypoints"},
             {"method": "GET", "path": "/sample-queries", "purpose": "competition/demo sample queries"},
             {"method": "GET", "path": "/capabilities", "purpose": "machine-readable service capabilities"},
         ],
@@ -1374,6 +1375,51 @@ def build_openapi_lite() -> Dict[str, Any]:
             }
             for tool in tools
         },
+    }
+
+
+def build_entry_audit_payload() -> Dict[str, Any]:
+    checks = [
+        ("系统能力", "/capabilities", build_capabilities),
+        ("统一 Schema", "/schema", build_response_schema),
+        ("Agent 工具", "/agent-tools", build_agent_tools),
+        ("错误目录", "/error-catalog", build_error_catalog),
+        ("OpenAPI Lite", "/openapi-lite", build_openapi_lite),
+        ("评审看板", "/evaluation", build_evaluation_payload),
+        ("示例查询", "/sample-queries", lambda: {"queries": SAMPLE_QUERIES}),
+    ]
+    entries: List[Dict[str, Any]] = []
+    for label, path, builder in checks:
+        try:
+            payload = builder()
+            ok = isinstance(payload, dict) and not payload.get("error")
+            entries.append({
+                "label": label,
+                "path": path,
+                "ok": bool(ok),
+                "status": "ready" if ok else "attention",
+                "top_level_keys": list(payload.keys())[:8] if isinstance(payload, dict) else [],
+                "message": "入口可用，返回结构化 JSON。" if ok else "入口返回了 error 字段，请复核。",
+            })
+        except Exception as exc:
+            entries.append({
+                "label": label,
+                "path": path,
+                "ok": False,
+                "status": "failed",
+                "top_level_keys": [],
+                "message": str(exc),
+            })
+    return {
+        "service": "econview",
+        "checked_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+        "summary": {
+            "entry_count": len(entries),
+            "ready_count": sum(1 for item in entries if item["ok"]),
+            "failed_count": sum(1 for item in entries if not item["ok"]),
+        },
+        "entries": entries,
+        "error": None,
     }
 
 
@@ -2285,6 +2331,10 @@ class MacroHandler(SimpleHTTPRequestHandler):
 
             if path == "/openapi-lite":
                 json_response(self, build_openapi_lite())
+                return
+
+            if path == "/entry-audit":
+                json_response(self, build_entry_audit_payload())
                 return
 
             if path == "/countries":

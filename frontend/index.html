@@ -120,11 +120,14 @@
     .command-line{margin-top:18px;display:flex;gap:8px;align-items:center;max-width:760px;padding:10px 12px;border:1px solid rgba(255,255,255,.13);border-radius:12px;background:rgba(3,7,18,.58);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#c4fff4;font-size:12px;overflow:hidden}
     .command-line b{color:#f6d365}.command-caret{display:inline-block;width:8px;height:16px;background:#5eead4;animation:blink 1s steps(2,end) infinite}@keyframes blink{50%{opacity:0}}
     .score-panel{padding:18px}.score-panel h3{margin:0 0 12px;font-size:16px}.score-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.score-row:last-child{border-bottom:0}.score-row strong{font-size:18px;color:#0f172a}
+    .entry-audit{margin-top:12px;display:grid;gap:8px}.entry-audit-head{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#dbeafe;font-size:12px}.entry-audit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.entry-audit-item{border:1px solid rgba(153,246,228,.18);background:rgba(255,255,255,.055);border-radius:10px;padding:9px 10px;color:#dbeafe}.entry-audit-item strong{display:block;color:#fff;font-size:12px}.entry-audit-item span{display:block;margin-top:3px;color:#a8c3d7;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.entry-audit-item.ready{border-color:rgba(52,211,153,.45);background:rgba(20,83,45,.22)}.entry-audit-item.failed{border-color:rgba(248,113,113,.5);background:rgba(127,29,29,.22)}.entry-audit-mini{display:inline-flex;align-items:center;gap:6px;color:#99f6e4;font-weight:900}.entry-audit-mini::before{content:"";width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 10px rgba(52,211,153,.65)}
+    .demo-console{border:1px solid rgba(255,255,255,.72);background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(248,250,252,.9));border-radius:14px;box-shadow:var(--shadow);padding:16px;margin-bottom:18px}.demo-console-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.demo-console h3{margin:0;color:#0f172a;font-size:18px}.demo-console p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.demo-status{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 12px;border-radius:999px;background:#0f172a;color:#fff;font-size:12px;font-weight:900;white-space:nowrap}.demo-track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;margin-top:14px}.demo-step{border:1px solid #d8e2ee;background:#fff;border-radius:10px;padding:10px;min-height:80px}.demo-step span{display:inline-flex;width:24px;height:24px;border-radius:8px;align-items:center;justify-content:center;background:#f1f5f9;color:#475569;font-size:12px;font-weight:900}.demo-step strong{display:block;margin-top:8px;color:#0f172a;font-size:13px}.demo-step small{display:block;margin-top:4px;color:#64748b;font-size:11px;line-height:1.35}.demo-step.active{border-color:#14b8a6;background:#ecfeff;box-shadow:0 12px 28px rgba(20,184,166,.12)}.demo-step.active span{background:#0f766e;color:#fff}.demo-step.done{border-color:#bbf7d0;background:#f0fdf4}.demo-progress{height:8px;border-radius:999px;background:#e2e8f0;overflow:hidden;margin-top:12px}.demo-progress i{display:block;width:0;height:100%;border-radius:999px;background:linear-gradient(90deg,#0f766e,#d97706);transition:width .35s ease}
     .flow-grid,.pipeline-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.flow-step,.pipeline-step,.sample-card,.capability-card{background:#fff;border:1px solid rgba(255,255,255,.75);border-radius:12px;box-shadow:var(--shadow);padding:15px;color:var(--text)}
     .flow-step{position:relative;text-align:left;cursor:pointer;font:inherit}.flow-step:hover,.sample-card:hover{border-color:#5eead4;transform:translateY(-2px);box-shadow:0 18px 42px rgba(15,118,110,.14)}.flow-step span{display:inline-flex;width:28px;height:28px;border-radius:8px;align-items:center;justify-content:center;background:#ecfeff;color:#0f766e;font-weight:900;font-size:12px}.flow-step strong,.pipeline-step strong,.sample-card strong,.capability-card strong{display:block;margin-top:10px;font-size:14px;color:#0f172a}.flow-step small,.pipeline-step span,.sample-card small,.capability-card span{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.58}.pipeline-step{text-align:center}.more-samples{margin-top:8px;border:1px dashed #99f6e4;border-radius:10px;padding:9px;background:#f8fafc}.more-samples summary{cursor:pointer;color:#0f766e;font-weight:900;font-size:13px}.more-samples .btn-secondary{margin-top:8px}
     .review-block{margin-bottom:18px}.review-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin:4px 0 12px}.review-head h3{margin:0;font-size:18px;color:#0f172a}.review-head p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.6}.review-actions{display:flex;gap:10px;flex-wrap:wrap}.review-btn.dark{background:#0f172a;color:#fff;border-color:#0f172a}.capability-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.sample-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.sample-card{text-align:left;cursor:pointer}.sample-card span{display:inline-flex;margin-bottom:2px;padding:4px 8px;border-radius:999px;background:#ecfeff;color:#0f766e;font-size:12px;font-weight:900}
     .site-footer{margin-top:20px;padding:18px 20px;border:1px solid rgba(255,255,255,.7);border-radius:12px;background:rgba(255,255,255,.82);box-shadow:var(--shadow);display:flex;justify-content:space-between;gap:16px;align-items:center;color:#475569;font-size:13px;line-height:1.6}.site-footer strong{color:#0f172a}.site-footer a{color:#0f766e;text-decoration:none;font-weight:900}
     .evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}.evidence-card{padding:16px}.evidence-card span{display:block;color:var(--muted);font-size:12px}.evidence-card strong{display:block;margin-top:8px;font-size:28px;color:#0f172a}.evidence-card small{display:block;color:#166534;margin-top:7px;font-size:12px}.api-pill{display:inline-flex;margin:3px 4px 3px 0;padding:5px 8px;border-radius:999px;background:#ecfeff;color:#0f766e;font-weight:800;font-size:12px}
+    .quality-visual{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;align-items:center}.quality-ring{--score:0%;--ring:#16a34a;width:150px;height:150px;border-radius:50%;background:conic-gradient(var(--ring) var(--score),#e2e8f0 0);display:grid;place-items:center;position:relative;margin:auto}.quality-ring::before{content:"";position:absolute;inset:13px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1px #e2e8f0}.quality-ring strong{position:relative;color:#0f172a;font-size:42px;line-height:1}.quality-ring span{position:relative;color:#64748b;font-size:12px;font-weight:900}.quality-score-copy h4{margin:0;color:#0f172a;font-size:18px}.quality-score-copy p{margin:7px 0 0;color:#475569;line-height:1.65}.quality-bars{display:grid;gap:8px;margin-top:12px}.quality-bar{display:grid;grid-template-columns:92px minmax(0,1fr) 46px;gap:8px;align-items:center;font-size:12px;color:#475569}.quality-bar-track{height:8px;border-radius:999px;background:#e2e8f0;overflow:hidden}.quality-bar-track i{display:block;height:100%;border-radius:999px;background:#14b8a6}.quality-bar.fail .quality-bar-track i{background:#ef4444}.quality-bar.warn .quality-bar-track i{background:#f59e0b}.quality-signal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}.quality-signal{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px}.quality-signal span{display:block;color:#64748b;font-size:12px}.quality-signal strong{display:block;margin-top:4px;color:#0f172a;font-size:15px;overflow-wrap:anywhere}
     #ambientField{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.42;mix-blend-mode:multiply}
     .app{position:relative;z-index:1}
     .hero-button{font:inherit;cursor:pointer}
@@ -146,8 +149,8 @@
     .snapshot-status img,.snapshot-status canvas{display:block;width:100%;height:auto;max-height:170px;object-fit:cover;border-radius:10px;margin-top:2px}
     @keyframes renderFloat{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.11) translate3d(-2%,1.5%,0)}}@keyframes scanBeam{to{transform:translateY(430%)}}@keyframes nodePulse{0%,100%{transform:scale(.86);opacity:.7}50%{transform:scale(1.18);opacity:1}}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-    @media (max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.source-grid,.map-dashboard,.reconcile-dashboard,.smart-insight-grid{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer{align-items:flex-start;flex-direction:column}}
-    @media (max-width:680px){.main{padding:16px 12px 28px}.topbar{flex-direction:column;align-items:flex-start}.status{white-space:normal;max-width:100%;line-height:1.45;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.hero-stats,.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.insight-kpis,.map-countries{grid-template-columns:1fr}.sidebar{padding:16px}.market-strip{display:none}.chart-wrap{height:300px}.map-canvas-wrap{min-height:300px}}
+    @media (max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.source-grid,.map-dashboard,.reconcile-dashboard,.smart-insight-grid,.quality-visual{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.demo-track{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer,.demo-console-head{align-items:flex-start;flex-direction:column}}
+    @media (max-width:680px){.main{padding:16px 12px 28px}.topbar{flex-direction:column;align-items:flex-start}.status{white-space:normal;max-width:100%;line-height:1.45;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.hero-stats,.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.insight-kpis,.map-countries,.demo-track,.quality-signal-grid,.entry-audit-grid{grid-template-columns:1fr}.sidebar{padding:16px}.market-strip{display:none}.chart-wrap{height:300px}.map-canvas-wrap{min-height:300px}}
   </style>
 </head>
 <body>
@@ -237,6 +240,8 @@
             <div class="hero-stat"><strong>33</strong><span>条示例查询</span></div>
           </div>
           <div class="hero-actions">
+            <button class="hero-link hero-button" type="button" onclick="runGuidedDemo()">开始 3 分钟演示</button>
+            <button class="hero-link hero-button" type="button" onclick="runEntryAudit()">入口巡检</button>
             <a class="hero-link" href="/data_element_report.pdf" target="_blank">查看项目报告 PDF</a>
             <a class="hero-link" href="/docs" target="_blank">接口文档</a>
             <a class="hero-link" href="/evaluation" target="_blank">评审证据</a>
@@ -274,9 +279,36 @@
           <div class="score-row"><span>系统能力</span><a class="score-link" href="/capabilities" target="_blank">打开</a></div>
           <div class="score-row"><span>Agent 工具</span><a class="score-link" href="/agent-tools" target="_blank">打开</a></div>
           <div class="score-row"><span>33 条示例</span><a class="score-link" href="/sample-queries" target="_blank">打开</a></div>
+          <div class="entry-audit">
+            <div class="entry-audit-head"><span>入口巡检</span><span class="entry-audit-mini" id="entryAuditSummary">等待检查</span></div>
+            <div class="entry-audit-grid" id="entryAuditGrid">
+              <div class="entry-audit-item"><strong>统一 Schema</strong><span>点击入口巡检</span></div>
+              <div class="entry-audit-item"><strong>Agent 工具</strong><span>点击入口巡检</span></div>
+            </div>
+          </div>
           <div class="snapshot-status" id="snapshotStatus">点击“生成渲染快照”，可在这里生成一张答辩展示图。</div>
         </div>
       </div>
+
+      <section class="demo-console" id="guidedDemoConsole">
+        <div class="demo-console-head">
+          <div>
+            <h3>一键答辩演示路线</h3>
+            <p>点击后自动按“真实数据、智能解读、跨源复核、质量评分、JSON 证据、评审看板”的顺序切换页面和样例。</p>
+          </div>
+          <button class="review-btn dark" type="button" onclick="runGuidedDemo()">开始演示</button>
+          <span class="demo-status" id="demoStatus">待开始</span>
+        </div>
+        <div class="demo-track" id="demoTrack">
+          <div class="demo-step"><span>1</span><strong>中国 GDP</strong><small>World Bank 年度数据</small></div>
+          <div class="demo-step"><span>2</span><strong>稳定价格</strong><small>Eurostat 月度同比</small></div>
+          <div class="demo-step"><span>3</span><strong>工业生产</strong><small>欧洲官方统计</small></div>
+          <div class="demo-step"><span>4</span><strong>跨源复核</strong><small>World Bank / IMF</small></div>
+          <div class="demo-step"><span>5</span><strong>质量评分</strong><small>可视化质量报告</small></div>
+          <div class="demo-step"><span>6</span><strong>评审证据</strong><small>完整交付证明</small></div>
+        </div>
+        <div class="demo-progress"><i id="demoProgress"></i></div>
+      </section>
 
       <section class="review-block">
         <div class="review-head">
@@ -676,6 +708,7 @@ async function init(){
     renderEvaluation();
     renderConsistency();
     drawReconciliationChart([]);
+    runEntryAudit();
   }catch(err){const serverStatus=document.getElementById("serverStatus");if(serverStatus)serverStatus.textContent="服务未连接";showError(`初始化失败：${err.message||err}\n建议直接打开线上地址：https://sjys-th73.onrender.com/`);}
 }
 function setFrequencyOptions(meta, preferred){
@@ -700,11 +733,11 @@ function updateFrequencyByIndicator(){
   if(f==="A"){document.getElementById("startDate").value="2018";document.getElementById("endDate").value="2024";}
   else{document.getElementById("startDate").value="2023-01";document.getElementById("endDate").value="2024-12";}
 }
-function loadStablePriceSample(){document.getElementById("indicator").value="HICP_YOY";normalizeControls("M");document.getElementById("country").value="DE";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2023-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
-function loadSample(){document.getElementById("indicator").value="CPI_YOY";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2020-01";document.getElementById("endDate").value="2025-12";showPage("query");runQuery();}
-function loadAnnualSample(){document.getElementById("indicator").value="GDP_NOMINAL";normalizeControls("A");document.getElementById("country").value="CN";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2018";document.getElementById("endDate").value="2024";showPage("query");runQuery();}
-function loadEurostatSample(){document.getElementById("indicator").value="INDUSTRIAL_PRODUCTION";normalizeControls("M");document.getElementById("country").value="DE";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2023-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
-function loadImfSample(){document.getElementById("indicator").value="IMF_GDP_GROWTH";normalizeControls("A");document.getElementById("country").value="US";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2020";document.getElementById("endDate").value="2024";showPage("query");runQuery();}
+function loadStablePriceSample(){document.getElementById("indicator").value="HICP_YOY";normalizeControls("M");document.getElementById("country").value="DE";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2023-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
+function loadSample(){document.getElementById("indicator").value="CPI_YOY";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2020-01";document.getElementById("endDate").value="2025-12";showPage("query");return runQuery();}
+function loadAnnualSample(){document.getElementById("indicator").value="GDP_NOMINAL";normalizeControls("A");document.getElementById("country").value="CN";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2018";document.getElementById("endDate").value="2024";showPage("query");return runQuery();}
+function loadEurostatSample(){document.getElementById("indicator").value="INDUSTRIAL_PRODUCTION";normalizeControls("M");document.getElementById("country").value="DE";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2023-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
+function loadImfSample(){document.getElementById("indicator").value="IMF_GDP_GROWTH";normalizeControls("A");document.getElementById("country").value="US";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2020";document.getElementById("endDate").value="2024";showPage("query");return runQuery();}
 async function loadCrossSourceGdpSample(){
   showPage("query");
   document.getElementById("indicator").value="GDP_REAL_GROWTH";
@@ -747,13 +780,15 @@ async function loadCrossSourceGdpSample(){
     renderCrossSourceReconciliation(payload);
     document.getElementById("jsonOutput").textContent=JSON.stringify(payload,null,2);
     document.getElementById("jsonOutputMirror").textContent=JSON.stringify(payload,null,2);
+    return payload;
   }catch(err){
     showError("跨源对比请求失败："+err.message);
+    return null;
   }
 }
-function loadOecdSample(){document.getElementById("indicator").value="OECD_CPI_YOY";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
-function loadEcbSample(){document.getElementById("indicator").value="ECB_EUR_USD";normalizeControls("M");document.getElementById("country").value="EA";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
-function loadBisSample(){document.getElementById("indicator").value="BIS_POLICY_RATE";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");runQuery();}
+function loadOecdSample(){document.getElementById("indicator").value="OECD_CPI_YOY";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
+function loadEcbSample(){document.getElementById("indicator").value="ECB_EUR_USD";normalizeControls("M");document.getElementById("country").value="EA";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
+function loadBisSample(){document.getElementById("indicator").value="BIS_POLICY_RATE";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
 async function runQuery(){
   showError("");
   const meta=normalizeControls();
@@ -868,10 +903,22 @@ function qualityScore(q){
   if(!q.observation_count)score-=25;
   return Math.max(0,score);
 }
+function qualityTone(score){return score>=90?["#16a34a","可直接引用"]:score>=70?["#f59e0b","建议关注"] : ["#ef4444","需要复核"];}
+function qualityBars(q){
+  return [
+    ["完整性", q.observation_count>0 && q.missing_period_count===0, q.missing_period_count?70:100],
+    ["重复记录", Number(q.duplicate_records||0)===0, q.duplicate_records?40:100],
+    ["异常波动", Number(q.outlier_count||0)===0, q.outlier_count?65:100],
+    ["单位一致", !!q.unit_consistent, q.unit_consistent?100:35],
+    ["来源追溯", !!q.traceable_source, q.traceable_source?100:35],
+  ];
+}
 function qualityBadge(ok,warn=false){return `<span class="badge ${ok?"good":warn?"warn":"bad"}">${ok?"通过":warn?"关注":"失败"}</span>`;}
 function renderQuality(q, id){
   if(id==="qualityMirror"){renderQualityMirror();return;}
-  document.getElementById(id).innerHTML=`<div class="quality-item"><span>观测值数量</span><span class="badge info">${q.observation_count??"-"}</span></div><div class="quality-item"><span>缺失期数</span><span class="badge ${q.missing_period_count?"warn":"good"}">${q.missing_period_count??"-"}</span></div><div class="quality-item"><span>重复观测值</span><span class="badge ${q.duplicate_records?"bad":"good"}">${q.duplicate_records??"-"}</span></div><div class="quality-item"><span>异常值提醒</span><span class="badge ${q.outlier_count?"warn":"good"}">${q.outlier_count??"-"}</span></div><div class="quality-item"><span>单位一致性</span><span class="badge ${q.unit_consistent?"good":"bad"}">${q.unit_consistent?"通过":"失败"}</span></div><div class="quality-item"><span>来源可追溯</span><span class="badge ${q.traceable_source?"good":"bad"}">${q.traceable_source?"通过":"失败"}</span></div>`;
+  const target=document.getElementById(id); if(!target)return;
+  const score=qualityScore(q), [ring,tone]=qualityTone(score);
+  target.innerHTML=`<div class="quality-visual"><div class="quality-ring" style="--score:${score}%;--ring:${ring}"><div><strong>${score}</strong><br><span>${escapeHtml(tone)}</span></div></div><div class="quality-score-copy"><h4>数据质量评分</h4><p>将完整性、重复记录、异常波动、单位一致和来源追溯合成为可展示的治理分数。</p><div class="quality-bars">${qualityBars(q).map(([name,ok,value])=>`<div class="quality-bar ${ok?"":"warn"}"><span>${escapeHtml(name)}</span><div class="quality-bar-track"><i style="width:${value}%"></i></div><strong>${ok?"通过":"关注"}</strong></div>`).join("")}</div></div></div><div class="quality-signal-grid"><div class="quality-signal"><span>观测值</span><strong>${q.observation_count??"-"} 条</strong></div><div class="quality-signal"><span>缺失期</span><strong>${q.missing_period_count??"-"} 个</strong></div><div class="quality-signal"><span>异常值</span><strong>${q.outlier_count??"-"} 个</strong></div></div>`;
 }
 function renderQualityMirror(){
   const target=document.getElementById("qualityMirror"); if(!target)return;
@@ -886,7 +933,8 @@ function renderQualityMirror(){
     ["更新时间", !!s.last_updated, `最近更新标记：${s.last_updated||"-"}。`]
   ];
   document.getElementById("qualitySubtitle").textContent=`${s.country_name_zh} · ${s.indicator_name_zh} · ${s.frequency} · ${obs.length} 条观测`;
-  target.innerHTML=`<div class="quality-dashboard"><div class="quality-score"><span>综合质量分</span><strong>${score}</strong><p>${score>=90?"数据完整、来源清晰，可直接用于展示。":score>=70?"数据可用，但建议查看关注项。":"存在明显质量风险，建议复核后使用。"}</p><div class="quality-meter"><i style="width:${score}%"></i></div></div><div class="quality-grid">${checks.map(([name,ok,desc])=>`<div class="quality-check"><h4>${escapeHtml(name)} ${qualityBadge(ok,!ok&&name==="异常波动")}</h4><p>${escapeHtml(desc)}</p></div>`).join("")}</div></div><div class="quality-context"><div class="meta-main"><span>指标</span><strong>${escapeHtml(s.indicator_code)}<br>${escapeHtml(s.indicator_name_zh)}</strong></div><div class="meta-main"><span>最新观测</span><strong>${latest?escapeHtml(latest.date):"-"}<br>${latest?escapeHtml(formatValue(latest.value,chooseScale(numericValues(obs),s.unit))):"-"}</strong></div><div class="meta-main"><span>来源代码</span><strong>${escapeHtml(s.source.source_series_code||"-")}</strong></div></div>`;
+  const [ring,tone]=qualityTone(score);
+  target.innerHTML=`<div class="quality-visual"><div class="quality-ring" style="--score:${score}%;--ring:${ring}"><div><strong>${score}</strong><br><span>${escapeHtml(tone)}</span></div></div><div class="quality-score-copy"><h4>综合质量评分</h4><p>${score>=90?"数据完整、来源清晰，可直接用于展示。":score>=70?"数据可用，但建议查看关注项。":"存在明显质量风险，建议复核后使用。"}</p><div class="quality-bars">${qualityBars(q).map(([name,ok,value])=>`<div class="quality-bar ${ok?"":"warn"}"><span>${escapeHtml(name)}</span><div class="quality-bar-track"><i style="width:${value}%"></i></div><strong>${ok?"通过":"关注"}</strong></div>`).join("")}</div></div></div><div class="quality-grid" style="margin-top:16px;">${checks.map(([name,ok,desc])=>`<div class="quality-check"><h4>${escapeHtml(name)} ${qualityBadge(ok,!ok&&name==="异常波动")}</h4><p>${escapeHtml(desc)}</p></div>`).join("")}</div><div class="quality-context"><div class="meta-main"><span>指标</span><strong>${escapeHtml(s.indicator_code)}<br>${escapeHtml(s.indicator_name_zh)}</strong></div><div class="meta-main"><span>最新观测</span><strong>${latest?escapeHtml(latest.date):"-"}<br>${latest?escapeHtml(formatValue(latest.value,chooseScale(numericValues(obs),s.unit))):"-"}</strong></div><div class="meta-main"><span>来源代码</span><strong>${escapeHtml(s.source.source_series_code||"-")}</strong></div></div>`;
 }
 function renderEvaluation(){
   if(!evaluationStore)return;
@@ -923,6 +971,50 @@ function renderConsistency(){
 async function runConsistency(online=false){
   consistencyStore=await fetchJson(`/consistency${online?"?online=1":""}`).catch(()=>consistencyStore);
   renderConsistency();
+}
+
+function sleep(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
+function setDemoStep(index,status="运行中"){
+  const steps=Array.from(document.querySelectorAll("#demoTrack .demo-step"));
+  steps.forEach((step,i)=>{step.classList.toggle("active",i===index);step.classList.toggle("done",i<index);});
+  const progress=document.getElementById("demoProgress");
+  if(progress)progress.style.width=`${Math.max(0,Math.min(100,(index/Math.max(1,steps.length-1))*100))}%`;
+  const label=document.getElementById("demoStatus");
+  if(label)label.textContent=status;
+}
+async function runGuidedDemo(){
+  const consoleEl=document.getElementById("guidedDemoConsole");
+  if(consoleEl)consoleEl.scrollIntoView({behavior:"smooth",block:"start"});
+  const steps=[
+    ["中国 GDP",()=>loadAnnualSample()],
+    ["稳定价格",()=>loadStablePriceSample()],
+    ["工业生产",()=>loadEurostatSample()],
+    ["跨源复核",()=>loadCrossSourceGdpSample()],
+    ["质量评分",async()=>{showPage("quality");renderQualityMirror();}],
+    ["评审证据",async()=>{showPage("evaluation");renderEvaluation();}],
+  ];
+  for(let i=0;i<steps.length;i+=1){
+    setDemoStep(i,`演示中：${steps[i][0]}`);
+    try{await steps[i][1]();}catch(err){showError(`演示步骤失败：${steps[i][0]} · ${err.message||err}`);}
+    await sleep(i===3?1200:750);
+  }
+  setDemoStep(steps.length,"演示完成");
+  const progress=document.getElementById("demoProgress");
+  if(progress)progress.style.width="100%";
+}
+async function runEntryAudit(){
+  const summary=document.getElementById("entryAuditSummary"), grid=document.getElementById("entryAuditGrid");
+  if(summary)summary.textContent="检查中";
+  if(grid)grid.innerHTML='<div class="entry-audit-item"><strong>入口巡检</strong><span>正在请求 /entry-audit...</span></div>';
+  try{
+    const data=await fetchJson("/entry-audit");
+    const entries=data.entries||[];
+    if(summary)summary.textContent=`${data.summary.ready_count}/${data.summary.entry_count} 可用`;
+    if(grid)grid.innerHTML=entries.map(item=>`<a class="entry-audit-item ${item.ok?"ready":"failed"}" href="${item.path}" target="_blank"><strong>${escapeHtml(item.label)}</strong><span>${item.ok?"可用":"异常"} · ${escapeHtml(item.path)}</span></a>`).join("");
+  }catch(err){
+    if(summary)summary.textContent="检查失败";
+    if(grid)grid.innerHTML=`<div class="entry-audit-item failed"><strong>入口巡检失败</strong><span>${escapeHtml(err.message||err)}</span></div>`;
+  }
 }
 
 const COUNTRY_POSITIONS={
