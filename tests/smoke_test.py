@@ -315,6 +315,8 @@ def test_search_and_compare_payloads():
     assert_true(app.build_evidence_detail_payload("source-mapping")["count"] >= 18, "evidence source mapping should be online")
     status = app.build_source_status_payload()
     assert_true(status["summary"]["connected_sources"] >= 7, "source status should cover implemented sources")
+    assert_true(status["summary"]["demo_available"] == status["summary"]["connected_sources"], "all connected sources should be demo-available through live or cache mode")
+    assert_true(status["summary"]["cache_sources"] >= 1, "source status should expose cache-backed demo protection")
 
 
 def test_http_showcase_route():

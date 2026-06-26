@@ -2060,11 +2060,24 @@ def build_sample_validation_payload() -> Dict[str, Any]:
 
 def build_source_status_payload() -> Dict[str, Any]:
     normal_count = sum(1 for item in SOURCE_RUNTIME_STATUS if item["status"] == "normal")
+    live_count = sum(1 for item in SOURCE_RUNTIME_STATUS if item["mode"] == "LIVE")
+    cache_count = sum(1 for item in SOURCE_RUNTIME_STATUS if item["mode"] == "CACHE")
+    snapshot_count = sum(1 for item in SOURCE_RUNTIME_STATUS if item["mode"] == "SNAPSHOT")
+    demo_available_count = sum(
+        1
+        for item in SOURCE_RUNTIME_STATUS
+        if item["status"] in ("normal", "slow") or item["mode"] in ("CACHE", "SNAPSHOT")
+    )
     return {
         "checked_at": SAMPLE_VALIDATION_RUN["checked_at"],
         "summary": {
             "connected_sources": len(SOURCE_RUNTIME_STATUS),
-            "currently_available": normal_count,
+            "currently_live": normal_count,
+            "live_sources": live_count,
+            "cache_sources": cache_count,
+            "snapshot_sources": snapshot_count,
+            "demo_available": demo_available_count,
+            "currently_available": demo_available_count,
             "slow_or_cached": sum(1 for item in SOURCE_RUNTIME_STATUS if item["status"] != "normal"),
             "modes": sorted({item["mode"] for item in SOURCE_RUNTIME_STATUS}),
         },
