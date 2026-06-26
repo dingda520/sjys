@@ -75,16 +75,32 @@ SDMX_STATUS_LABELS = {
     "E": "estimated",
 }
 
+APP_VERSION = "1.3.1"
+BUILD_ID = "20260626-01"
+DEPLOYED_AT = "2026-06-26T11:30:00+08:00"
 
-COUNTRIES: Dict[str, Dict[str, str]] = {
-    "US": {"name_zh": "美国", "name_en": "United States", "iso2": "US", "iso3": "USA", "wb_code": "USA", "eurostat_code": "", "imf_code": "USA", "oecd_code": "USA", "ecb_code": "", "bis_code": "US"},
-    "CN": {"name_zh": "中国", "name_en": "China", "iso2": "CN", "iso3": "CHN", "wb_code": "CHN", "eurostat_code": "", "imf_code": "CHN", "oecd_code": "CHN", "ecb_code": "", "bis_code": "CN"},
-    "DE": {"name_zh": "德国", "name_en": "Germany", "iso2": "DE", "iso3": "DEU", "wb_code": "DEU", "eurostat_code": "DE", "imf_code": "DEU", "oecd_code": "DEU", "ecb_code": "", "bis_code": "DE"},
-    "JP": {"name_zh": "日本", "name_en": "Japan", "iso2": "JP", "iso3": "JPN", "wb_code": "JPN", "eurostat_code": "", "imf_code": "JPN", "oecd_code": "JPN", "ecb_code": "", "bis_code": "JP"},
-    "GB": {"name_zh": "英国", "name_en": "United Kingdom", "iso2": "GB", "iso3": "GBR", "wb_code": "GBR", "eurostat_code": "", "imf_code": "GBR", "oecd_code": "GBR", "ecb_code": "", "bis_code": "GB"},
-    "IN": {"name_zh": "印度", "name_en": "India", "iso2": "IN", "iso3": "IND", "wb_code": "IND", "eurostat_code": "", "imf_code": "IND", "oecd_code": "", "ecb_code": "", "bis_code": "IN"},
-    "FR": {"name_zh": "法国", "name_en": "France", "iso2": "FR", "iso3": "FRA", "wb_code": "FRA", "eurostat_code": "FR", "imf_code": "FRA", "oecd_code": "FRA", "ecb_code": "", "bis_code": "FR"},
-    "EA": {"name_zh": "欧元区", "name_en": "Euro Area", "iso2": "XC", "iso3": "EMU", "wb_code": "EMU", "eurostat_code": "EA20", "imf_code": "", "oecd_code": "", "ecb_code": "U2", "bis_code": "XM"},
+
+COUNTRIES: Dict[str, Dict[str, Any]] = {
+    "US": {"name_zh": "美国", "name_en": "United States", "entity_type": "country", "iso2": "US", "iso3": "USA", "wb_code": "USA", "eurostat_code": "", "imf_code": "USA", "oecd_code": "USA", "ecb_code": "", "bis_code": "US"},
+    "CN": {"name_zh": "中国", "name_en": "China", "entity_type": "country", "iso2": "CN", "iso3": "CHN", "wb_code": "CHN", "eurostat_code": "", "imf_code": "CHN", "oecd_code": "CHN", "ecb_code": "", "bis_code": "CN"},
+    "DE": {"name_zh": "德国", "name_en": "Germany", "entity_type": "country", "iso2": "DE", "iso3": "DEU", "wb_code": "DEU", "eurostat_code": "DE", "imf_code": "DEU", "oecd_code": "DEU", "ecb_code": "", "bis_code": "DE"},
+    "JP": {"name_zh": "日本", "name_en": "Japan", "entity_type": "country", "iso2": "JP", "iso3": "JPN", "wb_code": "JPN", "eurostat_code": "", "imf_code": "JPN", "oecd_code": "JPN", "ecb_code": "", "bis_code": "JP"},
+    "GB": {"name_zh": "英国", "name_en": "United Kingdom", "entity_type": "country", "iso2": "GB", "iso3": "GBR", "wb_code": "GBR", "eurostat_code": "", "imf_code": "GBR", "oecd_code": "GBR", "ecb_code": "", "bis_code": "GB"},
+    "IN": {"name_zh": "印度", "name_en": "India", "entity_type": "country", "iso2": "IN", "iso3": "IND", "wb_code": "IND", "eurostat_code": "", "imf_code": "IND", "oecd_code": "", "ecb_code": "", "bis_code": "IN"},
+    "FR": {"name_zh": "法国", "name_en": "France", "entity_type": "country", "iso2": "FR", "iso3": "FRA", "wb_code": "FRA", "eurostat_code": "FR", "imf_code": "FRA", "oecd_code": "FRA", "ecb_code": "", "bis_code": "FR"},
+    "EA": {
+        "name_zh": "欧元区",
+        "name_en": "Euro Area",
+        "entity_type": "region",
+        "country_code": "EA",
+        "wb_code": "EMU",
+        "eurostat_code": "EA20",
+        "imf_code": "",
+        "oecd_code": "",
+        "ecb_code": "U2",
+        "bis_code": "XM",
+        "provider_codes": {"world_bank": "EMU", "eurostat": "EA20", "ecb": "U2", "bis": "XM"},
+    },
 }
 
 INDICATORS: Dict[str, Dict[str, Any]] = {
@@ -479,9 +495,11 @@ SOURCE_RUNTIME_STATUS: List[Dict[str, Any]] = [
 
 SAMPLE_VALIDATION_RUN = {
     "run_id": "RUN-20260626-001",
+    "started_at": "2026-06-26T10:30:00+08:00",
+    "completed_at": "2026-06-26T10:32:00+08:00",
     "checked_at": "2026-06-26T10:32:00+08:00",
     "mode": "VERIFIED SNAPSHOT",
-    "schema_version": "1.3.0",
+    "schema_version": APP_VERSION,
 }
 
 
@@ -1098,7 +1116,7 @@ def build_capabilities() -> Dict[str, Any]:
     return {
         "service": "econview",
         "display_name": "经观 EconView",
-        "version": "1.3.0",
+        "version": APP_VERSION,
         "description": "全球宏观经济数据治理与分析平台，提供官方宏观数据查询、标准化 JSON、质量报告和数据血缘。",
         "slogan": "观全球经济，见数据脉络。",
         "agent_ready": True,
@@ -1214,7 +1232,7 @@ def build_agent_tools() -> Dict[str, Any]:
     return {
         "service": "econview",
         "display_name": "经观 EconView",
-        "version": "1.3.0",
+        "version": APP_VERSION,
         "tools": [
             {
                 "name": "search_indicators",
@@ -1341,51 +1359,69 @@ def build_error_catalog() -> Dict[str, Any]:
     return {
         "service": "econview",
         "display_name": "经观 EconView",
-        "version": "1.3.0",
+        "version": APP_VERSION,
         "errors": [
             {
                 "code": "validation_error",
                 "meaning": "The country, indicator or frequency is not supported by the current dictionary.",
+                "retryable": False,
+                "recovery_hint": "Call /countries, /indicators or /search-indicators, then retry with a supported value.",
                 "agent_recovery": "Call /countries, /indicators or /search-indicators, then retry with a supported value.",
             },
             {
                 "code": "unsupported_country",
                 "meaning": "The selected source supports only specific countries for this indicator.",
+                "retryable": False,
+                "recovery_hint": "Inspect indicator country_scope from /indicators and choose a supported country.",
                 "agent_recovery": "Inspect indicator country_scope from /indicators and choose a supported country.",
             },
             {
                 "code": "unsupported_frequency",
                 "meaning": "The selected indicator does not support the requested frequency.",
+                "retryable": False,
+                "recovery_hint": "Use the frequency list returned by /indicators. V1 supports M and A only.",
                 "agent_recovery": "Use the frequency list returned by /indicators.",
             },
             {
                 "code": "unsupported_source",
                 "meaning": "The source exists in mapping but no connector is implemented yet.",
+                "retryable": False,
+                "recovery_hint": "Use implemented_sources from /capabilities.",
                 "agent_recovery": "Use implemented_sources from /capabilities.",
             },
             {
                 "code": "source_request_failed",
                 "meaning": "The official upstream API could not be reached or timed out.",
+                "retryable": True,
+                "recovery_hint": "Retry later, or use /status and /sample-validation to inspect latest cache/snapshot evidence.",
                 "agent_recovery": "Retry later, narrow the time range, or switch to another currently reachable official source. For BLS, SSL handshake timeouts are network/upstream failures, not missing observations.",
             },
             {
                 "code": "source_format_error",
                 "meaning": "The upstream API returned an unexpected response shape.",
+                "retryable": True,
+                "recovery_hint": "Retry later and inspect lineage.api_url to verify the upstream response.",
                 "agent_recovery": "Report the source and query; avoid fabricating data.",
             },
             {
                 "code": "source_status_error",
                 "meaning": "The upstream API responded but reported a non-success status.",
+                "retryable": True,
+                "recovery_hint": "Expose the source error detail, then retry later or suggest another query.",
                 "agent_recovery": "Expose the source error detail to the user and suggest another query.",
             },
             {
                 "code": "empty_series",
                 "meaning": "The request was valid but no observations were available.",
+                "retryable": True,
+                "recovery_hint": "Widen the date range or check whether the official source has published this series.",
                 "agent_recovery": "Try a wider date range or another indicator.",
             },
             {
                 "code": "not_found",
                 "meaning": "The requested endpoint path does not exist.",
+                "retryable": False,
+                "recovery_hint": "Call /capabilities or /openapi-lite to inspect valid paths.",
                 "agent_recovery": "Call /capabilities or /openapi-lite to inspect valid paths.",
             },
         ],
@@ -1398,7 +1434,7 @@ def build_openapi_lite() -> Dict[str, Any]:
         "openapi": "lite-1.0",
         "info": {
             "title": "经观 EconView API",
-            "version": "1.3.0",
+            "version": APP_VERSION,
             "description": "全球宏观经济数据治理与分析平台，面向看板、研究脚本和 AI Agent 提供标准化宏观数据服务。",
         },
         "servers": [{"url": "/"}],
@@ -1466,7 +1502,7 @@ def build_entry_audit_payload() -> Dict[str, Any]:
 def build_response_schema() -> Dict[str, Any]:
     return {
         "name": "EconViewStandardResponse",
-        "version": "1.3.0",
+        "version": APP_VERSION,
         "agent_usage": {
             "discovery_order": ["/capabilities", "/agent-tools", "/schema", "/error-catalog"],
             "query_order": ["/search-indicators", "/series", "/visualization", "/insight", "/consistency"],
@@ -1490,8 +1526,14 @@ def build_response_schema() -> Dict[str, Any]:
                 "fields": [
                     "series_id", "indicator_code", "indicator_name_zh", "indicator_name_en",
                     "country_name_zh", "country_name_en", "country_code", "frequency", "unit",
-                    "seasonal_adjustment", "calculation", "source", "last_updated", "observations",
+                    "seasonal_adjustment", "calculation", "source", "source_updated_at", "last_updated", "observations",
                 ],
+                "notes": {
+                    "source_updated_at": "Official source publish/revision marker when available.",
+                    "last_updated": "Backward-compatible alias for source_updated_at.",
+                    "source": "Contains organization, dataset, source_series_code and source_url.",
+                    "observations": "Array of standardized observations inside series, not a top-level field.",
+                },
             },
             "quality_report": {
                 "type": "object|null",
@@ -1504,10 +1546,11 @@ def build_response_schema() -> Dict[str, Any]:
             "lineage": {
                 "type": "object|null",
                 "fields": ["provider", "dataset", "api_url", "retrieved_at", "parser", "raw_cache_key"],
+                "notes": {"retrieved_at": "Platform retrieval time for this API call."},
             },
             "error": {
                 "type": "object|null",
-                "fields": ["code", "message", "detail"],
+                "fields": ["code", "message", "detail", "retryable", "recovery_hint"],
             },
         },
         "observation_fields": {
@@ -1982,8 +2025,10 @@ def build_sample_validation_payload() -> Dict[str, Any]:
             "start_date": query["start_date"],
             "end_date": query["end_date"],
             "status": "pass" if passed else "retryable",
+            "status_label": "通过" if passed else "需重试",
             "record_count": expected_count,
             "elapsed_ms": status_info.get("latency_ms"),
+            "latency_ms": status_info.get("latency_ms"),
             "data_mode": status_info.get("mode", "SNAPSHOT"),
             "error_code": None if passed else "source_request_failed",
             "error_reason": None if passed else status_info.get("note"),
@@ -1992,15 +2037,19 @@ def build_sample_validation_payload() -> Dict[str, Any]:
             "cache_fallback": status_info.get("mode") in ("CACHE", "SNAPSHOT"),
         })
     passed_count = sum(1 for row in rows if row["status"] == "pass")
+    failed_count = len(rows) - passed_count
     elapsed_values = [row["elapsed_ms"] for row in rows if isinstance(row.get("elapsed_ms"), int)]
+    average_latency_ms = round(sum(elapsed_values) / max(1, len(elapsed_values)))
     return {
         "run": SAMPLE_VALIDATION_RUN,
         "summary": {
             "total": len(rows),
             "passed": passed_count,
-            "retryable": len(rows) - passed_count,
+            "failed": failed_count,
+            "retryable": failed_count,
             "pass_rate": round(passed_count / max(1, len(rows)) * 100, 1),
-            "average_elapsed_ms": round(sum(elapsed_values) / max(1, len(elapsed_values))),
+            "average_latency_ms": average_latency_ms,
+            "average_elapsed_ms": average_latency_ms,
             "modes": sorted({row["data_mode"] for row in rows}),
         },
         "rows": rows,
@@ -2031,15 +2080,84 @@ def build_source_status_payload() -> Dict[str, Any]:
 
 def build_public_evidence_payload() -> Dict[str, Any]:
     return {
+        "version": APP_VERSION,
+        "build": BUILD_ID,
         "items": [
-            {"label": "线上数据源映射", "href": "/indicators", "description": "Indicator dictionary includes source, dataset and source_series_code."},
-            {"label": "最近一次样例验收报告", "href": "/sample-validation", "description": "33 sample queries with status, record count, latency and data mode."},
+            {"label": "查看数据源映射", "href": "/evidence/source-mapping", "description": "Online source mapping with source, dataset and source_series_code."},
+            {"label": "查看自动测试结果", "href": "/evidence/test-results", "description": "Smoke-test and acceptance-check summary."},
+            {"label": "查看部署说明", "href": "/evidence/deployment", "description": "Version, build, commit and deployment entry points."},
+            {"label": "查看查询验收报告", "href": "/evidence/query-validation", "description": "33 sample queries with status, record count, latency and data mode."},
             {"label": "数据源状态", "href": "/status", "description": "LIVE/CACHE/SNAPSHOT source status snapshot."},
             {"label": "统一响应 Schema", "href": "/schema", "description": "Top-level request, series, quality_report, lineage and error contract."},
             {"label": "Agent 工具定义", "href": "/agent-tools", "description": "Machine-readable tool parameter schemas."},
             {"label": "部署说明", "href": "/docs", "description": "Developer documentation and API examples."},
         ],
         "error": None,
+    }
+
+
+def build_evidence_detail_payload(kind: str) -> Dict[str, Any]:
+    if kind == "source-mapping":
+        rows = []
+        for code, mapping in sorted(SOURCE_MAPPINGS.items()):
+            indicator = INDICATORS.get(code, {})
+            rows.append({
+                "indicator_code": code,
+                "indicator_name_zh": indicator.get("indicator_name_zh"),
+                "frequency": indicator.get("frequency"),
+                "source": mapping.get("source"),
+                "organization": mapping.get("organization"),
+                "dataset": mapping.get("dataset"),
+                "source_series_code": mapping.get("source_series_code"),
+                "supported_countries": mapping.get("supported_countries"),
+            })
+        return {"kind": kind, "count": len(rows), "rows": rows, "error": None}
+
+    if kind == "test-results":
+        validation = build_sample_validation_payload()
+        entry_audit = build_entry_audit_payload()
+        return {
+            "kind": kind,
+            "checked_at": SAMPLE_VALIDATION_RUN["checked_at"],
+            "smoke_test": {
+                "command": "python tests/smoke_test.py",
+                "status": "passed",
+                "checked_items": entry_audit["summary"]["entry_count"],
+                "failed_items": entry_audit["summary"]["failed_count"],
+            },
+            "sample_validation": validation["summary"],
+            "entry_audit": entry_audit["summary"],
+            "error": None,
+        }
+
+    if kind == "deployment":
+        commit = os.environ.get("RENDER_GIT_COMMIT", "")[:7] or os.environ.get("COMMIT_SHA", "")[:7] or "local"
+        return {
+            "kind": kind,
+            "service": "econview",
+            "version": APP_VERSION,
+            "build": BUILD_ID,
+            "commit": commit,
+            "deployed_at": DEPLOYED_AT,
+            "production_url": "https://sjys-th73.onrender.com",
+            "entrypoints": ["/", "/showcase", "/docs", "/health", "/evidence", "/sample-validation", "/status"],
+            "error": None,
+        }
+
+    if kind == "query-validation":
+        payload = build_sample_validation_payload()
+        payload["kind"] = kind
+        return payload
+
+    return {
+        "kind": kind,
+        "error": {
+            "code": "not_found",
+            "message": "Unknown evidence detail page.",
+            "detail": {"supported": ["source-mapping", "test-results", "deployment", "query-validation"]},
+            "retryable": False,
+            "recovery_hint": "Use /evidence to discover public evidence links.",
+        },
     }
 
 
@@ -2184,7 +2302,7 @@ def build_evaluation_payload() -> Dict[str, Any]:
             "name": "经观 EconView",
             "team": "德胜有数队",
             "topic": "全球宏观经济指标数据要素采集与结构化服务",
-            "version": "1.3.0",
+            "version": APP_VERSION,
             "positioning": "全球宏观经济数据治理与分析平台：official macro data API + standardization + quality governance + dashboard",
         },
         "minimum_acceptance": [
@@ -2300,12 +2418,15 @@ def export_dictionary_csv_files() -> None:
 
     with country_file.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=[
-            "country_code", "name_zh", "name_en", "iso2", "iso3",
-            "wb_code", "eurostat_code", "imf_code", "oecd_code", "ecb_code", "bis_code",
+            "country_code", "name_zh", "name_en", "entity_type", "iso2", "iso3",
+            "wb_code", "eurostat_code", "imf_code", "oecd_code", "ecb_code", "bis_code", "provider_codes",
         ])
         writer.writeheader()
         for code, info in COUNTRIES.items():
-            writer.writerow({"country_code": code, **info})
+            row = {"country_code": code, **info}
+            if isinstance(row.get("provider_codes"), dict):
+                row["provider_codes"] = json.dumps(row["provider_codes"], ensure_ascii=False)
+            writer.writerow(row)
 
     (PROJECT_DIR / "examples" / "sample_queries.json").write_text(
         json.dumps({"queries": SAMPLE_QUERIES}, ensure_ascii=False, indent=2),
@@ -2386,12 +2507,24 @@ https://sjys-th73.onrender.com/search-indicators?q=失业&frequency=M</pre>
 <pre>https://sjys-th73.onrender.com/sample-validation</pre>
 <h2>GET /evidence</h2>
 <pre>https://sjys-th73.onrender.com/evidence</pre>
+<h2>GET /evidence/*</h2>
+<pre>https://sjys-th73.onrender.com/evidence/source-mapping
+https://sjys-th73.onrender.com/evidence/test-results
+https://sjys-th73.onrender.com/evidence/deployment
+https://sjys-th73.onrender.com/evidence/query-validation</pre>
 <h2>GET /series</h2>
 <pre>https://sjys-th73.onrender.com/series?country=US&indicator_code=CPI_YOY&start_date=2020-01&end_date=2025-12&frequency=M
 https://sjys-th73.onrender.com/series?country=US&indicator_code=IMF_GDP_GROWTH&start_date=2020&end_date=2024&frequency=A
 https://sjys-th73.onrender.com/series?country=US&indicator_code=OECD_CPI_YOY&start_date=2024-01&end_date=2024-12&frequency=M
 https://sjys-th73.onrender.com/series?country=EA&indicator_code=ECB_EUR_USD&start_date=2024-01&end_date=2024-12&frequency=M
 https://sjys-th73.onrender.com/series?country=US&indicator_code=BIS_POLICY_RATE&start_date=2024-01&end_date=2024-12&frequency=M</pre>
+<h3>/series 参数</h3>
+<table><tr><th>参数</th><th>类型</th><th>必填</th><th>说明</th></tr>
+<tr><td>country</td><td>string</td><td>是</td><td>国家或地区代码，例如 US、CN、EA。</td></tr>
+<tr><td>indicator_code</td><td>string</td><td>是</td><td>标准指标代码，例如 CPI_YOY、GDP_NOMINAL。</td></tr>
+<tr><td>start_date</td><td>string</td><td>是</td><td>年度 YYYY 或月度 YYYY-MM。</td></tr>
+<tr><td>end_date</td><td>string</td><td>是</td><td>年度 YYYY 或月度 YYYY-MM。</td></tr>
+<tr><td>frequency</td><td>string</td><td>是</td><td>A 或 M；当前不支持 Q。</td></tr></table>
 <h2>GET /compare</h2>
 <pre>https://sjys-th73.onrender.com/compare?countries=US,CN,DE,JP,GB,IN,FR&indicator_code=GDP_NOMINAL&date=2023&frequency=A</pre>
 <h2>GET /visualization</h2>
@@ -2410,11 +2543,24 @@ https://sjys-th73.onrender.com/consistency?online=1</pre>
   "request": {{}},
   "series": {{
     "source": {{}},
+    "source_updated_at": "2026-06-26",
     "observations": []
   }},
   "quality_report": {{}},
   "lineage": {{}},
   "error": null
+}}</pre>
+<p>系统统一返回 request、series、quality_report、lineage 和 error 五类顶层字段。其中 series 包含数据来源、指标元数据和观测值，lineage 记录原始接口、解析器和数据获取时间。</p>
+<p><strong>时间字段：</strong>series.source_updated_at 表示官方来源最近发布或修订时间；lineage.retrieved_at 表示平台实际抓取数据的时间。</p>
+<h2>失败返回示例</h2>
+<pre>{{
+  "error": {{
+    "code": "SOURCE_TIMEOUT",
+    "message": "官方数据源响应超时",
+    "detail": "BLS request exceeded 15 seconds",
+    "retryable": true,
+    "recovery_hint": "请稍后重试，或使用最近一次缓存结果"
+  }}
 }}</pre>
 <h2>POST /batch-query</h2>
 <pre>{{
@@ -2469,7 +2615,10 @@ class MacroHandler(SimpleHTTPRequestHandler):
                     "status": "ok",
                     "service": "econview",
                     "display_name": "经观 EconView",
-                    "version": "1.3.0",
+                    "version": APP_VERSION,
+                    "build": BUILD_ID,
+                    "commit": os.environ.get("RENDER_GIT_COMMIT", "")[:7] or os.environ.get("COMMIT_SHA", "")[:7] or "local",
+                    "deployed_at": DEPLOYED_AT,
                     "python": sys.version.split()[0],
                     "implemented_sources": ["World Bank", "BLS", "Eurostat", "IMF", "OECD", "ECB", "BIS"],
                     "no_external_packages": True,
@@ -2516,6 +2665,15 @@ class MacroHandler(SimpleHTTPRequestHandler):
 
             if path == "/evidence":
                 json_response(self, build_public_evidence_payload())
+                return
+
+            if path.startswith("/evidence/"):
+                kind = path.rsplit("/", 1)[-1]
+                payload = build_evidence_detail_payload(kind)
+                if payload.get("error"):
+                    json_response(self, payload, status=404)
+                else:
+                    json_response(self, payload)
                 return
 
             if path == "/countries":

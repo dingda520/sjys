@@ -26,6 +26,9 @@ def test_static_contracts():
     assert_true(len(app.COUNTRIES) >= 8, "country dictionary should contain at least 8 entries")
     assert_true(len(app.INDICATORS) >= 18, "indicator dictionary should contain all source additions")
     assert_true(len(app.SAMPLE_QUERIES) >= 33, "sample queries should contain all source examples")
+    assert_true(app.COUNTRIES["EA"]["entity_type"] == "region", "Euro Area should be modeled as a region")
+    assert_true(app.COUNTRIES["US"]["entity_type"] == "country", "ordinary entities should be modeled as countries")
+    assert_true(app.COUNTRIES["EA"]["provider_codes"]["eurostat"] == "EA20", "Euro Area should expose provider codes")
 
     capabilities = app.build_capabilities()
     implemented_sources = [item["source"] for item in capabilities["implemented_sources"]]
@@ -51,6 +54,9 @@ def test_static_contracts():
     assert_true("series" in schema["top_level_fields"], "schema should describe series")
     assert_true("quality_report" in schema["top_level_fields"], "schema should describe quality_report")
     assert_true("query_parameter_schema" in schema, "schema should describe query parameters")
+    assert_true("source_updated_at" in schema["top_level_fields"]["series"]["fields"], "schema should distinguish source update time")
+    assert_true("retryable" in schema["top_level_fields"]["error"]["fields"], "schema should expose retryable errors")
+    assert_true("recovery_hint" in schema["top_level_fields"]["error"]["fields"], "schema should expose recovery hints")
     assert_true("eurostat_series" in schema["examples"], "schema should include Eurostat example")
     assert_true("imf_series" in schema["examples"], "schema should include IMF example")
     assert_true("oecd_series" in schema["examples"], "schema should include OECD example")
@@ -72,6 +78,7 @@ def test_static_contracts():
     error_codes = [item["code"] for item in errors["errors"]]
     assert_true("validation_error" in error_codes, "error catalog should include validation_error")
     assert_true("source_request_failed" in error_codes, "error catalog should include source_request_failed")
+    assert_true(all("recovery_hint" in item for item in errors["errors"]), "error catalog should include recovery hints")
 
     openapi = app.build_openapi_lite()
     assert_true("/series" in openapi["paths"], "openapi-lite should expose /series")
@@ -113,6 +120,7 @@ def test_schema_models():
         seasonal_adjustment="NSA",
         calculation="level",
         source=source,
+        source_updated_at="2026-06-19",
         last_updated="2026-06-19",
     )
     response = StandardResponse(
@@ -153,6 +161,8 @@ def test_service_layer():
     error = build_error_response("US", "BAD", "2020", "2021", "A", "validation_error", "bad input")
     assert_true(error["lineage"] is None, "service error response should include lineage placeholder")
     assert_true(error["error"]["code"] == "validation_error", "service error response should preserve code")
+    assert_true("recovery_hint" in error["error"], "service error response should include recovery hint")
+    assert_true(error["error"]["retryable"] is False, "validation errors should not be marked retryable")
 
     result = standardize_series(
         "CN",
@@ -167,6 +177,7 @@ def test_service_layer():
         app.SOURCE_MAPPINGS,
     )
     assert_true(result["series"]["series_id"] == "CN.GDP_NOMINAL.A", "service standardizer should build series_id")
+    assert_true("source_updated_at" in result["series"], "service standardizer should expose official source update time")
     assert_true(result["lineage"]["provider"] == "World Bank", "service standardizer should build lineage")
 
 
@@ -295,7 +306,13 @@ def test_search_and_compare_payloads():
     assert_true(evaluation["implemented_capabilities"]["sample_queries"] >= 20, "evaluation should prove sample query count")
     validation = app.build_sample_validation_payload()
     assert_true(validation["summary"]["total"] >= 33, "sample validation should cover all acceptance queries")
+    assert_true("failed" in validation["summary"], "sample validation summary should expose failed count")
+    assert_true("average_latency_ms" in validation["summary"], "sample validation summary should expose average latency")
     assert_true("record_count" in validation["rows"][0], "sample validation rows should expose record counts")
+    evidence = app.build_public_evidence_payload()
+    evidence_links = [item["href"] for item in evidence["items"]]
+    assert_true("/evidence/query-validation" in evidence_links, "public evidence should link query validation")
+    assert_true(app.build_evidence_detail_payload("source-mapping")["count"] >= 18, "evidence source mapping should be online")
     status = app.build_source_status_payload()
     assert_true(status["summary"]["connected_sources"] >= 7, "source status should cover implemented sources")
 
@@ -321,7 +338,7 @@ def test_http_showcase_route():
             consistency = json.loads(resp.read().decode("utf-8"))
         assert_true(consistency["error"] is None, "consistency endpoint should return structured payload")
         assert_true(consistency["summary"]["source_count"] >= 7, "consistency endpoint should expose seven sources")
-        for path in ["/agent-tools", "/error-catalog", "/openapi-lite", "/openapi.json", "/status", "/sample-validation", "/evidence", "/insight?country=XX&indicator_code=GDP_NOMINAL&start_date=2020&end_date=2021&frequency=A"]:
+        for path in ["/agent-tools", "/error-catalog", "/openapi-lite", "/openapi.json", "/status", "/sample-validation", "/evidence", "/evidence/source-mapping", "/evidence/test-results", "/evidence/deployment", "/evidence/query-validation", "/insight?country=XX&indicator_code=GDP_NOMINAL&start_date=2020&end_date=2021&frequency=A"]:
             with urllib.request.urlopen(f"http://127.0.0.1:{port}{path}", timeout=8) as resp:
                 payload = json.loads(resp.read().decode("utf-8"))
             assert_true(isinstance(payload, dict), f"{path} should return JSON object")

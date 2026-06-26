@@ -30,6 +30,8 @@ class ErrorInfo:
     code: str
     message: str
     detail: Any = None
+    retryable: bool = False
+    recovery_hint: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)

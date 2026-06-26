@@ -35,6 +35,7 @@ class SeriesMetadata:
     seasonal_adjustment: str
     calculation: str
     source: SourceMetadata
+    source_updated_at: str
     last_updated: str
 
     def to_dict(self) -> Dict[str, object]:
