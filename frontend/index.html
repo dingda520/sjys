@@ -165,7 +165,7 @@
     <div class="nav-item" data-page="json">JSON 输出</div>
     <div class="nav-item" data-page="quality">质量校验</div>
     <div class="nav-item" data-page="consistency">跨源一致性</div>
-    <div class="nav-item" data-page="evaluation">评审看板</div>
+    <div class="nav-item" data-page="evaluation">成果总览</div>
     <div class="nav-item" data-page="sources">数据源管理</div>
 
     <div class="nav-title">已实现真实数据源</div>
@@ -558,7 +558,7 @@
     </section>
 
     <section id="page-evaluation" class="section">
-      <div class="page-card"><h3>评审看板</h3><p>把赛题要求、评分维度、项目证据和演示路径集中展示，方便答辩时直接说明“我们完成了什么、凭什么得分”。</p></div>
+      <div class="page-card"><h3>成果总览</h3><p>把赛题要求、评分维度、项目证据和演示路径集中展示，方便答辩时直接说明“我们完成了什么、凭什么得分”。</p></div>
       <div class="evidence-grid">
         <div class="evidence-card"><span>示例查询</span><strong id="evSamples">-</strong><small>最低要求 20 条</small></div>
         <div class="evidence-card"><span>国家 / 地区</span><strong id="evCountries">-</strong><small>统一国家字典</small></div>
@@ -684,7 +684,7 @@ function showPage(page){
     json:["JSON 输出","查看标准化结构化输出，便于 Agent、API 和看板调用。"],
     quality:["质量校验","查看缺失值、重复值、异常值与来源可追溯校验结果。"],
     consistency:["跨源一致性","检查七类官方数据源是否共享统一 Schema、质量报告和来源血缘。"],
-    evaluation:["评审看板","集中展示赛题要求、评分维度、项目证据和演示路径。"],
+    evaluation:["成果总览","集中展示赛题要求、评分维度、项目证据和演示路径。"],
     sources:["数据源管理","展示已接入数据源和后续可扩展数据源。"]
   };
   document.getElementById("pageTitle").textContent=titles[page][0];
@@ -1176,7 +1176,7 @@ async function runGuidedDemo(){
     },
     {
       title:"评审收束",
-      narrative:"最后回到评审看板，把能力、接口、报告和交付证据收束成一页，形成完整答辩闭环。",
+      narrative:"最后回到成果总览，把能力、接口、报告和交付证据收束成一页，形成完整答辩闭环。",
       action:async()=>{showPage("evaluation");renderEvaluation();scrollToElement("page-evaluation","start");}
     },
   ];

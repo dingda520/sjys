@@ -302,7 +302,7 @@ def test_http_showcase_route():
         assert_true("compareChart" in html, "showcase page should include compare chart")
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=8) as resp:
             main_html = resp.read().decode("utf-8")
-        assert_true("评审看板" in main_html, "main page should include evaluation dashboard")
+        assert_true("成果总览" in main_html, "main page should include evaluation dashboard")
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/evaluation", timeout=8) as resp:
             evaluation = json.loads(resp.read().decode("utf-8"))
         assert_true(evaluation["error"] is None, "evaluation endpoint should return structured payload")

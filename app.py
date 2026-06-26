@@ -1385,7 +1385,7 @@ def build_entry_audit_payload() -> Dict[str, Any]:
         ("Agent 工具", "/agent-tools", build_agent_tools),
         ("错误目录", "/error-catalog", build_error_catalog),
         ("OpenAPI Lite", "/openapi-lite", build_openapi_lite),
-        ("评审看板", "/evaluation", build_evaluation_payload),
+        ("成果总览", "/evaluation", build_evaluation_payload),
         ("示例查询", "/sample-queries", lambda: {"queries": SAMPLE_QUERIES}),
     ]
     entries: List[Dict[str, Any]] = []
