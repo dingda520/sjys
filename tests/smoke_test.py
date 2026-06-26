@@ -42,6 +42,8 @@ def test_static_contracts():
     assert_true("/agent-tools" in [x["path"] for x in capabilities["endpoints"]], "capabilities should expose /agent-tools")
     assert_true("/error-catalog" in [x["path"] for x in capabilities["endpoints"]], "capabilities should expose /error-catalog")
     assert_true("/openapi-lite" in [x["path"] for x in capabilities["endpoints"]], "capabilities should expose /openapi-lite")
+    assert_true("/status" in [x["path"] for x in capabilities["endpoints"]], "capabilities should expose /status")
+    assert_true("/sample-validation" in [x["path"] for x in capabilities["endpoints"]], "capabilities should expose /sample-validation")
     assert_true(capabilities["agent_ready"] is True, "capabilities should mark service as agent ready")
 
     schema = app.build_response_schema()
@@ -63,6 +65,8 @@ def test_static_contracts():
     assert_true("search_indicators" in tool_names, "agent tools should include search_indicators")
     assert_true("check_consistency" in tool_names, "agent tools should include check_consistency")
     assert_true("get_insight" in tool_names, "agent tools should include get_insight")
+    search_tool = next(tool for tool in tools["tools"] if tool["name"] == "search_indicators")
+    assert_true("Q" not in search_tool["parameters"]["frequency"]["enum"], "V1 agent tools should not advertise quarterly frequency")
 
     errors = app.build_error_catalog()
     error_codes = [item["code"] for item in errors["errors"]]
@@ -72,6 +76,8 @@ def test_static_contracts():
     openapi = app.build_openapi_lite()
     assert_true("/series" in openapi["paths"], "openapi-lite should expose /series")
     assert_true("/consistency" in openapi["paths"], "openapi-lite should expose /consistency")
+    assert_true("/status" in openapi["paths"], "openapi-lite should expose /status")
+    assert_true("/sample-validation" in openapi["paths"], "openapi-lite should expose /sample-validation")
     assert_true("/insight" in openapi["paths"], "openapi-lite should expose /insight")
     assert_true(openapi["paths"]["/series"]["get"]["operationId"] == "get_series", "openapi-lite should map series operation")
 
@@ -287,6 +293,11 @@ def test_search_and_compare_payloads():
     assert_true(len(evaluation["minimum_acceptance"]) >= 5, "evaluation should cover minimum acceptance requirements")
     assert_true(len(evaluation["scoring_alignment"]) == 5, "evaluation should cover five scoring dimensions")
     assert_true(evaluation["implemented_capabilities"]["sample_queries"] >= 20, "evaluation should prove sample query count")
+    validation = app.build_sample_validation_payload()
+    assert_true(validation["summary"]["total"] >= 33, "sample validation should cover all acceptance queries")
+    assert_true("record_count" in validation["rows"][0], "sample validation rows should expose record counts")
+    status = app.build_source_status_payload()
+    assert_true(status["summary"]["connected_sources"] >= 7, "source status should cover implemented sources")
 
 
 def test_http_showcase_route():
@@ -310,10 +321,13 @@ def test_http_showcase_route():
             consistency = json.loads(resp.read().decode("utf-8"))
         assert_true(consistency["error"] is None, "consistency endpoint should return structured payload")
         assert_true(consistency["summary"]["source_count"] >= 7, "consistency endpoint should expose seven sources")
-        for path in ["/agent-tools", "/error-catalog", "/openapi-lite", "/insight?country=XX&indicator_code=GDP_NOMINAL&start_date=2020&end_date=2021&frequency=A"]:
+        for path in ["/agent-tools", "/error-catalog", "/openapi-lite", "/openapi.json", "/status", "/sample-validation", "/evidence", "/insight?country=XX&indicator_code=GDP_NOMINAL&start_date=2020&end_date=2021&frequency=A"]:
             with urllib.request.urlopen(f"http://127.0.0.1:{port}{path}", timeout=8) as resp:
                 payload = json.loads(resp.read().decode("utf-8"))
             assert_true(isinstance(payload, dict), f"{path} should return JSON object")
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/data_element_report.pdf", timeout=8) as resp:
+            assert_true(resp.headers.get("Content-Type") == "application/pdf", "PDF should use application/pdf content type")
+            assert_true("inline" in resp.headers.get("Content-Disposition", ""), "PDF should open inline")
     finally:
         server.shutdown()
         server.server_close()
