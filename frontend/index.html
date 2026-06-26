@@ -563,7 +563,7 @@
     </section>
 
     <section id="page-json" class="section">
-      <div class="page-card"><h3>JSON 输出说明</h3><p>统一顶层字段为 request、series、quality_report、lineage、error；其中 source 和 observations 位于 series 内部。</p></div>
+      <div class="page-card"><h3>JSON 输出说明</h3><p>系统统一返回 request、series、quality_report、lineage 和 error 五类顶层字段。其中 series 包含数据来源、指标元数据和观测值，lineage 记录原始接口、解析器和数据获取时间。</p></div>
       <div class="card"><div class="card-header"><h3>最近一次查询 JSON</h3><p>来自“指标查询”页面。</p></div><div class="card-body"><pre id="jsonOutputMirror">还没有查询结果，请先运行一次指标查询。</pre></div></div>
     </section>
 
