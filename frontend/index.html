@@ -84,7 +84,7 @@
     .btn-secondary{background:#f8fafc;color:#0f766e;border:1px solid #99f6e4;width:100%;margin-top:10px}
     .hint{display:grid;gap:8px;margin-top:16px;padding:14px;background:#f8fafc;border:1px dashed #99f6e4;border-radius:10px;color:#53657a;font-size:13px;line-height:1.6}
     .cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.metric{padding:16px}.metric span{color:var(--muted);font-size:12px}.metric strong{display:block;font-size:28px;margin-top:7px;color:#0f172a}.metric small{color:var(--good);font-size:12px}
-    .content-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:18px;align-items:start}.chart-wrap{height:370px;padding:16px 12px 8px;position:relative;border:1px solid #dbe5ee;border-radius:14px;background:linear-gradient(180deg,#fbfdff 0%,#f6f9fc 100%);overflow:hidden}.chart-wrap canvas{display:block;width:100%;height:100%}canvas{width:100%;height:100%}
+    .content-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:18px;align-items:start}.query-output-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(360px,.75fr);gap:18px;align-items:stretch;margin-top:20px}.query-output-grid .card{height:100%}.query-output-grid pre{max-height:460px}.query-output-grid #qualityCard .card-body{display:flex;align-items:center}.query-output-grid #qualityList{width:100%}.chart-wrap{height:370px;padding:16px 12px 8px;position:relative;border:1px solid #dbe5ee;border-radius:14px;background:linear-gradient(180deg,#fbfdff 0%,#f6f9fc 100%);overflow:hidden}.chart-wrap canvas{display:block;width:100%;height:100%}canvas{width:100%;height:100%}
     .chart-card{position:relative;overflow:hidden}.chart-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#0f766e,#b7791f,#0f766e);background-size:200% 100%;animation:borderFlow 5s linear infinite}
     @keyframes borderFlow{to{background-position:200% 0}}
     .summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.summary-tile,.compare-stat,.quality-check{min-width:0;border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:11px 12px}.summary-tile span,.compare-stat span{display:block;color:var(--muted);font-size:12px}.summary-tile strong,.compare-stat strong{display:block;margin-top:5px;color:#0f172a;font-size:16px;line-height:1.25;overflow-wrap:anywhere}.summary-tile small,.compare-stat small{display:block;margin-top:4px;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -151,7 +151,7 @@
     .snapshot-status img,.snapshot-status canvas{display:block;width:100%;height:auto;max-height:170px;object-fit:cover;border-radius:10px;margin-top:2px}
     @keyframes renderFloat{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.11) translate3d(-2%,1.5%,0)}}@keyframes scanBeam{to{transform:translateY(430%)}}@keyframes nodePulse{0%,100%{transform:scale(.86);opacity:.7}50%{transform:scale(1.18);opacity:1}}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-    @media (max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.source-grid,.map-dashboard,.reconcile-dashboard,.smart-insight-grid,.quality-visual,.presentation-stage,.radar-card{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.demo-track,.report-grid,.api-evidence-grid,.conclusion-strip{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer,.demo-console-head,.presentation-top{align-items:flex-start;flex-direction:column}}
+    @media (max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.query-output-grid,.source-grid,.map-dashboard,.reconcile-dashboard,.smart-insight-grid,.quality-visual,.presentation-stage,.radar-card{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.demo-track,.report-grid,.api-evidence-grid,.conclusion-strip{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer,.demo-console-head,.presentation-top{align-items:flex-start;flex-direction:column}}
     @media (max-width:1500px){#page-query .grid>section:nth-child(2) .content-grid{grid-template-columns:1fr}}
     @media (max-width:680px){.main{padding:16px 12px 28px}.topbar{flex-direction:column;align-items:flex-start}.status{white-space:normal;max-width:100%;line-height:1.45;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.hero-stats,.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.insight-kpis,.map-countries,.demo-track,.quality-signal-grid,.entry-audit-grid,.report-grid,.api-evidence-grid,.conclusion-strip,.presentation-kpis{grid-template-columns:1fr}.sidebar{padding:16px}.market-strip{display:none}.chart-wrap{height:300px}.map-canvas-wrap{min-height:300px}.presentation-overlay{padding:14px}.presentation-card{padding:16px}}
   </style>
@@ -467,10 +467,10 @@
               </div>
             </div>
             <div>
-              <label for="reconcileCaseSelect">真实对账场景</label>
+              <label for="reconcileCaseSelect">稳定对账场景</label>
               <select id="reconcileCaseSelect"><option value="gdp-growth-us">美国实际 GDP 增长率</option></select>
             </div>
-            <button class="btn btn-primary reconcile-run" id="runReconcileButton" type="button" onclick="runSelectedReconciliation()">运行真实对账</button>
+            <button class="btn btn-primary reconcile-run" id="runReconcileButton" type="button" onclick="runSelectedReconciliation()">运行稳定对账</button>
           </div>
           <div class="reconcile-case-chips" id="reconcileCaseChips" aria-label="当前类别对账场景"></div>
           <div class="reconcile-case-meta" id="reconcileCaseMeta">
@@ -516,7 +516,7 @@
           </div>
 
           <div class="reconcile-table-wrap">
-            <table class="check-table" id="reconcileTable"><tr><th>观测期</th><th>来源 A</th><th>来源 B</th><th>差异</th><th>绝对误差</th></tr><tr><td colspan="5">选择场景并点击“运行真实对账”。</td></tr></table>
+            <table class="check-table" id="reconcileTable"><tr><th>观测期</th><th>来源 A</th><th>来源 B</th><th>差异</th><th>绝对误差</th></tr><tr><td colspan="5">选择场景并点击“运行稳定对账”。</td></tr></table>
           </div>
         </div>
       </section>
@@ -536,7 +536,7 @@
             <button class="btn btn-secondary" onclick="loadAnnualSample()">示例：中国名义 GDP</button>
             <button class="btn btn-secondary" onclick="loadSample()">示例：美国 CPI 同比</button>
             <button class="btn btn-secondary" onclick="loadEurostatSample()">示例：德国工业生产</button>
-            <button class="btn btn-secondary" onclick="loadCrossSourceGdpSample()">真实场景：跨源对账中心</button>
+            <button class="btn btn-secondary" onclick="loadCrossSourceGdpSample()">稳定场景：跨源对账中心</button>
             <details class="more-samples">
               <summary>更多示例</summary>
               <button class="btn btn-secondary" onclick="loadStablePriceSample()">稳定价格同比（Eurostat）</button>
@@ -568,7 +568,7 @@
             <section class="card chart-card"><div class="card-header"><h3>指标趋势与数值</h3><p id="chartSubtitle">等待查询</p><div class="tool-row"><button class="insight-link" type="button" onclick="copyCurrentApiUrl()">复制 API URL</button><button class="insight-link" type="button" onclick="downloadJsonResult()">下载 JSON</button><button class="insight-link" type="button" onclick="downloadCsvResult()">下载 CSV</button></div></div><div class="card-body"><div class="chart-wrap"><canvas id="chart" width="740" height="310"></canvas></div><div id="seriesSummary" class="summary-grid"></div><div class="table-scroll"><table class="table value-table"><tbody id="observationTable"><tr><th>日期</th><th>数值</th><th>状态</th></tr><tr><td colspan="3">等待查询...</td></tr></tbody></table></div></div></section>
             <section class="card"><div class="card-header"><h3>元数据摘要</h3><p>说明数据来源、统计口径、单位和更新时间。</p></div><div class="card-body"><div id="metaTable" class="meta-panel"><div class="meta-main"><span>等待查询</span><strong>-</strong><small>请选择指标并运行查询。</small></div></div></div></section>
           </div>
-          <div class="content-grid" style="margin-top:20px;">
+          <div class="query-output-grid">
             <section id="jsonCard" class="card"><div class="card-header"><h3>标准化 JSON 输出</h3><p>可供 Agent、看板、研究脚本直接调用。</p></div><div class="card-body"><pre id="jsonOutput">等待查询...</pre></div></section>
             <section id="qualityCard" class="card"><div class="card-header"><h3>数据质量检查</h3><p>观测期完整性、重复记录、异常变化和来源信息完整性。</p></div><div class="card-body"><div class="quality-list" id="qualityList"></div></div></section>
           </div>
@@ -605,7 +605,7 @@
     </section>
 
     <section id="page-consistency" class="section">
-      <div class="page-card"><h3>跨来源一致性检查</h3><p>检查 World Bank、BLS、Eurostat、IMF、OECD、ECB 和 BIS 的指标字典、来源映射、统一输出、质量报告以及来源与处理字段。在线检查会实际请求七类代表性接口。</p></div>
+      <div class="page-card"><h3>跨来源一致性检查</h3><p>检查 World Bank、BLS、Eurostat、IMF、OECD、ECB 和 BIS 的指标字典、来源映射、统一输出、质量报告以及来源与处理字段。本页使用结构化字典和验收快照，保证现场可运行。</p></div>
       <div class="evidence-grid">
         <div class="evidence-card"><span>官方数据源</span><strong id="consSourceCount">-</strong><small>统一接入层</small></div>
         <div class="evidence-card"><span>标准指标</span><strong id="consIndicatorCount">-</strong><small>统一指标字典</small></div>
@@ -615,10 +615,10 @@
         <div class="evidence-card"><span>通过校验</span><strong id="consPassedCount">-</strong><small>自动判定</small></div>
       </div>
       <div class="content-grid">
-        <section class="card"><div class="card-header"><h3>一致性检查项</h3><p>展示多源标准化治理是否完整。</p></div><div class="card-body"><div class="quality-list" id="consChecks"></div><button class="btn btn-secondary" id="consistencyOnlineButton" onclick="runConsistency(true)">运行七类来源在线检查</button></div></section>
+        <section class="card"><div class="card-header"><h3>一致性检查项</h3><p>展示多源标准化治理是否完整。</p></div><div class="card-body"><div class="quality-list" id="consChecks"></div></div></section>
         <section class="card"><div class="card-header"><h3>数据源覆盖</h3><p>每个来源覆盖的指标、频率和数据集。</p></div><div class="card-body"><table class="check-table" id="consSourcesTable"><tr><th>来源</th><th>指标数</th><th>频率</th></tr></table></div></section>
       </div>
-      <div class="card" style="margin-top:20px;"><div class="card-header"><h3>代表性查询与在线结果</h3><p>验证七类官方来源都能进入同一套输出结构。</p></div><div class="card-body"><table class="check-table" id="consQueriesTable"><tr><th>来源</th><th>查询</th><th>结果</th></tr></table></div></div>
+      <div class="card" style="margin-top:20px;"><div class="card-header"><h3>代表性查询与结构化结果</h3><p>验证七类官方来源都能进入同一套输出结构。</p></div><div class="card-body"><table class="check-table" id="consQueriesTable"><tr><th>来源</th><th>查询</th><th>结果</th></tr></table></div></div>
     </section>
 
     <section id="page-sources" class="section">
@@ -924,7 +924,7 @@ function clearReconciliationResult(item){
   if(summary)summary.innerHTML='<div class="reconcile-stat"><span>平均绝对误差</span><strong>—</strong></div><div class="reconcile-stat"><span>最大差异</span><strong>—</strong></div><div class="reconcile-stat"><span>趋势方向一致率</span><strong>—</strong></div><div class="reconcile-stat"><span>相关系数</span><strong>—</strong></div>';
   if(sources)sources.innerHTML='<div class="source-proof"><span>来源 A</span><strong>等待运行</strong><small>运行后展示来源状态与原始序列代码</small></div><div class="source-proof"><span>来源 B</span><strong>等待运行</strong><small>运行后展示来源状态与原始序列代码</small></div>';
   if(warning)warning.textContent="统计相似不等于口径完全相同；最终结论将同时展示方法差异。";
-  if(table)table.innerHTML='<tr><th>观测期</th><th>来源 A</th><th>来源 B</th><th>差异</th><th>绝对误差</th></tr><tr><td colspan="5">选择场景并点击“运行真实对账”。</td></tr>';
+  if(table)table.innerHTML='<tr><th>观测期</th><th>来源 A</th><th>来源 B</th><th>差异</th><th>绝对误差</th></tr><tr><td colspan="5">选择场景并点击“运行稳定对账”。</td></tr>';
 }
 function updateReconciliationCaseMeta(){
   const item=selectedReconciliationCase(),target=document.getElementById("reconcileCaseMeta");
@@ -948,10 +948,10 @@ function selectReconciliationCase(caseId){
 async function runSelectedReconciliation(){
   const item=selectedReconciliationCase(),button=document.getElementById("runReconcileButton"),conclusion=document.getElementById("reconcileConclusion");
   if(!item)return null;
-  if(button){button.disabled=true;button.textContent="正在对齐官方数据…";}
-  if(conclusion)conclusion.innerHTML='<div class="conclusion-tag"><span>运行状态</span><strong class="reconcile-loading"><i></i>请求两类来源</strong></div><div class="conclusion-tag"><span>对账结果</span><strong>计算中</strong></div><div class="conclusion-tag"><span>对齐观测期</span><strong>计算中</strong></div><div class="conclusion-tag"><span>结果说明</span><strong>生成中</strong></div>';
+  if(button){button.disabled=true;button.textContent="正在加载对账数据…";}
+  if(conclusion)conclusion.innerHTML='<div class="conclusion-tag"><span>运行状态</span><strong class="reconcile-loading"><i></i>加载稳定样本</strong></div><div class="conclusion-tag"><span>对账结果</span><strong>计算中</strong></div><div class="conclusion-tag"><span>对齐观测期</span><strong>计算中</strong></div><div class="conclusion-tag"><span>结果说明</span><strong>生成中</strong></div>';
   try{
-    const payload=await fetchJson(`/reconcile?case_id=${encodeURIComponent(item.case_id)}`);
+    const payload=await fetchJson(`/reconcile?case_id=${encodeURIComponent(item.case_id)}&live=0`);
     if(!selectedReconciliationCase()||selectedReconciliationCase().case_id!==item.case_id)return payload;
     reconciliationStore=payload;
     renderCrossSourceReconciliation(payload);
@@ -964,7 +964,7 @@ async function runSelectedReconciliation(){
     renderCrossSourceReconciliation(fallback);
     return null;
   }finally{
-    if(button){button.disabled=false;button.textContent="运行真实对账";}
+    if(button){button.disabled=false;button.textContent="运行稳定对账";}
   }
 }
 async function loadCrossSourceGdpSample(){
@@ -1236,7 +1236,7 @@ async function runConsistency(online=false){
     if(button)button.textContent=`正在检查 ${completed} / ${queries.length}`;
     renderConsistency();
   }));
-  if(button){button.disabled=false;button.textContent="重新运行七类来源在线检查";}
+  if(button){button.disabled=false;button.textContent="重新生成结构化结果";}
 }
 
 function statusLabel(status){
@@ -1421,7 +1421,7 @@ function renderPresentationDataPreview(){
     const payload=reconciliationStore,rows=(payload&&payload.aligned_observations)||[],summary=(payload&&payload.summary)||{},caseMeta=(payload&&payload.case)||{};
     if(!rows.length){
       title.textContent="等待跨源对账";
-      if(subtitle)subtitle.textContent="点击“加载当前证据”运行 World Bank / IMF 美国 GDP 增长率真实对账。";
+      if(subtitle)subtitle.textContent="点击“加载当前证据”运行 World Bank / IMF 美国 GDP 增长率稳定对账。";
       metrics.innerHTML='<div class="presentation-data-metric"><span>场景</span><strong>美国 GDP 增长率</strong></div><div class="presentation-data-metric"><span>来源</span><strong>World Bank / IMF</strong></div><div class="presentation-data-metric"><span>等价等级</span><strong>S 级严格对账</strong></div><div class="presentation-data-metric"><span>状态</span><strong>等待运行</strong></div>';
       apiLine.textContent="/reconcile?case_id=gdp-growth-us";
       drawPresentationReconciliationChart([]);
@@ -1798,7 +1798,7 @@ function drawReconciliationChart(rows,sourceAName="来源 A",sourceBName="来源
   ctx.clearRect(0,0,w,h);
   ctx.font="12px -apple-system,BlinkMacSystemFont,Segoe UI";
   if(!rows||!rows.length){
-    ctx.fillStyle="#64748b";ctx.fillText("等待跨源对账数据",34,90);ctx.fillText("选择场景并点击“运行真实对账”。",34,114);return;
+    ctx.fillStyle="#64748b";ctx.fillText("等待跨源对账数据",34,90);ctx.fillText("选择场景并点击“运行稳定对账”。",34,114);return;
   }
   const values=rows.flatMap(row=>[Number(row.source_a_value),Number(row.source_b_value)]).filter(Number.isFinite);
   let min=Math.min(...values), max=Math.max(...values); if(min===max){min-=1;max+=1;}
@@ -1923,15 +1923,18 @@ function updateCompareControls(){
 }
 async function runCompare(){
   const indicator=document.getElementById("compareIndicator").value,config=COMPARE_CONFIG[indicator]||COMPARE_CONFIG.GDP_NOMINAL,year=document.getElementById("compareYear").value||config.date;
-  document.getElementById("compareTable").innerHTML="<tr><th>国家</th><th>数值</th><th>单位</th><th>来源</th></tr><tr><td colspan='4'>查询中...</td></tr>";
+  document.getElementById("compareTable").innerHTML="<tr><th>排名</th><th>国家</th><th>数值</th><th>来源 / 模式</th><th>质量</th></tr><tr><td colspan='5'>查询中...</td></tr>";
   const data=await fetchJson(`/compare?countries=${encodeURIComponent(config.countries)}&indicator_code=${encodeURIComponent(indicator)}&date=${encodeURIComponent(year)}&frequency=${config.frequency}`).catch(()=>null);
-  const rows=(data&&data.rows?data.rows:[]).map(r=>({country:r.country_name_zh,value:Number(r.value),unit:r.unit,source:r.source.organization})).filter(r=>Number.isFinite(r.value));
+  const rows=(data&&data.rows?data.rows:[]).map(r=>({rank:r.rank,country:r.country_name_zh,value:Number(r.value),unit:r.unit,source:(r.source||{}).organization||"—",quality:r.quality_passed,mode:r.data_mode||(data&&data.data_mode)||"live_or_cache"})).filter(r=>Number.isFinite(r.value));
   rows.sort((a,b)=>Math.abs(b.value)-Math.abs(a.value));
   const values=rows.map(r=>r.value), scale=chooseScale(values,rows[0]?rows[0].unit:"");
   const top=rows[0], bottom=rows[rows.length-1];
   const errorCount=(data&&data.errors?data.errors.length:0);
-  document.getElementById("compareSummary").innerHTML=rows.length?`<div class="compare-stat"><span>有效结果</span><strong>${rows.length}</strong><small>${escapeHtml(config.frequency==="A"?"年度指标":"月度指标")}${errorCount?` · ${errorCount} 项未返回`:""}</small></div><div class="compare-stat"><span>最高值</span><strong>${escapeHtml(top.country)}</strong><small>${escapeHtml(formatValue(top.value,scale))}</small></div><div class="compare-stat"><span>最低值</span><strong>${escapeHtml(bottom.country)}</strong><small>${escapeHtml(formatValue(bottom.value,scale))}</small></div><div class="compare-stat"><span>显示单位</span><strong>${escapeHtml(scale.label)}</strong><small>${escapeHtml(rows[0].source)}</small></div>`:"";
-  document.getElementById("compareTable").innerHTML="<tr><th>国家</th><th>数值</th><th>单位</th><th>来源</th></tr>"+(rows.length?rows.map(r=>`<tr><td>${escapeHtml(r.country)}</td><td>${escapeHtml(formatValue(r.value,scale))}<br><small>${Number(r.value).toLocaleString("zh-CN",{maximumFractionDigits:2})}</small></td><td>${escapeHtml(r.unit)}</td><td>${escapeHtml(r.source)}</td></tr>`).join(""):"<tr><td colspan='4'>暂无可展示结果，请稍后重试。</td></tr>");
+  const modeLabel=(data&&data.data_mode)==="acceptance_snapshot"?"验收快照":"实时/缓存";
+  const qualityPassed=rows.filter(row=>row.quality).length;
+  const errorRows=(data&&data.errors?data.errors:[]).map(item=>`<tr><td>—</td><td>${escapeHtml(item.country||"—")}</td><td colspan="2">${escapeHtml(((item.error||{}).message)||"未返回可比观测值")}</td><td><span class="badge warn">未纳入</span></td></tr>`).join("");
+  document.getElementById("compareSummary").innerHTML=rows.length?`<div class="compare-stat"><span>可比国家</span><strong>${rows.length}</strong><small>${escapeHtml(modeLabel)}${errorCount?` · ${errorCount} 项未纳入`:""}</small></div><div class="compare-stat"><span>最高值</span><strong>${escapeHtml(top.country)}</strong><small>${escapeHtml(formatValue(top.value,scale))}</small></div><div class="compare-stat"><span>最低值</span><strong>${escapeHtml(bottom.country)}</strong><small>${escapeHtml(formatValue(bottom.value,scale))}</small></div><div class="compare-stat"><span>质量通过</span><strong>${qualityPassed} / ${rows.length}</strong><small>${escapeHtml(scale.label)}</small></div>`:"";
+  document.getElementById("compareTable").innerHTML="<tr><th>排名</th><th>国家</th><th>数值</th><th>来源 / 模式</th><th>质量</th></tr>"+(rows.length?rows.map((r,index)=>`<tr><td>${index+1}</td><td>${escapeHtml(r.country)}</td><td>${escapeHtml(formatValue(r.value,scale))}<br><small>${Number(r.value).toLocaleString("zh-CN",{maximumFractionDigits:2})} ${escapeHtml(r.unit)}</small></td><td>${escapeHtml(r.source)}<br><small>${escapeHtml(r.mode==="acceptance_snapshot"?"验收快照":"实时/缓存")}</small></td><td><span class="badge ${r.quality?"good":"warn"}">${r.quality?"通过":"待核验"}</span></td></tr>`).join("")+errorRows:"<tr><td colspan='5'>暂无可展示结果，请稍后重试。</td></tr>");
   drawBarChart(rows,scale);
 }
 function drawBarChart(rows,scale){

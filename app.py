@@ -1199,6 +1199,8 @@ def build_capabilities() -> Dict[str, Any]:
             {"method": "GET", "path": "/series", "purpose": "single standardized series query"},
             {"method": "POST", "path": "/batch-query", "purpose": "batch standardized series query"},
             {"method": "GET", "path": "/compare", "purpose": "multi-country comparison payload"},
+            {"method": "GET", "path": "/reconcile-cases", "purpose": "available cross-source reconciliation cases"},
+            {"method": "GET", "path": "/reconcile", "purpose": "stable cross-source reconciliation case result"},
             {"method": "GET", "path": "/reconciliation", "purpose": "stable cross-source reconciliation payload"},
             {"method": "GET", "path": "/visualization", "purpose": "ECharts-friendly line chart payload"},
             {"method": "GET", "path": "/insight", "purpose": "human-readable query insight and report paragraph"},
@@ -1897,6 +1899,28 @@ COMPARE_SNAPSHOT_2023: Dict[str, Dict[str, float]] = {
         "US": 2.5, "CN": 5.2, "DE": -0.3, "JP": 1.9,
         "GB": 0.1, "IN": 8.2, "FR": 1.1,
     },
+    "OECD_CPI_YOY": {
+        "US": 2.6, "DE": 2.2, "FR": 1.5, "JP": 2.3, "GB": 2.3,
+    },
+    "HICP_YOY": {
+        "EA": 2.4, "DE": 2.8, "FR": 1.8,
+    },
+    "PPI_LEVEL": {
+        "EA": 122.4, "DE": 119.7, "FR": 124.1,
+    },
+    "INDUSTRIAL_PRODUCTION": {
+        "EA": 96.8, "DE": 92.1, "FR": 99.4,
+    },
+    "RETAIL_SALES_VOLUME": {
+        "EA": 101.2, "DE": 100.6, "FR": 102.4,
+    },
+    "LONG_TERM_RATE": {
+        "DE": 2.3, "FR": 3.0,
+    },
+    "BIS_POLICY_RATE": {
+        "US": 4.5, "EA": 3.15, "FR": 3.15, "GB": 4.75,
+        "JP": 0.25, "CN": 3.1, "IN": 6.5,
+    },
 }
 
 
@@ -2055,6 +2079,351 @@ RECONCILIATION_SNAPSHOT = [
     {"date": "2023", "world_bank": 2.5, "imf": 2.5},
     {"date": "2024", "world_bank": 2.8, "imf": 2.8},
 ]
+
+
+RECONCILE_CASES: List[Dict[str, Any]] = [
+    {
+        "case_id": "gdp-growth-us", "case_name": "美国实际 GDP 增长率", "country_code": "US",
+        "source_a": "World Bank", "indicator_a": "GDP_REAL_GROWTH", "source_b": "IMF",
+        "indicator_b": "IMF_GDP_GROWTH", "start_date": "2018", "end_date": "2024",
+        "frequency": "A", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "年度",
+        "seasonal_adjustment_b": "年度", "equivalence_note": "两者均为年度实际 GDP 增长率，适合逐年比较。",
+        "warning": "IMF 与 World Bank 的修订时间和发布批次不同，个别年度可能存在轻微差异。",
+        "category": "strict", "grade": "S",
+    },
+    {
+        "case_id": "gdp-growth-cn", "case_name": "中国实际 GDP 增长率", "country_code": "CN",
+        "source_a": "World Bank", "indicator_a": "GDP_REAL_GROWTH", "source_b": "IMF",
+        "indicator_b": "IMF_GDP_GROWTH", "start_date": "2018", "end_date": "2024",
+        "frequency": "A", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "年度",
+        "seasonal_adjustment_b": "年度", "equivalence_note": "同一宏观增速指标，不同机构年度口径对照。",
+        "warning": "需注意数据修订批次和年度估算口径。",
+        "category": "strict", "grade": "S",
+    },
+    {
+        "case_id": "gdp-growth-de", "case_name": "德国实际 GDP 增长率", "country_code": "DE",
+        "source_a": "World Bank", "indicator_a": "GDP_REAL_GROWTH", "source_b": "IMF",
+        "indicator_b": "IMF_GDP_GROWTH", "start_date": "2018", "end_date": "2024",
+        "frequency": "A", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "年度",
+        "seasonal_adjustment_b": "年度", "equivalence_note": "年度实际 GDP 增长率对照。",
+        "warning": "低增长年份对小数修订更敏感，应保留来源说明。",
+        "category": "strict", "grade": "S",
+    },
+    {
+        "case_id": "gdp-growth-fr", "case_name": "法国实际 GDP 增长率", "country_code": "FR",
+        "source_a": "World Bank", "indicator_a": "GDP_REAL_GROWTH", "source_b": "IMF",
+        "indicator_b": "IMF_GDP_GROWTH", "start_date": "2018", "end_date": "2024",
+        "frequency": "A", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "年度",
+        "seasonal_adjustment_b": "年度", "equivalence_note": "年度实际 GDP 增长率对照。",
+        "warning": "疫情年份的统计修订可能造成两来源差异扩大。",
+        "category": "strict", "grade": "S",
+    },
+    {
+        "case_id": "gdp-growth-gb", "case_name": "英国实际 GDP 增长率", "country_code": "GB",
+        "source_a": "World Bank", "indicator_a": "GDP_REAL_GROWTH", "source_b": "IMF",
+        "indicator_b": "IMF_GDP_GROWTH", "start_date": "2018", "end_date": "2024",
+        "frequency": "A", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "年度",
+        "seasonal_adjustment_b": "年度", "equivalence_note": "年度实际 GDP 增长率对照。",
+        "warning": "以年度同比口径比较，不用于季度环比判断。",
+        "category": "strict", "grade": "S",
+    },
+    {
+        "case_id": "gdp-growth-jp", "case_name": "日本实际 GDP 增长率", "country_code": "JP",
+        "source_a": "World Bank", "indicator_a": "GDP_REAL_GROWTH", "source_b": "IMF",
+        "indicator_b": "IMF_GDP_GROWTH", "start_date": "2018", "end_date": "2024",
+        "frequency": "A", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "年度",
+        "seasonal_adjustment_b": "年度", "equivalence_note": "年度实际 GDP 增长率对照。",
+        "warning": "小数位修订可能影响低增速年度排名。",
+        "category": "strict", "grade": "S",
+    },
+    {
+        "case_id": "gdp-growth-in", "case_name": "印度实际 GDP 增长率", "country_code": "IN",
+        "source_a": "World Bank", "indicator_a": "GDP_REAL_GROWTH", "source_b": "IMF",
+        "indicator_b": "IMF_GDP_GROWTH", "start_date": "2018", "end_date": "2024",
+        "frequency": "A", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "年度",
+        "seasonal_adjustment_b": "年度", "equivalence_note": "年度实际 GDP 增长率对照。",
+        "warning": "财政年度和自然年度资料转写时需保留来源机构说明。",
+        "category": "strict", "grade": "S",
+    },
+    {
+        "case_id": "cpi-yoy-us", "case_name": "美国 CPI 同比", "country_code": "US",
+        "source_a": "BLS", "indicator_a": "CPI_YOY", "source_b": "OECD",
+        "indicator_b": "OECD_CPI_YOY", "start_date": "2024-01", "end_date": "2024-12",
+        "frequency": "M", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "未季调同比",
+        "seasonal_adjustment_b": "同比", "equivalence_note": "两者均为消费者价格同比，适合方向和幅度比较。",
+        "warning": "BLS 与 OECD 可能采用不同发布时间和舍入规则。",
+        "category": "comparable", "grade": "A",
+    },
+    {
+        "case_id": "inflation-de", "case_name": "德国通胀同比", "country_code": "DE",
+        "source_a": "Eurostat", "indicator_a": "HICP_YOY", "source_b": "OECD",
+        "indicator_b": "OECD_CPI_YOY", "start_date": "2024-01", "end_date": "2024-12",
+        "frequency": "M", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "HICP 同比",
+        "seasonal_adjustment_b": "CPI 同比", "equivalence_note": "HICP 与 CPI 均反映价格同比，但篮子和覆盖范围不同。",
+        "warning": "该场景用于方法差异说明，不应写作同一指标的完全替代。",
+        "category": "method", "grade": "B",
+    },
+    {
+        "case_id": "inflation-fr", "case_name": "法国通胀同比", "country_code": "FR",
+        "source_a": "Eurostat", "indicator_a": "HICP_YOY", "source_b": "OECD",
+        "indicator_b": "OECD_CPI_YOY", "start_date": "2024-01", "end_date": "2024-12",
+        "frequency": "M", "unit_a": "%", "unit_b": "%", "seasonal_adjustment_a": "HICP 同比",
+        "seasonal_adjustment_b": "CPI 同比", "equivalence_note": "HICP 与 CPI 均为价格同比序列，适合展示口径差异。",
+        "warning": "比较结论应明确来源和统计框架。",
+        "category": "method", "grade": "B",
+    },
+]
+
+
+RECONCILE_SNAPSHOTS: Dict[str, List[Dict[str, Any]]] = {
+    "gdp-growth-us": [{"date": row["date"], "source_a_value": row["world_bank"], "source_b_value": row["imf"]} for row in RECONCILIATION_SNAPSHOT],
+    "gdp-growth-cn": [
+        {"date": "2018", "source_a_value": 6.7, "source_b_value": 6.8},
+        {"date": "2019", "source_a_value": 6.0, "source_b_value": 6.0},
+        {"date": "2020", "source_a_value": 2.2, "source_b_value": 2.3},
+        {"date": "2021", "source_a_value": 8.4, "source_b_value": 8.1},
+        {"date": "2022", "source_a_value": 3.0, "source_b_value": 3.0},
+        {"date": "2023", "source_a_value": 5.2, "source_b_value": 5.2},
+        {"date": "2024", "source_a_value": 5.0, "source_b_value": 4.8},
+    ],
+    "gdp-growth-de": [
+        {"date": "2018", "source_a_value": 1.0, "source_b_value": 1.1},
+        {"date": "2019", "source_a_value": 1.1, "source_b_value": 1.1},
+        {"date": "2020", "source_a_value": -3.8, "source_b_value": -4.1},
+        {"date": "2021", "source_a_value": 3.2, "source_b_value": 3.1},
+        {"date": "2022", "source_a_value": 1.8, "source_b_value": 1.8},
+        {"date": "2023", "source_a_value": -0.3, "source_b_value": -0.3},
+        {"date": "2024", "source_a_value": 0.2, "source_b_value": 0.0},
+    ],
+    "gdp-growth-fr": [
+        {"date": "2018", "source_a_value": 1.8, "source_b_value": 1.9},
+        {"date": "2019", "source_a_value": 1.9, "source_b_value": 1.8},
+        {"date": "2020", "source_a_value": -7.5, "source_b_value": -7.8},
+        {"date": "2021", "source_a_value": 6.4, "source_b_value": 6.3},
+        {"date": "2022", "source_a_value": 2.5, "source_b_value": 2.6},
+        {"date": "2023", "source_a_value": 1.1, "source_b_value": 1.0},
+        {"date": "2024", "source_a_value": 1.1, "source_b_value": 1.1},
+    ],
+    "gdp-growth-gb": [
+        {"date": "2018", "source_a_value": 1.7, "source_b_value": 1.4},
+        {"date": "2019", "source_a_value": 1.6, "source_b_value": 1.6},
+        {"date": "2020", "source_a_value": -10.4, "source_b_value": -10.3},
+        {"date": "2021", "source_a_value": 8.7, "source_b_value": 8.6},
+        {"date": "2022", "source_a_value": 4.3, "source_b_value": 4.1},
+        {"date": "2023", "source_a_value": 0.1, "source_b_value": 0.1},
+        {"date": "2024", "source_a_value": 0.7, "source_b_value": 0.7},
+    ],
+    "gdp-growth-jp": [
+        {"date": "2018", "source_a_value": 0.6, "source_b_value": 0.6},
+        {"date": "2019", "source_a_value": -0.4, "source_b_value": -0.4},
+        {"date": "2020", "source_a_value": -4.3, "source_b_value": -4.2},
+        {"date": "2021", "source_a_value": 2.1, "source_b_value": 2.2},
+        {"date": "2022", "source_a_value": 1.0, "source_b_value": 1.0},
+        {"date": "2023", "source_a_value": 1.9, "source_b_value": 1.9},
+        {"date": "2024", "source_a_value": 0.1, "source_b_value": 0.3},
+    ],
+    "gdp-growth-in": [
+        {"date": "2018", "source_a_value": 6.5, "source_b_value": 6.5},
+        {"date": "2019", "source_a_value": 3.9, "source_b_value": 3.9},
+        {"date": "2020", "source_a_value": -5.8, "source_b_value": -6.6},
+        {"date": "2021", "source_a_value": 9.7, "source_b_value": 9.1},
+        {"date": "2022", "source_a_value": 7.0, "source_b_value": 7.2},
+        {"date": "2023", "source_a_value": 8.2, "source_b_value": 7.8},
+        {"date": "2024", "source_a_value": 6.5, "source_b_value": 6.8},
+    ],
+    "cpi-yoy-us": [
+        {"date": "2024-01", "source_a_value": 3.1, "source_b_value": 3.1},
+        {"date": "2024-02", "source_a_value": 3.2, "source_b_value": 3.1},
+        {"date": "2024-03", "source_a_value": 3.5, "source_b_value": 3.4},
+        {"date": "2024-04", "source_a_value": 3.4, "source_b_value": 3.3},
+        {"date": "2024-05", "source_a_value": 3.3, "source_b_value": 3.3},
+        {"date": "2024-06", "source_a_value": 3.0, "source_b_value": 3.0},
+        {"date": "2024-07", "source_a_value": 2.9, "source_b_value": 2.9},
+        {"date": "2024-08", "source_a_value": 2.5, "source_b_value": 2.6},
+        {"date": "2024-09", "source_a_value": 2.4, "source_b_value": 2.4},
+        {"date": "2024-10", "source_a_value": 2.6, "source_b_value": 2.6},
+        {"date": "2024-11", "source_a_value": 2.7, "source_b_value": 2.7},
+        {"date": "2024-12", "source_a_value": 2.9, "source_b_value": 2.8},
+    ],
+    "inflation-de": [
+        {"date": "2024-01", "source_a_value": 3.1, "source_b_value": 2.9},
+        {"date": "2024-02", "source_a_value": 2.7, "source_b_value": 2.5},
+        {"date": "2024-03", "source_a_value": 2.3, "source_b_value": 2.2},
+        {"date": "2024-04", "source_a_value": 2.4, "source_b_value": 2.2},
+        {"date": "2024-05", "source_a_value": 2.8, "source_b_value": 2.6},
+        {"date": "2024-06", "source_a_value": 2.5, "source_b_value": 2.3},
+        {"date": "2024-07", "source_a_value": 2.6, "source_b_value": 2.4},
+        {"date": "2024-08", "source_a_value": 2.0, "source_b_value": 1.9},
+        {"date": "2024-09", "source_a_value": 1.8, "source_b_value": 1.7},
+        {"date": "2024-10", "source_a_value": 2.4, "source_b_value": 2.2},
+        {"date": "2024-11", "source_a_value": 2.4, "source_b_value": 2.2},
+        {"date": "2024-12", "source_a_value": 2.8, "source_b_value": 2.6},
+    ],
+    "inflation-fr": [
+        {"date": "2024-01", "source_a_value": 3.4, "source_b_value": 3.1},
+        {"date": "2024-02", "source_a_value": 3.2, "source_b_value": 2.9},
+        {"date": "2024-03", "source_a_value": 2.4, "source_b_value": 2.2},
+        {"date": "2024-04", "source_a_value": 2.4, "source_b_value": 2.2},
+        {"date": "2024-05", "source_a_value": 2.6, "source_b_value": 2.4},
+        {"date": "2024-06", "source_a_value": 2.5, "source_b_value": 2.3},
+        {"date": "2024-07", "source_a_value": 2.7, "source_b_value": 2.5},
+        {"date": "2024-08", "source_a_value": 2.2, "source_b_value": 2.0},
+        {"date": "2024-09", "source_a_value": 1.4, "source_b_value": 1.3},
+        {"date": "2024-10", "source_a_value": 1.6, "source_b_value": 1.5},
+        {"date": "2024-11", "source_a_value": 1.7, "source_b_value": 1.6},
+        {"date": "2024-12", "source_a_value": 1.8, "source_b_value": 1.7},
+    ],
+}
+
+
+def normalize_reconcile_case(case: Dict[str, Any]) -> Dict[str, Any]:
+    category_labels = {
+        "strict": "严格对账",
+        "comparable": "可比口径",
+        "method": "方法对比",
+        "structural": "结构一致性",
+    }
+    country = COUNTRIES.get(case["country_code"], {})
+    return {
+        **case,
+        "title": case["case_name"],
+        "country_name_zh": country.get("name_zh", case["country_code"]),
+        "country_name_en": country.get("name_en", case["country_code"]),
+        "category_label": category_labels.get(case["category"], case["category"]),
+        "source_a_mode": "SNAPSHOT",
+        "source_b_mode": "SNAPSHOT",
+    }
+
+
+def build_reconcile_cases_payload() -> Dict[str, Any]:
+    counts: Dict[str, int] = {}
+    cases = [normalize_reconcile_case(case) for case in RECONCILE_CASES]
+    for case in cases:
+        counts[case["category"]] = counts.get(case["category"], 0) + 1
+    return {
+        "data_mode": "acceptance_snapshot",
+        "summary": {
+            "case_count": len(cases),
+            "categories": counts,
+            "source_pairs": sorted({f"{case['source_a']} / {case['source_b']}" for case in cases}),
+        },
+        "cases": cases,
+        "error": None,
+    }
+
+
+def build_reconcile_payload(case_id: str = "gdp-growth-us", live: bool = False) -> Dict[str, Any]:
+    case_id = (case_id or "gdp-growth-us").strip()
+    case = next((item for item in RECONCILE_CASES if item["case_id"] == case_id), None)
+    if case is None:
+        return {
+            "case": {"case_id": case_id},
+            "data_mode": "acceptance_snapshot",
+            "summary": {
+                "status": "not_found",
+                "verdict": "未找到对账场景",
+                "citation_advice": "请先调用 /reconcile-cases 获取可用场景。",
+            },
+            "aligned_observations": [],
+            "sources": {},
+            "methodology": {},
+            "error": {"code": "reconcile_case_not_found", "message": f"Unknown reconciliation case: {case_id}"},
+        }
+
+    case = normalize_reconcile_case(case)
+    rows = []
+    if live:
+        result_a = query_series(case["country_code"], case["indicator_a"], case["start_date"], case["end_date"], case["frequency"])
+        result_b = query_series(case["country_code"], case["indicator_b"], case["start_date"], case["end_date"], case["frequency"])
+        observations_a = [
+            item for item in ((result_a.get("series") or {}).get("observations") or [])
+            if isinstance(item.get("value"), (int, float))
+        ]
+        observations_b = [
+            item for item in ((result_b.get("series") or {}).get("observations") or [])
+            if isinstance(item.get("value"), (int, float))
+        ]
+        b_by_date = {str(item.get("date")): float(item["value"]) for item in observations_b}
+        rows = [
+            {
+                "date": str(item.get("date")),
+                "source_a_value": float(item["value"]),
+                "source_b_value": b_by_date[str(item.get("date"))],
+            }
+            for item in observations_a
+            if str(item.get("date")) in b_by_date
+        ]
+
+    data_mode = "live_or_cache" if live and rows else "acceptance_snapshot"
+    if not rows:
+        rows = [dict(row) for row in RECONCILE_SNAPSHOTS.get(case_id, [])]
+
+    aligned = []
+    for row in rows:
+        source_a = float(row["source_a_value"])
+        source_b = float(row["source_b_value"])
+        difference = source_a - source_b
+        aligned.append({
+            "date": row["date"],
+            "source_a_value": source_a,
+            "source_b_value": source_b,
+            "difference": difference,
+            "absolute_error": abs(difference),
+        })
+
+    values_a = [row["source_a_value"] for row in aligned]
+    values_b = [row["source_b_value"] for row in aligned]
+    mae = sum(row["absolute_error"] for row in aligned) / len(aligned) if aligned else None
+    max_row = max(aligned, key=lambda row: row["absolute_error"]) if aligned else None
+    direction_matches = sum(
+        1 for row in aligned
+        if (row["source_a_value"] == 0 and row["source_b_value"] == 0)
+        or (row["source_a_value"] > 0) == (row["source_b_value"] > 0)
+    )
+    direction_rate = direction_matches / len(aligned) * 100 if aligned else None
+    try:
+        correlation = statistics.correlation(values_a, values_b) if len(values_a) >= 2 else None
+    except statistics.StatisticsError:
+        correlation = None
+
+    verdict = "高度一致" if case["grade"] == "S" else ("可比但需注明口径" if case["grade"] == "A" else "方法差异需单独说明")
+    return {
+        "case": case,
+        "data_mode": data_mode,
+        "summary": {
+            "status": "ok",
+            "verdict": verdict,
+            "aligned_count": len(aligned),
+            "mean_absolute_error": mae,
+            "max_difference_period": max_row["date"] if max_row else None,
+            "max_absolute_error": max_row["absolute_error"] if max_row else None,
+            "direction_agreement_rate": direction_rate,
+            "correlation": correlation,
+            "citation_advice": "报告引用时保留来源机构、指标代码、观测期、单位和本页口径说明。",
+        },
+        "sources": {
+            "a": {
+                "organization": case["source_a"],
+                "status": {"mode": "SNAPSHOT" if data_mode == "acceptance_snapshot" else "LIVE"},
+                "source_series_code": case["indicator_a"],
+                "unit": case["unit_a"],
+                "seasonal_adjustment": case["seasonal_adjustment_a"],
+            },
+            "b": {
+                "organization": case["source_b"],
+                "status": {"mode": "SNAPSHOT" if data_mode == "acceptance_snapshot" else "LIVE"},
+                "source_series_code": case["indicator_b"],
+                "unit": case["unit_b"],
+                "seasonal_adjustment": case["seasonal_adjustment_b"],
+            },
+        },
+        "methodology": {
+            "equivalence_note": case["equivalence_note"],
+            "warning": case["warning"],
+        },
+        "aligned_observations": aligned,
+        "error": None,
+    }
 
 
 def build_reconciliation_payload(country: str = "US", start_date: str = "2018", end_date: str = "2024", live: bool = False) -> Dict[str, Any]:
@@ -2918,6 +3287,16 @@ class MacroHandler(SimpleHTTPRequestHandler):
                 frequency = params.get("frequency", ["A"])[0]
                 live = params.get("live", ["0"])[0].strip().lower() in ("1", "true", "yes")
                 json_response(self, build_compare_payload(countries, indicator_code, date, frequency, live))
+                return
+
+            if path == "/reconcile-cases":
+                json_response(self, build_reconcile_cases_payload())
+                return
+
+            if path == "/reconcile":
+                case_id = params.get("case_id", ["gdp-growth-us"])[0]
+                live = params.get("live", ["0"])[0].strip().lower() in ("1", "true", "yes")
+                json_response(self, build_reconcile_payload(case_id, live))
                 return
 
             if path == "/reconciliation":

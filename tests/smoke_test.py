@@ -344,6 +344,16 @@ def test_http_showcase_route():
             reconciliation = json.loads(resp.read().decode("utf-8"))
         assert_true(reconciliation["error"] is None, "reconciliation endpoint should return structured payload")
         assert_true(reconciliation["aligned_count"] > 0, "reconciliation endpoint should always expose aligned rows")
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/reconcile-cases", timeout=8) as resp:
+            reconcile_cases = json.loads(resp.read().decode("utf-8"))
+        assert_true(reconcile_cases["summary"]["case_count"] >= 10, "reconcile-cases should expose all dashboard cases")
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/reconcile?case_id=gdp-growth-us", timeout=8) as resp:
+            reconcile_payload = json.loads(resp.read().decode("utf-8"))
+        assert_true(reconcile_payload["error"] is None, "reconcile endpoint should return a runnable case payload")
+        assert_true(len(reconcile_payload["aligned_observations"]) > 0, "reconcile endpoint should expose aligned observations")
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/compare?countries=EA,DE,FR&indicator_code=HICP_YOY&date=2024-12&frequency=M", timeout=8) as resp:
+            compare_monthly = json.loads(resp.read().decode("utf-8"))
+        assert_true(compare_monthly["summary"]["row_count"] >= 3, "monthly country comparison should be runnable")
         for path in ["/agent-tools", "/error-catalog", "/openapi-lite", "/openapi.json", "/status", "/sample-validation", "/evidence", "/evidence/source-mapping", "/evidence/test-results", "/evidence/deployment", "/evidence/query-validation", "/insight?country=XX&indicator_code=GDP_NOMINAL&start_date=2020&end_date=2021&frequency=A"]:
             with urllib.request.urlopen(f"http://127.0.0.1:{port}{path}", timeout=8) as resp:
                 payload = json.loads(resp.read().decode("utf-8"))
