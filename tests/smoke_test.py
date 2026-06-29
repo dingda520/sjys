@@ -327,12 +327,12 @@ def test_http_showcase_route():
     try:
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/showcase", timeout=8) as resp:
             html = resp.read().decode("utf-8")
-        assert_true("经观 EconView 展示版" in html, "showcase page should render title")
+        assert_true("经观 EconView 工作台" in html, "showcase page should render title")
         assert_true("seriesChart" in html, "showcase page should include series chart")
         assert_true("compareChart" in html, "showcase page should include compare chart")
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=8) as resp:
             main_html = resp.read().decode("utf-8")
-        assert_true("成果总览" in main_html, "main page should include evaluation dashboard")
+        assert_true("跨源对账中心" in main_html, "main page should include reconciliation dashboard")
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/evaluation", timeout=8) as resp:
             evaluation = json.loads(resp.read().decode("utf-8"))
         assert_true(evaluation["error"] is None, "evaluation endpoint should return structured payload")
@@ -340,6 +340,10 @@ def test_http_showcase_route():
             consistency = json.loads(resp.read().decode("utf-8"))
         assert_true(consistency["error"] is None, "consistency endpoint should return structured payload")
         assert_true(consistency["summary"]["source_count"] >= 7, "consistency endpoint should expose seven sources")
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/reconciliation", timeout=8) as resp:
+            reconciliation = json.loads(resp.read().decode("utf-8"))
+        assert_true(reconciliation["error"] is None, "reconciliation endpoint should return structured payload")
+        assert_true(reconciliation["aligned_count"] > 0, "reconciliation endpoint should always expose aligned rows")
         for path in ["/agent-tools", "/error-catalog", "/openapi-lite", "/openapi.json", "/status", "/sample-validation", "/evidence", "/evidence/source-mapping", "/evidence/test-results", "/evidence/deployment", "/evidence/query-validation", "/insight?country=XX&indicator_code=GDP_NOMINAL&start_date=2020&end_date=2021&frequency=A"]:
             with urllib.request.urlopen(f"http://127.0.0.1:{port}{path}", timeout=8) as resp:
                 payload = json.loads(resp.read().decode("utf-8"))

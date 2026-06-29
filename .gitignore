@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+server.out.log
+server.err.log

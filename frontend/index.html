@@ -1320,7 +1320,7 @@ const PRESENTATION_STEPS=[
     say:"我们解决的不是“找不到数据”，而是多来源口径不统一、质量难判断、结果难复核。",
     point:"首屏 7 类来源、18 项指标、33/33 验收，以及统一响应契约。",
     question:"与普通宏观数据网站相比，核心创新是什么？",
-    answer:"查询结果同时携带质量报告和来源血缘，并支持跨源数值对账和 Agent 调用。",
+    answer:"查询结果同时携带质量报告和来源记录，并支持跨源数值对账和 Agent 调用。",
     action:async()=>{showPage("query");scrollToElement("page-query","start");}
   },
   {
@@ -1334,7 +1334,7 @@ const PRESENTATION_STEPS=[
   },
   {
     id:"governance",title:"治理链路",duration:55,quickDuration:25,
-    copy:"解释统一 Schema、质量评分和数据血缘如何把异构接口转换成可复用的数据要素。",
+    copy:"解释统一 Schema、质量评分和来源记录如何把异构接口转换成可复用的数据要素。",
     say:"同一条数据在平台中不仅有数值，还包含缺失、重复、异常、单位一致性和来源追溯。",
     point:"质量总分、五项校验、provider / dataset / api_url / parser 字段。",
     question:"质量分是主观打分吗？",
@@ -1366,7 +1366,7 @@ const PRESENTATION_STEPS=[
     point:"33/33 验收、7 类来源状态、评分维度、项目报告和 API 文档。",
     question:"项目现在是否可以直接复核？",
     answer:"可以。评委可从验收报告、Schema、状态页、对账接口和 PDF 报告逐项复核。",
-    action:async()=>{showPage("evaluation");renderEvaluation();scrollToElement("page-evaluation","start");}
+    action:async()=>{showPage("sources");scrollToElement("page-sources","start");}
   }
 ];
 function renderPresentationMode(){
