@@ -1076,19 +1076,44 @@ function renderInsight(data,scale){
   if(reportEl){
     const risk=q.passed?"本次校验通过。":"本次数据存在质量关注项，建议复核缺失、异常和来源字段。";
     const sourceLine=`数据来源：${s.source.organization} / ${s.source.dataset}；原始序列代码：${s.source.source_series_code}；系统已记录标准化字段、校验结果、原始接口和获取时间。`;
-    reportEl.innerHTML=`<h4>统计摘要</h4><div class="report-grid"><div class="report-chip"><span>主要结果</span><strong>${escapeHtml(headline)}</strong></div><div class="report-chip"><span>质量状态</span><strong>${q.passed?"通过":"需检查"}</strong></div><div class="report-chip"><span>来源信息</span><strong>${q.traceable_source?"完整":"待补充"}</strong></div></div><div class="report-copy"><strong>统计描述：</strong>${escapeHtml(paragraph)}<br><strong>质量说明：</strong>${escapeHtml(risk)}<br><strong>来源说明：</strong>${escapeHtml(sourceLine)}</div><div class="insight-actions"><button class="insight-link" type="button" onclick="copyTextFromElement('reportGenerator')">复制摘要内容</button></div>`;
+    reportEl.innerHTML=`<h4>统计摘要</h4><div class="report-grid"><div class="report-chip"><span>主要结果</span><strong>${escapeHtml(headline)}</strong></div><div class="report-chip"><span>质量状态</span><strong>${q.passed?"通过":"需检查"}</strong></div><div class="report-chip"><span>来源信息</span><strong>${q.traceable_source?"完整":"待补充"}</strong></div></div><div class="report-copy" id="reportCopyText"><strong>统计描述：</strong>${escapeHtml(paragraph)}<br><strong>质量说明：</strong>${escapeHtml(risk)}<br><strong>来源说明：</strong>${escapeHtml(sourceLine)}</div><div class="insight-actions"><button class="insight-link" type="button" onclick="copyTextFromElement('reportCopyText', this)">复制摘要内容</button></div>`;
   }
   const points=[`最新观测：${latest.date}，${formatValue(latest.value,currentScale)}`,`变化：${changePhrase}`,`区间最高：${maxObs.date}，${formatValue(maxObs.value,currentScale)}`,`区间最低：${minObs.date}，${formatValue(minObs.value,currentScale)}`,`数据来源：${s.source.organization} / ${s.source.source_series_code}`,`质量检查：${qualityText}`];
   bulletsEl.innerHTML=points.map(item=>`<div class="insight-point">${escapeHtml(item)}</div>`).join("");
 }
-function copyTextFromElement(id){
+async function writeClipboardText(text){
+  if(!text)return false;
+  if(navigator.clipboard&&window.isSecureContext){
+    try{await navigator.clipboard.writeText(text);return true;}catch(err){}
+  }
+  const textarea=document.createElement("textarea");
+  textarea.value=text;
+  textarea.setAttribute("readonly","");
+  textarea.style.position="fixed";
+  textarea.style.left="-9999px";
+  textarea.style.top="0";
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  let ok=false;
+  try{ok=document.execCommand("copy");}catch(err){ok=false;}
+  textarea.remove();
+  return ok;
+}
+async function copyTextFromElement(id,button){
   const el=document.getElementById(id);
-  if(!el||!navigator.clipboard)return;
-  navigator.clipboard.writeText(el.innerText||el.textContent||"").catch(()=>{});
+  if(!el)return;
+  const ok=await writeClipboardText((el.innerText||el.textContent||"").trim());
+  if(button){
+    const old=button.textContent;
+    button.textContent=ok?"已复制":"复制失败";
+    button.disabled=true;
+    setTimeout(()=>{button.textContent=old;button.disabled=false;},1200);
+  }
 }
 function copyHeroApi(){
   const text=document.getElementById("heroApiExample")?.textContent||"";
-  if(navigator.clipboard)navigator.clipboard.writeText(text).catch(()=>{});
+  writeClipboardText(text);
 }
 function currentApiPath(){
   const country=document.getElementById("country")?.value||"US", indicator=document.getElementById("indicator")?.value||"CPI_YOY", start=document.getElementById("startDate")?.value||"", end=document.getElementById("endDate")?.value||"", frequency=document.getElementById("frequency")?.value||"M";
@@ -1096,7 +1121,7 @@ function currentApiPath(){
 }
 function copyCurrentApiUrl(){
   const text=currentApiPath();
-  if(navigator.clipboard)navigator.clipboard.writeText(text).catch(()=>{});
+  writeClipboardText(text);
 }
 function downloadText(filename,text,type="text/plain"){
   const blob=new Blob([text],{type});
