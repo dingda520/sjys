@@ -68,7 +68,7 @@
     @keyframes tape{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     .section{display:none;animation:sectionIn .35s ease both}.section.active{display:block}
     @keyframes sectionIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-    .grid{display:grid;grid-template-columns:minmax(320px,390px) minmax(0,1fr);gap:18px}.grid>section,.content-grid>*,.card{min-width:0}
+    .grid{display:grid;grid-template-columns:minmax(320px,390px) minmax(0,1fr);gap:18px;align-items:start}.grid>section,.content-grid>*,.card{min-width:0}.grid>section{align-self:start}
     .card,.page-card,.source-box,.score-panel,.evidence-card{
       background:var(--panel);border:1px solid rgba(255,255,255,.72);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(14px);
     }
@@ -84,13 +84,13 @@
     .btn-secondary{background:#f8fafc;color:#0f766e;border:1px solid #99f6e4;width:100%;margin-top:10px}
     .hint{display:grid;gap:8px;margin-top:16px;padding:14px;background:#f8fafc;border:1px dashed #99f6e4;border-radius:10px;color:#53657a;font-size:13px;line-height:1.6}
     .cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.metric{padding:16px}.metric span{color:var(--muted);font-size:12px}.metric strong{display:block;font-size:28px;margin-top:7px;color:#0f172a}.metric small{color:var(--good);font-size:12px}
-    .content-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:18px}.chart-wrap{height:340px;padding:10px 4px 0;position:relative}canvas{width:100%;height:100%}
+    .content-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:18px;align-items:start}.chart-wrap{height:370px;padding:16px 12px 8px;position:relative;border:1px solid #dbe5ee;border-radius:14px;background:linear-gradient(180deg,#fbfdff 0%,#f6f9fc 100%);overflow:hidden}.chart-wrap canvas{display:block;width:100%;height:100%}canvas{width:100%;height:100%}
     .chart-card{position:relative;overflow:hidden}.chart-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#0f766e,#b7791f,#0f766e);background-size:200% 100%;animation:borderFlow 5s linear infinite}
     @keyframes borderFlow{to{background-position:200% 0}}
     .summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.summary-tile,.compare-stat,.quality-check{min-width:0;border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:11px 12px}.summary-tile span,.compare-stat span{display:block;color:var(--muted);font-size:12px}.summary-tile strong,.compare-stat strong{display:block;margin-top:5px;color:#0f172a;font-size:16px;line-height:1.25;overflow-wrap:anywhere}.summary-tile small,.compare-stat small{display:block;margin-top:4px;color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .meta-panel{display:grid;gap:10px}.meta-main{border:1px solid #99f6e4;background:#ecfeff;border-radius:10px;padding:13px 14px}.meta-main span{display:block;color:#0f766e;font-size:12px;font-weight:900}.meta-main strong{display:block;margin-top:5px;font-size:22px;color:#0f172a;line-height:1.2;overflow-wrap:anywhere}.meta-main small{display:block;margin-top:6px;color:#475569;font-size:12px;line-height:1.5}.meta-row{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding:9px 0;font-size:13px}.meta-row:last-child{border-bottom:0}.meta-row span{color:var(--muted);white-space:nowrap}.meta-row strong{font-weight:800;color:#111827;text-align:right;line-height:1.45;overflow-wrap:anywhere;word-break:break-word;min-width:0}.table-scroll{margin-top:14px;max-height:230px;overflow:auto;border:1px solid var(--line);border-radius:10px}.table-scroll .table th{position:sticky;top:0;z-index:1}.value-table td,.value-table th{white-space:nowrap}.value-table small{color:var(--muted)}
     .insight-box{border:1px solid #bbf7d0;background:#f0fdf4;border-radius:10px;padding:14px 16px;line-height:1.7}.insight-box span{display:block;color:#15803d;font-size:12px;font-weight:900}.insight-box strong{display:block;color:#052e16;font-size:18px;margin-top:4px}.insight-box p{margin:8px 0 0;color:#14532d}.insight-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.insight-point{border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px;font-size:13px;line-height:1.55}.insight-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.insight-link,.score-link,.review-btn{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:0 11px;border-radius:999px;background:#ecfeff;color:#0f766e;text-decoration:none;font-size:12px;font-weight:900;border:1px solid #99f6e4}
-    .smart-insight-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:14px;align-items:stretch}.speaker-card{border:1px solid #fde68a;background:#fffbeb;border-radius:10px;padding:14px 16px;line-height:1.7}.speaker-card span{display:block;color:#b45309;font-size:12px;font-weight:900}.speaker-card strong{display:block;margin-top:5px;color:#78350f;font-size:18px}.speaker-card p{margin:8px 0 0;color:#92400e}.insight-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.insight-kpi{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px}.insight-kpi span{display:block;color:var(--muted);font-size:12px}.insight-kpi strong{display:block;margin-top:5px;color:#0f172a;font-size:16px;overflow-wrap:anywhere}
+    .insight-fullwidth{width:100%;margin:22px 0 0}.smart-insight-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:14px;align-items:stretch}.speaker-card{border:1px solid #fde68a;background:#fffbeb;border-radius:10px;padding:14px 16px;line-height:1.7}.speaker-card span{display:block;color:#b45309;font-size:12px;font-weight:900}.speaker-card strong{display:block;margin-top:5px;color:#78350f;font-size:18px}.speaker-card p{margin:8px 0 0;color:#92400e}.insight-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}.insight-kpi{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px}.insight-kpi span{display:block;color:var(--muted);font-size:12px}.insight-kpi strong{display:block;margin-top:5px;color:#0f172a;font-size:16px;overflow-wrap:anywhere}
     .tabs{display:flex;gap:8px;margin-bottom:12px}.tab{padding:8px 12px;border-radius:999px;font-size:13px;border:1px solid var(--line);background:#fff}.tab.active{background:#0f766e;color:#fff;border-color:#0f766e}
     pre{margin:0;background:#08111f;color:#dbeafe;border-radius:10px;padding:16px;overflow:auto;max-height:350px;font-size:12px;line-height:1.58}
     .table,.check-table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td,.check-table th,.check-table td{border-bottom:1px solid var(--line);padding:11px 8px;text-align:left;white-space:nowrap}.check-table td{vertical-align:top;white-space:normal}.table th,.check-table th{color:var(--muted);font-size:12px;background:#f8fafc}
@@ -152,7 +152,47 @@
     @keyframes renderFloat{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.11) translate3d(-2%,1.5%,0)}}@keyframes scanBeam{to{transform:translateY(430%)}}@keyframes nodePulse{0%,100%{transform:scale(.86);opacity:.7}50%{transform:scale(1.18);opacity:1}}
     @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
     @media (max-width:1180px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.grid,.content-grid,.source-grid,.map-dashboard,.reconcile-dashboard,.smart-insight-grid,.quality-visual,.presentation-stage,.radar-card{grid-template-columns:1fr}.cards-4{grid-template-columns:repeat(2,1fr)}.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.demo-track,.report-grid,.api-evidence-grid,.conclusion-strip{grid-template-columns:1fr 1fr}.compare-summary{grid-template-columns:repeat(2,1fr)}.review-head,.site-footer,.demo-console-head,.presentation-top{align-items:flex-start;flex-direction:column}}
+    @media (max-width:1500px){#page-query .grid>section:nth-child(2) .content-grid{grid-template-columns:1fr}}
     @media (max-width:680px){.main{padding:16px 12px 28px}.topbar{flex-direction:column;align-items:flex-start}.status{white-space:normal;max-width:100%;line-height:1.45;align-items:flex-start}.form-row,.cards-4,.summary-grid,.insight-list,.quality-grid,.compare-summary,.capability-grid,.sample-grid,.flow-grid,.pipeline-grid,.hero-stats,.hero-band,.evidence-grid,.quality-dashboard,.quality-context,.insight-kpis,.map-countries,.demo-track,.quality-signal-grid,.entry-audit-grid,.report-grid,.api-evidence-grid,.conclusion-strip,.presentation-kpis{grid-template-columns:1fr}.sidebar{padding:16px}.market-strip{display:none}.chart-wrap{height:300px}.map-canvas-wrap{min-height:300px}.presentation-overlay{padding:14px}.presentation-card{padding:16px}}
+  </style>
+  <style>
+    .reconcile-center{border:1px solid #b7d9d5;background:linear-gradient(180deg,#f8fffe,#eef8f6);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:0 18px 46px rgba(15,118,110,.1)}
+    .reconcile-toolbar{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.42fr) auto;gap:12px;align-items:end}
+    .reconcile-toolbar label{margin:0 0 7px}.reconcile-categories{display:flex;gap:8px;flex-wrap:wrap}
+    .reconcile-category{min-height:38px;padding:0 13px;border:1px solid #b8d7d3;border-radius:999px;background:#fff;color:#375b5b;font-weight:900;cursor:pointer}
+    .reconcile-category.active{background:#0f766e;color:#fff;border-color:#0f766e;box-shadow:0 8px 20px rgba(15,118,110,.2)}
+    .reconcile-run{min-width:142px;width:auto;margin:0}.reconcile-case-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.reconcile-case-chip{border:1px solid #cbd5e1;border-radius:999px;background:#fff;color:#475569;padding:7px 11px;font-size:12px;font-weight:800;cursor:pointer}.reconcile-case-chip:hover{border-color:#14b8a6;color:#0f766e}.reconcile-case-chip.active{border-color:#0f766e;background:#ecfdf5;color:#0f766e;box-shadow:0 6px 16px rgba(15,118,110,.1)}.reconcile-case-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .reconcile-case-meta span{display:inline-flex;align-items:center;min-height:28px;padding:0 9px;border-radius:999px;background:#fff;border:1px solid #c8dcd9;color:#446565;font-size:11px;font-weight:800}
+    .reconcile-case-meta .grade{background:#0f172a;color:#d5ef78;border-color:#0f172a}
+    .reconcile-result-head{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}
+    .reconcile-result-head .conclusion-tag{min-height:94px;background:#fff}.reconcile-result-head .conclusion-tag strong{font-size:18px}
+    .reconcile-visual-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:14px}
+    .reconcile-chart-panel,.reconcile-side-panel,.reconcile-delta-panel,.reconcile-method-panel{border:1px solid #d5e2e8;background:#fff;border-radius:14px;padding:15px;min-width:0}
+    .reconcile-chart-panel h4,.reconcile-delta-panel h4,.reconcile-method-panel h4{margin:0 0 5px;color:#0f172a}.reconcile-chart-panel p,.reconcile-delta-panel p,.reconcile-method-panel p{margin:0;color:#64748b;font-size:12px;line-height:1.55}
+    .reconcile-canvas-wrap.large{height:360px;margin-top:10px;background:#f8fbfd}.reconcile-delta-wrap{height:210px;margin-top:10px}.reconcile-delta-wrap canvas{width:100%;height:100%}
+    .reconcile-side-panel{display:grid;gap:10px;align-content:start}.reconcile-side-panel .reconcile-stat{background:#f8fafc}
+    .reconcile-detail-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:14px}
+    .source-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+    .source-proof{border:1px solid #dce5ec;border-radius:12px;background:#f8fafc;padding:12px;min-width:0}
+    .source-proof span{display:block;color:#64748b;font-size:11px}.source-proof strong{display:block;margin-top:5px;color:#0f172a;font-size:15px;overflow-wrap:anywhere}.source-proof small{display:block;margin-top:6px;color:#64748b;line-height:1.5;overflow-wrap:anywhere}
+    .method-warning{margin-top:10px;padding:10px 12px;border-left:3px solid #d97706;background:#fffbeb;color:#92400e;font-size:12px;line-height:1.6}
+    .reconcile-table-wrap{max-height:320px}.reconcile-table-wrap th{position:sticky;top:0;z-index:2}
+    .reconcile-empty{padding:30px;text-align:center;color:#64748b}.reconcile-loading{display:inline-flex;align-items:center;gap:8px;color:#0f766e;font-weight:900}
+    .reconcile-loading i{width:9px;height:9px;border-radius:50%;background:#14b8a6;box-shadow:0 0 0 6px rgba(20,184,166,.12);animation:pulseDot 1.2s infinite}
+    .presentation-overlay{z-index:100;padding:20px}.presentation-shell{max-width:1420px;min-height:calc(100vh - 40px)}
+    .director-timebar{display:grid;grid-template-columns:190px 190px minmax(220px,1fr);gap:10px;align-items:center;border:1px solid rgba(153,246,228,.2);border-radius:15px;background:rgba(3,10,18,.5);padding:11px 14px;position:relative;overflow:hidden}
+    .director-timebar>div:not(.director-progress){display:flex;align-items:center;justify-content:space-between;gap:10px;border-right:1px solid rgba(255,255,255,.1);padding-right:13px}.director-timebar>div:nth-child(3){border-right:0}
+    .director-timebar span{color:#99f6e4;font-size:11px;font-weight:900}.director-timebar strong{color:#fff;font:800 13px ui-monospace,SFMono-Regular,Consolas,monospace}
+    .director-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08)}.director-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#5eead4,#d5ef78,#f59e0b);transition:width .3s ease}
+    .presentation-main-card{display:flex;flex-direction:column}.presentation-main-card .presentation-kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .director-cues{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:18px}
+    .director-cue{border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.05);padding:11px}.director-cue span{display:block;color:#99f6e4;font-size:10px;letter-spacing:.04em}.director-cue strong{display:block;margin-top:6px;color:#fff;font-size:13px;line-height:1.55}
+    .presentation-route-card{max-height:510px;overflow:auto}.presentation-step{cursor:pointer;position:relative;padding-right:54px}.presentation-step::after{content:attr(data-time);position:absolute;right:10px;top:11px;color:#99f6e4;font:800 10px ui-monospace,SFMono-Regular,Consolas,monospace}
+    .presentation-step.done{border-color:rgba(94,234,212,.28);color:#dffcf7}.presentation-step.done::before{content:"✓";margin-right:6px;color:#5eead4}
+    .presentation-btn:disabled{opacity:.45;cursor:not-allowed}.presentation-btn.paused{background:#f59e0b;color:#111827;border-color:#f59e0b}
+    @media(max-width:980px){.presentation-shell,.presentation-top,.presentation-stage,.presentation-card,.presentation-data-grid{min-width:0}.presentation-data-grid{grid-template-columns:1fr}.director-timebar{grid-template-columns:1fr 1fr}.director-timebar>div:nth-child(3){grid-column:1/-1}.presentation-main-card .presentation-kpis{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:980px){.reconcile-toolbar,.reconcile-visual-grid,.reconcile-detail-grid{grid-template-columns:1fr}.reconcile-result-head{grid-template-columns:repeat(2,1fr)}.reconcile-run{width:100%}}
+    @media(max-width:680px){.reconcile-center{padding:12px}.reconcile-result-head,.source-proof-grid{grid-template-columns:1fr}.reconcile-canvas-wrap.large{height:290px}.presentation-overlay{padding:12px}.presentation-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.presentation-actions .presentation-btn{width:100%;padding:0 8px}.presentation-top h2{font-size:27px;overflow-wrap:anywhere}.director-timebar,.director-cues{grid-template-columns:1fr}.director-timebar>div:nth-child(3){grid-column:auto}.director-timebar>div:not(.director-progress){border-right:0;padding-right:0}.presentation-main-card .presentation-kpis{grid-template-columns:1fr 1fr}.presentation-data-head,.presentation-foot{align-items:flex-start;flex-direction:column}.presentation-foot{overflow-wrap:anywhere}}
   </style>
 </head>
 <body>
@@ -166,7 +206,6 @@
     <div class="nav-item" data-page="json">JSON 输出</div>
     <div class="nav-item" data-page="quality">质量校验</div>
     <div class="nav-item" data-page="consistency">跨源一致性</div>
-    <div class="nav-item" data-page="evaluation">成果总览</div>
     <div class="nav-item" data-page="sources">数据源管理</div>
 
     <div class="nav-title">已实现真实数据源</div>
@@ -209,12 +248,12 @@
           <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
           <span class="hero-eyebrow">V1 当前覆盖范围 · 可持续扩展</span>
           <h3>经观 EconView</h3>
-          <p>面向全球宏观经济数据的标准化治理平台。V1 已接入 7 类官方来源，覆盖 8 个代表性经济体或地区和 18 项核心指标，提供真实查询、质量校验、血缘追踪、跨源复核和标准 JSON API。</p>
+          <p>面向全球宏观经济数据的标准化治理平台。V1 已接入 7 类官方来源，覆盖 8 个代表性经济体或地区和 18 项核心指标，提供指标查询、质量检查、数据来源与处理记录、跨来源对账和标准 JSON API。</p>
           <div class="signal-deck" aria-label="平台实时能力状态">
             <div class="signal-card">
               <span>数据源状态</span>
-              <strong>7 类已接入 · 7/7 可演示</strong>
-              <small>其中 6 类为 LIVE 实时接口，BLS 使用官方缓存保障演示稳定；明确区分“实时在线”和“可稳定演示”。</small>
+              <strong>7 类已接入 · 7/7 可稳定使用</strong>
+              <small>其中 6 类为 LIVE 实时接口，BLS 使用官方缓存保障服务稳定；明确区分实时在线与缓存保障。</small>
               <div class="signal-bars">
                 <div class="signal-bar"><span>官方来源</span><b>7</b></div>
                 <div class="signal-bar"><span>经济体/地区</span><b>8</b></div>
@@ -230,7 +269,7 @@
                 <div><b>缺失检测</b><span>missing period count</span></div>
                 <div><b>重复检测</b><span>duplicate records</span></div>
                 <div><b>异常提醒</b><span>outlier warning</span></div>
-                <div><b>来源血缘</b><span>provider / dataset</span></div>
+                <div><b>来源信息</b><span>provider / dataset</span></div>
               </div>
             </div>
           </div>
@@ -247,12 +286,9 @@
           </div>
           <div class="hero-actions">
             <button class="hero-link hero-button" type="button" onclick="scrollToElement('country')">开始查询</button>
-            <button class="hero-link hero-button" type="button" onclick="runGuidedDemo()">3 分钟演示</button>
-            <button class="hero-link hero-button" type="button" onclick="openPresentationMode()">进入演示模式</button>
             <button class="hero-link hero-button" type="button" onclick="runEntryAudit()">入口巡检</button>
             <a class="hero-link" href="/data_element_report.pdf" target="_blank">查看项目报告 PDF</a>
             <a class="hero-link" href="/docs" target="_blank">接口文档</a>
-            <a class="hero-link" href="/evaluation" target="_blank">成果证据</a>
             <button class="hero-link hero-button" id="snapshotHero" type="button">生成渲染快照</button>
           </div>
         </div>
@@ -294,48 +330,26 @@
               <div class="entry-audit-item"><strong>Agent 工具</strong><span>点击入口巡检</span></div>
             </div>
           </div>
-          <div class="snapshot-status" id="snapshotStatus">点击“生成渲染快照”，可在这里生成一张答辩展示图。</div>
+          <div class="snapshot-status" id="snapshotStatus">点击“生成渲染快照”，可生成当前数据观测网络图。</div>
         </div>
       </div>
-
-      <section class="demo-console" id="guidedDemoConsole">
-        <div class="demo-console-head">
-          <div>
-            <h3>一键答辩演示路线</h3>
-            <p>点击后按“入口可信、稳定真数据、智能讲解、质量评分、跨源证据、成果收束”的顺序推进，避免外部接口波动打断答辩节奏。</p>
-          </div>
-          <button class="review-btn dark" type="button" onclick="runGuidedDemo()">开始演示</button>
-          <span class="demo-status" id="demoStatus">待开始</span>
-        </div>
-        <div class="demo-track" id="demoTrack">
-          <div class="demo-step"><span>1</span><strong>入口巡检</strong><small>先证明所有关键入口可用</small></div>
-          <div class="demo-step"><span>2</span><strong>稳定真数据</strong><small>Eurostat 德国 HICP 月度数据</small></div>
-          <div class="demo-step"><span>3</span><strong>智能讲解</strong><small>自动生成指标解读卡片</small></div>
-          <div class="demo-step"><span>4</span><strong>质量评分</strong><small>可视化治理得分与扣分项</small></div>
-          <div class="demo-step"><span>5</span><strong>跨源证据</strong><small>一致性看板与来源血缘</small></div>
-          <div class="demo-step"><span>6</span><strong>成果收束</strong><small>交付物、接口与比赛亮点</small></div>
-        </div>
-        <div class="demo-narrative" id="demoNarrative"><strong>讲解词：</strong>点击开始后，平台会自动走完整答辩路线。</div>
-        <div class="demo-progress"><i id="demoProgress"></i></div>
-      </section>
 
       <section class="review-block home-extra">
         <div class="review-head">
           <div>
             <h3>核心能力</h3>
-            <p>面向比赛答辩、研究脚本和智能体调用，展示从官方来源到标准化结果的完整数据链条。</p>
+            <p>面向宏观研究、数据分析和智能体调用，展示从官方来源到标准化结果的完整数据链条。</p>
           </div>
           <div class="review-actions">
             <a class="review-btn dark" href="/data_element_report.pdf" target="_blank">下载项目报告</a>
             <a class="review-btn" href="/docs" target="_blank">接口文档</a>
-            <a class="review-btn" href="/evaluation" target="_blank">成果证据</a>
           </div>
         </div>
         <div class="capability-grid">
           <div class="capability-card"><strong>多源接入</strong><span>接入 World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 等官方宏观经济数据源。</span></div>
           <div class="capability-card"><strong>统一指标</strong><span>用标准指标字典统一国家、频率、单位、来源和原始序列代码。</span></div>
           <div class="capability-card"><strong>质量校验</strong><span>自动检查缺失期数、重复记录、异常值、单位一致性和通过状态。</span></div>
-          <div class="capability-card"><strong>数据血缘</strong><span>保留 provider、dataset、api_url、retrieved_at、parser 和缓存键。</span></div>
+          <div class="capability-card"><strong>来源与处理记录</strong><span>保留 provider、dataset、api_url、retrieved_at、parser 和缓存键。</span></div>
           <div class="capability-card"><strong>JSON API</strong><span>统一返回 request、series、quality_report、lineage 和 error。</span></div>
           <div class="capability-card"><strong>Agent 支持</strong><span>提供 capabilities、schema、agent-tools、error-catalog 等机器可读入口。</span></div>
         </div>
@@ -345,14 +359,14 @@
         <div class="review-head">
           <div>
             <h3>数据链路</h3>
-            <p>从官方 API 到网页、JSON 和 Agent 调用，保留标准化、质量和血缘证据。</p>
+            <p>从官方 API 到网页与 JSON 输出，记录标准化规则、质量检查结果、数据来源和获取时间。</p>
           </div>
         </div>
         <div class="pipeline-grid">
           <div class="pipeline-step"><strong>官方 API</strong><span>World Bank / BLS / Eurostat / IMF 等来源</span></div>
           <div class="pipeline-step"><strong>标准化</strong><span>统一国家、指标、频率、单位和时间字段</span></div>
           <div class="pipeline-step"><strong>质量校验</strong><span>缺失、重复、异常、单位一致性检查</span></div>
-          <div class="pipeline-step"><strong>血缘追踪</strong><span>保留来源、数据集、原始接口和获取时间</span></div>
+          <div class="pipeline-step"><strong>来源与处理记录</strong><span>保留来源、数据集、原始接口和获取时间</span></div>
           <div class="pipeline-step"><strong>结果输出</strong><span>网页图表、标准 JSON、接口文档和 Agent 工具</span></div>
         </div>
       </section>
@@ -360,38 +374,22 @@
       <section class="review-block home-extra">
         <div class="review-head">
           <div>
-            <h3>推荐演示路径</h3>
-            <p>答辩时可按这条路径演示，既能看到数据，也能看到治理证据。</p>
-          </div>
-        </div>
-        <div class="flow-grid">
-          <button class="flow-step" onclick="runEntryAudit()"><span>1</span><strong>入口巡检</strong><small>先证明 Schema、工具、样例、成果入口都能打开。</small></button>
-          <button class="flow-step" onclick="loadStablePriceSample()"><span>2</span><strong>稳定真数据</strong><small>用 Eurostat HICP 跑一次真实月度数据，减少答辩现场波动。</small></button>
-          <button class="flow-step" onclick="showPage('query');scrollToElement('insightCard')"><span>3</span><strong>智能讲解</strong><small>展示系统如何把时间序列翻译成可讲述的指标洞察。</small></button>
-          <button class="flow-step" onclick="showPage('quality');renderQualityMirror()"><span>4</span><strong>质量评分</strong><small>用可视化分数说明缺失、重复、异常和血缘完整性。</small></button>
-          <button class="flow-step" onclick="showPage('evaluation');renderEvaluation()"><span>5</span><strong>成果收束</strong><small>最后落到交付物、接口证据和比赛亮点，形成闭环。</small></button>
-        </div>
-      </section>
-
-      <section class="review-block home-extra">
-        <div class="review-head">
-          <div>
             <h3>示例查询区</h3>
-            <p>四个高频演示样例，覆盖年度水平值、月度同比、欧盟统计和跨来源复核。</p>
+            <p>四个代表性查询场景，覆盖年度水平值、月度同比、欧盟统计和跨来源复核。</p>
           </div>
         </div>
         <div class="sample-grid">
-          <button class="sample-card" onclick="loadAnnualSample()"><span>World Bank</span><strong>中国 GDP</strong><small>证明年度水平值接入、单位标准化和 World Bank 来源血缘。</small></button>
+          <button class="sample-card" onclick="loadAnnualSample()"><span>World Bank</span><strong>中国 GDP</strong><small>展示年度水平值、单位标准化和 World Bank 来源信息。</small></button>
           <button class="sample-card" onclick="loadSample()"><span>BLS</span><strong>美国 CPI</strong><small>证明月度同比指标、通胀时间序列和质量报告返回。</small></button>
           <button class="sample-card" onclick="loadEurostatSample()"><span>Eurostat</span><strong>德国工业生产</strong><small>证明 Eurostat 官方接口、指数类指标和月度数据解析。</small></button>
-          <button class="sample-card" onclick="loadCrossSourceGdpSample()"><span>World Bank / IMF</span><strong>美国 GDP 跨源对比</strong><small>证明同一宏观含义下跨来源对齐和误差复核。</small></button>
+          <button class="sample-card" onclick="loadCrossSourceGdpSample()"><span>World Bank / IMF</span><strong>进入跨源对账中心</strong><small>从 10 个真实场景中选择国家、口径等级和来源组合。</small></button>
         </div>
       </section>
 
       <section class="review-block">
         <div class="review-head">
           <div>
-            <h3>数据治理证据</h3>
+            <h3>数据治理与系统验证</h3>
             <p>首页直接展示数据源状态、33 条样例验收快照和官方适用范围矩阵，避免只用口号说明能力。</p>
           </div>
           <div class="review-actions">
@@ -418,7 +416,7 @@
         <div class="review-head">
           <div>
             <h3>全球数据地图</h3>
-            <p>用地图把国家覆盖、可查指标和官方来源一眼展示出来，适合答辩开场说明平台覆盖范围。</p>
+            <p>用地图把国家覆盖、可查指标和官方来源集中展示，直观呈现平台覆盖范围。</p>
           </div>
           <div class="review-actions">
             <button class="review-btn" onclick="playDataNetworkIntro()">播放网络动画</button>
@@ -453,38 +451,72 @@
       <section class="review-block">
         <div class="review-head">
           <div>
-            <h3>跨源对账图</h3>
-            <p>将 World Bank 与 IMF 的美国实际 GDP 增长率按年份对齐，自动计算差异和平均绝对误差。</p>
-          </div>
-          <div class="review-actions">
-            <button class="review-btn dark" onclick="loadCrossSourceGdpSample()">运行对账样例</button>
+            <h3>跨源对账中心</h3>
+            <p>共 10 个场景：7 个国家的 World Bank / IMF GDP 增长率、1 个 BLS / OECD 美国 CPI、2 个 Eurostat / OECD 欧洲通胀口径对比。</p>
           </div>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <div class="conclusion-strip" id="reconcileConclusion">
-              <div class="conclusion-tag"><span>复核状态</span><strong>等待运行</strong></div>
-              <div class="conclusion-tag"><span>一致性判断</span><strong>等待数据</strong></div>
-              <div class="conclusion-tag"><span>引用建议</span><strong>先运行样例</strong></div>
-            </div>
-            <div class="reconcile-dashboard">
-              <div>
-                <div>
-                  <span class="legend-dot" style="--c:#2563eb">World Bank</span>
-                  <span class="legend-dot" style="--c:#d97706">IMF</span>
-                  <span class="legend-dot" style="--c:#64748b">差异带</span>
-                </div>
-                <div class="reconcile-canvas-wrap"><canvas id="reconcileChart"></canvas></div>
-              </div>
-              <div class="reconcile-summary" id="reconcileSummary">
-                <div class="reconcile-stat"><span>状态</span><strong>等待运行</strong></div>
-                <div class="reconcile-stat"><span>样例</span><strong>美国 GDP 增长率</strong></div>
-                <div class="reconcile-stat"><span>来源</span><strong>World Bank / IMF</strong></div>
+        <div class="reconcile-center" id="reconciliationCenter">
+          <div class="reconcile-toolbar">
+            <div>
+              <label>对账类别</label>
+              <div class="reconcile-categories" id="reconcileCategories">
+                <button class="reconcile-category active" type="button" data-reconcile-category="strict">严格对账（7）</button>
+                <button class="reconcile-category" type="button" data-reconcile-category="comparable">可比口径（1）</button>
+                <button class="reconcile-category" type="button" data-reconcile-category="method">方法对比（2）</button>
+                <button class="reconcile-category" type="button" data-reconcile-category="structural">结构一致性</button>
               </div>
             </div>
-            <div class="reconcile-table-wrap">
-              <table class="check-table" id="reconcileTable"><tr><th>年份</th><th>World Bank</th><th>IMF</th><th>差异</th></tr><tr><td colspan="4">点击“运行对账样例”后展示逐年对账结果。</td></tr></table>
+            <div>
+              <label for="reconcileCaseSelect">真实对账场景</label>
+              <select id="reconcileCaseSelect"><option value="gdp-growth-us">美国实际 GDP 增长率</option></select>
             </div>
+            <button class="btn btn-primary reconcile-run" id="runReconcileButton" type="button" onclick="runSelectedReconciliation()">运行真实对账</button>
+          </div>
+          <div class="reconcile-case-chips" id="reconcileCaseChips" aria-label="当前类别对账场景"></div>
+          <div class="reconcile-case-meta" id="reconcileCaseMeta">
+            <span class="grade">S 级</span><span>World Bank / IMF</span><span>2018—2024</span><span>年度 · 百分点</span>
+          </div>
+
+          <div class="reconcile-result-head" id="reconcileConclusion">
+            <div class="conclusion-tag"><span>运行状态</span><strong>等待选择</strong></div>
+            <div class="conclusion-tag"><span>对账结果</span><strong>等待数据</strong></div>
+            <div class="conclusion-tag"><span>对齐观测期</span><strong>—</strong></div>
+            <div class="conclusion-tag"><span>结果说明</span><strong>运行后生成</strong></div>
+          </div>
+
+          <div class="reconcile-visual-grid">
+            <div class="reconcile-chart-panel">
+              <h4 id="reconcileChartTitle">双来源趋势与差异带</h4>
+              <p id="reconcileChartSubtitle">同一观测期对齐后，展示两来源数值与逐期差异。</p>
+              <div class="reconcile-canvas-wrap large"><canvas id="reconcileChart"></canvas></div>
+            </div>
+            <div class="reconcile-side-panel" id="reconcileSummary">
+              <div class="reconcile-stat"><span>平均绝对误差</span><strong>—</strong></div>
+              <div class="reconcile-stat"><span>最大差异</span><strong>—</strong></div>
+              <div class="reconcile-stat"><span>趋势方向一致率</span><strong>—</strong></div>
+              <div class="reconcile-stat"><span>相关系数</span><strong>—</strong></div>
+            </div>
+          </div>
+
+          <div class="reconcile-detail-grid">
+            <div class="reconcile-delta-panel">
+              <h4>逐期差异</h4>
+              <p>柱形位于零线上方表示来源 A 高于来源 B，单位为百分点。</p>
+              <div class="reconcile-delta-wrap"><canvas id="reconcileDeltaChart"></canvas></div>
+            </div>
+            <div class="reconcile-method-panel">
+              <h4>口径与来源说明</h4>
+              <p id="reconcileMethodText">选择场景后展示等价等级、季调方式和统计口径差异。</p>
+              <div class="source-proof-grid" id="reconcileSources">
+                <div class="source-proof"><span>来源 A</span><strong>等待运行</strong><small>—</small></div>
+                <div class="source-proof"><span>来源 B</span><strong>等待运行</strong><small>—</small></div>
+              </div>
+              <div class="method-warning" id="reconcileWarning">统计相似不等于口径完全相同；最终结论将同时展示方法差异。</div>
+            </div>
+          </div>
+
+          <div class="reconcile-table-wrap">
+            <table class="check-table" id="reconcileTable"><tr><th>观测期</th><th>来源 A</th><th>来源 B</th><th>差异</th><th>绝对误差</th></tr><tr><td colspan="5">选择场景并点击“运行真实对账”。</td></tr></table>
           </div>
         </div>
       </section>
@@ -504,7 +536,7 @@
             <button class="btn btn-secondary" onclick="loadAnnualSample()">示例：中国名义 GDP</button>
             <button class="btn btn-secondary" onclick="loadSample()">示例：美国 CPI 同比</button>
             <button class="btn btn-secondary" onclick="loadEurostatSample()">示例：德国工业生产</button>
-            <button class="btn btn-secondary" onclick="loadCrossSourceGdpSample()">示例：美国 GDP 跨源对比</button>
+            <button class="btn btn-secondary" onclick="loadCrossSourceGdpSample()">真实场景：跨源对账中心</button>
             <details class="more-samples">
               <summary>更多示例</summary>
               <button class="btn btn-secondary" onclick="loadStablePriceSample()">稳定价格同比（Eurostat）</button>
@@ -514,7 +546,7 @@
               <button class="btn btn-secondary" onclick="loadOecdSample()">OECD 美国 CPI 同比</button>
             </details>
             <div class="runbook">
-              <h4>演示路径与数据链路</h4>
+              <h4>查询流程与数据链路</h4>
               <div class="runbook-grid">
                 <div class="runbook-step"><strong>1. 选指标</strong><span>国家、频率、时间区间同步约束。</span></div>
                 <div class="runbook-step"><strong>2. 拉取 API</strong><span>请求官方来源并保留原始代码。</span></div>
@@ -532,28 +564,28 @@
             <div class="card metric"><span>观测值数量</span><strong id="mObs">0</strong><small>本次查询</small></div>
             <div class="card metric"><span>质量状态</span><strong id="mQuality">-</strong><small>自动校验</small></div>
           </div>
-          <div class="content-grid">
+          <div class="content-grid result-grid">
             <section class="card chart-card"><div class="card-header"><h3>指标趋势与数值</h3><p id="chartSubtitle">等待查询</p><div class="tool-row"><button class="insight-link" type="button" onclick="copyCurrentApiUrl()">复制 API URL</button><button class="insight-link" type="button" onclick="downloadJsonResult()">下载 JSON</button><button class="insight-link" type="button" onclick="downloadCsvResult()">下载 CSV</button></div></div><div class="card-body"><div class="chart-wrap"><canvas id="chart" width="740" height="310"></canvas></div><div id="seriesSummary" class="summary-grid"></div><div class="table-scroll"><table class="table value-table"><tbody id="observationTable"><tr><th>日期</th><th>数值</th><th>状态</th></tr><tr><td colspan="3">等待查询...</td></tr></tbody></table></div></div></section>
-            <section class="card"><div class="card-header"><h3>元数据摘要</h3><p>用评审能读懂的方式说明来源、口径、单位、更新时间。</p></div><div class="card-body"><div id="metaTable" class="meta-panel"><div class="meta-main"><span>等待查询</span><strong>-</strong><small>请选择指标并运行查询。</small></div></div></div></section>
+            <section class="card"><div class="card-header"><h3>元数据摘要</h3><p>说明数据来源、统计口径、单位和更新时间。</p></div><div class="card-body"><div id="metaTable" class="meta-panel"><div class="meta-main"><span>等待查询</span><strong>-</strong><small>请选择指标并运行查询。</small></div></div></div></section>
           </div>
-          <section id="insightCard" class="card" style="margin-top:20px;"><div class="card-header"><h3>智能讲解卡</h3><p>把查询结果自动整理成一句话结论、答辩话术、关键指标和可引用报告段落。</p></div><div class="card-body"><div class="smart-insight-grid"><div id="insightBox" class="insight-box"><span>等待查询</span><strong>-</strong><p>查询成功后会生成一句话结论和报告段落。</p></div><div id="speakerCard" class="speaker-card"><span>答辩讲解</span><strong>等待数据</strong><p>运行查询后，这里会生成 20 秒口播话术。</p></div></div><div id="reportGenerator" class="report-card"><h4>报告生成器</h4><div class="report-copy">运行查询后，这里会生成可直接放进汇报材料的研究段落、风险提示和来源说明。</div></div><div id="insightKpis" class="insight-kpis"></div><div id="insightBullets" class="insight-list"></div></div></section>
           <div class="content-grid" style="margin-top:20px;">
             <section id="jsonCard" class="card"><div class="card-header"><h3>标准化 JSON 输出</h3><p>可供 Agent、看板、研究脚本直接调用。</p></div><div class="card-body"><pre id="jsonOutput">等待查询...</pre></div></section>
-            <section id="qualityCard" class="card"><div class="card-header"><h3>数据质量校验</h3><p>缺失值、重复、异常、可追溯。</p></div><div class="card-body"><div class="quality-list" id="qualityList"></div></div></section>
+            <section id="qualityCard" class="card"><div class="card-header"><h3>数据质量检查</h3><p>观测期完整性、重复记录、异常变化和来源信息完整性。</p></div><div class="card-body"><div class="quality-list" id="qualityList"></div></div></section>
           </div>
           <details class="api-evidence-drawer" id="apiEvidenceDrawer">
-            <summary><span>真实 API 证据抽屉</span><span>请求、来源、血缘、解析器</span></summary>
-            <div class="api-evidence-body" id="apiEvidenceBody">运行查询后展示本次真实接口证据。</div>
+            <summary><span>接口请求记录</span><span>请求参数、数据来源、获取时间和解析器</span></summary>
+            <div class="api-evidence-body" id="apiEvidenceBody">运行查询后展示本次接口请求和处理记录。</div>
           </details>
         </section>
       </div>
+      <section id="insightCard" class="card insight-fullwidth"><div class="card-header"><h3>智能解读卡</h3><p>根据查询结果生成统计摘要、区间特征和数据来源说明。</p></div><div class="card-body"><div class="smart-insight-grid"><div id="insightBox" class="insight-box"><span>等待查询</span><strong>-</strong><p>查询成功后生成主要统计结果和区间变化说明。</p></div><div id="speakerCard" class="speaker-card"><span>结果摘要</span><strong>等待数据</strong><p>运行查询后生成简明的指标解读。</p></div></div><div id="reportGenerator" class="report-card"><h4>统计摘要</h4><div class="report-copy">运行查询后生成研究段落、质量提示和数据来源说明。</div></div><div id="insightKpis" class="insight-kpis"></div><div id="insightBullets" class="insight-list"></div></div></section>
     </section>
 
     <section id="page-compare" class="section">
-      <div class="page-card"><h3>国家对比</h3><p>选择同一个年度指标，对多个国家进行横向对比。当前默认对比名义 GDP。</p></div>
-      <div class="card"><div class="card-header"><h3>多国家 GDP 对比</h3><p>点击按钮会分别请求 World Bank API，并在下方展示结果。</p></div>
+      <div class="page-card"><h3>国家对比</h3><p>选择统一指标和观测期，对适用国家或地区进行横向比较。指标范围包括年度国民经济指标和月度价格、生产及利率指标。</p></div>
+      <div class="card"><div class="card-header"><h3>多国家指标对比</h3><p>系统根据指标的数据来源、频率和适用国家自动设置比较范围。</p></div>
         <div class="card-body">
-          <div class="form-row"><div class="field"><label>指标</label><select id="compareIndicator"><option value="GDP_NOMINAL">GDP_NOMINAL · 名义 GDP</option><option value="GDP_REAL_GROWTH">GDP_REAL_GROWTH · 实际 GDP 增长率</option><option value="TRADE_BALANCE">TRADE_BALANCE · 贸易差额</option></select></div><div class="field"><label>年份</label><input id="compareYear" value="2023"></div></div>
+          <div class="form-row"><div class="field"><label>指标</label><select id="compareIndicator" onchange="updateCompareControls()"><optgroup label="年度指标"><option value="GDP_NOMINAL">GDP_NOMINAL · 名义 GDP</option><option value="GDP_REAL_GROWTH">GDP_REAL_GROWTH · 实际 GDP 增长率</option><option value="IMF_GDP_GROWTH">IMF_GDP_GROWTH · IMF 实际 GDP 增长率</option><option value="EXPORTS">EXPORTS · 出口额</option><option value="IMPORTS">IMPORTS · 进口额</option><option value="TRADE_BALANCE">TRADE_BALANCE · 贸易差额</option></optgroup><optgroup label="月度指标"><option value="OECD_CPI_YOY">OECD_CPI_YOY · CPI 同比</option><option value="HICP_YOY">HICP_YOY · HICP 同比</option><option value="PPI_LEVEL">PPI_LEVEL · 生产者价格指数</option><option value="INDUSTRIAL_PRODUCTION">INDUSTRIAL_PRODUCTION · 工业生产指数</option><option value="RETAIL_SALES_VOLUME">RETAIL_SALES_VOLUME · 零售销售量</option><option value="LONG_TERM_RATE">LONG_TERM_RATE · 长期利率</option><option value="BIS_POLICY_RATE">BIS_POLICY_RATE · 政策利率</option></optgroup></select><small id="compareScopeHint" style="display:block;margin-top:6px;color:#64748b;line-height:1.45;">年度指标 · 8 个经济体或地区</small></div><div class="field"><label>观测期</label><input id="compareYear" value="2023" placeholder="2023 或 2024-12"></div></div>
           <button class="btn btn-primary" onclick="runCompare()">运行国家对比</button>
           <div id="compareSummary" class="compare-summary"></div>
           <div class="chart-wrap compare-chart-wrap"><canvas id="compareChart"></canvas></div>
@@ -563,17 +595,17 @@
     </section>
 
     <section id="page-json" class="section">
-      <div class="page-card"><h3>JSON 输出说明</h3><p>系统统一返回 request、series、quality_report、lineage 和 error 五类顶层字段。其中 series 包含数据来源、指标元数据和观测值，lineage 记录原始接口、解析器和数据获取时间。</p></div>
+      <div class="page-card"><h3>JSON 输出说明</h3><p>系统统一返回 request、series、quality_report、lineage 和 error 五类顶层字段。其中 series 包含指标元数据和观测值；lineage 是接口兼容字段，用于记录原始接口、解析器和数据获取时间。</p></div>
       <div class="card"><div class="card-header"><h3>最近一次查询 JSON</h3><p>来自“指标查询”页面。</p></div><div class="card-body"><pre id="jsonOutputMirror">还没有查询结果，请先运行一次指标查询。</pre></div></div>
     </section>
 
     <section id="page-quality" class="section">
-      <div class="page-card"><h3>质量校验</h3><p>把最近一次指标查询转换成可复核的质量看板，展示完整性、重复值、异常值、单位一致性和来源血缘。</p></div>
+      <div class="page-card"><h3>质量检查</h3><p>对最近一次查询的观测期完整性、重复记录、异常变化、单位一致性和来源信息完整性进行检查。</p></div>
       <div class="card"><div class="card-header"><h3>最近一次查询质量报告</h3><p id="qualitySubtitle">来自“指标查询”页面。</p></div><div class="card-body"><div id="qualityMirror"></div></div></div>
     </section>
 
     <section id="page-consistency" class="section">
-      <div class="page-card"><h3>跨源一致性校验</h3><p>对 World Bank、BLS、Eurostat、IMF、OECD、ECB、BIS 的指标字典、来源映射、统一输出、质量报告和血缘字段做结构化校验。默认不联网，点击在线抽检会请求代表性官方接口。</p></div>
+      <div class="page-card"><h3>跨来源一致性检查</h3><p>检查 World Bank、BLS、Eurostat、IMF、OECD、ECB 和 BIS 的指标字典、来源映射、统一输出、质量报告以及来源与处理字段。在线检查会实际请求七类代表性接口。</p></div>
       <div class="evidence-grid">
         <div class="evidence-card"><span>官方数据源</span><strong id="consSourceCount">-</strong><small>统一接入层</small></div>
         <div class="evidence-card"><span>标准指标</span><strong id="consIndicatorCount">-</strong><small>统一指标字典</small></div>
@@ -583,28 +615,10 @@
         <div class="evidence-card"><span>通过校验</span><strong id="consPassedCount">-</strong><small>自动判定</small></div>
       </div>
       <div class="content-grid">
-        <section class="card"><div class="card-header"><h3>一致性检查项</h3><p>展示多源标准化治理是否完整。</p></div><div class="card-body"><div class="quality-list" id="consChecks"></div><button class="btn btn-secondary" onclick="runConsistency(true)">在线抽检代表性接口</button></div></section>
+        <section class="card"><div class="card-header"><h3>一致性检查项</h3><p>展示多源标准化治理是否完整。</p></div><div class="card-body"><div class="quality-list" id="consChecks"></div><button class="btn btn-secondary" id="consistencyOnlineButton" onclick="runConsistency(true)">运行七类来源在线检查</button></div></section>
         <section class="card"><div class="card-header"><h3>数据源覆盖</h3><p>每个来源覆盖的指标、频率和数据集。</p></div><div class="card-body"><table class="check-table" id="consSourcesTable"><tr><th>来源</th><th>指标数</th><th>频率</th></tr></table></div></section>
       </div>
-      <div class="card" style="margin-top:20px;"><div class="card-header"><h3>代表性查询与在线结果</h3><p>用于答辩时说明七类官方源都能进入同一套输出结构。</p></div><div class="card-body"><table class="check-table" id="consQueriesTable"><tr><th>来源</th><th>查询</th><th>结果</th></tr></table></div></div>
-    </section>
-
-    <section id="page-evaluation" class="section">
-      <div class="page-card"><h3>成果总览</h3><p>把赛题要求、评分维度、项目证据和演示路径集中展示，方便答辩时直接说明“我们完成了什么、凭什么得分”。</p></div>
-      <div class="evidence-grid">
-        <div class="evidence-card"><span>示例查询</span><strong id="evSamples">-</strong><small>最低要求 20 条</small></div>
-        <div class="evidence-card"><span>国家 / 地区</span><strong id="evCountries">-</strong><small>统一国家字典</small></div>
-        <div class="evidence-card"><span>标准指标</span><strong id="evIndicators">-</strong><small>统一指标治理</small></div>
-        <div class="evidence-card"><span>官方数据源</span><strong id="evSources">-</strong><small>World Bank / BLS / Eurostat / IMF / OECD / ECB / BIS</small></div>
-        <div class="evidence-card"><span>查询模式</span><strong id="evModes">-</strong><small>单查 / 批量 / 对比</small></div>
-        <div class="evidence-card"><span>质量检查</span><strong id="evChecks">-</strong><small>缺失、重复、异常、追溯</small></div>
-      </div>
-      <div class="content-grid">
-        <section class="card"><div class="card-header"><h3>最低验收要求对照</h3><p>对应赛题“最低验收要求”。</p></div><div class="card-body"><table class="check-table" id="acceptanceTable"><tr><th>要求</th><th>状态</th><th>证据</th></tr></table></div></section>
-        <section class="card"><div class="card-header"><h3>评分维度对照</h3><p>对应 100 分评分标准。</p></div><div class="card-body"><div class="quality-list" id="scoreList"></div></div></section>
-      </div>
-      <div class="card" style="margin-top:20px;"><div class="card-header"><h3>100 分评审得分雷达图</h3><p>把评分维度转成可视化证据，评委可以直接看到强项与得分依据。</p></div><div class="card-body"><div class="radar-card"><div class="radar-wrap"><canvas id="reviewRadar"></canvas></div><div class="radar-list" id="reviewRadarList"></div></div></div></div>
-      <div class="card" style="margin-top:20px;"><div class="card-header"><h3>推荐答辩演示路径</h3><p>按这个顺序讲，逻辑最完整。</p></div><div class="card-body"><table class="check-table" id="demoFlowTable"><tr><th>步骤</th><th>操作</th><th>说明</th></tr></table></div></div>
+      <div class="card" style="margin-top:20px;"><div class="card-header"><h3>代表性查询与在线结果</h3><p>验证七类官方来源都能进入同一套输出结构。</p></div><div class="card-body"><table class="check-table" id="consQueriesTable"><tr><th>来源</th><th>查询</th><th>结果</th></tr></table></div></div>
     </section>
 
     <section id="page-sources" class="section">
@@ -626,78 +640,46 @@
   </main>
 </div>
 
-<div class="presentation-overlay" id="presentationOverlay" aria-hidden="true">
-  <div class="presentation-shell">
-    <div class="presentation-top">
-      <div>
-        <h2>经观 EconView 演示模式</h2>
-            <p>用一条完整路线展示：官方数据接入、标准化治理、智能讲解、质量评分、跨源复核和成果证据。</p>
-      </div>
-      <div class="presentation-actions">
-        <button class="presentation-btn dark" type="button" onclick="runPresentationStep(0)">开始路线</button>
-        <button class="presentation-btn" type="button" onclick="runPresentationStep(-1)">上一步</button>
-        <button class="presentation-btn" type="button" onclick="runPresentationStep(1)">下一步</button>
-        <button class="presentation-btn" type="button" onclick="closePresentationMode()">退出</button>
-      </div>
-    </div>
-    <div class="presentation-stage">
-      <div class="presentation-card">
-        <span id="presentationEyebrow">Step 1 / 6</span>
-        <h3 id="presentationTitle">入口可信</h3>
-        <p id="presentationCopy">先证明关键 API、Schema、Agent 工具和成果证据入口全部可访问。</p>
-        <div class="presentation-kpis" id="presentationKpis">
-          <div class="presentation-kpi"><strong>7</strong><small>官方数据源</small></div>
-          <div class="presentation-kpi"><strong>18</strong><small>标准指标</small></div>
-          <div class="presentation-kpi"><strong>33</strong><small>示例查询</small></div>
-          <div class="presentation-kpi"><strong>100</strong><small>评分证据</small></div>
-        </div>
-      </div>
-      <div class="presentation-card">
-        <span>演示路线</span>
-        <div class="presentation-steps" id="presentationSteps"></div>
-      </div>
-      <div class="presentation-card presentation-data">
-        <div class="presentation-data-head">
-          <div>
-            <span>真实数据证据</span>
-            <h4 id="presentationDataTitle">等待真实查询</h4>
-            <p id="presentationDataSubtitle">进入演示路线后，这里会直接显示查询结果、来源、质量和 API。</p>
-          </div>
-          <button class="presentation-btn dark" type="button" onclick="loadPresentationDataSample()">加载稳定真数据</button>
-        </div>
-        <div class="presentation-data-grid">
-          <div>
-            <div class="presentation-data-metrics" id="presentationDataMetrics">
-              <div class="presentation-data-metric"><span>状态</span><strong>等待查询</strong></div>
-              <div class="presentation-data-metric"><span>来源</span><strong>-</strong></div>
-              <div class="presentation-data-metric"><span>观测值</span><strong>-</strong></div>
-              <div class="presentation-data-metric"><span>质量</span><strong>-</strong></div>
-            </div>
-            <div class="presentation-api" id="presentationApiLine">/series?country=DE&indicator_code=HICP_YOY&start_date=2023-01&end_date=2024-12&frequency=M</div>
-          </div>
-          <div class="presentation-mini-chart"><canvas id="presentationDataChart"></canvas></div>
-        </div>
-      </div>
-    </div>
-    <div class="presentation-foot">
-      <span id="presentationHint">提示：按“下一步”会同步切换底层页面。</span>
-      <span>评委模式 · 可控演示 · 证据闭环</span>
-    </div>
-  </div>
-</div>
-
 <script>
 let indicatorStore = [];
 let countryStore = [];
 let lastResult = null;
 let evaluationStore = null;
 let consistencyStore = null;
+let reconciliationCatalog = null;
 let reconciliationStore = null;
+let reconciliationCategory = "strict";
 let sourceStatusStore = null;
 let sampleValidationStore = null;
-let presentationIndex = 0;
 let mapIntroPhase = 0;
 let mapIntroTimer = null;
+const FALLBACK_RECONCILIATION_CATALOG=(()=>{
+  const gdpNote="同为年度实际 GDP 同比增速，单位均为百分比；差异主要来自修订批次、估算方法和发布时间。";
+  const gdpCountries=[["US","美国"],["CN","中国"],["DE","德国"],["FR","法国"],["GB","英国"],["JP","日本"],["IN","印度"]];
+  const gdpCases=gdpCountries.map(([country,countryName])=>({
+    case_id:`gdp-growth-${country.toLowerCase()}`,title:`${countryName}实际 GDP 增长率`,country,country_name_zh:countryName,
+    category:"strict",category_label:"严格对账",grade:"S",source_a:"World Bank",source_b:"IMF",source_a_mode:"LIVE",source_b_mode:"LIVE",
+    indicator_a:"GDP_REAL_GROWTH",indicator_b:"IMF_GDP_GROWTH",start_date:"2018",end_date:"2024",frequency:"A",unit_a:"%",unit_b:"%",
+    seasonal_adjustment_a:"NSA",seasonal_adjustment_b:"NSA",source_series_code_a:"NY.GDP.MKTP.KD.ZG",source_series_code_b:"NGDP_RPCH",equivalence_note:gdpNote
+  }));
+  const otherCases=[
+    {
+      case_id:"cpi-yoy-us",title:"美国居民消费价格同比",country:"US",country_name_zh:"美国",category:"comparable",category_label:"可比口径",grade:"A",
+      source_a:"BLS",source_b:"OECD",source_a_mode:"CACHE",source_b_mode:"LIVE",indicator_a:"CPI_YOY",indicator_b:"OECD_CPI_YOY",
+      start_date:"2024-01",end_date:"2024-12",frequency:"M",unit_a:"%",unit_b:"%",seasonal_adjustment_a:"SA",seasonal_adjustment_b:"NSA",
+      source_series_code_a:"CUSR0000SA0",source_series_code_b:"DSD_KEI@DF_KEI:CP:GR:GY",
+      equivalence_note:"两者均描述美国 CPI 同比，但 BLS 与 OECD 的季调方式不同，结果需结合口径说明。"
+    },
+    ...[["DE","德国"],["FR","法国"]].map(([country,countryName])=>({
+      case_id:`inflation-${country.toLowerCase()}`,title:`${countryName}消费者通胀口径对比`,country,country_name_zh:countryName,
+      category:"method",category_label:"方法对比",grade:"B",source_a:"Eurostat",source_b:"OECD",source_a_mode:"LIVE",source_b_mode:"LIVE",
+      indicator_a:"HICP_YOY",indicator_b:"OECD_CPI_YOY",start_date:"2024-01",end_date:"2024-12",frequency:"M",unit_a:"%",unit_b:"%",
+      seasonal_adjustment_a:"NSA",seasonal_adjustment_b:"NSA",source_series_code_a:"prc_hicp_manr",source_series_code_b:"DSD_KEI@DF_KEI:CP:GR:GY",
+      equivalence_note:"Eurostat HICP 与 OECD CPI 都反映消费者通胀，但覆盖篮子和编制体系不同，只用于趋势与口径对照。"
+    }))
+  ];
+  return {summary:{case_count:10,strict_count:7,comparable_count:1,method_count:2},cases:[...gdpCases,...otherCases]};
+})();
 const REMOTE_API_BASE = "https://sjys-th73.onrender.com";
 let apiBase = window.location.protocol === "file:" ? REMOTE_API_BASE : "";
 
@@ -731,6 +713,7 @@ async function fetchJson(path){
 }
 
 function showPage(page){
+  if(!document.getElementById(`page-${page}`))page="query";
   document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
   document.getElementById(`page-${page}`).classList.add("active");
   document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active", n.dataset.page===page));
@@ -739,16 +722,15 @@ function showPage(page){
     compare:["国家对比","对多个国家的同一指标进行横向比较。"],
     json:["JSON 输出","查看标准化结构化输出，便于 Agent、API 和看板调用。"],
     quality:["质量校验","查看缺失值、重复值、异常值与来源可追溯校验结果。"],
-    consistency:["跨源一致性","检查七类官方数据源是否共享统一 Schema、质量报告和来源血缘。"],
-    evaluation:["成果总览","集中展示赛题要求、评分维度、项目证据和演示路径。"],
+    consistency:["跨来源一致性","检查七类官方数据源是否共享统一 Schema、质量报告以及来源与处理字段。"],
     sources:["数据源管理","展示已接入数据源和后续可扩展数据源。"]
   };
   document.getElementById("pageTitle").textContent=titles[page][0];
   document.getElementById("pageDesc").textContent=titles[page][1];
   if(page==="json") document.getElementById("jsonOutputMirror").textContent = lastResult ? JSON.stringify(lastResult,null,2) : "还没有查询结果，请先运行一次指标查询。";
+  if(page==="query"&&lastResult&&lastResult.series)setTimeout(()=>drawChart(lastResult.series.observations||[],lastResult.series.unit||""),0);
   if(page==="quality") renderQualityMirror();
   if(page==="consistency") renderConsistency();
-  if(page==="evaluation") renderEvaluation();
 }
 document.querySelectorAll("[data-page]").forEach(el=>el.addEventListener("click",()=>showPage(el.dataset.page)));
 
@@ -771,7 +753,7 @@ function renderErrorState(error){
   document.getElementById("mQuality").textContent="失败";
   document.getElementById("chartSubtitle").textContent="上游数据源暂时不可用";
   document.getElementById("seriesSummary").innerHTML='<div class="summary-tile"><span>本次查询</span><strong>无返回</strong><small>请查看错误原因</small></div><div class="summary-tile"><span>可能原因</span><strong>接口超时</strong><small>不是指标不存在</small></div><div class="summary-tile"><span>建议</span><strong>换源或稍后重试</strong><small>JSON 已保留错误码</small></div>';
-  document.getElementById("metaTable").innerHTML=`<div class="meta-main"><span>查询失败</span><strong>${escapeHtml(error&&error.code?error.code:"source_error")}</strong><small>${escapeHtml(sourceErrorHint(error))}</small></div><div class="meta-row"><span>错误信息</span><strong>${escapeHtml(error&&error.message?error.message:"上游数据源暂时不可用")}</strong></div><div class="meta-row"><span>技术细节</span><strong>${escapeHtml(error&&error.detail?error.detail:"-")}</strong></div><div class="meta-row"><span>处理建议</span><strong>保留错误码用于复核；演示时可先切换到稳定数据源，或稍后重新查询。</strong></div>`;
+  document.getElementById("metaTable").innerHTML=`<div class="meta-main"><span>查询失败</span><strong>${escapeHtml(error&&error.code?error.code:"source_error")}</strong><small>${escapeHtml(sourceErrorHint(error))}</small></div><div class="meta-row"><span>错误信息</span><strong>${escapeHtml(error&&error.message?error.message:"上游数据源暂时不可用")}</strong></div><div class="meta-row"><span>技术细节</span><strong>${escapeHtml(error&&error.detail?error.detail:"-")}</strong></div><div class="meta-row"><span>处理建议</span><strong>保留错误码用于复核；可先切换到稳定数据源，或稍后重新查询。</strong></div>`;
   renderObservationTable([],null,null);
   renderInsight(null);
   renderApiEvidence(null,error);
@@ -836,8 +818,8 @@ async function init(){
     if(buildDeploy)buildDeploy.textContent=`Deployed at ${(health.deployed_at||"2026-06-26T11:30:00+08:00").replace("T"," ").replace("+08:00","")}`;
     const countries=await fetchJson(`/countries`);
     const indicators=await fetchJson(`/indicators`);
-    evaluationStore=await fetchJson(`/evaluation`).catch(()=>null);
     consistencyStore=await fetchJson(`/consistency`).catch(()=>null);
+    reconciliationCatalog=await fetchJson(`/reconcile-cases`).catch(()=>FALLBACK_RECONCILIATION_CATALOG);
     sourceStatusStore=await fetchJson(`/status`).catch(()=>null);
     sampleValidationStore=await fetchJson(`/sample-validation`).catch(()=>null);
     countryStore=countries.countries;
@@ -845,7 +827,6 @@ async function init(){
     document.getElementById("mCountry").textContent=countries.countries.length;
     document.getElementById("mIndicator").textContent=indicators.indicators.length;
     const heroSamples=document.getElementById("heroSamples");
-    if(evaluationStore && heroSamples){heroSamples.textContent=evaluationStore.implemented_capabilities.sample_queries;}
     document.getElementById("country").innerHTML=countries.countries.map(c=>`<option value="${c.country_code}">${c.country_code} · ${c.name_zh} ${c.name_en}</option>`).join("");
     document.getElementById("country").addEventListener("change",()=>{renderIndicatorOptions();updateFrequencyByIndicator();});
     document.getElementById("indicator").addEventListener("change",()=>{updateFrequencyByIndicator();updateIndicatorScopeHint();});
@@ -857,9 +838,10 @@ async function init(){
     renderSampleValidation();
     renderCoverageMatrix();
     setTimeout(playDataNetworkIntro,700);
-    renderEvaluation();
     renderConsistency();
+    renderReconciliationCatalog();
     drawReconciliationChart([]);
+    drawReconciliationDeltaChart([]);
     runEntryAudit();
   }catch(err){const serverStatus=document.getElementById("serverStatus");if(serverStatus)serverStatus.textContent="服务未连接";showError(`初始化失败：${err.message||err}\n建议直接打开线上地址：https://sjys-th73.onrender.com/`);}
 }
@@ -895,53 +877,101 @@ function loadSample(){document.getElementById("indicator").value="CPI_YOY";norma
 function loadAnnualSample(){document.getElementById("indicator").value="GDP_NOMINAL";normalizeControls("A");document.getElementById("country").value="CN";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2018";document.getElementById("endDate").value="2024";showPage("query");return runQuery();}
 function loadEurostatSample(){document.getElementById("indicator").value="INDUSTRIAL_PRODUCTION";normalizeControls("M");document.getElementById("country").value="DE";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2023-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
 function loadImfSample(){document.getElementById("indicator").value="IMF_GDP_GROWTH";normalizeControls("A");document.getElementById("country").value="US";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2020";document.getElementById("endDate").value="2024";showPage("query");return runQuery();}
-async function loadCrossSourceGdpSample(){
-  showPage("query");
-  document.getElementById("indicator").value="GDP_REAL_GROWTH";
-  normalizeControls("A");
-  document.getElementById("country").value="US";
-  document.getElementById("frequency").value="A";
-  document.getElementById("startDate").value="2018";
-  document.getElementById("endDate").value="2024";
-  document.getElementById("jsonOutput").textContent="正在请求 World Bank 与 IMF 两个来源...";
-  const base="/series?country=US&start_date=2018&end_date=2024&frequency=A&indicator_code=";
+function reconciliationCasesForCategory(category){
+  return ((reconciliationCatalog&&reconciliationCatalog.cases)||[]).filter(item=>item.category===category);
+}
+function renderReconciliationCatalog(){
+  if(!reconciliationCatalog)return;
+  const select=document.getElementById("reconcileCaseSelect");
+  const buttons=Array.from(document.querySelectorAll("[data-reconcile-category]"));
+  buttons.forEach(button=>{
+    button.onclick=()=>setReconciliationCategory(button.dataset.reconcileCategory);
+    button.classList.toggle("active",button.dataset.reconcileCategory===reconciliationCategory);
+  });
+  const cases=reconciliationCasesForCategory(reconciliationCategory);
+  if(select){
+    select.innerHTML=cases.map(item=>`<option value="${escapeHtml(item.case_id)}">${escapeHtml(item.country_name_zh)} · ${escapeHtml(item.title)} · ${escapeHtml(item.source_a)} / ${escapeHtml(item.source_b)}</option>`).join("");
+    select.onchange=updateReconciliationCaseMeta;
+  }
+  const chips=document.getElementById("reconcileCaseChips");
+  if(chips){
+    chips.innerHTML=cases.map((item,index)=>`<button class="reconcile-case-chip ${index===0?"active":""}" type="button" data-reconcile-case="${escapeHtml(item.case_id)}">${escapeHtml(item.country_name_zh)} · ${escapeHtml(item.source_a)} / ${escapeHtml(item.source_b)}</button>`).join("");
+    chips.querySelectorAll("[data-reconcile-case]").forEach(button=>{button.onclick=()=>selectReconciliationCase(button.dataset.reconcileCase);});
+  }
+  updateReconciliationCaseMeta();
+}
+function setReconciliationCategory(category){
+  if(category==="structural"){
+    showPage("consistency");renderConsistency();scrollToElement("page-consistency","start");return;
+  }
+  reconciliationCategory=category;
+  renderReconciliationCatalog();
+}
+function selectedReconciliationCase(){
+  const select=document.getElementById("reconcileCaseSelect");
+  return ((reconciliationCatalog&&reconciliationCatalog.cases)||[]).find(item=>item.case_id===(select&&select.value));
+}
+function clearReconciliationResult(item){
+  reconciliationStore=null;
+  drawReconciliationChart([],item&&item.source_a,item&&item.source_b,item&&item.unit_a);
+  drawReconciliationDeltaChart([]);
+  const conclusion=document.getElementById("reconcileConclusion");
+  const summary=document.getElementById("reconcileSummary");
+  const sources=document.getElementById("reconcileSources");
+  const warning=document.getElementById("reconcileWarning");
+  const table=document.getElementById("reconcileTable");
+  if(conclusion)conclusion.innerHTML='<div class="conclusion-tag"><span>运行状态</span><strong>等待运行</strong></div><div class="conclusion-tag"><span>对账结果</span><strong>等待数据</strong></div><div class="conclusion-tag"><span>对齐观测期</span><strong>—</strong></div><div class="conclusion-tag"><span>结果说明</span><strong>运行后生成</strong></div>';
+  if(summary)summary.innerHTML='<div class="reconcile-stat"><span>平均绝对误差</span><strong>—</strong></div><div class="reconcile-stat"><span>最大差异</span><strong>—</strong></div><div class="reconcile-stat"><span>趋势方向一致率</span><strong>—</strong></div><div class="reconcile-stat"><span>相关系数</span><strong>—</strong></div>';
+  if(sources)sources.innerHTML='<div class="source-proof"><span>来源 A</span><strong>等待运行</strong><small>运行后展示来源状态与原始序列代码</small></div><div class="source-proof"><span>来源 B</span><strong>等待运行</strong><small>运行后展示来源状态与原始序列代码</small></div>';
+  if(warning)warning.textContent="统计相似不等于口径完全相同；最终结论将同时展示方法差异。";
+  if(table)table.innerHTML='<tr><th>观测期</th><th>来源 A</th><th>来源 B</th><th>差异</th><th>绝对误差</th></tr><tr><td colspan="5">选择场景并点击“运行真实对账”。</td></tr>';
+}
+function updateReconciliationCaseMeta(){
+  const item=selectedReconciliationCase(),target=document.getElementById("reconcileCaseMeta");
+  if(!item||!target)return;
+  target.innerHTML=`<span class="grade">${escapeHtml(item.grade)} 级 · ${escapeHtml(item.category_label)}</span><span>${escapeHtml(item.source_a)} ${escapeHtml(item.source_a_mode)} / ${escapeHtml(item.source_b)} ${escapeHtml(item.source_b_mode)}</span><span>${escapeHtml(item.start_date)}—${escapeHtml(item.end_date)}</span><span>${escapeHtml(item.frequency==="A"?"年度":"月度")} · ${escapeHtml(item.unit_a)}</span>`;
+  const title=document.getElementById("reconcileChartTitle"),subtitle=document.getElementById("reconcileChartSubtitle"),method=document.getElementById("reconcileMethodText");
+  if(title)title.textContent=`${item.title} · 双来源趋势`;
+  if(subtitle)subtitle.textContent=`${item.source_a} ${item.indicator_a} / ${item.source_b} ${item.indicator_b}`;
+  if(method)method.textContent=item.equivalence_note;
+  document.querySelectorAll("[data-reconcile-case]").forEach(button=>button.classList.toggle("active",button.dataset.reconcileCase===item.case_id));
+  clearReconciliationResult(item);
+}
+function selectReconciliationCase(caseId){
+  const item=((reconciliationCatalog&&reconciliationCatalog.cases)||[]).find(row=>row.case_id===caseId);
+  if(!item)return;
+  reconciliationCategory=item.category;
+  renderReconciliationCatalog();
+  const select=document.getElementById("reconcileCaseSelect");
+  if(select){select.value=caseId;updateReconciliationCaseMeta();}
+}
+async function runSelectedReconciliation(){
+  const item=selectedReconciliationCase(),button=document.getElementById("runReconcileButton"),conclusion=document.getElementById("reconcileConclusion");
+  if(!item)return null;
+  if(button){button.disabled=true;button.textContent="正在对齐官方数据…";}
+  if(conclusion)conclusion.innerHTML='<div class="conclusion-tag"><span>运行状态</span><strong class="reconcile-loading"><i></i>请求两类来源</strong></div><div class="conclusion-tag"><span>对账结果</span><strong>计算中</strong></div><div class="conclusion-tag"><span>对齐观测期</span><strong>计算中</strong></div><div class="conclusion-tag"><span>结果说明</span><strong>生成中</strong></div>';
   try{
-    const [wb,imf]=await Promise.all([
-      fetchJson(base+"GDP_REAL_GROWTH"),
-      fetchJson(base+"IMF_GDP_GROWTH")
-    ]);
-    const wbRows=((wb.series||{}).observations||[]).filter(o=>o.value!==null);
-    const imfRows=((imf.series||{}).observations||[]).filter(o=>o.value!==null);
-    const imfByDate=Object.fromEntries(imfRows.map(o=>[o.date,Number(o.value)]));
-    const aligned=wbRows.filter(o=>Object.prototype.hasOwnProperty.call(imfByDate,o.date)).map(o=>{
-      const worldBank=Number(o.value), imfValue=imfByDate[o.date];
-      return {date:o.date, world_bank:worldBank, imf:imfValue, absolute_error:Math.abs(worldBank-imfValue)};
-    });
-    const mae=aligned.length?aligned.reduce((sum,row)=>sum+row.absolute_error,0)/aligned.length:null;
-    const payload={
-      case_name:"美国 GDP 跨源对比",
-      country:"US",
-      indicators:["GDP_REAL_GROWTH","IMF_GDP_GROWTH"],
-      period:"2018-2024",
-      source_a:"World Bank",
-      source_b:"IMF",
-      aligned_count:aligned.length,
-      mean_absolute_error:mae,
-      aligned_observations:aligned,
-      world_bank_quality:wb.quality_report||null,
-      imf_quality:imf.quality_report||null
-    };
+    const payload=await fetchJson(`/reconcile?case_id=${encodeURIComponent(item.case_id)}`);
+    if(!selectedReconciliationCase()||selectedReconciliationCase().case_id!==item.case_id)return payload;
     reconciliationStore=payload;
-    lastResult=wb;
-    renderResult(wb);
     renderCrossSourceReconciliation(payload);
     document.getElementById("jsonOutput").textContent=JSON.stringify(payload,null,2);
     document.getElementById("jsonOutputMirror").textContent=JSON.stringify(payload,null,2);
     return payload;
   }catch(err){
-    showError("跨源对比请求失败："+err.message);
+    if(!selectedReconciliationCase()||selectedReconciliationCase().case_id!==item.case_id)return null;
+    const fallback={case:item,summary:{status:"source_unavailable",verdict:"来源暂时不可用",citation_advice:"稍后重试，或查看来源状态。"},aligned_observations:[],error:{message:err.message||String(err)}};
+    renderCrossSourceReconciliation(fallback);
     return null;
+  }finally{
+    if(button){button.disabled=false;button.textContent="运行真实对账";}
   }
+}
+async function loadCrossSourceGdpSample(){
+  showPage("query");
+  selectReconciliationCase("gdp-growth-us");
+  scrollToElement("reconciliationCenter","start");
+  return runSelectedReconciliation();
 }
 function loadOecdSample(){document.getElementById("indicator").value="OECD_CPI_YOY";normalizeControls("M");document.getElementById("country").value="US";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
 function loadEcbSample(){document.getElementById("indicator").value="ECB_EUR_USD";normalizeControls("M");document.getElementById("country").value="EA";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2024-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
@@ -1015,7 +1045,7 @@ function renderInsight(data,scale){
   if(!box||!bulletsEl)return;
   if(!data||data.error||!data.series){
     box.innerHTML='<span>暂无解读</span><strong>-</strong><p>查询成功后会生成自动解读。</p>';
-    if(speakerEl)speakerEl.innerHTML='<span>答辩讲解</span><strong>等待数据</strong><p>运行查询后，这里会生成 20 秒口播话术。</p>';
+    if(speakerEl)speakerEl.innerHTML='<span>结果摘要</span><strong>等待数据</strong><p>运行查询后，这里会生成精炼的结果解读。</p>';
     if(kpisEl)kpisEl.innerHTML='';
     if(reportEl)reportEl.innerHTML='<h4>报告生成器</h4><div class="report-copy">运行查询后，这里会生成可直接放进汇报材料的研究段落、风险提示和来源说明。</div>';
     bulletsEl.innerHTML='';
@@ -1024,7 +1054,7 @@ function renderInsight(data,scale){
   const s=data.series, q=data.quality_report||{}, obs=s.observations||[], values=numericValues(obs), currentScale=scale||chooseScale(values,s.unit);
   if(!obs.length){
     box.innerHTML='<span>暂无解读</span><strong>没有可解读的观测值</strong><p>请调整时间范围或指标。</p>';
-    if(speakerEl)speakerEl.innerHTML='<span>答辩讲解</span><strong>需要调整查询</strong><p>当前没有可解读观测值，建议扩大时间范围或切换指标。</p>';
+    if(speakerEl)speakerEl.innerHTML='<span>结果摘要</span><strong>需要调整查询</strong><p>当前没有可解读观测值，建议扩大时间范围或切换指标。</p>';
     if(kpisEl)kpisEl.innerHTML='';
     if(reportEl)reportEl.innerHTML='<h4>报告生成器</h4><div class="report-copy">当前没有可解读观测值，建议扩大时间范围或切换指标。</div>';
     bulletsEl.innerHTML='';
@@ -1034,22 +1064,22 @@ function renderInsight(data,scale){
   const change=previous?Number(latest.value)-Number(previous.value):null;
   const changePhrase=change===null?"暂无上一期可比数据":change>0?`较上一期增加 ${formatValue(Math.abs(change),currentScale)}`:change<0?`较上一期减少 ${formatValue(Math.abs(change),currentScale)}`:"较上一期基本持平";
   const headline=`${s.country_name_zh}${s.indicator_name_zh}最新值为 ${formatValue(latest.value,currentScale)}`;
-  const paragraph=`${obs[0].date} 至 ${latest.date}期间，${s.country_name_zh}的${s.indicator_name_zh}最新观测期为${latest.date}，数值为${formatValue(latest.value,currentScale)}，${changePhrase}。样本期内最高值出现在${maxObs.date}，为${formatValue(maxObs.value,currentScale)}；最低值出现在${minObs.date}，为${formatValue(minObs.value,currentScale)}。数据来自${s.source.organization} / ${s.source.dataset}，${q.passed?"质量校验通过，来源可追溯。":"质量校验提示需要复核。"}`;
+  const paragraph=`${obs[0].date} 至 ${latest.date} 期间，${s.country_name_zh}的${s.indicator_name_zh}最新观测期为 ${latest.date}，数值为 ${formatValue(latest.value,currentScale)}，${changePhrase}。样本期内最高值出现在 ${maxObs.date}，为 ${formatValue(maxObs.value,currentScale)}；最低值出现在 ${minObs.date}，为 ${formatValue(minObs.value,currentScale)}。数据来源为 ${s.source.organization} / ${s.source.dataset}。${q.passed?"本次质量检查通过，来源信息完整。":"本次质量检查存在关注项。"}`;
   const request=data.request||{}; const insightUrl=`/insight?country=${encodeURIComponent(request.country||s.country_code)}&indicator_code=${encodeURIComponent(request.indicator_code||s.indicator_code)}&start_date=${encodeURIComponent(request.start_date||obs[0].date)}&end_date=${encodeURIComponent(request.end_date||latest.date)}&frequency=${encodeURIComponent(request.frequency||s.frequency)}`;
   box.innerHTML=`<span>一句话结论</span><strong>${escapeHtml(headline)}</strong><p>${escapeHtml(paragraph)}</p><div class="insight-actions"><a class="insight-link" href="${insightUrl}" target="_blank">打开 /insight JSON</a></div>`;
-  const qualityText=q.passed?"质量分层显示为可直接引用":"质量校验存在关注项，适合现场展示平台不会隐藏风险";
+  const qualityText=q.passed?"本次质量检查通过":"本次质量检查存在关注项";
   if(speakerEl){
-    speakerEl.innerHTML=`<span>答辩讲解</span><strong>20 秒口播稿</strong><p>${escapeHtml(`这一屏展示的是${s.country_name_zh}${s.indicator_name_zh}。平台不是只给一条数值，而是同时给趋势、口径、来源和质量结果：最新观测为 ${formatValue(latest.value,currentScale)}，${changePhrase}，数据来自 ${s.source.organization}。${qualityText}。`)}</p>`;
+    speakerEl.innerHTML=`<span>结果摘要</span><strong>核心解读</strong><p>${escapeHtml(`当前展示的是${s.country_name_zh}${s.indicator_name_zh}。平台同时给出趋势、口径、来源和质量结果：最新观测为 ${formatValue(latest.value,currentScale)}，${changePhrase}，数据来自 ${s.source.organization}。${qualityText}。`)}</p>`;
   }
   if(kpisEl){
     kpisEl.innerHTML=`<div class="insight-kpi"><span>最新观测</span><strong>${escapeHtml(latest.date)} · ${escapeHtml(formatValue(latest.value,currentScale))}</strong></div><div class="insight-kpi"><span>变化方向</span><strong>${escapeHtml(changePhrase)}</strong></div><div class="insight-kpi"><span>质量状态</span><strong>${q.passed?"通过":"关注"}</strong></div>`;
   }
   if(reportEl){
-    const risk=q.passed?"本次数据质量校验通过，可作为答辩展示和研究引用素材。":"本次数据存在质量关注项，建议在正式引用前复核缺失、异常或来源字段。";
-    const sourceLine=`来源说明：${s.source.organization} / ${s.source.dataset}，原始序列代码 ${s.source.source_series_code}，平台已保留标准化字段、质量报告和数据血缘。`;
-    reportEl.innerHTML=`<h4>报告生成器</h4><div class="report-grid"><div class="report-chip"><span>可引用结论</span><strong>${escapeHtml(headline)}</strong></div><div class="report-chip"><span>风险提示</span><strong>${q.passed?"低风险":"需复核"}</strong></div><div class="report-chip"><span>来源可信度</span><strong>${q.traceable_source?"可追溯":"待确认"}</strong></div></div><div class="report-copy"><strong>研究段落：</strong>${escapeHtml(paragraph)}<br><strong>风险提示：</strong>${escapeHtml(risk)}<br><strong>来源说明：</strong>${escapeHtml(sourceLine)}</div><div class="insight-actions"><button class="insight-link" type="button" onclick="copyTextFromElement('reportGenerator')">复制报告内容</button></div>`;
+    const risk=q.passed?"本次数据质量检查通过。":"本次数据存在质量关注项，建议复核缺失、异常和来源字段。";
+    const sourceLine=`数据来源：${s.source.organization} / ${s.source.dataset}；原始序列代码：${s.source.source_series_code}；系统已记录标准化字段、质量检查结果、原始接口和获取时间。`;
+    reportEl.innerHTML=`<h4>统计摘要</h4><div class="report-grid"><div class="report-chip"><span>主要结果</span><strong>${escapeHtml(headline)}</strong></div><div class="report-chip"><span>质量状态</span><strong>${q.passed?"通过":"需检查"}</strong></div><div class="report-chip"><span>来源信息</span><strong>${q.traceable_source?"完整":"待补充"}</strong></div></div><div class="report-copy"><strong>统计描述：</strong>${escapeHtml(paragraph)}<br><strong>质量说明：</strong>${escapeHtml(risk)}<br><strong>来源说明：</strong>${escapeHtml(sourceLine)}</div><div class="insight-actions"><button class="insight-link" type="button" onclick="copyTextFromElement('reportGenerator')">复制摘要内容</button></div>`;
   }
-  const points=[`最新观测：${latest.date}，${formatValue(latest.value,currentScale)}`,`变化：${changePhrase}`,`区间最高：${maxObs.date}，${formatValue(maxObs.value,currentScale)}`,`区间最低：${minObs.date}，${formatValue(minObs.value,currentScale)}`,`来源血缘：${s.source.organization} / ${s.source.source_series_code}`,`质量提示：${qualityText}`];
+  const points=[`最新观测：${latest.date}，${formatValue(latest.value,currentScale)}`,`变化：${changePhrase}`,`区间最高：${maxObs.date}，${formatValue(maxObs.value,currentScale)}`,`区间最低：${minObs.date}，${formatValue(minObs.value,currentScale)}`,`数据来源：${s.source.organization} / ${s.source.source_series_code}`,`质量检查：${qualityText}`];
   bulletsEl.innerHTML=points.map(item=>`<div class="insight-point">${escapeHtml(item)}</div>`).join("");
 }
 function copyTextFromElement(id){
@@ -1121,14 +1151,14 @@ function qualityScore(q){
   if(!q.observation_count)score-=25;
   return Math.max(0,score);
 }
-function qualityTone(score){return score>=90?["#16a34a","可直接引用"]:score>=70?["#f59e0b","建议关注"] : ["#ef4444","需要复核"];}
+function qualityTone(score){return score>=90?["#16a34a","质量通过"]:score>=70?["#f59e0b","建议关注"] : ["#ef4444","需要复核"];}
 function qualityBars(q){
   return [
     ["完整性", q.observation_count>0 && q.missing_period_count===0, q.missing_period_count?70:100],
     ["重复记录", Number(q.duplicate_records||0)===0, q.duplicate_records?40:100],
     ["异常波动", Number(q.outlier_count||0)===0, q.outlier_count?65:100],
     ["单位一致", !!q.unit_consistent, q.unit_consistent?100:35],
-    ["来源追溯", !!q.traceable_source, q.traceable_source?100:35],
+    ["来源信息", !!q.traceable_source, q.traceable_source?100:35],
   ];
 }
 function qualityBadge(ok,warn=false){return `<span class="badge ${ok?"good":warn?"warn":"bad"}">${ok?"通过":warn?"关注":"失败"}</span>`;}
@@ -1136,7 +1166,7 @@ function renderQuality(q, id){
   if(id==="qualityMirror"){renderQualityMirror();return;}
   const target=document.getElementById(id); if(!target)return;
   const score=qualityScore(q), [ring,tone]=qualityTone(score);
-  target.innerHTML=`<div class="quality-visual"><div class="quality-ring" style="--score:${score}%;--ring:${ring}"><div><strong>${score}</strong><br><span>${escapeHtml(tone)}</span></div></div><div class="quality-score-copy"><h4>数据质量评分</h4><p>将完整性、重复记录、异常波动、单位一致和来源追溯合成为可展示的治理分数。</p><div class="quality-bars">${qualityBars(q).map(([name,ok,value])=>`<div class="quality-bar ${ok?"":"warn"}"><span>${escapeHtml(name)}</span><div class="quality-bar-track"><i style="width:${value}%"></i></div><strong>${ok?"通过":"关注"}</strong></div>`).join("")}</div></div></div><div class="quality-signal-grid"><div class="quality-signal"><span>观测值</span><strong>${q.observation_count??"-"} 条</strong></div><div class="quality-signal"><span>缺失期</span><strong>${q.missing_period_count??"-"} 个</strong></div><div class="quality-signal"><span>异常值</span><strong>${q.outlier_count??"-"} 个</strong></div></div>`;
+  target.innerHTML=`<div class="quality-visual"><div class="quality-ring" style="--score:${score}%;--ring:${ring}"><div><strong>${score}</strong><br><span>${escapeHtml(tone)}</span></div></div><div class="quality-score-copy"><h4>综合质量指数</h4><p>依据观测期完整性、重复记录、异常变化、单位一致性和来源信息完整性五项规则计算。</p><div class="quality-bars">${qualityBars(q).map(([name,ok,value])=>`<div class="quality-bar ${ok?"":"warn"}"><span>${escapeHtml(name)}</span><div class="quality-bar-track"><i style="width:${value}%"></i></div><strong>${ok?"通过":"关注"}</strong></div>`).join("")}</div></div></div><div class="quality-signal-grid"><div class="quality-signal"><span>观测值</span><strong>${q.observation_count??"-"} 条</strong></div><div class="quality-signal"><span>缺失期</span><strong>${q.missing_period_count??"-"} 个</strong></div><div class="quality-signal"><span>异常值</span><strong>${q.outlier_count??"-"} 个</strong></div></div>`;
 }
 function renderQualityMirror(){
   const target=document.getElementById("qualityMirror"); if(!target)return;
@@ -1153,81 +1183,10 @@ function renderQualityMirror(){
   document.getElementById("qualitySubtitle").textContent=`${s.country_name_zh} · ${s.indicator_name_zh} · ${s.frequency} · ${obs.length} 条观测`;
   const [ring,tone]=qualityTone(score);
   const failed=checks.filter(([,ok])=>!ok).map(([name])=>name);
-  const verdict=score>=90?"可直接引用":score>=70?"可用于演示，建议标注关注项":"不建议直接引用";
+  const verdict=score>=90?"可直接引用":score>=70?"可用于分析，建议标注关注项":"不建议直接引用";
   const risk=score>=90?"低风险":score>=70?"中风险":"高风险";
   const report=`质检结论：${s.country_name_zh}${s.indicator_name_zh} 本次综合质量评分 ${score}/100，风险等级为${risk}，结论为“${verdict}”。本次包含 ${q.observation_count||0} 条观测，缺失期 ${q.missing_period_count||0} 个，重复记录 ${q.duplicate_records||0} 条，异常提醒 ${q.outlier_count||0} 个。数据来源为 ${s.source.organization} / ${s.source.dataset}，原始序列代码 ${s.source.source_series_code||"-"}。${failed.length?`需要关注：${failed.join("、")}。`:"所有核心质检项均通过。"}`;
   target.innerHTML=`<div class="quality-visual"><div class="quality-ring" style="--score:${score}%;--ring:${ring}"><div><strong>${score}</strong><br><span>${escapeHtml(tone)}</span></div></div><div class="quality-score-copy"><h4>质检报告卡</h4><p>${score>=90?"数据完整、来源清晰，可直接用于展示。":score>=70?"数据可用，但建议查看关注项。":"存在明显质量风险，建议复核后使用。"}</p><div class="quality-bars">${qualityBars(q).map(([name,ok,value])=>`<div class="quality-bar ${ok?"":"warn"}"><span>${escapeHtml(name)}</span><div class="quality-bar-track"><i style="width:${value}%"></i></div><strong>${ok?"通过":"关注"}</strong></div>`).join("")}</div></div></div><div class="report-card"><h4>质量判定</h4><div class="report-grid"><div class="report-chip"><span>引用结论</span><strong>${escapeHtml(verdict)}</strong></div><div class="report-chip"><span>风险等级</span><strong>${escapeHtml(risk)}</strong></div><div class="report-chip"><span>扣分关注</span><strong>${failed.length?escapeHtml(failed.join("、")):"无"}</strong></div></div><div class="report-copy">${escapeHtml(report)}</div><div class="insight-actions"><button class="insight-link" type="button" onclick="copyTextFromElement('qualityMirror')">复制质检报告</button></div></div><div class="quality-grid" style="margin-top:16px;">${checks.map(([name,ok,desc])=>`<div class="quality-check"><h4>${escapeHtml(name)} ${qualityBadge(ok,!ok&&name==="异常波动")}</h4><p>${escapeHtml(desc)}</p></div>`).join("")}</div><div class="quality-context"><div class="meta-main"><span>指标</span><strong>${escapeHtml(s.indicator_code)}<br>${escapeHtml(s.indicator_name_zh)}</strong></div><div class="meta-main"><span>最新观测</span><strong>${latest?escapeHtml(latest.date):"-"}<br>${latest?escapeHtml(formatValue(latest.value,chooseScale(numericValues(obs),s.unit))):"-"}</strong></div><div class="meta-main"><span>来源代码</span><strong>${escapeHtml(s.source.source_series_code||"-")}</strong></div></div>`;
-}
-function renderEvaluation(){
-  if(!evaluationStore)return;
-  const cap=evaluationStore.implemented_capabilities;
-  document.getElementById("evSamples").textContent=cap.sample_queries;
-  document.getElementById("evCountries").textContent=cap.countries;
-  document.getElementById("evIndicators").textContent=cap.indicators;
-  document.getElementById("evSources").textContent=cap.official_source_count;
-  document.getElementById("evModes").textContent=cap.query_modes.length;
-  document.getElementById("evChecks").textContent=cap.quality_checks.length;
-  document.getElementById("acceptanceTable").innerHTML='<tr><th>要求</th><th>状态</th><th>证据</th></tr>'+evaluationStore.minimum_acceptance.map(row=>`<tr><td>${row.requirement}</td><td><span class="badge good">${row.status}</span></td><td>${row.evidence}</td></tr>`).join("");
-  document.getElementById("scoreList").innerHTML=evaluationStore.scoring_alignment.map(row=>`<div class="quality-item"><span><strong>${row.dimension}</strong><br><small>${row.current_design}</small><br>${row.evidence.map(x=>`<span class="api-pill">${x}</span>`).join("")}</span><span class="badge info">${row.points} 分</span></div>`).join("");
-  document.getElementById("demoFlowTable").innerHTML='<tr><th>步骤</th><th>操作</th><th>说明</th></tr>'+evaluationStore.recommended_demo_flow.map(row=>`<tr><td>${row.step}</td><td>${row.action}</td><td>${row.purpose}</td></tr>`).join("");
-  drawReviewRadar();
-}
-function reviewRadarRows(){
-  if(evaluationStore&&Array.isArray(evaluationStore.scoring_alignment)&&evaluationStore.scoring_alignment.length){
-    return evaluationStore.scoring_alignment.map(row=>({
-      label:row.dimension,
-      score:Number(row.points||0),
-      detail:row.current_design||"",
-      evidence:(row.evidence||[]).join(" / ")
-    }));
-  }
-  return [
-    {label:"数据源接入",score:20,detail:"七类官方来源",evidence:"World Bank / BLS / Eurostat / IMF / OECD / ECB / BIS"},
-    {label:"标准化治理",score:20,detail:"统一国家、指标、频率、单位",evidence:"Schema / capabilities"},
-    {label:"质量校验",score:20,detail:"缺失、重复、异常、血缘",evidence:"quality_report"},
-    {label:"可视化交互",score:20,detail:"地图、对账、看板、演示路线",evidence:"frontend"},
-    {label:"API/Agent",score:20,detail:"JSON、OpenAPI Lite、Agent 工具",evidence:"/agent-tools"}
-  ];
-}
-function drawReviewRadar(){
-  const canvas=document.getElementById("reviewRadar"), list=document.getElementById("reviewRadarList");
-  if(!canvas||!list)return;
-  const rows=reviewRadarRows();
-  const total=rows.reduce((sum,row)=>sum+row.score,0);
-  list.innerHTML=`<div class="radar-score-row"><span>综合评估<small>按当前评分维度汇总</small></span><strong>${total}</strong></div>`+rows.map(row=>`<div class="radar-score-row"><span>${escapeHtml(row.label)}<small>${escapeHtml(row.detail)}<br>${escapeHtml(row.evidence)}</small></span><strong>${row.score}</strong></div>`).join("");
-  const prepared=prepareCanvas(canvas), ctx=prepared.ctx, w=prepared.w, h=prepared.h;
-  ctx.clearRect(0,0,w,h);
-  const cx=w/2, cy=h/2, radius=Math.min(w,h)*.34, n=rows.length||1, max=Math.max(...rows.map(r=>r.score),20);
-  ctx.font="12px -apple-system,BlinkMacSystemFont,Segoe UI";
-  for(let ring=1;ring<=4;ring++){
-    const r=radius*ring/4;
-    ctx.beginPath();
-    rows.forEach((_,i)=>{
-      const angle=-Math.PI/2+i*2*Math.PI/n, x=cx+Math.cos(angle)*r, y=cy+Math.sin(angle)*r;
-      if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
-    });
-    ctx.closePath();ctx.strokeStyle="rgba(148,163,184,.32)";ctx.lineWidth=1;ctx.stroke();
-  }
-  rows.forEach((row,i)=>{
-    const angle=-Math.PI/2+i*2*Math.PI/n, x=cx+Math.cos(angle)*radius, y=cy+Math.sin(angle)*radius;
-    ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.strokeStyle="rgba(148,163,184,.24)";ctx.stroke();
-    ctx.fillStyle="#334155";ctx.textAlign=x>cx+8?"left":x<cx-8?"right":"center";
-    ctx.fillText(row.label.replace(/[（(].*?[）)]/g,""),cx+Math.cos(angle)*(radius+24),cy+Math.sin(angle)*(radius+24)+4);
-  });
-  const gradient=ctx.createLinearGradient(cx-radius,cy-radius,cx+radius,cy+radius);
-  gradient.addColorStop(0,"rgba(20,184,166,.46)");gradient.addColorStop(1,"rgba(217,119,6,.32)");
-  ctx.beginPath();
-  rows.forEach((row,i)=>{
-    const angle=-Math.PI/2+i*2*Math.PI/n, r=radius*(row.score/max), x=cx+Math.cos(angle)*r, y=cy+Math.sin(angle)*r;
-    if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
-  });
-  ctx.closePath();ctx.fillStyle=gradient;ctx.fill();ctx.strokeStyle="#0f766e";ctx.lineWidth=3;ctx.stroke();
-  rows.forEach((row,i)=>{
-    const angle=-Math.PI/2+i*2*Math.PI/n, r=radius*(row.score/max), x=cx+Math.cos(angle)*r, y=cy+Math.sin(angle)*r;
-    ctx.fillStyle="#d97706";ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fill();
-  });
-  ctx.fillStyle="#0f172a";ctx.textAlign="center";ctx.font="900 28px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillText(`${total}`,cx,cy+6);
-  ctx.font="800 12px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillStyle="#64748b";ctx.fillText("review score",cx,cy+27);
 }
 function renderConsistency(){
   if(!consistencyStore)return;
@@ -1244,13 +1203,40 @@ function renderConsistency(){
   (consistencyStore.online_results||[]).forEach(item=>onlineBySource[item.source]=item);
   document.getElementById("consQueriesTable").innerHTML='<tr><th>来源</th><th>查询</th><th>结果</th></tr>'+(consistencyStore.representative_queries||[]).map(row=>{
     const online=onlineBySource[row.source];
-    const result=online ? (online.error?`失败：${online.error.message}`:`${online.observation_count} 条 · ${online.quality_passed?"质量通过":"质量待查"}`) : "未执行在线抽检";
+    const result=!online?"尚未运行":online.pending?"查询中…":online.error?`失败 · ${online.error.code||"source_error"} · ${online.error.message||"接口未返回"}`:`成功 · ${online.observation_count} 条 · ${online.quality_passed?"质量检查通过":"存在质量提示"}`;
     return `<tr><td>${row.source}</td><td>${row.country} · ${row.indicator_code}<br><small>${row.start_date} 到 ${row.end_date}</small></td><td>${result}</td></tr>`;
   }).join("");
 }
 async function runConsistency(online=false){
-  consistencyStore=await fetchJson(`/consistency${online?"?online=1":""}`).catch(()=>consistencyStore);
+  if(!online){
+    consistencyStore=await fetchJson("/consistency").catch(()=>consistencyStore);
+    renderConsistency();
+    return;
+  }
+  const button=document.getElementById("consistencyOnlineButton");
+  if(!consistencyStore)consistencyStore=await fetchJson("/consistency").catch(()=>null);
+  if(!consistencyStore)return;
+  const queries=consistencyStore.representative_queries||[];
+  if(button){button.disabled=true;button.textContent=`正在检查 0 / ${queries.length}`;}
+  consistencyStore.online_results=queries.map(query=>({source:query.source,pending:true}));
   renderConsistency();
+  let completed=0;
+  await Promise.allSettled(queries.map(async query=>{
+    let item;
+    try{
+      const path=`/series?country=${encodeURIComponent(query.country)}&indicator_code=${encodeURIComponent(query.indicator_code)}&start_date=${encodeURIComponent(query.start_date)}&end_date=${encodeURIComponent(query.end_date)}&frequency=${encodeURIComponent(query.frequency)}`;
+      const data=await fetchJson(path);
+      item={source:query.source,country:query.country,indicator_code:query.indicator_code,observation_count:((data.series||{}).observations||[]).length,quality_passed:!!((data.quality_report||{}).passed),error:data.error||null};
+    }catch(err){
+      item={source:query.source,country:query.country,indicator_code:query.indicator_code,observation_count:0,quality_passed:false,error:{code:"request_failed",message:err.message||String(err)}};
+    }
+    const index=consistencyStore.online_results.findIndex(row=>row.source===query.source);
+    if(index>=0)consistencyStore.online_results[index]=item;
+    completed+=1;
+    if(button)button.textContent=`正在检查 ${completed} / ${queries.length}`;
+    renderConsistency();
+  }));
+  if(button){button.disabled=false;button.textContent="重新运行七类来源在线检查";}
 }
 
 function statusLabel(status){
@@ -1265,7 +1251,7 @@ function renderSourceStatus(){
   const cacheGuard=(summary.cache_sources||0)+(summary.snapshot_sources||0);
   const cards=[
     ["已接入官方数据源", `${summary.connected_sources||0}`],
-    ["可演示来源", `${stableCount} / ${summary.connected_sources||0}`],
+    ["稳定可用来源", `${stableCount} / ${summary.connected_sources||0}`],
     ["LIVE / 缓存保障", `${summary.live_sources||summary.currently_live||0} / ${cacheGuard}`],
     ["最近巡检", sourceStatusStore.checked_at||"-"],
   ];
@@ -1325,62 +1311,63 @@ function setDemoStep(index,status="运行中",narrative="",tone="active"){
   if(copy&&narrative)copy.innerHTML=`<strong>讲解词：</strong>${escapeHtml(narrative)}`;
 }
 async function runGuidedDemo(){
-  const consoleEl=document.getElementById("guidedDemoConsole");
-  if(consoleEl)consoleEl.scrollIntoView({behavior:"smooth",block:"start"});
-  const steps=[
-    {
-      title:"入口巡检",
-      narrative:"先把答辩最关心的入口可用性亮出来：Schema、API 文档、Agent 工具、样例和成果证据都能直接访问。",
-      action:async()=>{showPage("query");await runEntryAudit();scrollToElement("entryAuditGrid");}
-    },
-    {
-      title:"稳定真数据",
-      narrative:"接着用 Eurostat 的德国 HICP 月度同比做主线样例，现场演示更稳，也能说明平台接的是官方真实数据。",
-      action:async()=>{await loadStablePriceSample();scrollToElement("chart");}
-    },
-    {
-      title:"智能讲解",
-      narrative:"数据不是只画图，系统会同步给出趋势、峰值、最新值和口径说明，评委能马上听懂这组指标讲什么。",
-      action:async()=>{showPage("query");scrollToElement("insightCard");}
-    },
-    {
-      title:"质量评分",
-      narrative:"然后把质量校验从后台字段变成可视化分数，缺失、重复、异常、血缘完整性都能一眼看到。",
-      action:async()=>{showPage("quality");renderQualityMirror();scrollToElement("page-quality","start");}
-    },
-    {
-      title:"跨源证据",
-      narrative:"第五步展示跨源一致性和数据血缘，说明平台不是单点查数，而是在做可复核的数据治理。",
-      action:async()=>{showPage("consistency");renderConsistency();scrollToElement("page-consistency","start");}
-    },
-    {
-      title:"成果收束",
-      narrative:"最后回到成果总览，把能力、接口、报告和交付证据收束成一页，形成完整答辩闭环。",
-      action:async()=>{showPage("evaluation");renderEvaluation();scrollToElement("page-evaluation","start");}
-    },
-  ];
-  for(let i=0;i<steps.length;i+=1){
-    setDemoStep(i,`演示中：${steps[i].title}`,steps[i].narrative);
-    try{
-      await steps[i].action();
-    }catch(err){
-      const message=`${steps[i].title}遇到外部请求波动，平台会给出结构化错误并继续后续演示。`;
-      setDemoStep(i,`已跳过：${steps[i].title}`,message,"warn");
-      showError(`演示步骤失败：${steps[i].title} · ${err.message||err}`);
-    }
-    await sleep(i===1?1200:850);
-  }
-  setDemoStep(steps.length,"演示完成","这条路线从入口可信、真实数据、智能讲解、质量评分到成果证据，已经形成一个更连贯的比赛展示闭环。");
-  const progress=document.getElementById("demoProgress");
-  if(progress)progress.style.width="100%";
+  openPresentationMode("standard");
 }
 const PRESENTATION_STEPS=[
-  {title:"入口可信",copy:"先证明关键 API、Schema、Agent 工具和成果证据入口全部可访问。",page:"query",action:async()=>{showPage("query");await runEntryAudit();scrollToElement("entryAuditGrid");}},
-  {title:"稳定真数据",copy:"用 Eurostat 德国 HICP 跑一组官方真实月度数据，避免现场演示被外部接口波动打断。",page:"query",action:async()=>{showPage("query");await loadStablePriceSample();scrollToElement("chart");}},
-  {title:"智能报告",copy:"把时间序列自动生成一句话结论、20 秒口播稿、研究段落和来源说明。",page:"query",action:async()=>{showPage("query");scrollToElement("insightCard");}},
-  {title:"质检报告卡",copy:"把质量校验变成 100 分治理分、风险等级、扣分原因和可复制报告段落。",page:"quality",action:async()=>{showPage("quality");renderQualityMirror();scrollToElement("page-quality","start");}},
-  {title:"跨源证据",copy:"用一致性检查和对账图说明平台能复核多源口径，而不是只做单点查数。",page:"consistency",action:async()=>{showPage("consistency");renderConsistency();scrollToElement("page-consistency","start");}},
-  {title:"成果收束",copy:"最后用 100 分评分雷达图、验收对照和推荐路线形成完整答辩闭环。",page:"evaluation",action:async()=>{showPage("evaluation");renderEvaluation();scrollToElement("page-evaluation","start");}}
+  {
+    id:"positioning",title:"项目定位",duration:40,quickDuration:20,
+    copy:"先讲清楚问题与价值：经观不是普通看板，而是把官方宏观数据变成可查询、可解释、可复核的证据链。",
+    say:"我们解决的不是“找不到数据”，而是多来源口径不统一、质量难判断、结果难复核。",
+    point:"首屏 7 类来源、18 项指标、33/33 验收，以及统一响应契约。",
+    question:"与普通宏观数据网站相比，核心创新是什么？",
+    answer:"查询结果同时携带质量报告和来源血缘，并支持跨源数值对账和 Agent 调用。",
+    action:async()=>{showPage("query");scrollToElement("page-query","start");}
+  },
+  {
+    id:"real-data",title:"真实数据",duration:60,quickDuration:35,
+    copy:"运行德国 HICP 月度数据，现场展示官方来源、观测值、元数据和标准化结果一起返回。",
+    say:"这一页不是静态截图，查询会调用 Eurostat 官方接口，并同时生成趋势图和元数据。",
+    point:"图表标题、最新观测、官方序列代码、来源更新时间和 LIVE 状态。",
+    question:"如果官方接口临时超时怎么办？",
+    answer:"系统保留结构化错误和最近一次成功的可追溯缓存，并明确标注 LIVE 或 CACHE。",
+    action:async()=>{showPage("query");await loadStablePriceSample();scrollToElement("chart");}
+  },
+  {
+    id:"governance",title:"治理链路",duration:55,quickDuration:25,
+    copy:"解释统一 Schema、质量评分和数据血缘如何把异构接口转换成可复用的数据要素。",
+    say:"同一条数据在平台中不仅有数值，还包含缺失、重复、异常、单位一致性和来源追溯。",
+    point:"质量总分、五项校验、provider / dataset / api_url / parser 字段。",
+    question:"质量分是主观打分吗？",
+    answer:"不是。分数由缺失期、重复记录、异常值、单位一致和可追溯性等规则自动计算。",
+    action:async()=>{showPage("quality");renderQualityMirror();scrollToElement("page-quality","start");}
+  },
+  {
+    id:"reconciliation",title:"跨源对账",duration:100,quickDuration:50,
+    copy:"先展示 GDP 严格对账，再解释 CPI / HICP 的口径对比，证明平台会区分统计差异而不是机械判错。",
+    say:"平台现有 10 个真实场景，按 S/A/B 等价等级计算误差、相关性和趋势方向一致率。",
+    point:"场景选择器、双来源趋势、差异柱形、等价等级和方法说明。",
+    question:"两个来源不一致，究竟谁是错的？",
+    answer:"差异可能来自修订批次、季调和统计体系。平台给出复核证据，不擅自把口径差异判成错误。",
+    action:async()=>{showPage("query");selectReconciliationCase("gdp-growth-us");await runSelectedReconciliation();scrollToElement("reconciliationCenter","start");}
+  },
+  {
+    id:"agent",title:"Agent 与开放接口",duration:50,quickDuration:25,
+    copy:"展示标准 JSON、OpenAPI Lite、错误恢复建议和 Agent 工具定义，让治理结果可以进入自动化工作流。",
+    say:"网页只是一个消费端，同一份标准结果也能直接被研究脚本、看板和 AI Agent 使用。",
+    point:"request / series / quality_report / lineage / error 五个顶层对象。",
+    question:"Agent 如何避免拿错误响应当数据？",
+    answer:"error 非空时契约要求禁止使用 series，并依据 retryable 与 recovery_hint 决定重试或换源。",
+    action:async()=>{showPage("json");document.getElementById("jsonOutputMirror").textContent=JSON.stringify(reconciliationStore||lastResult||{},null,2);scrollToElement("page-json","start");}
+  },
+  {
+    id:"evidence",title:"证据收束",duration:55,quickDuration:25,
+    copy:"用 33/33 验收、评审得分雷达、报告与可复核入口收束项目，形成完整答辩闭环。",
+    say:"最后不再增加功能点，而是把可运行、可验证、可交付的证据集中给评委。",
+    point:"33/33 验收、7 类来源状态、评分维度、项目报告和 API 文档。",
+    question:"项目现在是否可以直接复核？",
+    answer:"可以。评委可从验收报告、Schema、状态页、对账接口和 PDF 报告逐项复核。",
+    action:async()=>{showPage("evaluation");renderEvaluation();scrollToElement("page-evaluation","start");}
+  }
 ];
 function renderPresentationMode(){
   const current=PRESENTATION_STEPS[presentationIndex]||PRESENTATION_STEPS[0];
@@ -1388,12 +1375,38 @@ function renderPresentationMode(){
   if(eyebrow)eyebrow.textContent=`Step ${presentationIndex+1} / ${PRESENTATION_STEPS.length}`;
   if(title)title.textContent=current.title;
   if(copy)copy.textContent=current.copy;
-  if(steps)steps.innerHTML=PRESENTATION_STEPS.map((step,i)=>`<div class="presentation-step ${i===presentationIndex?"active":""}"><strong>${i+1}. ${escapeHtml(step.title)}</strong><br><small>${escapeHtml(step.copy)}</small></div>`).join("");
+  [["presentationSay","say"],["presentationPoint","point"],["presentationQuestion","question"],["presentationAnswer","answer"]].forEach(([id,key])=>{const el=document.getElementById(id);if(el)el.textContent=current[key];});
+  if(steps)steps.innerHTML=PRESENTATION_STEPS.map((step,i)=>`<div class="presentation-step ${i===presentationIndex?"active":""} ${i<presentationIndex?"done":""}" data-time="${presentationMode==="free"?"自由":formatClock(presentationStepDuration(step))}" onclick="jumpPresentationStep(${i})"><strong>${i+1}. ${escapeHtml(step.title)}</strong><br><small>${escapeHtml(step.copy)}</small></div>`).join("");
   if(kpis){
     const cap=(evaluationStore&&evaluationStore.implemented_capabilities)||{};
-    kpis.innerHTML=`<div class="presentation-kpi"><strong>${cap.official_source_count||7}</strong><small>官方数据源</small></div><div class="presentation-kpi"><strong>${cap.indicators||indicatorStore.length||18}</strong><small>标准指标</small></div><div class="presentation-kpi"><strong>${cap.sample_queries||33}</strong><small>示例查询</small></div><div class="presentation-kpi"><strong>${reviewRadarRows().reduce((s,r)=>s+r.score,0)}</strong><small>评审得分证据</small></div>`;
+    const reconcileCount=(reconciliationCatalog&&reconciliationCatalog.summary&&reconciliationCatalog.summary.case_count)||10;
+    kpis.innerHTML=`<div class="presentation-kpi"><strong>${cap.official_source_count||7}</strong><small>官方数据源</small></div><div class="presentation-kpi"><strong>${cap.indicators||indicatorStore.length||18}</strong><small>标准指标</small></div><div class="presentation-kpi"><strong>${reconcileCount}</strong><small>跨源对账场景</small></div><div class="presentation-kpi"><strong>33/33</strong><small>查询验收通过</small></div>`;
   }
+  const modeLabel=document.getElementById("presentationModeLabel");
+  if(modeLabel)modeLabel.textContent=presentationMode==="standard"?"标准答辩":presentationMode==="quick"?"快速预览":"自由讲解";
+  renderPresentationTimer();
   renderPresentationDataPreview();
+}
+function presentationStepDuration(step){
+  if(presentationMode==="quick")return step.quickDuration;
+  if(presentationMode==="free")return 0;
+  return step.duration;
+}
+function presentationTargetSeconds(){
+  return PRESENTATION_STEPS.reduce((sum,step)=>sum+presentationStepDuration(step),0);
+}
+function formatClock(seconds){
+  const value=Math.max(0,Math.floor(Number(seconds)||0));
+  return `${String(Math.floor(value/60)).padStart(2,"0")}:${String(value%60).padStart(2,"0")}`;
+}
+function renderPresentationTimer(){
+  const total=document.getElementById("presentationTimer"),step=document.getElementById("presentationStepTimer"),hint=document.getElementById("presentationControlHint"),progress=document.getElementById("presentationTimeProgress"),play=document.getElementById("presentationPlayButton");
+  const target=presentationTargetSeconds(),stepTarget=presentationStepDuration(PRESENTATION_STEPS[presentationIndex]);
+  if(total)total.textContent=presentationMode==="free"?`${formatClock(presentationElapsedSeconds)} / 自由`:`${formatClock(presentationElapsedSeconds)} / ${formatClock(target)}`;
+  if(step)step.textContent=presentationMode==="free"?`${formatClock(presentationStepElapsedSeconds)} / 自由`:`${formatClock(presentationStepElapsedSeconds)} / ${formatClock(stepTarget)}`;
+  if(hint)hint.textContent=`手动推进 · ${presentationRunning?"计时中":"当前暂停"}`;
+  if(progress)progress.style.width=target?`${Math.min(100,presentationElapsedSeconds/target*100)}%`:"0%";
+  if(play){play.textContent=presentationRunning?"暂停计时":presentationElapsedSeconds?"继续计时":"开始计时";play.classList.toggle("paused",!presentationRunning&&presentationElapsedSeconds>0);}
 }
 function presentationApiPath(data){
   const request=(data&&data.request)||{};
@@ -1403,9 +1416,27 @@ function presentationApiPath(data){
 function renderPresentationDataPreview(){
   const title=document.getElementById("presentationDataTitle"), subtitle=document.getElementById("presentationDataSubtitle"), metrics=document.getElementById("presentationDataMetrics"), apiLine=document.getElementById("presentationApiLine"), canvas=document.getElementById("presentationDataChart");
   if(!title||!metrics||!apiLine)return;
+  const current=PRESENTATION_STEPS[presentationIndex]||PRESENTATION_STEPS[0];
+  if(current.id==="reconciliation"){
+    const payload=reconciliationStore,rows=(payload&&payload.aligned_observations)||[],summary=(payload&&payload.summary)||{},caseMeta=(payload&&payload.case)||{};
+    if(!rows.length){
+      title.textContent="等待跨源对账";
+      if(subtitle)subtitle.textContent="点击“加载当前证据”运行 World Bank / IMF 美国 GDP 增长率真实对账。";
+      metrics.innerHTML='<div class="presentation-data-metric"><span>场景</span><strong>美国 GDP 增长率</strong></div><div class="presentation-data-metric"><span>来源</span><strong>World Bank / IMF</strong></div><div class="presentation-data-metric"><span>等价等级</span><strong>S 级严格对账</strong></div><div class="presentation-data-metric"><span>状态</span><strong>等待运行</strong></div>';
+      apiLine.textContent="/reconcile?case_id=gdp-growth-us";
+      drawPresentationReconciliationChart([]);
+      return;
+    }
+    title.textContent=caseMeta.title||"跨源对账";
+    if(subtitle)subtitle.textContent=`${caseMeta.source_a} / ${caseMeta.source_b} · ${summary.verdict} · ${rows.length} 期已对齐`;
+    metrics.innerHTML=`<div class="presentation-data-metric"><span>一致性判断</span><strong>${escapeHtml(summary.verdict||"已完成")}</strong></div><div class="presentation-data-metric"><span>平均绝对误差</span><strong>${formatCompact(summary.mean_absolute_error,3)} 个百分点</strong></div><div class="presentation-data-metric"><span>方向一致率</span><strong>${summary.direction_agreement_rate===null||summary.direction_agreement_rate===undefined?"—":formatCompact(summary.direction_agreement_rate,1)+"%"}</strong></div><div class="presentation-data-metric"><span>引用建议</span><strong>${escapeHtml(summary.citation_advice||"保留来源说明")}</strong></div>`;
+    apiLine.textContent=`/reconcile?case_id=${caseMeta.case_id||"gdp-growth-us"}`;
+    drawPresentationReconciliationChart(rows,caseMeta.source_a,caseMeta.source_b);
+    return;
+  }
   if(!lastResult||lastResult.error||!lastResult.series){
     title.textContent="等待真实查询";
-    if(subtitle)subtitle.textContent="点击“加载稳定真数据”会运行 Eurostat 官方样例，并在这里直接展示结果。";
+    if(subtitle)subtitle.textContent="点击“加载稳定真数据”会运行 Eurostat 官方真实查询，并在这里直接展示结果。";
     metrics.innerHTML='<div class="presentation-data-metric"><span>状态</span><strong>等待查询</strong></div><div class="presentation-data-metric"><span>来源</span><strong>-</strong></div><div class="presentation-data-metric"><span>观测值</span><strong>-</strong></div><div class="presentation-data-metric"><span>质量</span><strong>-</strong></div>';
     apiLine.textContent=presentationApiPath(null);
     drawPresentationDataChart([]);
@@ -1425,7 +1456,7 @@ function drawPresentationDataChart(obs,unit=""){
   ctx.clearRect(0,0,w,h);
   ctx.font="12px -apple-system,BlinkMacSystemFont,Segoe UI";
   if(!obs||!obs.length){
-    ctx.fillStyle="#64748b";ctx.fillText("等待真实查询结果",28,70);ctx.fillText("点击“加载稳定真数据”运行官方接口样例。",28,94);return;
+    ctx.fillStyle="#64748b";ctx.fillText("等待真实查询结果",28,70);ctx.fillText("点击“加载稳定真数据”运行官方真实数据。",28,94);return;
   }
   const scale=chooseScale(numericValues(obs),unit), values=obs.map(o=>Number(o.value)/scale.divisor).filter(Number.isFinite);
   if(!values.length){ctx.fillStyle="#64748b";ctx.fillText("没有可绘制的数值",28,70);return;}
@@ -1441,33 +1472,122 @@ function drawPresentationDataChart(obs,unit=""){
   ctx.fillStyle="#475569";ctx.textAlign="center";labelIndexes.forEach(i=>ctx.fillText(obs[i].date,x(i),h-14));
   ctx.textAlign="left";ctx.fillStyle="#0f172a";ctx.font="800 12px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillText(`显示单位：${scale.axis}`,pad.left,pad.top-8);
 }
-async function loadPresentationDataSample(){
-  await loadStablePriceSample();
-  renderPresentationDataPreview();
+function drawPresentationReconciliationChart(rows,sourceA="World Bank",sourceB="IMF"){
+  const canvas=document.getElementById("presentationDataChart");
+  if(!canvas)return;
+  const prepared=prepareCanvas(canvas),ctx=prepared.ctx,w=prepared.w,h=prepared.h;
+  ctx.clearRect(0,0,w,h);ctx.font="11px -apple-system,BlinkMacSystemFont,Segoe UI";
+  if(!rows||!rows.length){ctx.fillStyle="#64748b";ctx.fillText("等待跨源对账结果",28,70);ctx.fillText("手动加载证据后显示双来源趋势。",28,94);return;}
+  const values=rows.flatMap(row=>[Number(row.source_a_value),Number(row.source_b_value)]).filter(Number.isFinite);
+  let min=Math.min(...values),max=Math.max(...values);if(min===max){min-=1;max+=1;}const span=max-min;min-=span*.15;max+=span*.15;
+  const pad={left:50,right:22,top:30,bottom:36},plotW=w-pad.left-pad.right,plotH=h-pad.top-pad.bottom,x=i=>pad.left+i/Math.max(1,rows.length-1)*plotW,y=v=>pad.top+(max-v)/(max-min)*plotH;
+  ctx.strokeStyle="#dbeafe";ctx.fillStyle="#64748b";
+  for(let i=0;i<=3;i++){const value=max-i*(max-min)/3,yy=y(value);ctx.beginPath();ctx.moveTo(pad.left,yy);ctx.lineTo(w-pad.right,yy);ctx.stroke();ctx.fillText(formatCompact(value,2),8,yy+4);}
+  function draw(key,color){
+    ctx.beginPath();rows.forEach((row,i)=>{const xx=x(i),yy=y(Number(row[key]));if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});ctx.strokeStyle=color;ctx.lineWidth=3;ctx.lineJoin="round";ctx.stroke();
+  }
+  rows.forEach((row,i)=>{ctx.strokeStyle="rgba(100,116,139,.3)";ctx.beginPath();ctx.moveTo(x(i),y(Number(row.source_a_value)));ctx.lineTo(x(i),y(Number(row.source_b_value)));ctx.stroke();});
+  draw("source_a_value","#2563eb");draw("source_b_value","#d97706");
+  ctx.fillStyle="#475569";ctx.textAlign="center";rows.forEach((row,i)=>ctx.fillText(String(row.date),x(i),h-13));
+  ctx.textAlign="left";ctx.font="800 11px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillStyle="#2563eb";ctx.fillText(sourceA,pad.left,16);ctx.fillStyle="#d97706";ctx.fillText(sourceB,pad.left+ctx.measureText(sourceA).width+18,16);
 }
-function openPresentationMode(){
+async function loadPresentationDataSample(){
+  await runCurrentPresentationAction();
+}
+function stopPresentationTimer(){
+  presentationRunning=false;
+  if(presentationTimerHandle){clearInterval(presentationTimerHandle);presentationTimerHandle=null;}
+  renderPresentationTimer();
+}
+function openPresentationMode(mode="standard"){
   const overlay=document.getElementById("presentationOverlay");
   if(!overlay)return;
+  stopPresentationTimer();
+  presentationMode=["standard","quick","free"].includes(mode)?mode:"standard";
+  presentationElapsedSeconds=0;
+  presentationStepElapsedSeconds=0;
   overlay.classList.add("active");
   overlay.setAttribute("aria-hidden","false");
   presentationIndex=0;
   renderPresentationMode();
+  setDemoStep(0,`${presentationMode==="standard"?"6 分钟标准答辩":presentationMode==="quick"?"3 分钟快速预览":"自由讲解"} · 手动推进`,PRESENTATION_STEPS[0].say);
 }
 function closePresentationMode(){
   const overlay=document.getElementById("presentationOverlay");
   if(!overlay)return;
+  stopPresentationTimer();
   overlay.classList.remove("active");
   overlay.setAttribute("aria-hidden","true");
 }
-async function runPresentationStep(delta){
-  presentationIndex=Math.max(0,Math.min(PRESENTATION_STEPS.length-1,presentationIndex+delta));
-  renderPresentationMode();
-  const current=PRESENTATION_STEPS[presentationIndex];
-  if(current&&current.action){
-    try{await current.action();}catch(err){showError(`演示模式步骤失败：${current.title} · ${err.message||err}`);}
+async function runCurrentPresentationAction(){
+  const current=PRESENTATION_STEPS[presentationIndex],hint=document.getElementById("presentationHint");
+  if(!current||!current.action)return;
+  if(hint)hint.textContent=`正在准备第 ${presentationIndex+1} 段证据：${current.title}…`;
+  try{
+    await current.action();
+    if(hint)hint.textContent=`证据已准备：${current.title}。按下一步继续，系统不会自动跳页。`;
+  }catch(err){
+    if(hint)hint.textContent=`${current.title}遇到接口波动，已停留在当前步骤。可重试或使用来源状态证据。`;
+    showError(`答辩步骤失败：${current.title} · ${err.message||err}`);
   }
   renderPresentationMode();
 }
+function togglePresentationTimer(){
+  if(presentationRunning){stopPresentationTimer();return;}
+  presentationRunning=true;
+  if(!presentationTimerHandle){
+    presentationTimerHandle=setInterval(()=>{
+      if(!presentationRunning)return;
+      presentationElapsedSeconds+=1;
+      presentationStepElapsedSeconds+=1;
+      const target=presentationTargetSeconds();
+      if(target&&presentationElapsedSeconds>=target){
+        presentationElapsedSeconds=target;
+        stopPresentationTimer();
+        const hint=document.getElementById("presentationHint");
+        if(hint)hint.textContent="已到建议总时长。页面不会自动退出，你可以从容完成最后一句。";
+        return;
+      }
+      renderPresentationTimer();
+    },1000);
+  }
+  renderPresentationTimer();
+  if(presentationElapsedSeconds===0&&presentationStepElapsedSeconds===0)runCurrentPresentationAction();
+}
+async function runPresentationStep(delta){
+  const nextIndex=delta===0?presentationIndex:Math.max(0,Math.min(PRESENTATION_STEPS.length-1,presentationIndex+delta));
+  if(nextIndex!==presentationIndex)presentationStepElapsedSeconds=0;
+  presentationIndex=nextIndex;
+  renderPresentationMode();
+  setDemoStep(presentationIndex,`第 ${presentationIndex+1} 段：${PRESENTATION_STEPS[presentationIndex].title}`,PRESENTATION_STEPS[presentationIndex].say);
+  await runCurrentPresentationAction();
+}
+async function jumpPresentationStep(index){
+  const target=Math.max(0,Math.min(PRESENTATION_STEPS.length-1,Number(index)||0));
+  if(target!==presentationIndex)presentationStepElapsedSeconds=0;
+  presentationIndex=target;
+  renderPresentationMode();
+  setDemoStep(presentationIndex,`第 ${presentationIndex+1} 段：${PRESENTATION_STEPS[presentationIndex].title}`,PRESENTATION_STEPS[presentationIndex].say);
+  await runCurrentPresentationAction();
+}
+async function restartPresentationRoute(){
+  stopPresentationTimer();
+  presentationElapsedSeconds=0;
+  presentationStepElapsedSeconds=0;
+  presentationIndex=0;
+  renderPresentationMode();
+  setDemoStep(0,"路线已重置",PRESENTATION_STEPS[0].say);
+  await runCurrentPresentationAction();
+}
+document.addEventListener("keydown",event=>{
+  const overlay=document.getElementById("presentationOverlay");
+  if(!overlay||!overlay.classList.contains("active"))return;
+  if(["INPUT","SELECT","TEXTAREA"].includes((event.target&&event.target.tagName)||""))return;
+  if(event.key==="ArrowRight"){event.preventDefault();runPresentationStep(1);}
+  else if(event.key==="ArrowLeft"){event.preventDefault();runPresentationStep(-1);}
+  else if(event.key===" "){event.preventDefault();togglePresentationTimer();}
+  else if(event.key==="Escape"){event.preventDefault();closePresentationMode();}
+});
 async function runEntryAudit(){
   const summary=document.getElementById("entryAuditSummary"), grid=document.getElementById("entryAuditGrid");
   if(summary)summary.textContent="检查中";
@@ -1635,43 +1755,58 @@ function drawDataMap(activeCode="CN"){
     ctx.fillText(`${activeAvailability.indicators.length} 项指标 · ${activeAvailability.sources.length} 类来源`,24,h-30);
   }
 }
+function reconciliationResultNote(metrics,caseMeta){
+  const note=String((metrics&&metrics.citation_advice)||"");
+  if(note&&!/(可信|证据|引用)/.test(note))return note;
+  if(caseMeta&&caseMeta.category==="strict")return "两来源按相同观测期对齐；数值差异仍可能受发布时间和修订批次影响。";
+  if(caseMeta&&caseMeta.category==="comparable")return "两序列经济含义接近，但季调方式不同，不宜视为完全等价。";
+  return "两序列用于趋势与口径对照，不宜直接互相替代。";
+}
 function renderCrossSourceReconciliation(payload){
   const aligned=(payload&&payload.aligned_observations)||[];
-  drawReconciliationChart(aligned);
-  const summary=document.getElementById("reconcileSummary"), table=document.getElementById("reconcileTable"), conclusion=document.getElementById("reconcileConclusion");
+  const caseMeta=(payload&&payload.case)||selectedReconciliationCase()||{};
+  const metrics=(payload&&payload.summary)||{};
+  const resultNote=reconciliationResultNote(metrics,caseMeta);
+  const sourceA=((payload&&payload.sources)||{}).a||{}, sourceB=((payload&&payload.sources)||{}).b||{};
+  const sourceAName=sourceA.organization||caseMeta.source_a||"来源 A", sourceBName=sourceB.organization||caseMeta.source_b||"来源 B";
+  drawReconciliationChart(aligned,sourceAName,sourceBName,caseMeta.unit_a||"%");
+  drawReconciliationDeltaChart(aligned);
+  const summary=document.getElementById("reconcileSummary"), table=document.getElementById("reconcileTable"), conclusion=document.getElementById("reconcileConclusion"), method=document.getElementById("reconcileMethodText"), sources=document.getElementById("reconcileSources"), warning=document.getElementById("reconcileWarning");
   if(!summary||!table)return;
+  if(method)method.textContent=((payload&&payload.methodology)||{}).equivalence_note||caseMeta.equivalence_note||"该场景的统计口径说明暂不可用。";
+  if(warning)warning.textContent=((payload&&payload.methodology)||{}).warning||"统计相似不等于口径完全相同；引用时需要保留来源和方法说明。";
+  if(sources)sources.innerHTML=[["a",sourceA,sourceAName],["b",sourceB,sourceBName]].map(([side,source,name])=>{
+    const status=source.status||{}, code=source.source_series_code||(side==="a"?caseMeta.source_series_code_a:caseMeta.source_series_code_b)||"—";
+    const seasonal=source.seasonal_adjustment||(side==="a"?caseMeta.seasonal_adjustment_a:caseMeta.seasonal_adjustment_b)||"—";
+    return `<div class="source-proof"><span>来源 ${side.toUpperCase()} · ${escapeHtml(status.mode||"状态未知")}</span><strong>${escapeHtml(name)}</strong><small>${escapeHtml(code)} · ${escapeHtml(source.unit||(side==="a"?caseMeta.unit_a:caseMeta.unit_b)||"—")} · 季调 ${escapeHtml(seasonal)}</small></div>`;
+  }).join("");
   if(!aligned.length){
-    if(conclusion)conclusion.innerHTML='<div class="conclusion-tag"><span>复核状态</span><strong>暂无对齐数据</strong></div><div class="conclusion-tag"><span>一致性判断</span><strong>等待官方接口</strong></div><div class="conclusion-tag"><span>引用建议</span><strong>稍后重试或切稳定样例</strong></div>';
-    summary.innerHTML='<div class="reconcile-stat"><span>状态</span><strong>暂无对齐数据</strong></div><div class="reconcile-stat"><span>建议</span><strong>稍后重试官方接口</strong></div>';
-    table.innerHTML='<tr><th>年份</th><th>World Bank</th><th>IMF</th><th>差异</th></tr><tr><td colspan="4">暂无可展示结果。</td></tr>';
+    const errorText=payload&&payload.error?(payload.error.message||payload.error.code):"暂无对齐数据";
+    if(conclusion)conclusion.innerHTML=`<div class="conclusion-tag"><span>运行状态</span><strong>未完成</strong></div><div class="conclusion-tag"><span>对账结果</span><strong>${escapeHtml(metrics.verdict||"等待官方接口")}</strong></div><div class="conclusion-tag"><span>对齐观测期</span><strong>0</strong></div><div class="conclusion-tag"><span>结果说明</span><strong>${escapeHtml(resultNote||"稍后重试")}</strong></div>`;
+    summary.innerHTML=`<div class="reconcile-stat"><span>状态</span><strong>${escapeHtml(metrics.status||"暂无数据")}</strong></div><div class="reconcile-stat"><span>来源提示</span><strong>${escapeHtml(errorText)}</strong></div>`;
+    table.innerHTML=`<tr><th>观测期</th><th>${escapeHtml(sourceAName)}</th><th>${escapeHtml(sourceBName)}</th><th>差异</th><th>绝对误差</th></tr><tr><td colspan="5">暂无可展示结果。请查看来源状态或稍后重试。</td></tr>`;
     return;
   }
-  const maxDiff=aligned.reduce((a,b)=>Number(b.absolute_error)>Number(a.absolute_error)?b:a,aligned[0]);
-  const mae=payload.mean_absolute_error;
-  const directionMatches=aligned.filter(row=>Math.sign(Number(row.world_bank))===Math.sign(Number(row.imf))).length;
-  const directionRate=directionMatches/aligned.length;
-  const judgement=mae<.5&&directionRate>=.85?"高度一致":mae<1.2&&directionRate>=.7?"总体一致":"存在口径差异";
-  const advice=judgement==="高度一致"?"可作为可信复核证据":judgement==="总体一致"?"可引用，但建议说明口径来源":"建议拆开说明两源口径";
-  if(conclusion)conclusion.innerHTML=`<div class="conclusion-tag"><span>复核状态</span><strong>${aligned.length} 年已对齐</strong></div><div class="conclusion-tag"><span>一致性判断</span><strong>${escapeHtml(judgement)}</strong></div><div class="conclusion-tag"><span>引用建议</span><strong>${escapeHtml(advice)}</strong></div>`;
-  summary.innerHTML=`<div class="reconcile-stat"><span>对齐年份</span><strong>${aligned.length}</strong></div><div class="reconcile-stat"><span>平均绝对误差</span><strong>${formatCompact(mae,3)} 个百分点</strong></div><div class="reconcile-stat"><span>最大差异年份</span><strong>${escapeHtml(maxDiff.date)} · ${formatCompact(maxDiff.absolute_error,3)}</strong></div><div class="reconcile-stat"><span>结论</span><strong>${escapeHtml(judgement)}</strong></div>`;
-  table.innerHTML='<tr><th>年份</th><th>World Bank</th><th>IMF</th><th>差异</th></tr>'+aligned.map(row=>`<tr><td>${escapeHtml(row.date)}</td><td>${formatCompact(row.world_bank,3)}%</td><td>${formatCompact(row.imf,3)}%</td><td>${formatCompact(row.absolute_error,3)}</td></tr>`).join("");
+  if(conclusion)conclusion.innerHTML=`<div class="conclusion-tag"><span>运行状态</span><strong>${aligned.length} 期已对齐</strong></div><div class="conclusion-tag"><span>对账结果</span><strong>${escapeHtml(metrics.verdict||"已完成")}</strong></div><div class="conclusion-tag"><span>等价等级</span><strong>${escapeHtml(caseMeta.grade||"—")} 级 · ${escapeHtml(caseMeta.category_label||"")}</strong></div><div class="conclusion-tag"><span>结果说明</span><strong>${escapeHtml(resultNote||"保留来源和口径说明")}</strong></div>`;
+  summary.innerHTML=`<div class="reconcile-stat"><span>平均绝对误差</span><strong>${formatCompact(metrics.mean_absolute_error,3)} 个百分点</strong></div><div class="reconcile-stat"><span>最大差异</span><strong>${escapeHtml(metrics.max_difference_period||"—")} · ${formatCompact(metrics.max_absolute_error,3)}</strong></div><div class="reconcile-stat"><span>趋势方向一致率</span><strong>${metrics.direction_agreement_rate===null||metrics.direction_agreement_rate===undefined?"—":formatCompact(metrics.direction_agreement_rate,1)+"%"}</strong></div><div class="reconcile-stat"><span>相关系数</span><strong>${metrics.correlation===null||metrics.correlation===undefined?"—":formatCompact(metrics.correlation,3)}</strong></div>`;
+  table.innerHTML=`<tr><th>观测期</th><th>${escapeHtml(sourceAName)}</th><th>${escapeHtml(sourceBName)}</th><th>A − B</th><th>绝对误差</th></tr>`+aligned.map(row=>`<tr><td>${escapeHtml(row.date)}</td><td>${formatCompact(row.source_a_value,3)}</td><td>${formatCompact(row.source_b_value,3)}</td><td>${formatCompact(row.difference,3)}</td><td>${formatCompact(row.absolute_error,3)}</td></tr>`).join("");
 }
-function drawReconciliationChart(rows){
+function drawReconciliationChart(rows,sourceAName="来源 A",sourceBName="来源 B",unit="%"){
   const canvas=document.getElementById("reconcileChart");
   if(!canvas)return;
   const prepared=prepareCanvas(canvas), ctx=prepared.ctx, w=prepared.w, h=prepared.h;
   ctx.clearRect(0,0,w,h);
   ctx.font="12px -apple-system,BlinkMacSystemFont,Segoe UI";
   if(!rows||!rows.length){
-    ctx.fillStyle="#64748b";ctx.fillText("等待跨源对账数据",34,90);ctx.fillText("点击“运行对账样例”加载 World Bank 与 IMF 年度序列。",34,114);return;
+    ctx.fillStyle="#64748b";ctx.fillText("等待跨源对账数据",34,90);ctx.fillText("选择场景并点击“运行真实对账”。",34,114);return;
   }
-  const values=rows.flatMap(row=>[Number(row.world_bank),Number(row.imf)]).filter(Number.isFinite);
+  const values=rows.flatMap(row=>[Number(row.source_a_value),Number(row.source_b_value)]).filter(Number.isFinite);
   let min=Math.min(...values), max=Math.max(...values); if(min===max){min-=1;max+=1;}
   const span=max-min; min-=span*.18; max+=span*.18;
   const pad={left:56,right:28,top:24,bottom:42}, plotW=w-pad.left-pad.right, plotH=h-pad.top-pad.bottom;
   const x=i=>pad.left+i/Math.max(1,rows.length-1)*plotW, y=v=>pad.top+(max-v)/(max-min)*plotH;
   ctx.strokeStyle="#e2e8f0";ctx.lineWidth=1;ctx.fillStyle="#64748b";
-  for(let i=0;i<=4;i++){const value=max-i*(max-min)/4, yy=y(value);ctx.beginPath();ctx.moveTo(pad.left,yy);ctx.lineTo(w-pad.right,yy);ctx.stroke();ctx.fillText(`${formatCompact(value,2)}%`,8,yy+4);}
+  for(let i=0;i<=4;i++){const value=max-i*(max-min)/4, yy=y(value);ctx.beginPath();ctx.moveTo(pad.left,yy);ctx.lineTo(w-pad.right,yy);ctx.stroke();ctx.fillText(formatCompact(value,2),8,yy+4);}
   function drawSeries(key,color){
     ctx.beginPath();
     rows.forEach((row,i)=>{const xx=x(i),yy=y(Number(row[key]));if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});
@@ -1679,38 +1814,59 @@ function drawReconciliationChart(rows){
     rows.forEach((row,i)=>{ctx.fillStyle=color;ctx.beginPath();ctx.arc(x(i),y(Number(row[key])),4,0,Math.PI*2);ctx.fill();});
   }
   rows.forEach((row,i)=>{
-    const xx=x(i), y1=y(Number(row.world_bank)), y2=y(Number(row.imf));
+    const xx=x(i), y1=y(Number(row.source_a_value)), y2=y(Number(row.source_b_value));
     ctx.strokeStyle="rgba(100,116,139,.35)";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(xx,y1);ctx.lineTo(xx,y2);ctx.stroke();
   });
-  drawSeries("world_bank","#2563eb");drawSeries("imf","#d97706");
+  drawSeries("source_a_value","#2563eb");drawSeries("source_b_value","#d97706");
   ctx.fillStyle="#475569";ctx.textAlign="center";
   rows.forEach((row,i)=>ctx.fillText(String(row.date),x(i),h-15));
-  ctx.textAlign="left";ctx.fillStyle="#0f172a";ctx.font="800 12px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillText("单位：年度增长率 %",pad.left,pad.top-8);
+  ctx.textAlign="left";ctx.fillStyle="#0f172a";ctx.font="800 12px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillText(`${sourceAName} / ${sourceBName} · ${unit}`,pad.left,pad.top-8);
+}
+function drawReconciliationDeltaChart(rows){
+  const canvas=document.getElementById("reconcileDeltaChart");
+  if(!canvas)return;
+  const prepared=prepareCanvas(canvas),ctx=prepared.ctx,w=prepared.w,h=prepared.h;
+  ctx.clearRect(0,0,w,h);ctx.font="11px -apple-system,BlinkMacSystemFont,Segoe UI";
+  if(!rows||!rows.length){ctx.fillStyle="#64748b";ctx.fillText("运行对账后展示逐期差异。",24,70);return;}
+  const values=rows.map(row=>Number(row.difference)).filter(Number.isFinite),absMax=Math.max(.1,...values.map(Math.abs));
+  const pad={left:38,right:18,top:20,bottom:38},plotW=w-pad.left-pad.right,plotH=h-pad.top-pad.bottom,zero=pad.top+plotH/2;
+  ctx.strokeStyle="#cbd5e1";ctx.beginPath();ctx.moveTo(pad.left,zero);ctx.lineTo(w-pad.right,zero);ctx.stroke();
+  const slot=plotW/Math.max(1,rows.length),barW=Math.max(6,Math.min(30,slot*.58));
+  rows.forEach((row,index)=>{
+    const value=Number(row.difference),barH=Math.abs(value)/absMax*(plotH/2-12),x=pad.left+slot*index+(slot-barW)/2,y=value>=0?zero-barH:zero;
+    ctx.fillStyle=value>=0?"#2563eb":"#d97706";ctx.fillRect(x,y,barW,barH);
+    ctx.fillStyle="#64748b";ctx.textAlign="center";ctx.fillText(String(row.date),x+barW/2,h-13);
+  });
+  ctx.textAlign="left";ctx.fillStyle="#64748b";ctx.fillText(`+${formatCompact(absMax,2)}`,2,pad.top+5);ctx.fillText(`-${formatCompact(absMax,2)}`,4,h-pad.bottom+6);
 }
 function prepareCanvas(canvas){
   const rect=canvas.getBoundingClientRect();
+  const parentRect=canvas.parentElement?canvas.parentElement.getBoundingClientRect():{width:0,height:0};
   const ratio=Math.max(1,Math.min(2,window.devicePixelRatio||1));
-  const width=Math.max(320,Math.round(rect.width*ratio));
-  const height=Math.max(220,Math.round(rect.height*ratio));
+  const cssWidth=Math.max(320,Math.round(rect.width||parentRect.width||740));
+  const cssHeight=Math.max(220,Math.round(rect.height||parentRect.height||340));
+  const width=Math.round(cssWidth*ratio);
+  const height=Math.round(cssHeight*ratio);
   if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}
   const ctx=canvas.getContext("2d");
   ctx.setTransform(ratio,0,0,ratio,0,0);
-  return {ctx,w:rect.width,h:rect.height,ratio};
+  return {ctx,w:cssWidth,h:cssHeight,ratio};
 }
 function drawChart(obs,unit="",emptyMessage="暂无数据"){
   const canvas=document.getElementById("chart"), prepared=prepareCanvas(canvas), ctx=prepared.ctx, w=prepared.w, h=prepared.h; ctx.clearRect(0,0,w,h);
   ctx.font="12px -apple-system,BlinkMacSystemFont,Segoe UI";
   if(!obs||!obs.length){ctx.fillStyle="#6b7280";ctx.font="16px -apple-system,BlinkMacSystemFont,Segoe UI";const lines=String(emptyMessage||"暂无数据").split("\n").filter(Boolean).slice(0,5);lines.forEach((line,i)=>ctx.fillText(line.length>46?line.slice(0,46)+"...":line,40,120+i*26));return;}
   const rawValues=numericValues(obs), scale=chooseScale(rawValues,unit), values=obs.map(o=>Number(o.value)/scale.divisor);
-  let min=Math.min(...values), max=Math.max(...values); if(min===max){min-=1;max+=1;} const originalSpan=max-min; min-=originalSpan*.12; max+=originalSpan*.12;
-  if(min>0)min=0; if(max<0)max=0;
-  const pad={left:86,right:92,top:28,bottom:54}; const plotW=w-pad.left-pad.right, plotH=h-pad.top-pad.bottom;
+  let min=Math.min(...values), max=Math.max(...values);
+  if(min===max){const around=Math.max(1,Math.abs(min)*.08);min-=around;max+=around;}
+  else{const originalSpan=max-min;min-=originalSpan*.16;max+=originalSpan*.18;}
+  const pad={left:72,right:48,top:42,bottom:52}; const plotW=Math.max(120,w-pad.left-pad.right), plotH=Math.max(120,h-pad.top-pad.bottom);
   const y=v=>pad.top+(max-v)/(max-min)*plotH; const x=i=>pad.left+i/Math.max(1,obs.length-1)*plotW;
-  ctx.strokeStyle="#e5e7eb";ctx.lineWidth=1;ctx.fillStyle="#64748b";
-  for(let i=0;i<=4;i++){const value=max-i*(max-min)/4, yy=y(value);ctx.beginPath();ctx.moveTo(pad.left,yy);ctx.lineTo(w-pad.right,yy);ctx.stroke();ctx.fillText(formatCompact(value),12,yy+4);}
+  ctx.strokeStyle="#dfe7ef";ctx.lineWidth=1;ctx.fillStyle="#64748b";
+  for(let i=0;i<=4;i++){const value=max-i*(max-min)/4, yy=y(value);ctx.beginPath();ctx.moveTo(pad.left,yy);ctx.lineTo(pad.left+plotW,yy);ctx.stroke();ctx.textAlign="right";ctx.fillText(formatCompact(value),pad.left-12,yy+4);}
   if(min<0&&max>0){const zy=y(0);ctx.strokeStyle="#cbd5e1";ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(pad.left,zy);ctx.lineTo(w-pad.right,zy);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle="#94a3b8";ctx.fillText("0",pad.left-18,zy+4);}
-  const gradient=ctx.createLinearGradient(0,pad.top,0,h-pad.bottom);gradient.addColorStop(0,"rgba(37,99,235,.18)");gradient.addColorStop(1,"rgba(37,99,235,0)");
-  ctx.beginPath();values.forEach((v,i)=>{const xx=x(i),yy=y(v);if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});ctx.lineTo(x(values.length-1),h-pad.bottom);ctx.lineTo(x(0),h-pad.bottom);ctx.closePath();ctx.fillStyle=gradient;ctx.fill();
+  const gradient=ctx.createLinearGradient(0,pad.top,0,pad.top+plotH);gradient.addColorStop(0,"rgba(13,148,136,.24)");gradient.addColorStop(1,"rgba(37,99,235,.025)");
+  ctx.beginPath();values.forEach((v,i)=>{const xx=x(i),yy=y(v);if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});ctx.lineTo(x(values.length-1),pad.top+plotH);ctx.lineTo(x(0),pad.top+plotH);ctx.closePath();ctx.fillStyle=gradient;ctx.fill();
   ctx.beginPath();values.forEach((v,i)=>{const xx=x(i),yy=y(v);if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);});ctx.strokeStyle="#2563eb";ctx.lineWidth=3;ctx.lineJoin="round";ctx.lineCap="round";ctx.stroke();
   const pointStep=Math.max(1,Math.ceil(obs.length/28));
   const labelFont="12px -apple-system,BlinkMacSystemFont,Segoe UI";
@@ -1736,24 +1892,45 @@ function drawChart(obs,unit="",emptyMessage="暂无数据"){
   const labelSet=new Set(filteredLabelIndexes);
   obs.forEach((o,i)=>{
     const xx=x(i),yy=y(values[i]);
-    if(i%pointStep===0||i===obs.length-1){ctx.fillStyle="#2563eb";ctx.beginPath();ctx.arc(xx,yy,3.5,0,Math.PI*2);ctx.fill();}
+    if(i%pointStep===0||i===obs.length-1){ctx.fillStyle="#fff";ctx.strokeStyle="#2563eb";ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(xx,yy,i===obs.length-1?5:3.5,0,Math.PI*2);ctx.fill();ctx.stroke();}
     if(labelSet.has(i)){ctx.fillStyle="#64748b";ctx.textAlign="center";ctx.fillText(String(o.date),Math.max(pad.left,Math.min(xx,w-pad.right)),h-19);}
   });
   ctx.textAlign="left";
   const last=obs[obs.length-1], lastX=x(obs.length-1), lastY=y(values[values.length-1]), label=formatValue(last.value,scale);
-  ctx.font="bold 12px -apple-system,BlinkMacSystemFont,Segoe UI";const labelW=ctx.measureText(label).width+16;let bx=Math.min(lastX+10,w-labelW-8);let by=Math.max(8,lastY-28);
+  ctx.font="bold 12px -apple-system,BlinkMacSystemFont,Segoe UI";const labelW=ctx.measureText(label).width+16;let bx=lastX+labelW+18<w?lastX+10:lastX-labelW-10;let by=Math.max(8,lastY-30);
   ctx.fillStyle="#eff6ff";ctx.strokeStyle="#bfdbfe";ctx.lineWidth=1;ctx.beginPath();if(ctx.roundRect){ctx.roundRect(bx,by,labelW,24,8);}else{ctx.rect(bx,by,labelW,24);}ctx.fill();ctx.stroke();ctx.fillStyle="#1d4ed8";ctx.fillText(label,bx+8,by+16);
-  ctx.fillStyle="#475569";ctx.font="12px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.fillText(`单位：${scale.axis}`,pad.left,pad.top-10);
+  ctx.fillStyle="#475569";ctx.font="700 12px -apple-system,BlinkMacSystemFont,Segoe UI";ctx.textAlign="left";ctx.fillText(`单位：${scale.axis}`,pad.left,pad.top-18);
+}
+const COMPARE_CONFIG={
+  GDP_NOMINAL:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  GDP_REAL_GROWTH:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  IMF_GDP_GROWTH:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR",label:"年度 · 7 个经济体 · IMF"},
+  EXPORTS:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  IMPORTS:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  TRADE_BALANCE:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  OECD_CPI_YOY:{frequency:"M",date:"2024-10",countries:"US,DE,FR,JP,GB",label:"月度 · 5 个 OECD 经济体 · OECD"},
+  HICP_YOY:{frequency:"M",date:"2024-12",countries:"EA,DE,FR",label:"月度 · 欧元区、德国、法国 · Eurostat"},
+  PPI_LEVEL:{frequency:"M",date:"2024-12",countries:"EA,DE,FR",label:"月度 · 欧元区、德国、法国 · Eurostat"},
+  INDUSTRIAL_PRODUCTION:{frequency:"M",date:"2024-12",countries:"EA,DE,FR",label:"月度 · 欧元区、德国、法国 · Eurostat"},
+  RETAIL_SALES_VOLUME:{frequency:"M",date:"2024-12",countries:"EA,DE,FR",label:"月度 · 欧元区、德国、法国 · Eurostat"},
+  LONG_TERM_RATE:{frequency:"M",date:"2024-12",countries:"DE,FR",label:"月度 · 德国、法国 · Eurostat"},
+  BIS_POLICY_RATE:{frequency:"M",date:"2024-12",countries:"US,EA,FR,GB,JP,CN,IN",label:"月度 · 7 个经济体或地区 · BIS"}
+};
+function updateCompareControls(){
+  const indicator=document.getElementById("compareIndicator").value,config=COMPARE_CONFIG[indicator]||COMPARE_CONFIG.GDP_NOMINAL;
+  document.getElementById("compareYear").value=config.date;
+  document.getElementById("compareScopeHint").textContent=config.label;
 }
 async function runCompare(){
-  const indicator=document.getElementById("compareIndicator").value, year=document.getElementById("compareYear").value;
+  const indicator=document.getElementById("compareIndicator").value,config=COMPARE_CONFIG[indicator]||COMPARE_CONFIG.GDP_NOMINAL,year=document.getElementById("compareYear").value||config.date;
   document.getElementById("compareTable").innerHTML="<tr><th>国家</th><th>数值</th><th>单位</th><th>来源</th></tr><tr><td colspan='4'>查询中...</td></tr>";
-  const data=await fetchJson(`/compare?countries=US,CN,DE,JP,GB,IN,FR,EA&indicator_code=${encodeURIComponent(indicator)}&date=${encodeURIComponent(year)}&frequency=A`).catch(()=>null);
+  const data=await fetchJson(`/compare?countries=${encodeURIComponent(config.countries)}&indicator_code=${encodeURIComponent(indicator)}&date=${encodeURIComponent(year)}&frequency=${config.frequency}`).catch(()=>null);
   const rows=(data&&data.rows?data.rows:[]).map(r=>({country:r.country_name_zh,value:Number(r.value),unit:r.unit,source:r.source.organization})).filter(r=>Number.isFinite(r.value));
   rows.sort((a,b)=>Math.abs(b.value)-Math.abs(a.value));
   const values=rows.map(r=>r.value), scale=chooseScale(values,rows[0]?rows[0].unit:"");
   const top=rows[0], bottom=rows[rows.length-1];
-  document.getElementById("compareSummary").innerHTML=rows.length?`<div class="compare-stat"><span>可比国家</span><strong>${rows.length}</strong><small>同一年同一指标</small></div><div class="compare-stat"><span>最高值</span><strong>${escapeHtml(top.country)}</strong><small>${escapeHtml(formatValue(top.value,scale))}</small></div><div class="compare-stat"><span>最低值</span><strong>${escapeHtml(bottom.country)}</strong><small>${escapeHtml(formatValue(bottom.value,scale))}</small></div><div class="compare-stat"><span>显示单位</span><strong>${escapeHtml(scale.label)}</strong><small>${escapeHtml(rows[0].source)}</small></div>`:"";
+  const errorCount=(data&&data.errors?data.errors.length:0);
+  document.getElementById("compareSummary").innerHTML=rows.length?`<div class="compare-stat"><span>有效结果</span><strong>${rows.length}</strong><small>${escapeHtml(config.frequency==="A"?"年度指标":"月度指标")}${errorCount?` · ${errorCount} 项未返回`:""}</small></div><div class="compare-stat"><span>最高值</span><strong>${escapeHtml(top.country)}</strong><small>${escapeHtml(formatValue(top.value,scale))}</small></div><div class="compare-stat"><span>最低值</span><strong>${escapeHtml(bottom.country)}</strong><small>${escapeHtml(formatValue(bottom.value,scale))}</small></div><div class="compare-stat"><span>显示单位</span><strong>${escapeHtml(scale.label)}</strong><small>${escapeHtml(rows[0].source)}</small></div>`:"";
   document.getElementById("compareTable").innerHTML="<tr><th>国家</th><th>数值</th><th>单位</th><th>来源</th></tr>"+(rows.length?rows.map(r=>`<tr><td>${escapeHtml(r.country)}</td><td>${escapeHtml(formatValue(r.value,scale))}<br><small>${Number(r.value).toLocaleString("zh-CN",{maximumFractionDigits:2})}</small></td><td>${escapeHtml(r.unit)}</td><td>${escapeHtml(r.source)}</td></tr>`).join(""):"<tr><td colspan='4'>暂无可展示结果，请稍后重试。</td></tr>");
   drawBarChart(rows,scale);
 }
@@ -1962,7 +2139,7 @@ function initSnapshotTools(){
     ctx.fillStyle=shade;ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle="#f8fbff";ctx.font="800 58px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("经观 EconView",72,112);
     ctx.font="700 30px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("全球宏观经济数据观测舱",74,166);
-    ctx.fillStyle="#c7d7e8";ctx.font="22px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("官方 API 接入 / 指标标准化 / 质量校验 / 数据血缘 / Agent JSON",74,216);
+    ctx.fillStyle="#c7d7e8";ctx.font="22px Microsoft YaHei, Segoe UI, sans-serif";ctx.fillText("官方 API 接入 / 指标标准化 / 质量检查 / 来源与处理记录 / JSON 服务",74,216);
     const cards=[["Sources","7 official APIs"],["Indicators","18 normalized"],["Samples","33 queries"],["Quality","traceable"]];
     cards.forEach(([label,value],i)=>{
       const x=74+i*286,y=560,w=246,h=92;
@@ -1994,7 +2171,7 @@ function polishLandingCopy(){
     const intro=hero.querySelector("p");
     if(eyebrow)eyebrow.textContent="全球宏观经济数据治理与分析平台";
     if(title)title.textContent="经观 EconView";
-    if(intro)intro.textContent="观全球经济，见数据脉络。平台围绕官方宏观经济数据，完成来源接入、指标标准化、质量校验、血缘追踪、JSON API 和 Agent 友好接口的一体化展示。";
+    if(intro)intro.textContent="平台接入七类官方宏观经济数据源，统一国家、指标、频率、单位和时间字段，并提供质量检查、来源与处理记录、跨来源对账和标准 JSON 接口。";
   }
 }
 
@@ -2002,6 +2179,13 @@ initAmbientField();
 initHeroCanvas();
 initSnapshotTools();
 polishLandingCopy();
+let chartResizeTimer=null;
+window.addEventListener("resize",()=>{
+  clearTimeout(chartResizeTimer);
+  chartResizeTimer=setTimeout(()=>{
+    if(lastResult&&lastResult.series)drawChart(lastResult.series.observations||[],lastResult.series.unit||"");
+  },120);
+});
 init();
 </script>
 </body>
