@@ -216,7 +216,7 @@
     <span class="source-chip clickable" data-page="sources">OECD</span>
     <span class="source-chip clickable" data-page="sources">ECB</span>
     <span class="source-chip clickable" data-page="sources">BIS</span>
-    <div class="footer-note">V1 当前范围：7 类官方来源、8 个代表性经济体/地区、18 项核心指标，支持持续扩展。</div>
+    <div class="footer-note">V1 当前范围：7 类官方来源、8 个代表性经济体/地区、28 项核心指标，支持持续扩展。</div>
   </aside>
 
   <main class="main">
@@ -248,7 +248,7 @@
           <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
           <span class="hero-eyebrow">V1 当前覆盖范围 · 可持续扩展</span>
           <h3>经观 EconView</h3>
-          <p>面向全球宏观经济数据的标准化治理平台。V1 已接入 7 类官方来源，覆盖 8 个代表性经济体或地区和 18 项核心指标，提供指标查询、来源与处理记录、跨来源对账和标准 JSON API。</p>
+          <p>面向全球宏观经济数据的标准化治理平台。V1 已接入 7 类官方来源，覆盖 8 个代表性经济体或地区和 28 项核心指标，提供指标查询、来源与处理记录、跨来源对账和标准 JSON API。</p>
           <div class="signal-deck" aria-label="平台实时能力状态">
             <div class="signal-card">
               <span>数据源状态</span>
@@ -460,7 +460,8 @@
             <div>
               <label>对账类别</label>
               <div class="reconcile-categories" id="reconcileCategories">
-                <button class="reconcile-category active" type="button" data-reconcile-category="strict">严格对账（7）</button>
+                <button class="reconcile-category active" type="button" data-reconcile-category="all">全部（10）</button>
+                <button class="reconcile-category" type="button" data-reconcile-category="strict">严格对账（7）</button>
                 <button class="reconcile-category" type="button" data-reconcile-category="comparable">可比口径（1）</button>
                 <button class="reconcile-category" type="button" data-reconcile-category="method">方法对比（2）</button>
                 <button class="reconcile-category" type="button" data-reconcile-category="structural">结构一致性</button>
@@ -584,7 +585,7 @@
       <div class="page-card"><h3>国家对比</h3><p>选择统一指标和观测期，对适用国家或地区进行横向比较。指标范围包括年度国民经济指标和月度价格、生产及利率指标。</p></div>
       <div class="card"><div class="card-header"><h3>多国家指标对比</h3><p>系统根据指标的数据来源、频率和适用国家自动设置比较范围。</p></div>
         <div class="card-body">
-          <div class="form-row"><div class="field"><label>指标</label><select id="compareIndicator" onchange="updateCompareControls()"><optgroup label="年度指标"><option value="GDP_NOMINAL">GDP_NOMINAL · 名义 GDP</option><option value="GDP_REAL_GROWTH">GDP_REAL_GROWTH · 实际 GDP 增长率</option><option value="IMF_GDP_GROWTH">IMF_GDP_GROWTH · IMF 实际 GDP 增长率</option><option value="EXPORTS">EXPORTS · 出口额</option><option value="IMPORTS">IMPORTS · 进口额</option><option value="TRADE_BALANCE">TRADE_BALANCE · 贸易差额</option></optgroup><optgroup label="月度指标"><option value="OECD_CPI_YOY">OECD_CPI_YOY · CPI 同比</option><option value="HICP_YOY">HICP_YOY · HICP 同比</option><option value="PPI_LEVEL">PPI_LEVEL · 生产者价格指数</option><option value="INDUSTRIAL_PRODUCTION">INDUSTRIAL_PRODUCTION · 工业生产指数</option><option value="RETAIL_SALES_VOLUME">RETAIL_SALES_VOLUME · 零售销售量</option><option value="LONG_TERM_RATE">LONG_TERM_RATE · 长期利率</option><option value="BIS_POLICY_RATE">BIS_POLICY_RATE · 政策利率</option></optgroup></select><small id="compareScopeHint" style="display:block;margin-top:6px;color:#64748b;line-height:1.45;">年度指标 · 8 个经济体或地区</small></div><div class="field"><label>观测期</label><input id="compareYear" value="2023" placeholder="2023 或 2024-12"></div></div>
+          <div class="form-row"><div class="field"><label>指标</label><select id="compareIndicator" onchange="updateCompareControls()"><optgroup label="年度指标"><option value="GDP_NOMINAL">GDP_NOMINAL · 名义 GDP</option><option value="GDP_REAL_GROWTH">GDP_REAL_GROWTH · 实际 GDP 增长率</option><option value="GDP_PER_CAPITA">GDP_PER_CAPITA · 人均 GDP</option><option value="GNI_PER_CAPITA">GNI_PER_CAPITA · 人均 GNI</option><option value="POPULATION">POPULATION · 总人口</option><option value="INFLATION_CPI">INFLATION_CPI · CPI 通胀率</option><option value="GDP_DEFLATOR">GDP_DEFLATOR · GDP 平减指数增速</option><option value="FDI_NET_INFLOW">FDI_NET_INFLOW · 外商直接投资净流入</option><option value="CURRENT_ACCOUNT_BALANCE">CURRENT_ACCOUNT_BALANCE · 经常账户差额</option><option value="GROSS_SAVINGS">GROSS_SAVINGS · 总储蓄率</option><option value="IMF_GDP_GROWTH">IMF_GDP_GROWTH · IMF 实际 GDP 增长率</option><option value="EXPORTS">EXPORTS · 出口额</option><option value="IMPORTS">IMPORTS · 进口额</option><option value="TRADE_BALANCE">TRADE_BALANCE · 贸易差额</option></optgroup><optgroup label="月度指标"><option value="OECD_CPI_YOY">OECD_CPI_YOY · CPI 同比</option><option value="HICP_YOY">HICP_YOY · HICP 同比</option><option value="PPI_LEVEL">PPI_LEVEL · 生产者价格指数</option><option value="INDUSTRIAL_PRODUCTION">INDUSTRIAL_PRODUCTION · 工业生产指数</option><option value="RETAIL_SALES_VOLUME">RETAIL_SALES_VOLUME · 零售销售量</option><option value="LONG_TERM_RATE">LONG_TERM_RATE · 长期利率</option><option value="BIS_POLICY_RATE">BIS_POLICY_RATE · 政策利率</option></optgroup></select><small id="compareScopeHint" style="display:block;margin-top:6px;color:#64748b;line-height:1.45;">年度指标 · 8 个经济体或地区</small></div><div class="field"><label>观测期</label><input id="compareYear" value="2023" placeholder="2023 或 2024-12"></div></div>
           <button class="btn btn-primary" onclick="runCompare()">运行国家对比</button>
           <div id="compareSummary" class="compare-summary"></div>
           <div class="chart-wrap compare-chart-wrap"><canvas id="compareChart"></canvas></div>
@@ -647,7 +648,7 @@ let evaluationStore = null;
 let consistencyStore = null;
 let reconciliationCatalog = null;
 let reconciliationStore = null;
-let reconciliationCategory = "strict";
+let reconciliationCategory = "all";
 let sourceStatusStore = null;
 let sampleValidationStore = null;
 let mapIntroPhase = 0;
@@ -877,7 +878,8 @@ function loadAnnualSample(){document.getElementById("indicator").value="GDP_NOMI
 function loadEurostatSample(){document.getElementById("indicator").value="INDUSTRIAL_PRODUCTION";normalizeControls("M");document.getElementById("country").value="DE";document.getElementById("frequency").value="M";document.getElementById("startDate").value="2023-01";document.getElementById("endDate").value="2024-12";showPage("query");return runQuery();}
 function loadImfSample(){document.getElementById("indicator").value="IMF_GDP_GROWTH";normalizeControls("A");document.getElementById("country").value="US";document.getElementById("frequency").value="A";document.getElementById("startDate").value="2020";document.getElementById("endDate").value="2024";showPage("query");return runQuery();}
 function reconciliationCasesForCategory(category){
-  return ((reconciliationCatalog&&reconciliationCatalog.cases)||[]).filter(item=>item.category===category);
+  const cases=(reconciliationCatalog&&reconciliationCatalog.cases)||[];
+  return category==="all"?cases:cases.filter(item=>item.category===category);
 }
 function renderReconciliationCatalog(){
   if(!reconciliationCatalog)return;
@@ -1342,7 +1344,7 @@ const PRESENTATION_STEPS=[
     id:"positioning",title:"项目定位",duration:40,quickDuration:20,
     copy:"先讲清楚问题与价值：经观不是普通看板，而是把官方宏观数据变成可查询、可解释、可复核的证据链。",
     say:"我们解决的不是“找不到数据”，而是多来源口径不统一、质量难判断、结果难复核。",
-    point:"首屏 7 类来源、18 项指标、33/33 验收，以及统一响应契约。",
+    point:"首屏 7 类来源、28 项指标、33/33 验收，以及统一响应契约。",
     question:"与普通宏观数据网站相比，核心创新是什么？",
     answer:"查询结果同时携带质量报告和来源记录，并支持跨源数值对账和 Agent 调用。",
     action:async()=>{showPage("query");scrollToElement("page-query","start");}
@@ -1928,6 +1930,14 @@ function drawChart(obs,unit="",emptyMessage="暂无数据"){
 const COMPARE_CONFIG={
   GDP_NOMINAL:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
   GDP_REAL_GROWTH:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  GDP_PER_CAPITA:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  GNI_PER_CAPITA:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  POPULATION:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  INFLATION_CPI:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  GDP_DEFLATOR:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  FDI_NET_INFLOW:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  CURRENT_ACCOUNT_BALANCE:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
+  GROSS_SAVINGS:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
   IMF_GDP_GROWTH:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR",label:"年度 · 7 个经济体 · IMF"},
   EXPORTS:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
   IMPORTS:{frequency:"A",date:"2023",countries:"US,CN,DE,JP,GB,IN,FR,EA",label:"年度 · 8 个经济体或地区 · World Bank"},
